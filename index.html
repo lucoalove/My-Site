@@ -4,13 +4,15 @@
     <title>fatchicks.cc</title>
 
     <style>
-        body { font-size: 18px; font-family: sans-serif; line-height: 1.2em; color: #333; width: 30ex; margin: auto; }
+        body { font-size: 18px; font-family: sans-serif; line-height: 1.2em; color: #333; width: 60ex; margin: auto; }
     </style>
 
     <script>
-        let postName = new URLSearchParams(window.location.search).get('p');
-
-        document.querySelector("h1").innerHTML = postName;
+        window.addEventListener('load', function() {
+            let postName = new URLSearchParams(window.location.search).get('p');
+            
+            document.querySelector("h1").innerHTML = postName;
+        }
     </script>
 </head>
 <body>
