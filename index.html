@@ -18,7 +18,7 @@
                 <p>Popular memes change in response to the goals of the people creating them. I wanna talk about what sets <strong>rage faces</strong> and modern <strong>wojaks</strong> apart.</p>
             
                 <h2>Rage faces are stage masks</h2>
-                <p>A lot of (but certainly not all) rage faces represent character archetypes in media. The most obvious are troll faces that are unanimously depicted as disruptive and humourous, filling in the role of a <a href="https://en.wikipedia.org/wiki/Trickster">trickster</a> character.</p>
+                <p>A lot of (but certainly not all) rage faces parallel character archetypes in media. The most obvious are troll faces that are unanimously depicted as disruptive and humourous, filling in the role of a <a href="https://en.wikipedia.org/wiki/Trickster">trickster</a> character.</p>
                 
                 <h2>Meme characters are more diverse than ever</h2>
                 <p>Rage faces give emotion to a character, but aside from this have little visually to convey demographic. They are 'blank slates' that setting and dialogue turn into more specific characters.</p>
@@ -30,23 +30,26 @@
         window.addEventListener('load', function() {
             let postName = new URLSearchParams(window.location.search).get('p');
 
-            if (postName != null) {
+            if (postName != null)
                 document.querySelector("main").innerHTML = posts[postName];
-            } else {
-                document.querySelector("main").innerHTML = "<p>You're on the main page.</p>";
-            }
         });
     </script>
 </head>
 <body>
 
     <nav>
-        <a href="https://github.com/BlueBunnex/myblog">repo</a>
-        | <a href="http://www.fatchicks.cc/?p=an-analysis-of-meme-characters">example</a>
+        <a href="/">home</a>
+        | <a href="https://github.com/BlueBunnex/myblog">repo</a>
         | <a href="https://planetrenox.pages.dev/w/cargo+was+a+mistake">reeny's</a>
     </nav>
 
-    <main></main>
+    <hr>
+
+    <main>
+        <p>You're on the home page.</p>
+        <h2>Blog posts</h2>
+        <a href="http://www.fatchicks.cc/?p=an-analysis-of-meme-characters">An analysis of meme characters</a>
+    </main>
     
 </body>
 </html>
