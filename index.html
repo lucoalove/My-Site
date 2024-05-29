@@ -2,12 +2,22 @@
 <html>
 <head>
     <title>fatchicks.cc</title>
+
+    <style>
+        body { font-size: 18px; font-family: sans-serif; line-height: 1.2em; color: #333; width: 30ex; margin: auto; }
+    </style>
+
+    <script>
+        let postName = new URLSearchParams(window.location.search).get('p');
+
+        document.querySelector("h1").innerHTML = postName;
+    </script>
 </head>
 <body>
 
-    <h1>Template</h1>
+    <h1></h1>
     
-    <p>casual blog on fatchicks.cc like reeny's https://planetrenox.pages.dev/w/cargo+was+a+mistake aka ditch the traditional "cover everything well and concisely" structure. just chat!</p>
+    <p>casual blog like <a href="https://planetrenox.pages.dev/w/cargo+was+a+mistake">reeny's</a>. aka ditch the traditional "cover everything well and concisely" structure. just chat!</p>
   
 </body>
 </html>
