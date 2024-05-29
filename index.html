@@ -5,6 +5,7 @@
 
     <style>
         body { font-size: 18px; font-family: sans-serif; line-height: 1.2em; color: #333; width: 60ex; margin: auto; }
+        a { color: #0bf; }
     </style>
 
     <script>
@@ -12,7 +13,7 @@
             let postName = new URLSearchParams(window.location.search).get('p');
             
             document.querySelector("h1").innerHTML = postName;
-        }
+        });
     </script>
 </head>
 <body>
