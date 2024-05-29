@@ -30,8 +30,11 @@
         window.addEventListener('load', function() {
             let postName = new URLSearchParams(window.location.search).get('p');
 
-            if (postName != null)
-                document.querySelector("h1").innerHTML = posts[postName];
+            if (postName != null) {
+                document.querySelector("main").innerHTML = posts[postName];
+            } else {
+                document.querySelector("main").innerHTML = "<p>You're on the main page.</p>";
+            }
         });
     </script>
 </head>
