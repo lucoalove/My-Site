@@ -8,7 +8,7 @@
     <!-- https://planetrenox.pages.dev/w/cargo+was+a+mistake -->
 
     <style>
-        body { font-size: 18px; font-family: sans-serif; color: #333; width: 84ex; margin: auto; min-height: 100vh;  }
+        body { font-size: 18px; font-family: sans-serif; color: #333; width: 90ex; margin: auto; min-height: 100vh; display: flex; flex-direction: column; }
         h2 { font-size: 1.2em; margin-top: 2em; }
         p { line-height: 1.5em; }
         a { color: #09e; }
@@ -16,7 +16,7 @@
 
         header { background: #09e; height: 200px; }
         main { width: 60ex; }
-        aside { width: 20ex; border-left: 1px solid lightgrey; padding-left: 2ex; position: relative; }
+        aside { flex: 1; border-left: 1px solid lightgrey; padding: 10ex 2ex 2ex; position: relative; }
     </style>
 
     <script>
@@ -53,7 +53,7 @@
 
     <header></header>
 
-    <div style="display: flex; gap: 2ex;">
+    <div style="flex: 1; display: flex; gap: 2ex;">
         
         <main>
             <p>You're on the home page.</p>
