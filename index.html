@@ -8,7 +8,7 @@
     <!-- https://planetrenox.pages.dev/w/cargo+was+a+mistake -->
 
     <style>
-        body { font-size: 18px; font-family: sans-serif; color: #333; display: flex; justify-content: center; min-height: 100vh; margin: 0; gap: 2ex; }
+        body { font-size: 18px; font-family: sans-serif; color: #333; width: 84ex; min-height: 100vh; margin: 0; }
         h2 { font-size: 1.2em; margin-top: 2em; }
         p { line-height: 1.5em; }
         a { color: #09e; }
@@ -53,30 +53,34 @@
 </head>
 <body>
 
-    <main>
-        <header>
-            <div>
-                <img style="width: 150px; border-radius: 100%;" src="pfp.png">
-                <strong>Peggy Newman</strong>
-                <span>Fatchicks Executive and Columnist</span>
-            </div>
-        </header>
-        
-        <p>You're on the home page.</p>
-        <h2>List of blog posts</h2>
-        <ul>
-            <li><a href="?p=how-do-views-of-masculinity-and-femininity-change">How do views of masculinity and femininity change?</a></li>
-            <li><a href="?p=an-analysis-of-meme-characters">An analysis of meme characters</a></li>
-        </ul>
-    </main>
+    <header>
+        <div>
+            <img style="width: 150px; border-radius: 100%;" src="pfp.png">
+            <strong>Peggy Newman</strong>
+            <span>Fatchicks Executive and Columnist</span>
+        </div>
+    </header>
 
-    <aside>
-        <a href="/"><img width="100%" src="https://media.discordapp.net/attachments/1208127562639872000/1245431133555134464/Screenshot_2024-05-29_at_12.png?ex=6658b9a1&is=66576821&hm=224c6d6ff0d4bf379a84ad52250489c514c99222271d5575d616a7d72e3d2d61&=&format=webp&quality=lossless&width=680&height=700"></a>
-        <nav>
-            <a href="/">home</a>
-            <a href="https://github.com/BlueBunnex/myblog">repo</a>
-        </nav>
-    </aside>
+    <div style="display: flex; gap: 2ex;">
+        
+        <main>
+            <p>You're on the home page.</p>
+            <h2>List of blog posts</h2>
+            <ul>
+                <li><a href="?p=how-do-views-of-masculinity-and-femininity-change">How do views of masculinity and femininity change?</a></li>
+                <li><a href="?p=an-analysis-of-meme-characters">An analysis of meme characters</a></li>
+            </ul>
+        </main>
+    
+        <aside>
+            <a href="/"><img width="100%" src="https://media.discordapp.net/attachments/1208127562639872000/1245431133555134464/Screenshot_2024-05-29_at_12.png?ex=6658b9a1&is=66576821&hm=224c6d6ff0d4bf379a84ad52250489c514c99222271d5575d616a7d72e3d2d61&=&format=webp&quality=lossless&width=680&height=700"></a>
+            <nav>
+                <a href="/">home</a>
+                <a href="https://github.com/BlueBunnex/myblog">repo</a>
+            </nav>
+        </aside>
+        
+    </div>
     
 </body>
 </html>
