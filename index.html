@@ -28,7 +28,9 @@
             let postName = new URLSearchParams(window.location.search).get('p');
 
             if (postName != null)
-                document.querySelector("main").innerHTML = await (await fetch("/posts/" + postName)).text();
+                fetch("/posts/" + postName)
+                .then(x => x.text())
+                .then(y => document.querySelector("main").innerHTML = y);
         });
     </script>
 </head>
