@@ -13,13 +13,14 @@
         p { line-height: 1.5em; }
         a { color: #09e; }
         nav { padding: 0.5em 0; display: flex; flex-direction: column; gap: 4px; }
-        hr { border: 0; border-top: 1px solid lightgrey; }
+
+        main { border-radius: 12px; border: 1px solid lightgrey; margin: 2ex 0; width: 100%; }
 
         header { background: #09e; height: 200px; }
         main { width: 60ex; border-right: 1px solid lightgrey; padding-right: 2ex; }
         aside { flex: 1; position: relative; padding-top: 20ex; }
     </style>
-
+    
     <script>
         const posts = {
             "how-do-views-of-masculinity-and-femininity-change": `
@@ -29,7 +30,7 @@
             "an-analysis-of-meme-characters": `
                 <h1>An analysis of meme characters</h1>
                 <p><i>Popular memes change in response to the goals of the people creating them. While both <strong>rage faces</strong> and modern <strong>wojaks</strong> appear in comic formats and share a similar artstyle, I wanna talk about what sets them apart.</i></p>
-                <img style="width: 100%; border: 1px solid lightgrey;" src="https://preview.redd.it/m6bvw5qau6c51.jpg?auto=webp&s=999b4843afa26460b53ff3557876d420a9825b78">
+                <img src="https://preview.redd.it/m6bvw5qau6c51.jpg?auto=webp&s=999b4843afa26460b53ff3557876d420a9825b78">
             
                 <h2>Meme characters are stage masks</h2>
                 <p>Meme characters (both rage faces and wojaks) are very exaggerated in how they convey emotion. I would compare this to <a href="https://en.wikipedia.org/wiki/Theatre_of_ancient_Greece#Mask_functions">early Greek acting</a>, where masks with "intensely exaggerated facial features and expressions" were used to portray different characters. Another comparison to Greek acting is how masks allowed male actors to play female characters. All these different meme characters allow people to portray characters of different genders as well as other demographics like race.</p>
@@ -57,7 +58,7 @@
     <div style="flex: 1; display: flex; gap: 2ex; width: 90ex; margin: auto;">
         
         <main>
-            <p>You're on the home page.</p>
+            <p>Fatchicks is where I blog. Right now you're on the home page!</p>
             <h2>List of blog posts</h2>
             <ul>
                 <li><a href="?p=how-do-views-of-masculinity-and-femininity-change">How do views of masculinity and femininity change?</a></li>
@@ -66,13 +67,11 @@
         </main>
     
         <aside>
-            <div style="width: 100%; position: absolute; top: -60px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; left: 0;">
+            <div style="width: 100%; position: absolute; top: -60px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; left: 0; border-bottom: 1px solid lightgrey;">
                 <img style="width: 150px; border-radius: 100%; border: 4px solid white;" src="pfp.png">
                 <strong>Peggy Newman</strong>
                 <span>Fatchicks Executive and Columnist</span>
             </div>
-
-            <hr>
             
             <nav>
                 <a href="/">home</a>
