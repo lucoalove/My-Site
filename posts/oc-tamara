@@ -1,25 +1,19 @@
-<style>
-    h4 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
-    th, td { text-align: left; padding-right: 2em; }
-    img { width: 100%; }
-</style>
-
 <h1>Tamara</h1>
-<h4>physical</h4>
+<h3>physical</h3>
 <ul>
     <li>orange foxgirl, green eyes, very big fluffy tail</li>
     <li>muffin top</li>
     <li>black turtleneck and jean shorts</li>
 </ul>
 
-<h4>personality</h4>
+<h3>personality</h3>
 <ul>
     <li>large and in charge, confident, pompous</li>
     <li>prude</li>
     <li>Adept in managing the stress of herself and others.</li>
 </ul>
 
-<h4>stats</h4>
+<h3>stats</h3>
 <table>
     <tr>
         <th>Weight</th>
@@ -37,13 +31,13 @@
     </tr>
 </table>
 
-<h4>trivia</h4>
+<h3>trivia</h3>
 <ol>
     <li>"Tamara is a feminine Arabic name meaning “date palm” or “date.” Derived from the Biblical name Tamar meaning “date” or “palm tree,” this sweet moniker is symbolic of the beauty and fruitfulness associated with this tree." [<a href="https://www.thebump.com/b/tamara-baby-name">Source</a>]</li>
 </ol>
 
-<h4>gallery</h4>
+<h3>gallery</h3>
 <div style="display: grid; gap: 4px; grid-template-columns: 1fr 1fr;">
-    <img src="/art/fox.png">
-    <img src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+    <img width="100%" src="/art/fox.png">
+    <img width="100%" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
 </div>
