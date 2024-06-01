@@ -1,6 +1,5 @@
 <style>
-    h4 { text-transform: uppercase; font-size: small; font-weight: 400; }
-    h4::after { content: ""; height: 1px; display: block; background: linear-gradient(to right, grey, transparent); }
+    h4 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
     th, td { text-align: left; padding-right: 2em; }
 </style>
 
@@ -43,5 +42,5 @@
 </ol>
 
 <h4>gallery</h4>
-<img height="400" src="/img/fox.png">
-<img height="400" src="/img/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+<img height="400" src="/art/fox.png">
+<img height="400" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
