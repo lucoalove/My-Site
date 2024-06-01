@@ -8,11 +8,14 @@
     <!-- https://planetrenox.pages.dev/w/cargo+was+a+mistake -->
 
     <style>
-        body { font-size: 18px; font-family: sans-serif; color: #333; margin: auto; min-height: 100vh; display: flex; flex-direction: column; }
+        body { font-size: 18px; font-family: sans-serif; color: #333; margin: 0; }
 
-        header { background: #09e; height: 200px; }
+        header { background: #09e; height: 200px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
         main { width: 60ex; margin: auto; }
         aside { flex: 1; position: relative; padding-top: 21ex; }
+
+        nav { width: 60ex; padding: 0.5em 0; display: flex; gap: 4px; }
+        nav a { color: white; }
         
         h2 { font-size: 1.2em; margin-top: 2em; }
         h3 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
@@ -20,7 +23,6 @@
         th, td { text-align: left; padding-right: 2em; }
         p { line-height: 1.5em; }
         a { color: #09e; }
-        nav { padding: 0.5em 0; display: flex; flex-direction: column; gap: 4px; }
 
         picture { margin: 2ex 0; position: relative; display: block; }
         picture img { width: 100%; display: block; border-radius: 12px; border: 1px solid lightgrey; }
