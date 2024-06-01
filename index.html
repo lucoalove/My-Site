@@ -8,14 +8,13 @@
     <!-- https://planetrenox.pages.dev/w/cargo+was+a+mistake -->
 
     <style>
-        body { font-size: 18px; font-family: sans-serif; color: #333; margin: 0; }
+        body { font-size: 18px; font-family: sans-serif; color: #333; min-height: 100vh; margin: 0; background: #eee; display: flex; flex-direction: column; align-items: center; }
 
-        header { background: #09e; height: 200px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
-        main { width: 60ex; margin: auto; }
-        aside { flex: 1; position: relative; padding-top: 21ex; }
+        header { flex: 0; background: #09e; padding: 0.5em }
+        main { flex: 1; width: 60ex; background: white; border: 1px solid grey; border-top: 0; border-bottom: 0; }
 
-        nav { width: 60ex; padding: 0.5em 0; display: flex; gap: 4px; }
-        nav a { color: white; }
+        nav { width: 60ex; margin: auto; display: flex; gap: 12px; }
+        nav a { color: white; text-decoration: none; }
         
         h2 { font-size: 1.2em; margin-top: 2em; }
         h3 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
@@ -44,8 +43,8 @@
 
     <header>
         <nav>
-            <a href="/">home</a>
-            <a href="https://github.com/BlueBunnex/myblog">repo</a>
+            <a href="/"><strong>Home</strong></a>
+            <a href="https://github.com/BlueBunnex/myblog">Repo</a>
         </nav>
     </header>
 
