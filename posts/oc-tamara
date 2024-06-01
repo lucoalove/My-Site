@@ -42,5 +42,7 @@
 </ol>
 
 <h4>gallery</h4>
-<img height="400" src="/art/fox.png">
-<img height="400" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+<div style="display: grid; gap: 4px; grid-template-columns: 1fr 1fr;">
+    <img height="400" src="/art/fox.png">
+    <img height="400" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+</div>
