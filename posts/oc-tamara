@@ -1,6 +1,7 @@
 <style>
     h4 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
     th, td { text-align: left; padding-right: 2em; }
+    img { width: 100%; }
 </style>
 
 <h1>Tamara</h1>
@@ -43,6 +44,6 @@
 
 <h4>gallery</h4>
 <div style="display: grid; gap: 4px; grid-template-columns: 1fr 1fr;">
-    <img height="400" src="/art/fox.png">
-    <img height="400" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+    <img src="/art/fox.png">
+    <img src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
 </div>
