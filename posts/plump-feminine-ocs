@@ -1,0 +1,47 @@
+<style>
+    h4 { text-transform: uppercase; font-size: small; font-weight: 400; }
+    h4::after { content: ""; height: 1px; display: block; background: linear-gradient(to right, grey, transparent); }
+    th, td { text-align: left; padding-right: 2em; }
+</style>
+
+<h1>Tamara</h1>
+<h4>physical</h4>
+<ul>
+    <li>orange foxgirl, green eyes, very big fluffy tail</li>
+    <li>muffin top</li>
+    <li>black turtleneck and jean shorts</li>
+</ul>
+
+<h4>personality</h4>
+<ul>
+    <li>large and in charge, confident, pompous</li>
+    <li>prude</li>
+    <li>Adept in managing the stress of herself and others.</li>
+</ul>
+
+<h4>stats</h4>
+<table>
+    <tr>
+        <th>Weight</th>
+        <td>650lbs</td>
+        <td>295kg</td>
+    </tr>
+    <tr>
+        <th>Height</th>
+        <td>4'9"</td>
+        <td>145cm</td>
+    </tr>
+    <tr>
+        <th>Sexuality</th>
+        <td>???</td>
+    </tr>
+</table>
+
+<h4>trivia</h4>
+<ol>
+    <li>"Tamara is a feminine Arabic name meaning “date palm” or “date.” Derived from the Biblical name Tamar meaning “date” or “palm tree,” this sweet moniker is symbolic of the beauty and fruitfulness associated with this tree." [<a href="https://www.thebump.com/b/tamara-baby-name">Source</a>]</li>
+</ol>
+
+<h4>gallery</h4>
+<img height="400" src="/img/fox.png">
+<img height="400" src="/img/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
