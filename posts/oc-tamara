@@ -37,7 +37,7 @@
 </ol>
 
 <h3>gallery</h3>
-<div style="display: grid; gap: 4px; grid-template-columns: 1fr 1fr;">
-    <img width="100%" src="/art/fox.png">
-    <img width="100%" src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
-</div>
+<gallery>
+    <img src="/art/fox.png">
+    <img src="/art/Fatfopfriend.gif" alt="Drawn by my friend ¡whom I like to chat with! Brandybrooke :D">
+</gallery>
