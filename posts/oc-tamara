@@ -1,17 +1,7 @@
 <h1>Tamara</h1>
-<h3>physical</h3>
-<ul>
-    <li>orange foxgirl, green eyes, very big fluffy tail</li>
-    <li>muffin top</li>
-    <li>black turtleneck and jean shorts</li>
-</ul>
-
-<h3>personality</h3>
-<ul>
-    <li>large and in charge, confident, pompous</li>
-    <li>prude</li>
-    <li>Adept in managing the stress of herself and others.</li>
-</ul>
+<p>Tamara is a big foxgirl from the city.</p>
+<p>She's quick to ease the stress of others by wrapping them in her big fluffy tail.</p>
+<p>Tamara gets flustered at the smallest suggestion of intimacy. She also outright rejects the idea that she is attractive, quote, "I don't know how anyone could get worked up over just a little muffin top!"</p>
 
 <h3>stats</h3>
 <table>
@@ -26,8 +16,16 @@
         <td>145cm</td>
     </tr>
     <tr>
+        <th>Age</th>
+        <td>30</td>
+    </tr>
+    <tr>
         <th>Sexuality</th>
         <td>???</td>
+    </tr>
+    <tr>
+        <th>Personality</th>
+        <td>large and in charge, confident, pompous; caring, nurturing, motherly; prude</td>
     </tr>
 </table>
 
