@@ -6,31 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* I wanna simplify this soooo bad */
-        
-        body { font-size: 19px; font-family: sans-serif; color: #333; min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2ex; }
+        body { font-size: 16px; font-family: sans-serif; color: #333; margin: 0; }
 
-        table { border-collapse: collapse; width: 100%; }
+        table { border-collapse: collapse; }
         th, td { text-align: left; padding: 4px 12px; border: 1px solid lightgrey; }
         
         a { color: inherit; text-decoration-color: #7bf; text-decoration-thickness: 2px; }
         
-        h1, h2, h3 { line-height: 1.2em; }
         h2 { font-size: 1.2em; margin-top: 2em; }
         h3 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
-        
-        header { flex: 0; width: 100%; padding: 2ex 0; border-bottom: 1px solid lightgrey; }
-        main { width: 60ex; }
-        aside { width: 30ex; }
 
         nav { display: flex; gap: 2ex; }
         nav a { color: #09e; font-weight: 700; text-decoration: none; }
 
-        picture { margin: 2ex 0; position: relative; display: block; }
-        picture img { width: 100%; display: block; border-radius: 12px; border: 1px solid lightgrey; }
-        picture a { position: absolute; bottom: 6px; right: 4px; background: #000a; color: white; padding: 1ex 2ex; border-radius: 6px; font-size: smaller; text-decoration: none; }
-
-        gallery { display: grid; gap: 4px; grid-template-columns: 1fr 1fr; }
+        gallery { display: grid; gap: 4px; grid-template-columns: 1fr 1fr; width: 600px; }
         gallery > img { width: 100%; }
     </style>
     
@@ -41,40 +30,32 @@
             if (postName != null)
                 fetch("/posts/" + postName + ".htm")
                 .then(f => f.text())
-                .then(t => document.querySelector("main").outerHTML = t);
+                .then(t => document.querySelector("main").innerHTML = t);
         });
     </script>
 </head>
 <body>
 
-    <header>
-        <div style="width: 92ex; margin: auto; display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;">
-                <a href="/" style="text-decoration: none;">
-                    FatChicks
-                    <span style="font-size: 10px; color: #09e;">home</span>
-                </a>
-            </h2>
-            
-            <nav>
-                <a href="https://github.com/BlueBunnex/myblog">Repo</a>
-            </nav>
-        </div>
+    <header style="display: flex; padding: 2ex 0; border-bottom: 1px solid lightgrey; margin-bottom: 2ex;">
+        <h2 style="margin: 0;">
+            <a href="/" style="text-decoration: none;">
+                FatChicks
+                <span style="font-size: 10px; color: #09e;">home</span>
+            </a>
+        </h2>
+        
+        <nav>
+            <a href="https://github.com/BlueBunnex/myblog">Repo</a>
+        </nav>
     </header>
-
-    <div style="display: flex; justify-content: center; gap: 2ex; align-items: stretch; line-height: 1.5em;">
         
-        <main>
-            <h2>List of my OCs</h2>
-            <ul>
-                <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
-                <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
-            </ul>
-        </main>
-
-        <aside></aside>
-        
-    </div>
+    <main>
+        <h2>List of my OCs</h2>
+        <ul>
+            <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
+            <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
+        </ul>
+    </main>
     
 </body>
 </html>
