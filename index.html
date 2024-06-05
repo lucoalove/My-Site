@@ -4,9 +4,6 @@
     <title>fatchicks.cc</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- casual blog, don't NEED to be thorough, just chat/incite discussion! -->
-    <!-- https://planetrenox.pages.dev/w/cargo+was+a+mistake -->
-
     <style>
         body { font-size: 19px; font-family: sans-serif; color: #333; min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; }
 
@@ -21,7 +18,7 @@
         main { flex: 1; width: 60ex; line-height: 1.5em; padding: 0 2ex; }
 
         nav { display: flex; gap: 2ex; }
-        nav a { color: #09e; font-weigh: 700; text-decoration: none; }
+        nav a { color: #09e; font-weight: 700; text-decoration: none; }
 
         picture { margin: 2ex 0; position: relative; display: block; }
         picture img { width: 100%; display: block; border-radius: 12px; border: 1px solid lightgrey; }
@@ -36,9 +33,9 @@
             let postName = new URLSearchParams(window.location.search).get('p');
 
             if (postName != null)
-                fetch("/posts/" + postName)
-                .then(x => x.text())
-                .then(y => document.querySelector("main").innerHTML = y);
+                fetch("/posts/" + postName + ".htm")
+                .then(f => f.text())
+                .then(t => document.querySelector("main").innerHTML = t);
         });
     </script>
 </head>
@@ -46,10 +43,12 @@
 
     <header>
         <div style="width: 60ex; margin: auto; display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;"><a href="/" style="text-decoration: none;">
-                FatChicks
-                <span style="font-size: 10px; color: #09e;">home</span>
-            </a></h2>
+            <h2 style="margin: 0;">
+                <a href="/" style="text-decoration: none;">
+                    FatChicks
+                    <span style="font-size: 10px; color: #09e;">home</span>
+                </a>
+            </h2>
             
             <nav>
                 <a href="https://github.com/BlueBunnex/myblog">Repo</a>
@@ -58,13 +57,7 @@
     </header>
 
     <main>
-        <p>Fatchicks is where I blog. Right now you're on the home page!</p>
-        <h2>List of blog posts</h2>
-        <ul>
-            <li><a href="?p=how-do-views-of-masculinity-and-femininity-change">How do views of masculinity and femininity change?</a></li>
-            <li><a href="?p=an-analysis-of-meme-characters">An analysis of meme characters</a></li>
-        </ul>
-        <h2>List of my plump feminine OCs</h2>
+        <h2>List of my OCs</h2>
         <ul>
             <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
             <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
