@@ -3,11 +3,16 @@
 <head>
     <title>fatchicks.cc</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body { font-size: 19px; font-family: sans-serif; color: #333; min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; }
+        /* I wanna simplify this soooo bad */
+        
+        body { font-size: 19px; font-family: sans-serif; color: #333; min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2ex; }
 
-        th, td { text-align: left; padding-right: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { text-align: left; padding: 4px 12px; border: 1px solid lightgrey; }
+        
         a { color: inherit; text-decoration-color: #7bf; text-decoration-thickness: 2px; }
         
         h1, h2, h3 { line-height: 1.2em; }
@@ -16,7 +21,7 @@
         
         header { flex: 0; width: 100%; padding: 2ex 0; border-bottom: 1px solid lightgrey; }
         main { width: 60ex; }
-        aside { width: 20ex; }
+        aside { width: 30ex; }
 
         nav { display: flex; gap: 2ex; }
         nav a { color: #09e; font-weight: 700; text-decoration: none; }
@@ -43,7 +48,7 @@
 <body>
 
     <header>
-        <div style="width: 60ex; margin: auto; display: flex; justify-content: space-between; align-items: center;">
+        <div style="width: 92ex; margin: auto; display: flex; justify-content: space-between; align-items: center;">
             <h2 style="margin: 0;">
                 <a href="/" style="text-decoration: none;">
                     FatChicks
@@ -57,7 +62,7 @@
         </div>
     </header>
 
-    <div style="display: flex; justify-content: center; gap: 1em; align-items: stretch; line-height: 1.5em;">
+    <div style="display: flex; justify-content: center; gap: 2ex; align-items: stretch; line-height: 1.5em;">
         
         <main>
             <h2>List of my OCs</h2>
@@ -66,6 +71,8 @@
                 <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
             </ul>
         </main>
+
+        <aside></aside>
         
     </div>
     
