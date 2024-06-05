@@ -15,7 +15,8 @@
         h3 { text-transform: uppercase; font-size: small; font-weight: 400; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
         
         header { flex: 0; width: 100%; padding: 2ex 0; border-bottom: 1px solid lightgrey; }
-        main { flex: 1; width: 60ex; line-height: 1.5em; padding: 0 2ex; }
+        main { width: 60ex; }
+        aside { width: 20ex; }
 
         nav { display: flex; gap: 2ex; }
         nav a { color: #09e; font-weight: 700; text-decoration: none; }
@@ -35,7 +36,7 @@
             if (postName != null)
                 fetch("/posts/" + postName + ".htm")
                 .then(f => f.text())
-                .then(t => document.querySelector("main").innerHTML = t);
+                .then(t => document.querySelector("main").outerHTML = t);
         });
     </script>
 </head>
@@ -56,13 +57,17 @@
         </div>
     </header>
 
-    <main>
-        <h2>List of my OCs</h2>
-        <ul>
-            <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
-            <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
-        </ul>
-    </main>
+    <div style="display: flex; justify-content: center; gap: 1em; align-items: stretch; line-height: 1.5em;">
+        
+        <main>
+            <h2>List of my OCs</h2>
+            <ul>
+                <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
+                <li><a href="?p=oc-halloumi">Halloumi (slime/aliengirl)</a></li>
+            </ul>
+        </main>
+        
+    </div>
     
 </body>
 </html>
