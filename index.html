@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body { font-size: 16px; font-family: sans-serif; color: #333; margin: 0; display: flex; }
+        body { font-size: 16px; font-family: sans-serif; color: #333; margin: 0; display: flex; min-height: 100vh; }
 
         *[thumb] { float: right; clear: right; margin-left: 2ex; }
 
         main { flex: 1; padding: 2ex; }
-        aside { width: 300px; background: #eee; border-right: 1px solid lightgrey; }
+        aside { width: 300px; padding: 2ex; background: #eee; border-right: 1px solid lightgrey; }
 
         table { border-collapse: collapse; }
         th, td { text-align: left; padding: 4px 12px; border: 1px solid lightgrey; }
@@ -43,12 +43,10 @@
 <body>
 
     <aside>
-        <h2>
-            <a href="/" style="text-decoration: none;">
-                FatChicks
-                <span style="font-size: 10px; color: #09e;">home</span>
-            </a>
-        </h2>
+        <a href="/" style="text-decoration: none; font-size: 2em;">
+            FatChicks
+            <span style="font-size: 10px; color: #09e;">home</span>
+        </a>
         
         <nav>
             <a href="https://github.com/BlueBunnex/myblog">Repo</a>
