@@ -10,7 +10,8 @@
         
         body { font-size: 16px; font-family: 'Roboto', sans-serif; color: #333; margin: 0; display: flex; min-height: 100vh; }
 
-        *[thumb] { float: right; clear: right; margin-left: 2ex; }
+        *[thumb] { float: right; clear: right; margin-left: 2ex; margin-bottom: 2ex; }
+        img[thumb] { width: 300px; border: 1px solid lightgrey; }
 
         main { flex: 1; padding: 2ex; }
         aside { width: 300px; padding: 2ex; background: #eee; border-right: 1px solid lightgrey; }
@@ -25,9 +26,6 @@
         h2 { font-size: 1.2em; margin-top: 2em; }
 
         nav { display: flex; flex-direction: column; gap: 1ex; }
-
-        gallery { display: grid; gap: 4px; grid-template-columns: 1fr 1fr; width: 600px; }
-        gallery > img { width: 100%; }
     </style>
     
     <script>
@@ -57,6 +55,7 @@
     </aside>
         
     <main>
+        <h1>Home</h1>
         <h2>List of my OCs</h2>
         <ul>
             <li><a href="?p=oc-tamara">Tamara (foxgirl)</a></li>
