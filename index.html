@@ -9,11 +9,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
         :root {
-            --border: #667;
-            --accent: #e88; /* #7bf was good too */
-            --text:   #bbc;
+            --border: #ccd;
+            --accent: #c56;
+            --text:   #444;
 
-            --main-bg: #1c1d23;
+            --main-bg: white;
             --side-bg: #0e1012;
         }
         
@@ -23,7 +23,7 @@
         img[thumb] { width: 300px; border: 1px solid lightgrey; }
 
         main { flex: 1; padding: 1em; }
-        aside { width: 300px; background: var(--side-bg); border-right: 1px solid var(--border); }
+        aside { width: 300px; background: var(--side-bg); }
 
         table { border-collapse: collapse; }
         th, td { padding: 4px 8px; border: 1px solid lightgrey; }
@@ -52,7 +52,7 @@
 <body>
 
     <aside>
-        <div style="aspect-ratio: 4.5; background: var(--main-bg);"></div>
+        <div style="aspect-ratio: 4.5; background: #1c1d23;"></div>
         
         <div style="position: relative; padding-left: 80px; height: 45px; display: flex; align-items: center;">
             <div style="position: absolute; top: -15px; left: 12px; width: 60px; height: 60px; border-radius: 100%; background: var(--accent);" src="https://a.deviantart.net/avatars-big/r/e/redderblanket.jpg?2"></div>
@@ -64,7 +64,7 @@
         <nav style="display: flex; flex-direction: column; gap: 1ex; padding: 1em;">
             <a href="/">Home</a>
             <a href="https://www.deviantart.com/redderblanket">DeviantArt</a>
-            <a style="font-size: smaller; color: var(--border);" href="https://github.com/BlueBunnex/myblog">Repo</a>
+            <a style="font-size: smaller; color: var(--border); text-decoration: none;" href="https://github.com/BlueBunnex/myblog">Repo</a>
         </nav>
     </aside>
     
