@@ -23,7 +23,7 @@
         img[thumb] { width: 300px; border: 1px solid lightgrey; }
 
         main { flex: 1; padding: 1em; }
-        aside { width: 300px; padding: 1em; background: var(--side-bg); border-right: 1px solid var(--border); }
+        aside { width: 300px; background: var(--side-bg); border-right: 1px solid var(--border); }
 
         table { border-collapse: collapse; }
         th, td { padding: 4px 8px; border: 1px solid lightgrey; }
@@ -54,12 +54,12 @@
     <aside>
         <div style="aspect-ratio: 4.5; background: var(--main-bg);"></div>
         
-        <div style="text-decoration: none;">
-            <div style="width: 60px; height: 60px; border-radius: 100%; background: #0fa;" src="https://a.deviantart.net/avatars-big/r/e/redderblanket.jpg?2">
-            RedderBlanket
+        <div style="position: relative;">
+            <div style="position: absolute; top: -15px; width: 60px; height: 60px; border-radius: 100%; background: #ad8;" src="https://a.deviantart.net/avatars-big/r/e/redderblanket.jpg?2">
+            <span style="color: white; font-size: 1.2em;">RedderBlanket</span>
         </div>
         
-        <nav style="display: flex; flex-direction: column; gap: 1ex;">
+        <nav style="display: flex; flex-direction: column; gap: 1ex; padding: 1em;">
             <a href="/">Home</a>
             <a href="https://github.com/BlueBunnex/myblog">Repo</a>
         </nav>
