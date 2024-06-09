@@ -7,101 +7,52 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        :root {
-            --border: #ccd;
-            --accent: #c56;
-            --text:   #444;
-
-            --main-bg: white;
-            --side-bg: #0e1012;
-        }
         
-        body { font-size: 16px; font-family: 'Roboto', sans-serif; color: var(--text); margin: 0; display: flex; min-height: 100vh; background: var(--main-bg); }
+        body { width: 30em; margin: auto; font-size: 16px; font-family: 'Roboto', sans-serif; color: #444; background: #1c1d23; color: #ddd; }
 
-        *[thumb] { float: right; clear: right; margin-left: 2ex; margin-bottom: 1em; }
-        img[thumb] { width: 300px; padding: 0.5em; border: 1px solid lightgrey; }
-
-        main { flex: 1; padding: 1em; }
-        aside { width: 300px; background: var(--side-bg); }
-
-        table { border-collapse: collapse; }
-        th, td { padding: 4px 8px; border: 1px solid lightgrey; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { padding: 4px 8px; border: 1px solid grey; }
         
-        a { color: var(--accent); text-decoration-thickness: 2px; }
-        a:not([href]) { text-decoration: line-through; text-decoration-color: red; color: red; }
-        
-        h1, h2 { border-bottom: 1px solid var(--border); padding-bottom: 4px; overflow: hidden; }
-        h1 { margin-top: 0; }
-        h2 { font-size: 1.2em; margin-top: 2em; }
+        a { color: #c56; text-decoration-thickness: 2px; }
 
-        li { margin-bottom: 1em; }
-
-        @media screen and (orientation: portrait) {
-            body { flex-direction: column; }
-            aside { width: 100%; }
-        }
+        nav a { display: block; margin: 1em 0; background: #c56; border-radius: 4px; padding: 0.5em 1em; opacity: 0.7; color: black; text-decoration: none; transition-duration: 0.2s; }
+        nav a:hover { opacity: 1; }
     </style>
-    
-    <script>
-        window.addEventListener('load', function() {
-            let postName = new URLSearchParams(window.location.search).get('p');
-
-            if (postName != null)
-                fetch("/posts/" + postName + ".htm")
-                .then(f => f.text())
-                .then(t => document.querySelector("main").innerHTML = t);
-        });
-    </script>
 </head>
 <body>
-
-    <aside>
-        <!-- top banner thing -->
-        <div style="aspect-ratio: 4.5; background: #1c1d23; padding: 8px; box-sizing: border-box; text-align: right;">
-            <a style="text-decoration: none;" href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" fill="#c56"><path d="M236.67-196.67h111v-255.66h264.66v255.66h111V-562L480-744.33 236.67-561.78v365.11ZM132-92v-522.33l348-261.34 348.67 261.23V-92H520v-268h-80v268H132Zm348-378.67Z"></path></svg>
-            </a>
-        </div>
-
-        <!-- profile -->
-        <div style="position: relative; padding-left: 80px; padding-right: 1em; height: 45px; display: flex; align-items: center;">
-            <div style="position: absolute; top: -15px; left: 12px; width: 60px; height: 60px; border-radius: 100%; background: var(--accent);" src="https://a.deviantart.net/avatars-big/r/e/redderblanket.jpg?2"></div>
-            
-            <span style="color: white; font-size: 1.2em; flex: 1;">RedderBlanket</span>
-        </div>
-
-        <!-- nav -->
-        <nav style="display: flex; flex-direction: column; gap: 0.5em; padding: 1em;">
-            <a href="/">Home</a>
-            <a href="https://www.deviantart.com/redderblanket">DeviantArt</a>
-            <a style="font-size: smaller; color: var(--border); text-decoration: none;" href="https://github.com/BlueBunnex/myblog">Repo</a>
-        </nav>
-    </aside>
     
-    <main>
-        <h1>Home</h1>
+    <h1>RedderBlanket's Website</h1>
 
-        <img thumb alt="chicken pakora" src="https://www.kitchensanctuary.com/wp-content/uploads/2020/08/Chicken-Pakoras-square-FS-62.jpg">
-        
-        <h2>List of my OCs</h2>
-        <ul>
-            <li><a href="?p=oc-tamara">Tamara (fox-girl)</a></li>
-            <li><a href="?p=oc-halloumi">Halloumi (slime/alien-girl)</a></li>
-            <li><a href="?p=oc-miss-melty">Miss Melty (cow-girl)</a></li>
-        </ul>
-
-        <h2>Expansion Sequences</h2>
-        <p>Track a character throughout their stages of expansion, using each stage to focus on the most exciting parts of the growth.</p>
-        <ol>
-            <li>normal</li>
-            <li>larger assets / taut clothes / noticing growth + confused</li>
-            <li>gigantic assets / clothes migrating or tearing to reveal assets / surprised/exclaiming</li>
-        </ol>
-
-        <h2>Random Journals</h2>
-        <a href="?p=productivity">A mini course on productivity</a>
-    </main>
+    <nav>
+        <a href="https://www.deviantart.com/redderblanket">DeviantArt</a>
+        <a style="font-size: smaller; color: var(--border); text-decoration: none;" href="https://github.com/BlueBunnex/myblog">Repo</a>
+    </nav>
+    
+    <h2>Original Characters</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Deviations</th>
+        </tr>
+        <tr>
+            <td>Tamara (fox-girl)</td>
+            <td>
+                none
+            </td>
+        </tr>
+        <tr>
+            <td>Halloumi (slime/alien-girl)</td>
+            <td>
+                none
+            </td>
+        </tr>
+        <tr>
+            <td>Miss Melty (cow-girl teacher)</td>
+            <td>
+                <a href="https://www.deviantart.com/redderblanket/art/An-Expansive-Lecture-All-Parts-1061646133">An Expansive Lecture</a>
+            </td>
+        </tr>
+    </table>
     
 </body>
 </html>
