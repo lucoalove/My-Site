@@ -15,14 +15,17 @@
     </style>
 
     <script type="module">
-        const storyName  = new URLSearchParams(window.location.search).get('name');
+        const storyTitle  = new URLSearchParams(window.location.search).get('title');
         const storyIndex = new URLSearchParams(window.location.search).get('index');
 
-        if (storyName != null) {
-            alert(storyName + " " + storyIndex);
-            // fetch("/stories/" + storyName)
-            // .then(f => f.text())
-            // .then(t => document.querySelector("main").innerHTML = t);
+        const paragraphs = document.getElementById('paragraphs');
+
+        if (storyTitle != null) {
+            fetch("/stories/" + storyTitle)
+            .then(f => f.text())
+            .then(t => {
+                paragraphs.innerHTML = t;
+            });
         }
     </script>
 </head>
@@ -39,7 +42,7 @@
     
     <div class="center">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1em;">
-            <h2 id="title" style="margin: 0;">A Fabric Fat-asy</h2>
+            <h2 id="title" style="margin: 0;"></h2>
 
             <div id="listof-index">
                 <a href="">1</a>
@@ -49,15 +52,7 @@
         </div>
 
         <div id="paragraphs">
-            <p>Anna had just returned from her doctor, pink-faced and excited. She had gone with the goal of getting a prescription for Obetol — a medication used by the underweight and abused by those who cared about their looks — and she handled their doubts with a silver tongue, as rehearsed.</p>
-            <p>Now, she stepped into her driveway, playing with the little white bottle between her fingers. Obetol works by surpressing hormones that stop the hunger response, and causing the body to "think the stomach has been damaged and start making repairs." With just one pill a day, and a lot of food, she could finally wear <i>that</i>.</p>
-            <p>Merchant Magazine, a clothing mag for bigger girls. The first issue was released early October, 2028, and she first picked it up later than month — she weighed merely 120lbs. By January of next year she had every listed dress' measures memorized front-to-back, and had tried gaining with limited success — 140lbs was her max. The cover model's weight: 600lbs flat.</p>
-            <p>'They did so much better in the issues after that,' she thought, but nevertheless she considered that her starting goal. That would be the minimum, <i>the bare minimum</i>, to pull off the pretty yellow dress on page 18.</p>
-            <br>
-            <p>"I understand what you're doing, but I can't let you stay," grumbled the underpaid, teenage buffet worker.</p>
-            <p>Anna, who was significantly older than him, whined. She was huge, floor-creaking, and anyone with a brain could tell what a 700lb woman like her was doing at a buffet. Her yellow dress was stretching exhausted over her breasts. "One more mac-and-cheese, it's nothing," she whimpered.</p>
-            <p>The worker sighed. "It's policy. I counted your trips." Anna winced, then giggled slightly, because she was counting too (it was 40 trips). She let out one last quiet <i>please?</i> and with his silent glare, she tucked tail and waddled back to her car.</p>
-            <p>A sedan, which she barely fit. To add insult to injury, the fit seemed even tighter than it had when she arrived at the place. She reached down to press the switch that rolled the seat back — <i>brrr,</i> and almost immediately, <i>click!</i> The steering wheel grazed her blubbery belly as she turned out of the parking spot.</p>
+            
         </div>
 
         <div id="next" style="text-align: center;">
