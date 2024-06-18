@@ -19,8 +19,10 @@
         const storyTitle = new URLSearchParams(window.location.search).get('title');
         const storyIndex = parseInt(new URLSearchParams(window.location.search).get('index'));
 
-        const title      = document.getElementById('title');
-        const paragraphs = document.getElementById('paragraphs');
+        const listofIndex = document.getElementById('listof-index');
+        const title       = document.getElementById('title');
+        const paragraphs  = document.getElementById('paragraphs');
+        const next        = document.getElementById('next');
 
         if (storyTitle != null) {
             fetch("/stories/" + storyTitle)
@@ -38,8 +40,10 @@
                     // 404
                 } else if (endOfIndex == -1) {
                     paragraphs.innerHTML = data.substring(startOfIndex);
+                    next.innerHTML = "<u>End of all parts</u>";
                 } else {
                     paragraphs.innerHTML = data.substring(startOfIndex, endOfIndex);
+                    next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 }
                 
             });
@@ -58,7 +62,7 @@
     <div style="text-align: center; font-size: small;"><a href="https://www.deviantart.com/olgrizzle/art/Hot-Buffet-Girl-Gets-Fat-4-966910527">Image Source</a></div>
     
     <div class="center">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1em;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1em; border-bottom: 1px solid lightgrey; padding-bottom: 4px;">
             <h2 id="title" style="margin: 0;"></h2>
 
             <div id="listof-index">
@@ -72,9 +76,7 @@
             
         </div>
 
-        <div id="next" style="text-align: center;">
-            <u>End of all parts</u>
-        </div>
+        <div id="next" style="text-align: center;"></div>
     </div>
     
 </body>
