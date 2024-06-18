@@ -64,8 +64,8 @@
                 var subData = crop(data, "#" + storyIndex, "#" + (storyIndex + 1));
 
                 if (subData != "") {
-                    image.src = crop(subData, "image:", "\n");
-                    paragraphs.innerHTML = subData.substring(subData.indexOf("\n"));
+                    image.src = crop(subData, "[image]{", "}");
+                    paragraphs.innerHTML = crop(subData, "[paragraphs]{", "}");
     
                     //next.innerHTML = "<u>End of all parts</u>";
                     next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
