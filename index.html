@@ -15,16 +15,20 @@
     </style>
 
     <script type="module">
-        const storyTitle  = new URLSearchParams(window.location.search).get('title');
+        const storyTitle = new URLSearchParams(window.location.search).get('title');
         const storyIndex = new URLSearchParams(window.location.search).get('index');
 
+        const title      = document.getElementById('title');
         const paragraphs = document.getElementById('paragraphs');
 
         if (storyTitle != null) {
             fetch("/stories/" + storyTitle)
-            .then(f => f.text())
-            .then(t => {
-                paragraphs.innerHTML = t;
+            .then(file => file.text())
+            .then(data => {
+                
+                title.innerHTML = data.substring(0, data.indexOf("\n"));
+                paragraphs.innerHTML = data.substring(data.indexOf("#" + storyIndex) + 2);
+                
             });
         }
     </script>
