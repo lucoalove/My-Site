@@ -20,14 +20,14 @@
         function crop(data, startToken, endToken) { // if endToken doesn't exist, just goes to end
             var subData;
             
-            const start = data.indexOf(startToken) + startToken.length;
+            const start = data.indexOf(startToken);
             if (start == -1)
                 return "";
-            subData = data.substring(start);
+            subData = data.substring(start + startToken.length);
 
             const end = subData.indexOf(endToken);
             if (end != -1)
-                subData = subData.substring(end);
+                subData = subData.substring(0, end);
 
             return subData;
         }
@@ -68,8 +68,8 @@
                     return;
                 }
 
-                //image.src = subData;
-                paragraphs.innerHTML = subData;
+                image.src = crop(subData, "image:", "\n");
+                paragraphs.innerHTML = subData.substring(subData.indexOf("\n"));
 
                 //next.innerHTML = "<u>End of all parts</u>";
                 next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
@@ -78,6 +78,7 @@
             
         } else {
             // 404
+            return;
         }
     </script>
 </head>
