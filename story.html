@@ -16,6 +16,7 @@
         h1, h2 { margin: 0; }
     </style>
 
+    <!-- this code is trash, but it's self contained trash (except for file formatting, hmm) -->
     <script type="module">
         function crop(data, startToken, endToken) { // if endToken doesn't exist, just goes to end
             var subData;
@@ -51,6 +52,7 @@
                 title.innerHTML = data.substring(0, data.indexOf("\n"));
 
                 // parse all indices
+                var largestIndex = 1;
                 for (let i=1; data.indexOf("#" + i) != -1; i++) {
 
                     if (i == storyIndex) {
@@ -58,6 +60,7 @@
                     } else {
                         listofIndex.innerHTML += ` <a href="?title=${storyTitle}&index=${i}">${i}</a>`;
                     }
+                    largestIndex = i;
                 }
 
                 // parse image and paragraphs
@@ -66,9 +69,12 @@
                 if (subData != "") {
                     image.src = crop(subData, "[image]{", "}");
                     paragraphs.innerHTML = crop(subData, "[paragraphs]{", "}");
-    
-                    //next.innerHTML = "<u>End of all parts</u>";
-                    next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
+
+                    if (storyIndex == largestIndex) {
+                        next.innerHTML = "<u>End of all parts</u>";
+                    } else {
+                        next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
+                    }
                 }
                 
             });
