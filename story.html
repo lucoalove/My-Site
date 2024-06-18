@@ -17,6 +17,21 @@
     </style>
 
     <script type="module">
+        function crop(data, startToken, endToken) { // if endToken doesn't exist, just goes to end
+            var subData;
+            
+            const start = data.indexOf(startToken) + startToken.length;
+            if (start == -1)
+                return "";
+            subData = data.substring(start);
+
+            const end = subData.indexOf(endToken);
+            if (end != -1)
+                subData = subData.substring(end);
+
+            return subData;
+        }
+        
         const storyTitle = new URLSearchParams(window.location.search).get('title');
         const storyIndex = parseInt(new URLSearchParams(window.location.search).get('index'));
 
@@ -63,21 +78,6 @@
             
         } else {
             // 404
-        }
-
-        async function crop(data, startToken, endToken) { // if endToken doesn't exist, just goes to end
-            var subData;
-            
-            const start = data.indexOf(startToken) + startToken.length;
-            if (start == -1)
-                return "";
-            subData = data.substring(start);
-
-            const end = subData.indexOf(endToken);
-            if (end != -1)
-                subData = subData.substring(end);
-
-            return subData;
         }
     </script>
 </head>
