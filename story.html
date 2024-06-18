@@ -63,22 +63,18 @@
                 // parse image and paragraphs
                 var subData = crop(data, "#" + storyIndex, "#" + (storyIndex + 1));
 
-                if (subData == "") {
-                    // 404
-                    return;
+                if (subData != "") {
+                    image.src = crop(subData, "image:", "\n");
+                    paragraphs.innerHTML = subData.substring(subData.indexOf("\n"));
+    
+                    //next.innerHTML = "<u>End of all parts</u>";
+                    next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 }
-
-                image.src = crop(subData, "image:", "\n");
-                paragraphs.innerHTML = subData.substring(subData.indexOf("\n"));
-
-                //next.innerHTML = "<u>End of all parts</u>";
-                next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 
             });
             
         } else {
             // 404
-            return;
         }
     </script>
 </head>
