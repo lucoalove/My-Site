@@ -26,6 +26,7 @@
               image       = document.getElementById('image');
 
         if (storyTitle != null) {
+            
             fetch("/stories/" + storyTitle)
             .then(file => file.text())
             .then(data => {
@@ -44,22 +45,30 @@
                 }
 
                 // parse image and paragraphs
-                let startOfIndex = data.indexOf("#" + storyIndex) + 2;
-                let endOfIndex   = data.indexOf("#" + (storyIndex + 1));
+                const startOfIndex = data.indexOf("#" + storyIndex) + 2;
+                const endOfIndex   = data.indexOf("#" + (storyIndex + 1));
+
+                var subData;
 
                 if (startOfIndex == -1) {
                     // 404
+                    return;
                 } else if (endOfIndex == -1) {
-                    paragraphs.innerHTML = data.substring(startOfIndex);
+                    subData = data.substring(startOfIndex);
                     next.innerHTML = "<u>End of all parts</u>";
                 } else {
-                    paragraphs.innerHTML = data.substring(startOfIndex, endOfIndex);
+                    subData = data.substring(startOfIndex, endOfIndex);
                     next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 }
 
-                image.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/557346e2-ac73-4dd4-81dc-5572017ab526/dfzo8xr-214a2aef-470b-43db-99ce-484dc6ae98bc.png/v1/fill/w_894,h_894,q_70,strp/hot_buffet_girl_gets_fat____4_by_olgrizzle_dfzo8xr-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzU1NzM0NmUyLWFjNzMtNGRkNC04MWRjLTU1NzIwMTdhYjUyNlwvZGZ6bzh4ci0yMTRhMmFlZi00NzBiLTQzZGItOTljZS00ODRkYzZhZTk4YmMucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.nypUQ3oLkjDcOlvzM8TN18CWkzQT6Aj8EO_UK8SgYCI';
+                paragraphs.innerHTML = subData;
+
+                //image.src = '';
                 
             });
+            
+        } else {
+            // 404
         }
     </script>
 </head>
