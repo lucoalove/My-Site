@@ -34,7 +34,7 @@
                 title.innerHTML = data.substring(0, data.indexOf("\n"));
 
                 // parse all indices
-                for (let i=0; data.indexOf("#" + storyIndex) != -1; i++) {
+                for (let i=1; data.indexOf("#" + i) != -1; i++) {
 
                     if (i == storyIndex) {
                         listofIndex.innerHTML += `[<a href="?title=${storyTitle}&index=${i}">${i}</a>]`;
