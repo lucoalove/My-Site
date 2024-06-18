@@ -11,82 +11,16 @@
         :root { font-size: 18px; }
         body { font-family: 'EB Garamond', serif; color: #444; }
         a { color: #08e; }
-        .center { width: 35rem; margin: auto; }
-        #image { height: 25em; display: block; margin: auto; }
     </style>
-
-    <script type="module">
-        const storyTitle = new URLSearchParams(window.location.search).get('title');
-        const storyIndex = parseInt(new URLSearchParams(window.location.search).get('index'));
-
-        const listofIndex = document.getElementById('listof-index'),
-              title       = document.getElementById('title'),
-              paragraphs  = document.getElementById('paragraphs'),
-              next        = document.getElementById('next'),
-              image       = document.getElementById('image');
-
-        if (storyTitle != null) {
-            fetch("/stories/" + storyTitle)
-            .then(file => file.text())
-            .then(data => {
-
-                // parse title
-                title.innerHTML = data.substring(0, data.indexOf("\n"));
-
-                // parse all indices
-                for (let i=1; data.indexOf("#" + i) != -1; i++) {
-
-                    if (i == storyIndex) {
-                        listofIndex.innerHTML += `[<a href="?title=${storyTitle}&index=${i}">${i}</a>]`;
-                    } else {
-                        listofIndex.innerHTML += `<a href="?title=${storyTitle}&index=${i}">${i}</a>`;
-                    }
-                }
-
-                // parse image and paragraphs
-                let startOfIndex = data.indexOf("#" + storyIndex) + 2;
-                let endOfIndex   = data.indexOf("#" + (storyIndex + 1));
-
-                if (startOfIndex == -1) {
-                    // 404
-                } else if (endOfIndex == -1) {
-                    paragraphs.innerHTML = data.substring(startOfIndex);
-                    next.innerHTML = "<u>End of all parts</u>";
-                } else {
-                    paragraphs.innerHTML = data.substring(startOfIndex, endOfIndex);
-                    next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
-                }
-
-                image.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/557346e2-ac73-4dd4-81dc-5572017ab526/dfzo8xr-214a2aef-470b-43db-99ce-484dc6ae98bc.png/v1/fill/w_894,h_894,q_70,strp/hot_buffet_girl_gets_fat____4_by_olgrizzle_dfzo8xr-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzU1NzM0NmUyLWFjNzMtNGRkNC04MWRjLTU1NzIwMTdhYjUyNlwvZGZ6bzh4ci0yMTRhMmFlZi00NzBiLTQzZGItOTljZS00ODRkYzZhZTk4YmMucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.nypUQ3oLkjDcOlvzM8TN18CWkzQT6Aj8EO_UK8SgYCI';
-                
-            });
-        }
-    </script>
 </head>
 <body>
 
-    <!-- simple AI gain comics UI, https://www.deviantart.com/allroun/art/Product-Testing-Team-4-1045757518 -->
+    <h1>Fatchicks.cc</h1>
+    simple AI gain progressions with stories, like <a href="https://www.deviantart.com/allroun/art/Product-Testing-Team-4-1045757518">this one</a>
 
-    <div class="center">
-        <h1>Fatchicks.cc</h1>
-    </div>
-    
-    <img id="image">
-    <div style="text-align: center; font-size: small;"><a href="https://www.deviantart.com/olgrizzle/art/Hot-Buffet-Girl-Gets-Fat-4-966910527">Image Source</a></div>
-    
-    <div class="center">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1em; border-bottom: 1px solid lightgrey; padding-bottom: 4px;">
-            <h2 id="title" style="margin: 0;"></h2>
+    <hr>
 
-            <div id="listof-index"></div>
-        </div>
-
-        <div id="paragraphs">
-            
-        </div>
-
-        <div id="next" style="text-align: center;"></div>
-    </div>
+    <a href="story.html?title=a-fabric-fat-asy&index=1">A Fabric Fat-asy</a>
     
 </body>
 </html>
