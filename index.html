@@ -17,7 +17,7 @@
 
     <script type="module">
         const storyTitle = new URLSearchParams(window.location.search).get('title');
-        const storyIndex = new URLSearchParams(window.location.search).get('index');
+        const storyIndex = parseInt(new URLSearchParams(window.location.search).get('index'));
 
         const title      = document.getElementById('title');
         const paragraphs = document.getElementById('paragraphs');
