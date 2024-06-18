@@ -13,6 +13,7 @@
         a { color: #08e; }
         .center { width: 35rem; margin: auto; }
         #image { height: 25em; display: block; margin: auto; }
+        h1, h2 { margin: 0; }
     </style>
 
     <script type="module">
@@ -38,43 +39,51 @@
                 for (let i=1; data.indexOf("#" + i) != -1; i++) {
 
                     if (i == storyIndex) {
-                        listofIndex.innerHTML += `[<a href="?title=${storyTitle}&index=${i}">${i}</a>]`;
+                        listofIndex.innerHTML += ` [<a href="?title=${storyTitle}&index=${i}">${i}</a>]`;
                     } else {
-                        listofIndex.innerHTML += `<a href="?title=${storyTitle}&index=${i}">${i}</a>`;
+                        listofIndex.innerHTML += ` <a href="?title=${storyTitle}&index=${i}">${i}</a>`;
                     }
                 }
 
                 // parse image and paragraphs
-                const startOfIndex = data.indexOf("#" + storyIndex) + 2;
-                const endOfIndex   = data.indexOf("#" + (storyIndex + 1));
+                var subData = crop(data, "#" + storyIndex, "#" + (storyIndex + 1));
 
-                var subData;
-
-                if (startOfIndex == -1) {
+                if (subData == "") {
                     // 404
                     return;
-                } else if (endOfIndex == -1) {
-                    subData = data.substring(startOfIndex);
-                    next.innerHTML = "<u>End of all parts</u>";
-                } else {
-                    subData = data.substring(startOfIndex, endOfIndex);
-                    next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 }
 
+                //image.src = subData;
                 paragraphs.innerHTML = subData;
 
-                //image.src = '';
+                //next.innerHTML = "<u>End of all parts</u>";
+                next.innerHTML = `<a href="?title=${ storyTitle }&index=${ storyIndex + 1 }">Go to part ${ storyIndex + 1}</a>`;
                 
             });
             
         } else {
             // 404
         }
+
+        async function crop(data, startToken, endToken) { // if endToken doesn't exist, just goes to end
+            var subData;
+            
+            const start = data.indexOf(startToken) + startToken.length;
+            if (start == -1)
+                return "";
+            subData = data.substring(start);
+
+            const end = subData.indexOf(endToken);
+            if (end != -1)
+                subData = subData.substring(end);
+
+            return subData;
+        }
     </script>
 </head>
 <body>
 
-    <div class="center">
+    <div class="center" style="display: flex; align-items: center; gap: 1em;">
         <h1>Fatchicks.cc</h1>
         <a href="/">Home</a>
     </div>
@@ -84,14 +93,11 @@
     
     <div class="center">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1em; border-bottom: 1px solid lightgrey; padding-bottom: 4px;">
-            <h2 id="title" style="margin: 0;"></h2>
-
+            <h2 id="title"></h2>
             <div id="listof-index"></div>
         </div>
 
-        <div id="paragraphs">
-            
-        </div>
+        <div id="paragraphs"></div>
 
         <div id="next" style="text-align: center;"></div>
     </div>
