@@ -16,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(cors());
+
 // set the database name
-const dbName = 'guestbook';
+const dbName = 'posts';
 
 let cloudant_apikey,cloudant_url;
 
@@ -77,7 +78,7 @@ cloudantClient.putDatabase({ db: dbName})
   
 
 // add a new name or item with timestamp info for sorting
-app.post("/guestbook/entries", cors(cors_config), function (req, res, next) {
+app.post("/posts/entries", cors(cors_config), function (req, res, next) {
   console.log('In route - add entry');
   let entry = {
     createdAt: new Date().toISOString(),
@@ -111,7 +112,7 @@ app.post("/guestbook/entries", cors(cors_config), function (req, res, next) {
 
 
 // retrieve the existing entries
-app.get("/guestbook/entries", cors(cors_config), function (req, res, next) {
+app.get("/posts/entries", cors(cors_config), function (req, res, next) {
   console.log('In route - get entries');
 
   return cloudantClient.postAllDocs({
