@@ -21,8 +21,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
 
-        // tutorial for IBM: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
-        // code kinda scuffed but whatever
+        // tutorial for IBM Cloud
+        // Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
+        // Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
         
         const apiUrl = 'https://fatchicks-backend.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
         const posts = {
@@ -58,11 +59,8 @@
                 return;
             
             //result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
-            //const allPosts = document.getElementById("all-posts");
 
-            $('#all-posts').html(
-                JSON.stringify(result.entries)
-            );
+            document.getElementById("all-posts").innerText = JSON.stringify(result.entries);
 
         }).error(function(error) {
             $('#all-posts').html(error);
