@@ -75,7 +75,7 @@
                 return;
 
             // sort by unixTimestamp
-            result.entries.sort((a, b) => a.unixTimestamp.localeCompare(b.unixTimestamp));
+            result.entries.sort((a, b) => a.unixTimestamp > b.unixTimestamp);
 
             // display all posts
             for (const [index, post] of Object.entries(result.entries)) {
