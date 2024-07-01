@@ -37,15 +37,13 @@
             },
             
             // add a single post
-            add(name, email, comment) {
+            add(message) {
                 return $.ajax({
                     type: 'POST',
                     url: `${apiUrl}/posts/entries`,
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify({
-                        name,
-                        email,
-                        comment
+                        message
                     }),
                     dataType: 'json'
                 });
@@ -71,7 +69,7 @@
             e.preventDefault();
             
             posts.add(
-                $('#name').val().trim()
+                $('#message').val().trim()
             ).done(function(result) {
                 // reload entries
                 location.reload();
@@ -89,8 +87,8 @@
     </center>
 
     <form id="addEntry">
-        <label for="name">Message</label>
-        <input type="text" placeholder="" id="name">
+        <label for="message">Message</label>
+        <input type="text" placeholder="" id="message">
         
         <button>Send your message</button>
         <input type="submit" value="Post">
