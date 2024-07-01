@@ -77,14 +77,14 @@ cloudantClient.putDatabase({ db: dbName})
 });
   
 
-// add a new name or item with timestamp info for sorting
+// add a new post (with timestamp info for sorting)
 app.post("/posts/entries", cors(cors_config), function (req, res, next) {
   
     console.log('In route - add entry');
     
     let entry = {
-        createdAt: new Date().toISOString(),
-        message: req.body.message
+        unixTimestamp: Date.now(),
+        message:       req.body.message
     };
     
     return cloudantClient.postDocument({
@@ -94,16 +94,16 @@ app.post("/posts/entries", cors(cors_config), function (req, res, next) {
     }).then(addedEntry => {
         console.log('Add entry successful');
         return res.status(201).json({
-            _id: addedEntry.id,
-            createdAt: addedEntry.createdAt,
-            message: addedEntry.message
+            _id:           addedEntry.id,
+            unixTimestamp: addedEntry.unixTimestamp,
+            message:       addedEntry.message
         });
 
     }).catch(error => {
         console.log('Add entry failed');
         return res.status(500).json({
             message: 'Add entry failed.',
-            error: error
+            error:   error
         });
     });
 });
@@ -121,8 +121,8 @@ app.get("/posts/entries", cors(cors_config), function (req, res, next) {
     }).then(allDocuments => {
         let fetchedEntries = allDocuments.result;
         let entries = { entries: fetchedEntries.rows.map((row) => { return {
-            createdAt: row.doc.createdAt,
-            message: row.doc.message
+            unixTimestamp: row.doc.unixTimestamp,
+            message:       row.doc.message
         }})}
         console.log('Get names successful');
         return res.json(entries);
