@@ -60,8 +60,10 @@
             //result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
             //const allPosts = document.getElementById("all-posts");
 
-            for (const [key, value] of Object.entries(result.entries)) {
-                console.log(`${key}: ${value}`);
+            for (const [index, entry] of Object.entries(result.entries)) {
+                for (const [key, val] of Object.entries(result.entry)) {
+                    console.log(`(${index}) ${key}: ${val}`);
+                }
             }
 
             $('#all-posts').html("found stuff!");
