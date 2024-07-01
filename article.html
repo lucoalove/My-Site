@@ -30,7 +30,9 @@
     <script type="module">
         const articleTitle = new URLSearchParams(window.location.search).get('a');
         
-        const insert = document.getElementById('insert');
+        const insert      = document.getElementById('insert'),
+              insertTitle = document.getElementById('insert-title'),
+              insertBy    = document.getElementById('insert-by');
 
         if (articleTitle != null) {
             
@@ -38,15 +40,33 @@
             .then(file => file.text())
             .then(data => {
 
-                // [title]
-                // [by]
-                // [header]
-                // [pic]
-
                 const parts = data.split("\n");
 
                 for (let line of parts) {
-                     insert.innerHTML += `<p>${line}</p>`;
+
+                    // skip if line is empty
+                    if (line.length == 0)
+                        continue;
+
+                    // insert based on what kind of content the line is tagged to have
+                    const gap = line.indexOf(" ");
+                    switch (line.substring(0, gap)) {
+                        case "[title]":
+                            insertTitle.innerHTML = line.substring(gap+1);
+                            break;
+                        case "[by]":
+                            insertBy.innerHTML = line.substring(gap+1);
+                            break;
+                        case "[header]":
+                            insert.innerHTML += `<h2>${ line.substring(gap+1) }</h2>`;
+                            break;
+                        case "[pic]":
+                            insert.innerHTML += `<img src="${ line.substring(gap+1) }">`;
+                            break;
+                        default:
+                            insert.innerHTML += `<p>${ line }</p>`;
+                            break;
+                    }
                 }
                 
             });
@@ -59,12 +79,12 @@
 <body>
 
     <div class="center" style="display: flex; align-items: center; gap: 1em;">
-        <h1>Fatchicks.cc</h1>
+        <strong>Fatchicks.cc</strong>
         <a href="/">Home</a>
     </div>
     
     <div id="insert" class="center" style="margin-bottom: 8em;">
-        <h2 id="insert-title">Could not find article</h2>
+        <h1 id="insert-title">Could not find article</h1>
         <div id="insert-by">:(</div>
     </div>
     
