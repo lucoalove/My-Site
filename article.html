@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fatchicks.cc</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+        
+        :root { font-size: 18px; }
+        body { font-family: 'EB Garamond', serif; color: #444; }
+        a { color: #08e; }
+        .center { width: 35rem; margin: auto; }
+        
+        img { width: 100%; }
+        
+        h2 { margin-top: 1em; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
+    </style>
+
+    <!-- this code is trash -->
+    <script type="module">
+        const articleTitle = new URLSearchParams(window.location.search).get('a');
+        
+        const insert = document.getElementById('insert');
+
+        if (articleTitle != null) {
+            
+            fetch("/articles/" + articleTitle)
+            .then(file => file.text())
+            .then(data => {
+
+                // [title]
+                // [by]
+                // [header]
+                // [pic]
+
+                const parts = data.split("\n");
+
+                for (line of parts) {
+                     insert.innerHTML += `<p>${line}</p>`;
+                }
+                
+            });
+            
+        } else {
+            // 404
+        }
+    </script>
+</head>
+<body>
+
+    <div class="center" style="display: flex; align-items: center; gap: 1em;">
+        <h1>Fatchicks.cc</h1>
+        <a href="/">Home</a>
+    </div>
+    
+    <div class="center" style="margin-bottom: 8em;">
+        
+    </div>
+    
+</body>
+</html>
