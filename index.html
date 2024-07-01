@@ -75,10 +75,17 @@
                 return;
 
             // sort by unixTimestamp
-            result.entries.sort((a, b) => a.createdAt.localeCompare(b.unixTimestamp));
+            result.entries.sort((a, b) => a.unixTimestamp.localeCompare(b.unixTimestamp));
 
-            for (const [key, value] of Object.entries(result.entries)) {
-                document.getElementById('all-posts').innerHTML += "<br> - " + key + ": " + stripHTML(value);
+            // display all posts
+            for (const [index, post] of Object.entries(result.entries)) {
+
+                document.getElementById('all-posts').innerHTML += "<h3>" + index + "</h3>";
+
+                // (temp) display pairs
+                for (const [key, value] of Object.entries(post)) {
+                    document.getElementById('all-posts').innerHTML += key + ": " + stripHTML(value) + "<br>";
+                }
             }
 
         }).error(function(error) {
