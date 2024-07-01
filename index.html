@@ -76,6 +76,8 @@
                 return;
             }
 
+            postbox.innerHTML = "";
+
             // sort by unixTimestamp
             result.entries.sort((a, b) => a.unixTimestamp < b.unixTimestamp);
 
@@ -121,13 +123,14 @@
         <p>An Internet bulletin board dedicated to Big Beautiful Women. This site is WIP. You can find the Github repo <a href="https://github.com/BlueBunnex/myblog">here</a>.</p>
     </center>
 
-    <form id="addEntry">
-        <label for="message">Message</label>
-        <input type="text" placeholder="" id="message">
-        
-        <button>Send your message</button>
-        <input type="submit" value="Post">
-    </form>
+    <fieldset>
+        <legend>Make Post</legend>
+        <form id="addEntry">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" cols="50"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    </fieldset>
 
     <div style="padding: 4px 8px; border-top: 2px solid #acc;">
         showing all posts
