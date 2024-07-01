@@ -60,7 +60,9 @@
             //result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
             //const allPosts = document.getElementById("all-posts");
 
-            $('#all-posts').html(console.log(JSON.stringify(result.entries)));
+            $('#all-posts').html(
+                JSON.stringify(result.entries)
+            );
 
         }).error(function(error) {
             $('#all-posts').html(error);
