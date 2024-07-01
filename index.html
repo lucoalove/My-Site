@@ -31,7 +31,7 @@
             get() {
                 return $.ajax({
                     type: 'GET',
-                    url: `${apiUrl}/guestbook/entries`,
+                    url: `${apiUrl}/posts/entries`,
                     dataType: 'json'
                 });
             },
@@ -40,7 +40,7 @@
             add(name, email, comment) {
                 return $.ajax({
                     type: 'POST',
-                    url: `${apiUrl}/guestbook/entries`,
+                    url: `${apiUrl}/posts/entries`,
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify({
                         name,
