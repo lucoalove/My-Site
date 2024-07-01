@@ -18,11 +18,11 @@
         /* and then .comment but that's later */
     </style>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
 
         // tutorial for IBM: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
+        // code kinda scuffed but whatever
         
         const apiUrl = 'https://fatchicks-backend.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
         const posts = {
@@ -61,7 +61,7 @@
             //const allPosts = document.getElementById("all-posts");
 
             for (const [index, entry] of Object.entries(result.entries)) {
-                for (const [key, val] of Object.entries(result.entry)) {
+                for (const [key, val] of Object.entries(entry)) {
                     console.log(`(${index}) ${key}: ${val}`);
                 }
             }
