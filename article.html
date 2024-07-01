@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+        @font-face {
+            font-family: 'ProximaNova_Reg';
+            src: url('ProximaNova_Reg.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'ProximaNova_Bold';
+            src: url('ProximaNova_Bold.woff2') format('woff2');
+        }
         
         :root { font-size: 18px; }
-        body { font-family: 'EB Garamond', serif; color: #444; }
+        body { font-family: 'ProximaNova_Reg', serif; color: #444; }
         a { color: #08e; }
         .center { width: 35rem; margin: auto; }
         
         img { width: 100%; }
-        
+
+        h1, h2 { font-family: 'ProximaNova_Bold'; }
         h2 { margin-top: 1em; border-bottom: 1px solid lightgrey; padding-bottom: 4px; }
     </style>
 
@@ -56,7 +64,8 @@
     </div>
     
     <div id="insert" class="center" style="margin-bottom: 8em;">
-        
+        <h2 id="insert-title">Could not find article</h2>
+        <div id="insert-by">:(</div>
     </div>
     
 </body>
