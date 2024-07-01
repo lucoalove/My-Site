@@ -21,6 +21,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
 
+        function timeConverter(UNIX_timestamp) { // I stole this code
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+            return time;
+        }
+
         // tutorial for IBM Cloud
         // Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
         // Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
@@ -58,7 +71,7 @@
             
             //result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
 
-            $('#all-posts').html(JSON.stringify(result.entries));
+            document.getElementById('all-posts').innerText = JSON.stringify(result.entries);
 
         }).error(function(error) {
             $('#all-posts').html(error);
@@ -69,7 +82,7 @@
             e.preventDefault();
             
             posts.add(
-                $('#message').val().trim()
+                document.getElementById('message').trim()
             ).done(function(result) {
                 // reload entries
                 location.reload();
