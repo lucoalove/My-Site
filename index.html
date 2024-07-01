@@ -21,6 +21,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
+
+        // tutorial for IBM: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
         
         const apiUrl = 'https://fatchicks-backend.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
         const posts = {
@@ -28,7 +30,7 @@
             get() {
                 return $.ajax({
                     type: 'GET',
-                    url: `${apiUrl}/posts`,
+                    url: `${apiUrl}/guestbook/entries`,
                     dataType: 'json'
                 });
             },
@@ -37,7 +39,7 @@
             add(name, email, comment) {
                 return $.ajax({
                     type: 'POST',
-                    url: `${apiUrl}/posts/entries`,
+                    url: `${apiUrl}/guestbook/entries`,
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify({
                         name,
