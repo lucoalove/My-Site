@@ -34,6 +34,11 @@
             return time;
         }
 
+        function stripHTML(html) {
+            let doc = new DOMParser().parseFromString(html, 'text/html');
+            return doc.body.textContent || "";
+        }
+
         // tutorial for IBM Cloud
         // Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
         // Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
@@ -72,7 +77,9 @@
             // sort by unixTimestamp
             result.entries.sort((a, b) => a.createdAt.localeCompare(b.unixTimestamp));
 
-            document.getElementById('all-posts').innerText = JSON.stringify(result.entries);
+            for (const [key, value] of Object.entries(result.entries)) {
+                document.getElementById('all-posts').innerHTML += "<br> - " + key + ": " + stripHTML(value);
+            }
 
         }).error(function(error) {
             $('#all-posts').html(error);
