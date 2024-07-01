@@ -48,8 +48,9 @@
                 });
             }
         };
-        
-        $('#all-posts').html('Loading entries...');
+
+        // load posts
+        $('#all-posts').html('Loading posts...');
         posts.get().done(function(result) {
             if (!result.entries) {
                 return;
@@ -62,24 +63,23 @@
             $('#all-posts').html('No posts');
             console.log(error);
         });
-      }
         
-          // intercept the click on the submit button, add the guestbook entry and
-          // reload entries on success
-          // $(document).on('submit', '#addEntry', function(e) {
-          //   e.preventDefault();
+        // intercept the click on the submit button, add the guestbook entry and
+        // reload entries on success
+        // $(document).on('submit', '#addEntry', function(e) {
+        //   e.preventDefault();
         
-          //   posts.add(
-          //     $('#name').val().trim(),
-          //     $('#email').val().trim(),
-          //     $('#comment').val().trim()
-          //   ).done(function(result) {
-          //     // reload entries
-          //     loadEntries();
-          //   }).error(function(error) {
-          //     console.log(error);
-          //   });
-          // });
+        //   posts.add(
+        //     $('#name').val().trim(),
+        //     $('#email').val().trim(),
+        //     $('#comment').val().trim()
+        //   ).done(function(result) {
+        //     // reload entries
+        //     loadEntries();
+        //   }).error(function(error) {
+        //     console.log(error);
+        //   });
+        // });
     </script>
 </head>
 <body>
