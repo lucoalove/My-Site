@@ -54,16 +54,14 @@
         // load posts
         $('#all-posts').html('Loading posts...');
         posts.get().done(function(result) {
-            if (!result.entries) {
+            if (!result.entries)
                 return;
-            }
             
             result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
             $('#all-posts').html(result.entries);
 
         }).error(function(error) {
-            $('#all-posts').html('No posts');
-            console.log(error);
+            $('#all-posts').html(error);
         });
         
         // intercept the click on the submit button, add the guestbook entry and
