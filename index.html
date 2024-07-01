@@ -21,8 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
 
-        function timeConverter(UNIX_timestamp) { // I stole this code
-            var a = new Date(UNIX_timestamp * 1000);
+        function timeConverter(ms) { // I stole this code
+            var a = new Date(ms);
             var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             var year = a.getFullYear();
             var month = months[a.getMonth()];
@@ -30,11 +30,11 @@
             var hour = a.getHours();
             var min = a.getMinutes();
             var sec = a.getSeconds();
-            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
             return time;
         }
 
-        function stripHTML(html) {
+        function stripHTML(html) { // I stole this too
             let doc = new DOMParser().parseFromString(html, 'text/html');
             return doc.body.textContent || "";
         }
@@ -75,13 +75,24 @@
                 return;
 
             // sort by unixTimestamp
-            result.entries.sort((a, b) => a.unixTimestamp > b.unixTimestamp);
+            result.entries.sort((a, b) => a.unixTimestamp < b.unixTimestamp);
 
             // display all posts
             for (const [index, post] of Object.entries(result.entries)) {
 
-                document.getElementById('all-posts').innerHTML += "<h3>" + index + "</h3>";
+                document.getElementById('all-posts').innerHTML += 
 
+                `
+                <div class="post">
+                    <div class="post-file">
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
+                        PLACEHOLDER PNG
+                    </div>
+                    <div class="post-body">${post.message}</div>
+                    <div class="post-foot">${timeConverter(post.unixTimestamp)}</div>
+                </div>
+                `;
+                
                 // (temp) display pairs
                 for (const [key, value] of Object.entries(post)) {
                     document.getElementById('all-posts').innerHTML += key + ": " + stripHTML(value) + "<br>";
