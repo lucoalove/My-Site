@@ -68,8 +68,9 @@
         posts.get().done(function(result) {
             if (!result.entries)
                 return;
-            
-            //result.entries.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+
+            // sort by unixTimestamp
+            result.entries.sort((a, b) => a.createdAt.localeCompare(b.unixTimestamp));
 
             document.getElementById('all-posts').innerText = JSON.stringify(result.entries);
 
@@ -82,7 +83,7 @@
             e.preventDefault();
             
             posts.add(
-                document.getElementById('message').trim()
+                document.getElementById('message').value.trim()
             ).done(function(result) {
                 // reload entries
                 location.reload();
