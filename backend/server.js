@@ -17,9 +17,6 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-// set the database name
-const dbName = 'posts';
-
 let cloudant_apikey,cloudant_url;
 
 let cors_config={
@@ -59,28 +56,52 @@ const authenticator = new IamAuthenticator({
 const cloudantClient = CloudantV1.newInstance({authenticator: authenticator, serviceUrl: cloudant_url});
 
 
-  
+// no idea what stuff above this does
+
+
+// set the database name
+const DB_NAME = 'posts';
+
+function getPosts(res) {
+    return cloudantClient.postAllDocs({
+        db: DB_NAME,
+        includeDocs: true,
+        
+    }).then(allDocuments => {
+        let fetchedEntries = allDocuments.result;
+        let entries = { entries: fetchedEntries.rows.map((row) => { return {
+            unixTimestamp: row.doc.unixTimestamp,
+            message:       row.doc.message
+        }})}
+        console.log('Get names successful');
+        return res.json(entries);
+        
+    }).catch(error => {
+        return res.status(500).json({
+            message: 'Get names failed.',
+            error: error
+        });
+    });
+}
+
 // create mydb database if it does not already exist
-cloudantClient.putDatabase({ db: dbName})
-    .then(data => {
-      console.log(dbName + ' database created');
-    })
-    .catch(error => {
-      // ignore if database already exists
-      if (error.status === 412) {
-        console.log(dbName + ' database already exists');
-      } else {
-        console.log('Error occurred when creating ' + dbName +
-        ' database', error.error);
-      }
-});
+// cloudantClient.putDatabase({ db: DB_NAME })
+//     .then(data => {
+//       console.log(DB_NAME + ' database created');
+//     })
+//     .catch(error => {
+//       // ignore if database already exists
+//       if (error.status === 412) {
+//         console.log(DB_NAME + ' database already exists');
+//       } else {
+//         console.log('Error occurred when creating ' + DB_NAME +
+//         ' database', error.error);
+//       }
+// });
 
-  
 
-// add a new post (with timestamp info for sorting)
-app.post("/posts/entries", cors(cors_config), function (req, res, next) {
-
-    console.log('In route - add entry');
+// add a new post
+app.post("/posts", cors(cors_config), function (req, res, next) {
 
     // REGEX away html tags, then add breaks
     req.body.message = req.body.message.replace(/(<([^>]+)>)/ig, '').replaceAll("\n", "<br>");
@@ -95,7 +116,7 @@ app.post("/posts/entries", cors(cors_config), function (req, res, next) {
     };
     
     return cloudantClient.postDocument({
-        db: dbName,
+        db: DB_NAME,
         document: entry
         
     }).then(addedEntry => {
@@ -116,36 +137,13 @@ app.post("/posts/entries", cors(cors_config), function (req, res, next) {
 });
 
 
-// retrieve the existing entries
-app.get("/posts/entries", cors(cors_config), function (req, res, next) {
-    
-    console.log('In route - get entries');
-    
-    return cloudantClient.postAllDocs({
-        db: dbName,
-        includeDocs: true,
-        
-    }).then(allDocuments => {
-        let fetchedEntries = allDocuments.result;
-        let entries = { entries: fetchedEntries.rows.map((row) => { return {
-            unixTimestamp: row.doc.unixTimestamp,
-            message:       row.doc.message
-        }})}
-        console.log('Get names successful');
-        return res.json(entries);
-        
-    }).catch(error => {
-        console.log('Get names failed');
-        return res.status(500).json({
-            message: 'Get names failed.',
-            error: error
-        });
-    });
+// retrieve the existing posts
+app.get("/posts", cors(cors_config), function (req, res, next) {
+    return getPosts(res);
 });
 
-app.get('/', (req, res) => {
-  res.send('healthy')
-})
+app.get('/', (req, res) => { res.send('healthy') })
+
 //serve static file (index.html, js, css)
 //app.use(express.static(__dirname + '/views'));
 
