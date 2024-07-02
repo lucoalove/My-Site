@@ -86,8 +86,8 @@ app.post("/posts", cors(cors_config), function (req, res, next) {
         db: DB_NAME,
         includeDocs: true,
         
-    }).then(allDocuments => {
-        if (allDocuments.result.rows.length >= 10)
+    }).then(allPosts => {
+        if (allPosts.result.rows.length >= 10)
             return res.status(500).json({ message: 'Too many posts.' });
         
     }).catch(error => {
@@ -135,12 +135,11 @@ app.get("/posts", cors(cors_config), function (req, res, next) {
         db: DB_NAME,
         includeDocs: true,
         
-    }).then(allDocuments => {
-        let fetchedEntries = allDocuments.result;
-        let entries = { entries: fetchedEntries.rows.map((row) => { return {
+    }).then(allPosts => {
+        let entries = { entries: allPosts.result.rows.map((row) => { return {
             unixTimestamp: row.doc.unixTimestamp,
             message:       row.doc.message
-        }})}
+        }})};
         return res.json(entries);
         
     }).catch(error => {
