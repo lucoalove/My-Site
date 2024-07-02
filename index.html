@@ -23,6 +23,7 @@
     Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
     -->
 
+    <!-- I'm trying to phase out jquery since I dislike it -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
 
@@ -92,6 +93,10 @@
                     `;
                     
                 }
+
+                // set curr-count and max-count
+                document.getElementById('curr-count').innerHTML = Object.keys(result.entries).length;
+                document.getElementById('max-count').innerHTML  = Object.keys(result.entries).length;
     
             }).error(function(error) {
                 postbox.innerHTML = error;
@@ -147,8 +152,8 @@
     </center>
 
     <div style="padding: 4px 8px; border-top: 2px groove silver; margin: 1em 0;">
-        showing all posts
-        <!--         showing 20 of 96
+        showing <span id="curr-count"></span> of <span id="max-count"></span>
+        <!--
         <a href="">1</a>
         <a href="">2</a>
         <a href="">3</a>
