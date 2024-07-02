@@ -109,18 +109,29 @@
         $(document).on('submit', '#addEntry', function(e) {
             e.preventDefault();
 
-            const message = document.getElementById('message');
+            const message      = document.getElementById('message');
+            const submitError  = document.getElementById('submit-error');
+
+            const messageValue = message.value.trim();
             
-            posts.add(
-                message.value.trim()
-            ).done(function(result) {
-                // reload posts
-                loadPosts();
-                // clear inputs
-                message.value = "";
-            }).error(function(error) {
-                console.log(error);
-            });
+            if (messageValue.length == 0) {
+
+                submitError.innerHTML = "Cannot post empty message.";
+            } else {
+                
+                posts.add(
+                    messageValue
+                ).done(function(result) {
+                    // reload posts
+                    loadPosts();
+                    // clear inputs
+                    message.value = "";
+                    // clear error
+                    submitError.innerHTML = "";
+                }).error(function(error) {
+                    submitError.innerHTML = error;
+                });
+            }
         });
 
         loadPosts();
@@ -149,6 +160,7 @@
                     <li>Commenting has not yet been implemented.</li>
                 </ul>
                 <input type="submit" value="Post">
+                <span id="submit-error" style="color: red;"></span>
             </form>
         </fieldset>
     </center>
