@@ -74,16 +74,20 @@ cloudantClient.putDatabase({ db: dbName})
         ' database', error.error);
       }
 });
+
   
 
 // add a new post (with timestamp info for sorting)
 app.post("/posts/entries", cors(cors_config), function (req, res, next) {
+
+    if (req.body.message === '')
+        return;
   
     console.log('In route - add entry');
     
     let entry = {
         unixTimestamp: Date.now(),
-        message:       req.body.message.replace("\n", "<br>")
+        message:       req.body.message.replace(/(<([^>]+)>)/ig, '').replace("\n", "<br>") // REGEX away html tags, then add breaks
     };
     
     return cloudantClient.postDocument({
