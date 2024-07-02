@@ -4,178 +4,32 @@
     <title>fatchicks.cc</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <style>
-        body { margin: 0; background: #eff; font-family: Calibri, sans-serif; }
-        h1 { color: #c00; font-size: 2.5em; }
-        a { color: #c00; }
-
-        #page-nav-data { padding: 4px 8px; border-top: 2px groove silver; margin: 1em 0; }
-
-        .post { margin: 8px; border: 2px solid #acc; padding: 8px; overflow-y: hidden; }
-        .post-file { float: left; padding-right: 8px; padding-bottom: 8px; height: 200px; }
-        .post-meta { color: #880; margin-bottom: 8px; }
-
-        /* and then .comment but that's later */
+        body { font-family: sans-serif; }
+        iframe { border: 0; width: 420px; height: 315px; }
+        img { height: 300px; }
+        h1 { margin: 0; font-size: 1.25em; }
+        button { color: white; border-radius: 2px; padding: 4px 8px; border: 0; background: linear-gradient(to bottom, #59c, #269); font: inherit; cursor: pointer; }
+        button:active { background: linear-gradient(to top, #37a, #269); }
     </style>
-
-    <!--
-    tutorial for IBM Cloud
-    Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
-    Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
-    -->
-
-    <!-- I'm trying to phase out jquery since I dislike it -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="module">
-
-        const apiUrl = 'https://fatchicks-backend-container.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
-        const posts = {
-            // retrieve the existing posts
-            get() {
-                return $.ajax({
-                    type: 'GET',
-                    url: `${apiUrl}/posts`,
-                    dataType: 'json'
-                });
-            },
-            
-            // add a single post with parameters
-            add(message) {
-                return $.ajax({
-                    type: 'POST',
-                    url: `${apiUrl}/posts`,
-                    contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({ message }),
-                    dataType: 'json'
-                });
-            }
-        };
-
-        function formatTime(ms) { // I stole this code
-            var a = new Date(ms);
-            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            var year = a.getFullYear();
-            var month = months[a.getMonth()];
-            var date = a.getDate();
-            var hour = a.getHours();
-            var min = a.getMinutes();
-            var sec = a.getSeconds();
-            var time = month + ' ' + date + ', ' + year + ' ' + hour + ':' + min + ':' + sec;
-            return time;
-        }
-
-        function loadPosts() {
-            
-            const postbox = document.getElementById('postbox');
-            postbox.innerHTML = "Loading posts...";
-            
-            posts.get().done(function(allPosts) {
-                if (!allPosts) {
-                    postbox.innerHTML = "Something went wrong on our end.";
-                    return;
-                }
-    
-                postbox.innerHTML = "";
-    
-                // sort by unixTimestamp
-                allPosts.sort((a, b) => a.unixTimestamp < b.unixTimestamp);
-    
-                // display all posts
-                for (const [index, post] of Object.entries(allPosts)) {
-
-                    // <a href="">View all comments</a>
-    
-                    postbox.innerHTML += `
-                        <div class="post">
-                            <div class="post-meta">File: <a download href="test_file.jpg">test_file.jpg</a> (100KB, 256x256) / ${formatTime(post.unixTimestamp)}</div>
-                            <img class="post-file" src="test_file.jpg">
-                            <div class="post-body">${post.message}</div>
-                        </div>
-                    `;
-                    
-                }
-
-                // set curr-count and max-count
-                const total = Object.keys(allPosts).length;
-                document.getElementById('page-nav-data').innerHTML = `showing ${total} of ${total}`;
-    
-            }).error(function(error) {
-                postbox.innerHTML = error;
-            });
-        }
-        
-        // intercept the click on the submit button, add the post entry and reload entries on success
-        $(document).on('submit', '#addEntry', function(e) {
-            e.preventDefault();
-
-            const message      = document.getElementById('message');
-            const submitError  = document.getElementById('submit-error');
-
-            const messageValue = message.value.trim();
-            
-            if (messageValue.length == 0) {
-
-                submitError.innerHTML = "Cannot post empty message.";
-            } else {
-                
-                posts.add(
-                    messageValue
-                ).done(function(result) {
-                    // reload posts
-                    loadPosts();
-                    // clear inputs
-                    message.value = "";
-                    // clear error
-                    submitError.innerHTML = "";
-                }).error(function(error) {
-                    submitError.innerHTML = error;
-                });
-            }
-        });
-
-        loadPosts();
-    </script>
 </head>
 <body>
 
-    <center>
-        <h1>fatchicks.cc - BBW Image Board</h1>
-        <p>An Internet bulletin board dedicated to Big Beautiful Women. This site is WIP. You can find the Github repo <a href="https://github.com/BlueBunnex/myblog">here</a>.</p>
-
-        <fieldset style="display: inline-block; text-align: left;">
-            <legend>Make Post</legend>
-
-            <form id="addEntry">
-                <br>
-                <label for="image">Select an image file:</label>
-                <input type="file" id="image"><br><br>
-                
-                <label for="message">Message:</label><br>
-                <textarea id="message" rows="4" cols="50" style="max-width: 100ch; max-height: 20ch;"></textarea>
-
-                <ul style="font-size: smaller;">
-                    <li>Empty posts and HTML tags are automatically discarded.</li>
-                    <li>Image files have not yet been implemented.</li>
-                    <li>Commenting has not yet been implemented.</li>
-                </ul>
-                <input type="submit" value="Post">
-                <span id="submit-error" style="color: red;"></span>
-            </form>
-        </fieldset>
-    </center>
-
-    <div id="page-nav-data">
-        <!--
-        showing 20 of 96
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a> -->
+    <div style="width: 600px; margin: auto;">
+        <video style="aspect-ratio: 1.5; width: 100%; background: black;" src="stairs.mov" controls>
+            Your browser does not support the video tag.
+        </video>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Fat Girl Goes Down Stairs</h1>
+            <button type="button">Like (3)</button>
+        </div>
+        <p>Very thrilling video.</p>
     </div>
 
-    <div id="postbox"></div>
+    <video style="aspect-ratio: 1.5; width: 300px; background: black;" src="https://wixmp-ed30a86b8c4ca887773594c2.wixmp.com/v/mp4/1f808cfc-d6d1-4cfb-8253-6384f419c047/dgf51fn-dba21e03-65dd-4fdf-92f0-a2f2dd084a7f.VideoQualities.res_720p.da74006eba5d40a18db932ee7acad66b.mp4" alt="https://www.deviantart.com/bellyhunter69/art/Chubby-Girl-Videos-POV-1-992888195" controls>
+        Your browser does not support the video tag.
+    </video>
     
 </body>
 </html>
