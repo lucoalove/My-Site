@@ -34,11 +34,6 @@
             return time;
         }
 
-        function stripHTML(html) { // I stole this too
-            let doc = new DOMParser().parseFromString(html, 'text/html');
-            return doc.body.textContent || "";
-        }
-
         // tutorial for IBM Cloud
         // Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
         // Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
