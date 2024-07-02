@@ -18,8 +18,37 @@
         /* and then .comment but that's later */
     </style>
 
+    <!--
+    tutorial for IBM Cloud
+    Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
+    Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
+    -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="module">
+
+        const apiUrl = 'https://fatchicks-backend-container.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
+        const posts = {
+            // retrieve the existing posts
+            get() {
+                return $.ajax({
+                    type: 'GET',
+                    url: `${apiUrl}/posts/entries`,
+                    dataType: 'json'
+                });
+            },
+            
+            // add a single post with parameters
+            add(message) {
+                return $.ajax({
+                    type: 'POST',
+                    url: `${apiUrl}/posts/entries`,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({message}),
+                    dataType: 'json'
+                });
+            }
+        };
 
         function timeConverter(ms) { // I stole this code
             var a = new Date(ms);
@@ -34,67 +63,42 @@
             return time;
         }
 
-        // tutorial for IBM Cloud
-        // Setting up Database and Container  https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-webapp
-        // Changing Container code            https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-create-config1
-        
-        const apiUrl = 'https://fatchicks-backend-container.1ivbwhyon9ev.us-east.codeengine.appdomain.cloud';
-        const posts = {
-            // retrieve the existing posts
-            get() {
-                return $.ajax({
-                    type: 'GET',
-                    url: `${apiUrl}/posts/entries`,
-                    dataType: 'json'
-                });
-            },
+        function loadPosts() {
             
-            // add a single post
-            add(message) {
-                return $.ajax({
-                    type: 'POST',
-                    url: `${apiUrl}/posts/entries`,
-                    contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({message}),
-                    dataType: 'json'
-                });
-            }
-        };
-
-        // load posts
-        const postbox = document.getElementById('postbox');
-        postbox.innerHTML = "Loading posts...";
-        
-        posts.get().done(function(result) {
-            if (!result.entries) {
-                postbox.innerHTML = "Something went wrong on our end.";
-                return;
-            }
-
-            postbox.innerHTML = "";
-
-            // sort by unixTimestamp
-            result.entries.sort((a, b) => a.unixTimestamp < b.unixTimestamp);
-
-            // display all posts
-            for (const [index, post] of Object.entries(result.entries)) {
-
-                postbox.innerHTML += `
-                    <div class="post">
-                        <div class="post-file">
-                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
-                            PLACEHOLDER PNG
+            const postbox = document.getElementById('postbox');
+            postbox.innerHTML = "Loading posts...";
+            
+            posts.get().done(function(result) {
+                if (!result.entries) {
+                    postbox.innerHTML = "Something went wrong on our end.";
+                    return;
+                }
+    
+                postbox.innerHTML = "";
+    
+                // sort by unixTimestamp
+                result.entries.sort((a, b) => a.unixTimestamp < b.unixTimestamp);
+    
+                // display all posts
+                for (const [index, post] of Object.entries(result.entries)) {
+    
+                    postbox.innerHTML += `
+                        <div class="post">
+                            <div class="post-file">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
+                                PLACEHOLDER PNG
+                            </div>
+                            <div class="post-body">${post.message}</div>
+                            <div class="post-foot">${timeConverter(post.unixTimestamp)}</div>
                         </div>
-                        <div class="post-body">${post.message}</div>
-                        <div class="post-foot">${timeConverter(post.unixTimestamp)}</div>
-                    </div>
-                `;
-                
-            }
-
-        }).error(function(error) {
-            postbox.innerHTML = error;
-        });
+                    `;
+                    
+                }
+    
+            }).error(function(error) {
+                postbox.innerHTML = error;
+            });
+        }
         
         // intercept the click on the submit button, add the post entry and reload entries on success
         $(document).on('submit', '#addEntry', function(e) {
@@ -103,12 +107,14 @@
             posts.add(
                 document.getElementById('message').value.trim()
             ).done(function(result) {
-                // reload entries
-                location.reload();
+                // reload posts
+                loadPosts();
             }).error(function(error) {
                 console.log(error);
             });
         });
+
+        loadPosts();
     </script>
 </head>
 <body>
