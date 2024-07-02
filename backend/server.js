@@ -82,20 +82,19 @@ const DB_NAME = 'posts';
 app.post("/posts", cors(cors_config), function (req, res, next) {
 
     // check number of posts
-    cloudantClient.postAllDocs({
+    var spaceForPost = false;
+  
+    await cloudantClient.postAllDocs({
         db: DB_NAME,
         includeDocs: true,
         
     }).then(allPosts => {
-        if (allPosts.result.rows.length >= 10)
-            return res.status(500).json({ message: 'Too many posts.' });
-        
-    }).catch(error => {
-        return res.status(500).json({
-            message: 'Could not validate number of posts.',
-            error: error
-        });
+        if (allPosts.result.rows.length < 10)
+            spaceForPost = true;
     });
+
+    if (!spaceForPost)
+        return;
 
     // REGEX away html tags, then add breaks
     req.body.message = req.body.message.replace(/(<([^>]+)>)/ig, '').replaceAll("\n", "<br>");
