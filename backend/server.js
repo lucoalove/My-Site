@@ -62,28 +62,6 @@ const cloudantClient = CloudantV1.newInstance({authenticator: authenticator, ser
 // set the database name
 const DB_NAME = 'posts';
 
-function getPosts(res) {
-    return cloudantClient.postAllDocs({
-        db: DB_NAME,
-        includeDocs: true,
-        
-    }).then(allDocuments => {
-        let fetchedEntries = allDocuments.result;
-        let entries = { entries: fetchedEntries.rows.map((row) => { return {
-            unixTimestamp: row.doc.unixTimestamp,
-            message:       row.doc.message
-        }})}
-        console.log('Get names successful');
-        return res.json(entries);
-        
-    }).catch(error => {
-        return res.status(500).json({
-            message: 'Get names failed.',
-            error: error
-        });
-    });
-}
-
 // create mydb database if it does not already exist
 // cloudantClient.putDatabase({ db: DB_NAME })
 //     .then(data => {
@@ -103,6 +81,22 @@ function getPosts(res) {
 // add a new post
 app.post("/posts", cors(cors_config), function (req, res, next) {
 
+    // check number of posts
+    cloudantClient.postAllDocs({
+        db: DB_NAME,
+        includeDocs: true,
+        
+    }).then(allDocuments => {
+        if (allDocuments.result.rows.length >= 10)
+            return res.status(500).json({ message: 'Too many posts.' });
+        
+    }).catch(error => {
+        return res.status(500).json({
+            message: 'Could not validate number of posts.',
+            error: error
+        });
+    });
+
     // REGEX away html tags, then add breaks
     req.body.message = req.body.message.replace(/(<([^>]+)>)/ig, '').replaceAll("\n", "<br>");
 
@@ -120,7 +114,6 @@ app.post("/posts", cors(cors_config), function (req, res, next) {
         document: entry
         
     }).then(addedEntry => {
-        console.log('Add entry successful');
         return res.status(201).json({
             _id:           addedEntry.id,
             unixTimestamp: addedEntry.unixTimestamp,
@@ -128,9 +121,8 @@ app.post("/posts", cors(cors_config), function (req, res, next) {
         });
 
     }).catch(error => {
-        console.log('Add entry failed');
         return res.status(500).json({
-            message: 'Add entry failed.',
+            message: 'Add post failed.',
             error:   error
         });
     });
@@ -139,7 +131,24 @@ app.post("/posts", cors(cors_config), function (req, res, next) {
 
 // retrieve the existing posts
 app.get("/posts", cors(cors_config), function (req, res, next) {
-    return getPosts(res);
+    return cloudantClient.postAllDocs({
+        db: DB_NAME,
+        includeDocs: true,
+        
+    }).then(allDocuments => {
+        let fetchedEntries = allDocuments.result;
+        let entries = { entries: fetchedEntries.rows.map((row) => { return {
+            unixTimestamp: row.doc.unixTimestamp,
+            message:       row.doc.message
+        }})}
+        return res.json(entries);
+        
+    }).catch(error => {
+        return res.status(500).json({
+            message: 'Get posts failed.',
+            error: error
+        });
+    });
 });
 
 app.get('/', (req, res) => { res.send('healthy') })
