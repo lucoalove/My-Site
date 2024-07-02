@@ -10,6 +10,8 @@
         h1 { color: #c00; font-size: 2.5em; }
         a { color: #c00; }
 
+        #page-nav-data { padding: 4px 8px; border-top: 2px groove silver; margin: 1em 0; }
+
         .post { margin: 8px; border: 2px solid #acc; padding: 8px; overflow-y: hidden; }
         .post-file { float: left; padding-right: 8px; padding-bottom: 8px; height: 200px; }
         .post-meta { color: #880; margin-bottom: 8px; }
@@ -95,8 +97,8 @@
                 }
 
                 // set curr-count and max-count
-                document.getElementById('curr-count').innerHTML = Object.keys(allPosts).length;
-                document.getElementById('max-count').innerHTML  = Object.keys(allPosts).length;
+                const total = Object.keys(allPosts).length;
+                document.getElementById('page-nav-data').innerHTML = `showing ${total} of ${total}`;
     
             }).error(function(error) {
                 postbox.innerHTML = error;
@@ -151,9 +153,9 @@
         </fieldset>
     </center>
 
-    <div style="padding: 4px 8px; border-top: 2px groove silver; margin: 1em 0;">
-        showing <span id="curr-count"></span> of <span id="max-count"></span>
+    <div id="page-nav-data">
         <!--
+        showing 20 of 96
         <a href="">1</a>
         <a href="">2</a>
         <a href="">3</a>
