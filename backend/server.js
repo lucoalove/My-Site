@@ -117,12 +117,15 @@ app.get("/posts", cors(cors_config), function (req, res, next) {
         db: DB_NAME,
         includeDocs: true
         
-    }).then(allPosts => {
-        let entries = { entries: allPosts.result.rows.map((row) => { return {
-            unixTimestamp: row.doc.unixTimestamp,
-            message:       row.doc.message
-        }})};
-        return res.json(entries);
+    }).then(allEntries => {
+        return res.json({
+            allPosts: allEntries.result.rows.map((row) => {
+                return {
+                    unixTimestamp: row.doc.unixTimestamp,
+                    message:       row.doc.message
+                }
+            })
+        });
         
     }).catch(error => {
         return res.status(500).json({
