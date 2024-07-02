@@ -56,8 +56,7 @@ const authenticator = new IamAuthenticator({
 });
 
 // create a new client
-const cloudantClient = CloudantV1.newInstance({authenticator: authenticator,
-  serviceUrl: cloudant_url});
+const cloudantClient = CloudantV1.newInstance({authenticator: authenticator, serviceUrl: cloudant_url});
 
 
   
@@ -84,7 +83,7 @@ app.post("/posts/entries", cors(cors_config), function (req, res, next) {
     
     let entry = {
         unixTimestamp: Date.now(),
-        message:       req.body.message
+        message:       req.body.message.replace("\n", "<br>")
     };
     
     return cloudantClient.postDocument({
