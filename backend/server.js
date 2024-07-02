@@ -80,14 +80,18 @@ cloudantClient.putDatabase({ db: dbName})
 // add a new post (with timestamp info for sorting)
 app.post("/posts/entries", cors(cors_config), function (req, res, next) {
 
+    console.log('In route - add entry');
+
+    // REGEX away html tags, then add breaks
+    req.body.message = req.body.message.replace(/(<([^>]+)>)/ig, '').replaceAll("\n", "<br>");
+
+    // if resulting string is empty, don't post
     if (req.body.message === '')
         return;
-  
-    console.log('In route - add entry');
     
     let entry = {
         unixTimestamp: Date.now(),
-        message:       req.body.message.replace(/(<([^>]+)>)/ig, '').replace("\n", "<br>") // REGEX away html tags, then add breaks
+        message:       req.body.message
     };
     
     return cloudantClient.postDocument({
