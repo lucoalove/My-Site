@@ -136,13 +136,17 @@
         <h1>fatchicks.cc - BBW Image Board</h1>
         <p>An Internet bulletin board dedicated to Big Beautiful Women. This site is WIP. You can find the Github repo <a href="https://github.com/BlueBunnex/myblog">here</a>.</p>
 
-        <fieldset style="display: inline-block;">
+        <fieldset style="display: inline-block; text-align: left;">
             <legend>Make Post</legend>
-            <form id="addEntry">
-                <label for="message">Message</label><br>
-                <textarea id="message" rows="4" cols="50"></textarea>
 
-                <h4>Keep in mind</h4>
+            <form id="addEntry">
+                <br>
+                <label for="image">Select an image file:</label>
+                <input type="file" id="image"><br><br>
+                
+                <label for="message">Message:</label><br>
+                <textarea id="message" rows="4" cols="50" style="max-width: 100ch; max-height: 12ch;"></textarea>
+
                 <ul>
                     <li>Empty posts and HTML tags are automatically discarded.</li>
                 </ul>
