@@ -77,24 +77,8 @@ const DB_NAME = 'posts';
 //       }
 // });
 
-
 // add a new post
 app.post("/posts", cors(cors_config), function (req, res, next) {
-
-    // check number of posts
-    var spaceForPost = false;
-  
-    await cloudantClient.postAllDocs({
-        db: DB_NAME,
-        includeDocs: true,
-        
-    }).then(allPosts => {
-        if (allPosts.result.rows.length < 10)
-            spaceForPost = true;
-    });
-
-    if (!spaceForPost)
-        return;
 
     // REGEX away html tags, then add breaks
     req.body.message = req.body.message.replace(/(<([^>]+)>)/ig, '').replaceAll("\n", "<br>");
@@ -122,17 +106,16 @@ app.post("/posts", cors(cors_config), function (req, res, next) {
     }).catch(error => {
         return res.status(500).json({
             message: 'Add post failed.',
-            error:   error
+            error: error
         });
     });
 });
-
 
 // retrieve the existing posts
 app.get("/posts", cors(cors_config), function (req, res, next) {
     return cloudantClient.postAllDocs({
         db: DB_NAME,
-        includeDocs: true,
+        includeDocs: true
         
     }).then(allPosts => {
         let entries = { entries: allPosts.result.rows.map((row) => { return {
