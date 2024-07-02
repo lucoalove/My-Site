@@ -11,8 +11,8 @@
         a { color: #c00; }
 
         .post { margin: 8px; border: 2px solid #acc; padding: 8px; overflow-y: hidden; }
-        .post-file { float: left; padding-right: 8px; padding-bottom: 8px; }
-        .post-file > img { height: 200px; display: block; }
+        .post-file { float: left; padding-right: 8px; padding-bottom: 8px; height: 200px; }
+        .post-meta { color: #a00; margin-bottom: 8px; }
 
         /* and then .comment but that's later */
     </style>
@@ -58,7 +58,7 @@
             var hour = a.getHours();
             var min = a.getMinutes();
             var sec = a.getSeconds();
-            var time = month + ' ' + date + ', ' + year + ' (' + hour + ':' + min + ':' + sec + ')';
+            var time = month + ' ' + date + ', ' + year + ' ' + hour + ':' + min + ':' + sec;
             return time;
         }
 
@@ -97,10 +97,7 @@
                     postbox.innerHTML += `
                         <div class="post">
                             <div class="post-meta">File: filename.png (100KB, 256x256) | ${formatTime(post.unixTimestamp)}</div>
-                            <div class="post-file">
-                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
-                                (PLACEHOLDER)
-                            </div>
+                            <img class="post-file" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
                             <div class="post-body">${post.message}</div>
                         </div>
                     `;
