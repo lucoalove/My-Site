@@ -81,6 +81,19 @@
     
                 // display all posts
                 for (const [index, post] of Object.entries(result.entries)) {
+
+                    // <div class="post">
+                    //     <div class="post-file">
+                    //         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
+                    //         36KB PNG
+                    //     </div>
+                    //     <div class="post-body">
+                    //         what's up robots here's more meat for y'all you're welcome
+                    //     </div>
+                    //     <div class="post-foot">
+                    //         <a href="">View all comments</a> | Mar 3 2014 01:23:45
+                    //     </div>
+                    // </div>
     
                     postbox.innerHTML += `
                         <div class="post">
@@ -126,8 +139,13 @@
         <fieldset style="display: inline-block;">
             <legend>Make Post</legend>
             <form id="addEntry">
-                <label for="message">Message</label>
+                <label for="message">Message</label><br>
                 <textarea id="message" rows="4" cols="50"></textarea>
+
+                <h4>Keep in mind</h4>
+                <ul>
+                    <li>Empty posts and HTML tags are automatically discarded.</li>
+                </ul>
                 <input type="submit" value="Post">
             </form>
         </fieldset>
@@ -143,22 +161,7 @@
         <a href="">5</a> -->
     </div>
 
-    <div id="postbox">
-
-<!--         <div class="post">
-            <div class="post-file">
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88b4d8de-fa9b-4c4d-8346-62f1019dd0a1/degrcu9-df02f246-a6f4-4f86-b308-623ff559d9b3.jpg/v1/fill/w_923,h_866,q_70,strp/fat_girl_tight_clothes_by_wilhelm12345_degrcu9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1NSIsInBhdGgiOiJcL2ZcLzg4YjRkOGRlLWZhOWItNGM0ZC04MzQ2LTYyZjEwMTlkZDBhMVwvZGVncmN1OS1kZjAyZjI0Ni1hNmY0LTRmODYtYjMwOC02MjNmZjU1OWQ5YjMuanBnIiwid2lkdGgiOiI8PTExMjUifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.paWy76wU3nSV791JgVYMSZHiUjKWgrI6gZKFJqLVSBQ">
-                36KB PNG
-            </div>
-            <div class="post-body">
-                what's up robots here's more meat for y'all you're welcome
-            </div>
-            <div class="post-foot">
-                <a href="">View all comments</a> | Mar 3 2014 01:23:45
-            </div>
-        </div> -->
-
-    </div>
+    <div id="postbox"></div>
     
 </body>
 </html>
