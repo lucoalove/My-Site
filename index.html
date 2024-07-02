@@ -50,7 +50,7 @@
             }
         };
 
-        function timeConverter(ms) { // I stole this code
+        function formatTime(ms) { // I stole this code
             var a = new Date(ms);
             var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             var year = a.getFullYear();
@@ -59,7 +59,7 @@
             var hour = a.getHours();
             var min = a.getMinutes();
             var sec = a.getSeconds();
-            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+            var time = month + ' ' + date + ', ' + year + ' (' + hour + ':' + min + ':' + sec + ')';
             return time;
         }
 
@@ -102,7 +102,7 @@
                                 PLACEHOLDER PNG
                             </div>
                             <div class="post-body">${post.message}</div>
-                            <div class="post-foot">${timeConverter(post.unixTimestamp)}</div>
+                            <div class="post-foot">${formatTime(post.unixTimestamp)}</div>
                         </div>
                     `;
                     
@@ -149,6 +149,8 @@
 
                 <ul style="font-size: smaller;">
                     <li>Empty posts and HTML tags are automatically discarded.</li>
+                    <li>Image files have not yet been implemented.</li>
+                    <li>Commenting has not yet been implemented.</li>
                 </ul>
                 <input type="submit" value="Post">
             </form>
