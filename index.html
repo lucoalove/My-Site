@@ -24,10 +24,22 @@
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
             }
-            return response.json();
+            return response.json().videos;
         })
-        .then(json => {
-            alert("success " + json);
+        .then(videos => {
+            for (const v of videos) {
+                document.getElementById('main-section').innerHTML +=
+                `
+                <video src="${v.src}" controls>
+                    Your browser does not support the video tag.
+                </video>
+                <div id="video-details">
+                    <h1>${v.title}</h1>
+                    <button type="button">Like (3.1k)</button>
+                </div>
+                <p>${v.desc}</p>
+                `;
+            }
         })
         .catch(function () {
             alert("error");
@@ -36,15 +48,8 @@
 </head>
 <body>
 
-    <div style="width: 600px; margin: auto;">
-        <video src="stairs.mov" controls>
-            Your browser does not support the video tag.
-        </video>
-        <div id="video-details">
-            <h1>Cute girl descending stairs</h1>
-            <button type="button">Like (3.1k)</button>
-        </div>
-        <p>Very thrilling video. You can find the Github repo for this page <a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">here</a>.</p>
+    <div id="main-section" style="width: 600px; margin: auto;">
+        
     </div>
     
 </body>
