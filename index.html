@@ -24,11 +24,10 @@
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
             }
-            return response.json().videos;
+            return response.json();
         })
-        .then(videos => {
-            alert("success?");
-            for (const v of videos) {
+        .then(json => {
+            for (const v of json.videos) {
                 document.getElementById('main-section').innerHTML +=
                 `
                 <video src="${v.src}" controls>
