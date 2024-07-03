@@ -28,20 +28,22 @@
             }
             return response.json();
         })
-        .then(json => {
-            const vID = new URLSearchParams(window.location.search).get('v');
-            const video = json.videos[parseInt(vID)];
-            
-            mainSection.innerHTML += `
-                <video src="${video.src}" controls>
-                    Your browser does not support the video tag.
-                </video>
-                <div id="video-details">
-                    <h1>${video.title}</h1>
-                    <button type="button">Like (3.1k)</button>
-                </div>
-                <p>${video.desc}</p>
-            `;
+        .then(videos => {
+            // const vID = new URLSearchParams(window.location.search).get('v');
+            // const video = json[vID];
+
+            for (const [videoID, video] of Object.entries(videos)) {
+                mainSection.innerHTML += `
+                    <video src="${video.src}" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                    <div id="video-details">
+                        <h1>${video.title} (${videoID})</h1>
+                        <button type="button">Like (3.1k)</button>
+                    </div>
+                    <p>${video.desc}</p>
+                `;
+            }
         })
         .catch(function() {
             mainSection.innerHTML += "[ could not find any video :( ]";
