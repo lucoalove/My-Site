@@ -27,19 +27,19 @@
             return response.json();
         })
         .then(json => {
-            for (const v of json.videos) {
-                document.getElementById('main-section').innerHTML +=
-                `
-                <video src="${v.src}" controls>
+            const vID = new URLSearchParams(window.location.search).get('v');
+            const video = json.videos[parseInt(vID)];
+            
+            document.getElementById('main-section').innerHTML += `
+                <video src="${video.src}" controls>
                     Your browser does not support the video tag.
                 </video>
                 <div id="video-details">
-                    <h1>${v.title}</h1>
+                    <h1>${video.title}</h1>
                     <button type="button">Like (3.1k)</button>
                 </div>
-                <p>${v.desc}</p>
-                `;
-            }
+                <p>${video.desc}</p>
+            `;
         })
         .catch(function () {
             alert("error");
@@ -49,7 +49,7 @@
 <body>
 
     <div id="main-section" style="width: 600px; margin: auto;">
-        
+        <a href="https://www.fatchicks.cc?v=0"></a>
     </div>
     
 </body>
