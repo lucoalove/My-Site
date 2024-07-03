@@ -29,16 +29,22 @@
             return response.json();
         })
         .then(videos => {
-            // const vID = new URLSearchParams(window.location.search).get('v');
-            // const video = json[vID];
+            // temp: display link for every video
+            for (const [vID, video] of Object.entries(videos)) {
+                mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a><br>`;
+            }
 
-            for (const [videoID, video] of Object.entries(videos)) {
+            // display selected video (if there is one)
+            const vID = new URLSearchParams(window.location.search).get('v');
+            const video = json[vID];
+
+            if (video != null) {
                 mainSection.innerHTML += `
                     <video src="${video.src}" controls>
                         Your browser does not support the video tag.
                     </video>
                     <div id="video-details">
-                        <h1>${video.title} (${videoID})</h1>
+                        <h1>${video.title}</h1>
                         <button type="button">Like (3.1k)</button>
                     </div>
                     <p>${video.desc}</p>
@@ -46,15 +52,13 @@
             }
         })
         .catch(function() {
-            mainSection.innerHTML += "[ could not find any video :( ]";
+            mainSection.innerHTML += "error retrieving videos";
         })
     </script>
 </head>
 <body>
 
-    <div id="main-section" style="width: 600px; margin: auto;">
-        <a href="https://www.fatchicks.cc/?v=0">Example video</a>
-    </div>
+    <div id="main-section" style="width: 600px; margin: auto;"></div>
     
 </body>
 </html>
