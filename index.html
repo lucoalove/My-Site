@@ -18,7 +18,7 @@
         #video-details { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, #ddd, #fff); padding: 4px; }
     </style>
 
-    <script>
+    <script type="module">
         const mainSection = document.getElementById('main-section');
         
         fetch('data.json')
@@ -44,14 +44,14 @@
             `;
         })
         .catch(function() {
-            mainSection.innerHTML += "could not find any video :(";
+            mainSection.innerHTML += "[ could not find any video :( ]";
         })
     </script>
 </head>
 <body>
 
     <div id="main-section" style="width: 600px; margin: auto;">
-        <a href="https://www.fatchicks.cc/?v=0">First video</a>
+        <a href="https://www.fatchicks.cc/?v=0">Example video</a>
     </div>
     
 </body>
