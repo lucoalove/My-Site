@@ -28,9 +28,9 @@
             }
             return response.json();
         })
-        .then(videos => {
+        .then(json => {
             // temp: display link for every video
-            for (const [vID, video] of Object.entries(videos)) {
+            for (const [vID, video] of Object.entries(json)) {
                 mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a><br>`;
             }
 
