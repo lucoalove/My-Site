@@ -19,6 +19,8 @@
     </style>
 
     <script>
+        const mainSection = document.getElementById('main-section');
+        
         fetch('data.json')
         .then(response => {
             if (!response.ok) {
@@ -30,7 +32,7 @@
             const vID = new URLSearchParams(window.location.search).get('v');
             const video = json.videos[parseInt(vID)];
             
-            document.getElementById('main-section').innerHTML += `
+            mainSection.innerHTML += `
                 <video src="${video.src}" controls>
                     Your browser does not support the video tag.
                 </video>
@@ -41,15 +43,15 @@
                 <p>${video.desc}</p>
             `;
         })
-        .catch(function () {
-            alert("error");
+        .catch(function() {
+            mainSection.innerHTML += "could not find any video :(";
         })
     </script>
 </head>
 <body>
 
     <div id="main-section" style="width: 600px; margin: auto;">
-        <a href="https://www.fatchicks.cc?v=0"></a>
+        <a href="https://www.fatchicks.cc/?v=0">First video</a>
     </div>
     
 </body>
