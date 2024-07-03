@@ -27,6 +27,7 @@
             return response.json().videos;
         })
         .then(videos => {
+            alert("success?");
             for (const v of videos) {
                 document.getElementById('main-section').innerHTML +=
                 `
