@@ -17,6 +17,22 @@
         video { display: block; aspect-ratio: 1.5; width: 100%; background: black; }
         #video-details { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, #ddd, #fff); padding: 4px; }
     </style>
+
+    <script>
+        fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(json => {
+            alert("success " + json);
+        })
+        .catch(function () {
+            alert("error");
+        })
+    </script>
 </head>
 <body>
 
