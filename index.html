@@ -20,6 +20,7 @@
 
     <script type="module">
         const mainSection = document.getElementById('main-section');
+        const asideSection = document.getElementById('aside-section');
         
         fetch('data.json')
         .then(response => {
@@ -31,7 +32,7 @@
         .then(json => {
             // temp: display link for every video
             for (const [vID, video] of Object.entries(json)) {
-                mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a><br>`;
+                asideSection.innerHTML += `<a href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a><br>`;
             }
 
             // display selected video (if there is one)
@@ -58,7 +59,12 @@
 </head>
 <body>
 
-    <div id="main-section" style="width: 600px; margin: auto;"></div>
+    <div style="display: flex; justify-content: center;">
+        <main id="main-section" style="width: 600px;"></main>
+        <aside id="aside-section" style="width: 300px;">
+            <img src="test_file.jpg" width="100%">
+        </aside>
+    </div>
     
 </body>
 </html>
