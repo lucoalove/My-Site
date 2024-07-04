@@ -34,7 +34,10 @@
             const content = json[ID];
 
             if (content != null) {
-                mainSection.innerHTML += `<h2>${content.title}</h2><img width="100%" src="${content.src}">`;
+                mainSection.innerHTML += `
+                    <h2>${content.title}</h2>
+                    <img style="max-width: 100%; max-height: 400px;" src="${content.src}">
+                `;
             }
         })
         .catch(function() {
@@ -43,6 +46,8 @@
     </script>
 </head>
 <body>
+
+    <!-- masonry? https://flexmasonry.vercel.app -->
 
     <div id="main-section" style="width: 600px; margin: 1em auto;">
         <h1>Fatchicks Network</h1>
