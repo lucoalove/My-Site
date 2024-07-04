@@ -35,11 +35,11 @@
 
             if (content != null) {
                 mainSection.innerHTML += `
-                    <hr>
-                    <div style="background: grey; display: flex; justify-content: center;">
+                    <div style="background: #eee; display: flex; justify-content: center;">
                         <img style="max-width: 100%; max-height: 400px;" src="${content.src}">
                     </div>
                     <h2>${content.title}</h2>
+                    <p>${content.desc}</p>
                 `;
             }
         })
