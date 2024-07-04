@@ -29,13 +29,13 @@
                 mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?id=${ID}">${content.title}</a><br>`;
             }
 
-            // display selected video (if there is one)
-            // const ID = new URLSearchParams(window.location.search).get('id');
-            // const content = json[ID];
+            display selected video (if there is one)
+            const ID = new URLSearchParams(window.location.search).get('id');
+            const content = json[ID];
 
-            // if (content != null) {
-            //     mainSection.innerHTML += ``;
-            // }
+            if (content != null) {
+                mainSection.innerHTML += `<h2>${content.title}</h2><img width="100%" src="${content.src}">`;
+            }
         })
         .catch(function() {
             mainSection.innerHTML += "error retrieving content";
@@ -44,10 +44,10 @@
 </head>
 <body>
 
-    <h1>Fatchicks Network</h1>
-    <p>A place for AI art of big beautiful women.</p>
-
-    <div id="main-section" style="width: 600px; margin: 1em auto;"></div>
+    <div id="main-section" style="width: 600px; margin: 1em auto;">
+        <h1>Fatchicks Network</h1>
+        <p>A place for AI art of big beautiful women.</p>
+    </div>
     
 </body>
 </html>
