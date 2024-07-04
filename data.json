@@ -1,5 +1,12 @@
 {
-    "Gv4r": {"src": "stairs.mov", "title": "Cute girl descending stairs", "desc": "Very thrilling video. You can find the Github repo for this page <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>here</a>."},
-    "O2iA": {"src": "damaged.mp4", "title": "I am damaged...", "desc": "subscribe to see me eat three pizzas, nya ^w^"},
-    "g-42": {"src": "https://media.discordapp.net/attachments/1252089370538676298/1258464390932336690/IMG_2317.jpg?ex=668823cb&is=6686d24b&hm=840b6a28fd2e5ec9d1fe1ad4a1643aef5f5edb4d438b12837147523680c7ceaa", "title": "Overindulged Elf", "desc": "moans"}
+    "Gv4r": {
+        "title": "Fat cat swimsuit",
+        "desc": "You can find the Github repo for this page <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>here</a>.",
+        "src": "https://media.discordapp.net/attachments/1252089370538676298/1258473006687322164/00012-1709845084.png?ex=66882bd2&is=6686da52&hm=5f3f62303c83d7c1bbb74c2ef453dbfea22c8b7ccff84587ac0834fdb31ddcd4&=&format=webp&quality=lossless"
+    },
+    "O2iA": {
+        "title": "Overindulged Elf",
+        "desc": "subscribe to see me eat three pizzas, nya ^w^",
+        "src": "https://media.discordapp.net/attachments/1252089370538676298/1258464390932336690/IMG_2317.jpg?ex=668823cb&is=6686d24b&hm=840b6a28fd2e5ec9d1fe1ad4a1643aef5f5edb4d438b12837147523680c7ceaa"
+    }
 }
