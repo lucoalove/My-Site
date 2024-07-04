@@ -24,12 +24,12 @@
             return response.json();
         })
         .then(json => {
-            // temp: display link for every video
+            // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?id=${ID}">${content.title}</a><br>`;
             }
 
-            display selected video (if there is one)
+            // display selected content (if there is one)
             const ID = new URLSearchParams(window.location.search).get('id');
             const content = json[ID];
 
