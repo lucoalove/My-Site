@@ -32,7 +32,7 @@
         .then(json => {
             // temp: display link for every video
             for (const [vID, video] of Object.entries(json)) {
-                asideSection.innerHTML += `<a href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a><br>`;
+                asideSection.innerHTML += `<a style="display: block; padding: 8px; background: lightgrey; border: 1px solid grey; margin-bottom: 8px;" href="https://www.fatchicks.cc/?v=${vID}">${video.title}</a>`;
             }
 
             // display selected video (if there is one)
@@ -59,11 +59,9 @@
 </head>
 <body>
 
-    <div style="display: flex; justify-content: center;">
-        <main id="main-section" style="width: 600px;"></main>
-        <aside id="aside-section" style="width: 300px;">
-            <img src="test_file.jpg" width="100%">
-        </aside>
+    <div style="display: flex; justify-content: center; gap: 1em;">
+        <main id="main-section" style="width: 800px;"></main>
+        <aside id="aside-section" style="width: 400px;"></aside>
     </div>
     
 </body>
