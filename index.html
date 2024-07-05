@@ -7,6 +7,7 @@
     <style>
         body { font-family: sans-serif; background: #acb; }
         a { color: #c11; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         h4 { margin-bottom: 0; }
         h1 { border-bottom: 1px solid black; padding-bottom: 4px; }
 
@@ -30,7 +31,7 @@
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 sideSection.innerHTML += `
-                    <a style="overflow: hidden; background: #8a9; display: block;" href="https://www.fatchicks.cc/?id=${ID}">
+                    <a style="overflow: hidden; display: block;" href="https://www.fatchicks.cc/?id=${ID}">
                         <img style="float: left;" height="80" src="${content.src}">
                         ${content.title}
                     </a>
