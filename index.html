@@ -36,7 +36,7 @@
             if (content != null) {
                 mainSection.innerHTML += `
                     <div style="background: #eee; display: flex; justify-content: center;">
-                        <img style="max-width: 100%; max-height: 400px;" src="${content.src}">
+                        <img style="max-width: 100%; max-height: 80vh;" src="${content.src}">
                     </div>
                     <h2>${content.title}</h2>
                     <p>${content.desc}</p>
@@ -52,7 +52,7 @@
 
     <!-- masonry? https://flexmasonry.vercel.app -->
 
-    <div style="display: flex; gap: 1em; justify-content: center;">
+    <div style="gap: 1em; justify-content: center;">
         <div id="side-section" style="width: 300px;">
             <h1>Fatchicks Network</h1>
             <p>A place for photos, art, and stories of big beautiful women. <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>Github</a>. <a href="https://e621.net/posts/3105053?q=kirlia+short_stack">Reference</a>.</p>
@@ -61,7 +61,7 @@
             <a>thick thighs</a><br>
             <a>huge belly</a><br>
         </div>
-        <div id="main-section" style="width: 600px;"></div>
+        <div id="main-section" style="flex: 1;"></div>
     </div>
     
 </body>
