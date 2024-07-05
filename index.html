@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <style>
+        img { width: 100%; border-radius: 8px; border: 1px solid black; }
+    </style>
 
     <script type="module">
         const insert = document.getElementById('insert');
@@ -21,7 +24,7 @@
             for (const [ID, content] of Object.entries(json)) {
                 insert.innerHTML += `
                     <a href="display.html?id=${ID}">
-                        <img width="100%" src="${content.src}">
+                        <img src="${content.src}">
                     </a>
                 `;
             }
@@ -38,7 +41,7 @@
     <h1>Fatchicks Network</h1>
     <p>A place for photos, art, and stories of big beautiful women. <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>Github</a>. <a href="https://e621.net/posts/3105053?q=kirlia+short_stack">Reference</a>.</p>
 
-    <div id="insert" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; gap: 1em;"></div>
+    <div id="insert" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 2fr)); gap: 8px;"></div>
     
 </body>
 </html>
