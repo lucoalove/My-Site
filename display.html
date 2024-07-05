@@ -4,28 +4,22 @@
     <title>fatchicks.cc</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: sans-serif; background: #acb; }
-        a { color: #c00; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h4 { margin-bottom: 0; }
         h1 { border-bottom: 1px solid black; padding-bottom: 4px; }
+        h4 { margin-bottom: 0; }
 
         #big-display { background: #8a9; display: flex; justify-content: center; }
         #big-display img { max-width: 100%; max-height: 80vh; }
     </style>
 
+    <script src="fetch.js">
     <script type="module">
         const mainSection = document.getElementById('main-section');
         const sideSection = document.getElementById('side-section');
         
-        fetch('data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error " + response.status);
-            }
-            return response.json();
-        })
+        fetchData()
         .then(json => {
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
