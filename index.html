@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script type="module" src="fetch.js">
     <script type="module">
         const insert = document.getElementById('insert');
         
@@ -18,9 +17,6 @@
             }
             return response.json();
         })
-        .catch(function() {
-            alert("error retrieving content");
-        })
         .then(json => {
             for (const [ID, content] of Object.entries(json)) {
                 insert.innerHTML += `
@@ -29,6 +25,9 @@
                     </a>
                 `;
             }
+        })
+        .catch(function() {
+            alert("error retrieving content");
         });
     </script>
 </head>
