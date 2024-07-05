@@ -30,10 +30,10 @@
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 sideSection.innerHTML += `
-                    <a style="overflow: hidden; background: #8a9;" href="https://www.fatchicks.cc/?id=${ID}">
+                    <a style="overflow: hidden; background: #8a9; display: block;" href="https://www.fatchicks.cc/?id=${ID}">
                         <img style="float: left;" height="80" src="${content.src}">
                         ${content.title}
-                    </a><br>
+                    </a>
                 `;
             }
 
