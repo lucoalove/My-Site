@@ -14,7 +14,6 @@
         #big-display img { max-width: 100%; max-height: 80vh; }
     </style>
 
-    <script type="module" src="fetch.js">
     <script type="module">
         const similar    = document.getElementById('similar'),
               bigDisplay = document.getElementById('big-display'),
@@ -31,7 +30,7 @@
         .then(json => {
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
-                sideSection.innerHTML += `
+                similar.innerHTML += `
                     <a style="overflow: hidden; display: block;" href="?id=${ID}">
                         <img style="float: left;" height="80" src="${content.src}">
                         ${content.title}
