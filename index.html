@@ -11,7 +11,16 @@
     <script type="module">
         const insert = document.getElementById('insert');
         
-        fetchData()
+        fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error: " + response.status);
+            }
+            return response.json();
+        })
+        .catch(function() {
+            alert("error retrieving content");
+        })
         .then(json => {
             for (const [ID, content] of Object.entries(json)) {
                 insert.innerHTML += `
@@ -20,10 +29,7 @@
                     </a>
                 `;
             }
-        })
-        .catch(function() {
-            mainSection.innerHTML += "error retrieving content";
-        })
+        });
     </script>
 </head>
 <body>
