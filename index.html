@@ -15,6 +15,7 @@
 
     <script type="module">
         const mainSection = document.getElementById('main-section');
+        const sideSection = document.getElementById('side-section');
         
         fetch('data.json')
         .then(response => {
@@ -26,7 +27,7 @@
         .then(json => {
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
-                mainSection.innerHTML += `<a href="https://www.fatchicks.cc/?id=${ID}">${content.title}</a><br>`;
+                sideSection.innerHTML += `<a href="https://www.fatchicks.cc/?id=${ID}">${content.title}</a><br>`;
             }
 
             // display selected content (if there is one)
@@ -60,6 +61,7 @@
             <h4>Tags</h4>
             <a>thick thighs</a><br>
             <a>huge belly</a><br>
+            <h4>Similar</h4>
         </div>
         <div id="main-section" style="flex: 1;"></div>
     </div>
