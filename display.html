@@ -14,7 +14,7 @@
         #big-display img { max-width: 100%; max-height: 80vh; }
     </style>
 
-    <script src="fetch.js">
+    <script type="module" src="fetch.js">
     <script type="module">
         const mainSection = document.getElementById('main-section');
         const sideSection = document.getElementById('side-section');
@@ -24,7 +24,7 @@
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 sideSection.innerHTML += `
-                    <a style="overflow: hidden; display: block;" href="https://www.fatchicks.cc/?id=${ID}">
+                    <a style="overflow: hidden; display: block;" href="?id=${ID}">
                         <img style="float: left;" height="80" src="${content.src}">
                         ${content.title}
                     </a>
