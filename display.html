@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="style.css">
     <style>
-        h1 { border-bottom: 1px solid black; padding-bottom: 4px; }
+        h2 { border-bottom: 1px solid black; padding-bottom: 4px; }
         h4 { margin-bottom: 0; }
 
         #big-display { background: #8a9; display: flex; justify-content: center; }
@@ -16,8 +16,10 @@
 
     <script type="module" src="fetch.js">
     <script type="module">
-        const mainSection = document.getElementById('main-section');
-        const sideSection = document.getElementById('side-section');
+        const similar    = document.getElementById('similar'),
+              bigDisplay = document.getElementById('big-display'),
+              bigTitle   = document.getElementById('big-title'),
+              bigDesc    = document.getElementById('big-desc');
         
         fetchData()
         .then(json => {
@@ -36,13 +38,9 @@
             const content = json[ID];
 
             if (content != null) {
-                mainSection.innerHTML += `
-                    <div id="big-display">
-                        <img src="${content.src}">
-                    </div>
-                    <h2>${content.title}</h2>
-                    <p>${content.desc}</p>
-                `;
+                bigDisplay.innerHTML = `<img src="${content.src}">`;
+                bigTitle.innerHTML = content.title;
+                bigDesc.innerHTML = content.desc;
             }
         })
         .catch(function() {
@@ -55,16 +53,26 @@
     <!-- masonry? https://flexmasonry.vercel.app -->
 
     <div style="display: flex; gap: 1em;">
-        <div id="side-section" style="width: 300px;">
+        
+        <aside style="width: 300px;">
             <h1>Fatchicks Network</h1>
             <p>A place for photos, art, and stories of big beautiful women. <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>Github</a>. <a href="https://e621.net/posts/3105053?q=kirlia+short_stack">Reference</a>.</p>
             <hr>
+            
             <h4>Tags</h4>
             <a>thick thighs</a><br>
             <a>huge belly</a><br>
+            
             <h4>Similar</h4>
-        </div>
-        <div id="main-section" style="flex: 1;"></div>
+            <div id="similar"></div>
+        </aside>
+        
+        <main style="flex: 1;">
+            <div id="big-display"></div>
+            <h2 id="big-title"></h2>
+            <p id="big-desc"></p>
+        </main>
+        
     </div>
     
 </body>
