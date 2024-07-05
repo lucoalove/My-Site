@@ -1,4 +1,4 @@
-async function fetchData() {
+function fetchData() {
     return
         fetch('data.json')
         .then(response => {
