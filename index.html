@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fatchicks.cc</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="module" src="fetch.js">
+    <script type="module">
+        const insert = document.getElementById('insert');
+        
+        fetchData()
+        .then(json => {
+            for (const [ID, content] of Object.entries(json)) {
+                insert.innerHTML += `
+                    <a href="display.html?id=${ID}">
+                        <img width="100%" src="${content.src}">
+                    </a>
+                `;
+            }
+        })
+        .catch(function() {
+            mainSection.innerHTML += "error retrieving content";
+        })
+    </script>
+</head>
+<body>
+
+    <!-- masonry? https://flexmasonry.vercel.app -->
+
+    <h1>Fatchicks Network</h1>
+    <p>A place for photos, art, and stories of big beautiful women. <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>Github</a>. <a href="https://e621.net/posts/3105053?q=kirlia+short_stack">Reference</a>.</p>
+
+    <div id="insert" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; gap: 1em;"></div>
+    
+</body>
+</html>
