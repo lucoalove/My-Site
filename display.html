@@ -43,7 +43,7 @@
             const content = json[ID];
 
             if (content == null) {
-                document.location.href = "/";
+                bigTitle.innerHTML = "404 Page not found.";
             } else {
                 bigDisplay.innerHTML = `<img src="${content.src}">`;
                 bigTitle.innerHTML = content.title;
