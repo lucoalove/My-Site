@@ -21,7 +21,13 @@
               bigTitle   = document.getElementById('big-title'),
               bigDesc    = document.getElementById('big-desc');
         
-        fetchData()
+        fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error: " + response.status);
+            }
+            return response.json();
+        })
         .then(json => {
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
