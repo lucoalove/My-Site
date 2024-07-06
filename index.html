@@ -5,13 +5,29 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="background: #ffe; text-align: center;">
+<body style="background: #ffe; text-align: center; width: 40em; margin: auto;">
 
     <h1>Too much squish</h1>
 
     <img height="300" src="https://image.cdn2.seaart.ai/2023-10-17/20129979763261445/3889d62c2456a382363049cf3813667d49c222cd_high.webp" alt="https://www.seaart.ai/explore/detail/ckn8c1p4msb1k31gu73g">
     
-    <p>I gotta say, I think I might be too saturated with porn. Nothing makes me horny because I look at porn every day. So I've decided to cool it a bit and temporarily go cold turkey.</p>
+    <p>I gotta say, I think I might be too saturated with porn. Nothing makes me horny because I look at porn every day. So I've decided to cool it a bit and temporarily go cold turkey. This website serves as a reminder for me to this goal.</p>
+    <strong id="time">Abstained for </strong>
+
+    <script>
+        var seconds = 1719979200 - (Date.now() / 1000); // start is June 3, 12AM
+
+        var days    = seconds / 86400;
+        seconds     = seconds % 86400;
+        
+        var hours   = seconds / 3600;
+        seconds     = seconds % 3600;
+
+        var minutes = seconds / 60;
+        seconds     = seconds % 60;
+        
+        document.getElementById('time').innerHTML += `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    </script>
     
 </body>
 </html>
