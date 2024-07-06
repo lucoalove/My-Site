@@ -15,8 +15,9 @@
     <strong id="time">Abstained for </strong>
 
     <script>
-        var seconds = 1719979200 - (Date.now() / 1000); // start is June 3, 12AM
-
+        var seconds = (Date.now() / 1000) - 1719979200; // start is June 3, 12AM
+        seconds     = Math.trunc(seconds);
+        
         var days    = seconds / 86400;
         seconds     = seconds % 86400;
         
@@ -28,6 +29,8 @@
         
         document.getElementById('time').innerHTML += `${days}d ${hours}h ${minutes}m ${seconds}s`;
     </script>
+
+    <a style="position: absolute; bottom: 0; left: 0; font-size: smaller;" href="https://github.com/BlueBunnex/Fatchicks-Bulletin">repo</a>
     
 </body>
 </html>
