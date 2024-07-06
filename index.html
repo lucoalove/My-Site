@@ -4,47 +4,14 @@
     <title>fatchicks.cc</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-    <style>
-        img { width: 100%; }
-        #insert { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 2fr)); gap: 8px; }
-    </style>
-
-    <script type="module">
-        const insert = document.getElementById('insert');
-        
-        fetch('data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error: " + response.status);
-            }
-            return response.json();
-        })
-        .then(json => {
-            for (const [ID, content] of Object.entries(json)) {
-                insert.innerHTML += `
-                    <a href="display.html?id=${ID}">
-                        <img src="${content.src}">
-                    </a>
-                `;
-            }
-        })
-        .catch(function() {
-            alert("error retrieving content");
-        });
-    </script>
 </head>
-<body>
+<body style="background: #ffe; text-align: center;">
 
-    <header id="header">
-        <h1><a href="/">Fatchicks Network</a></h1>
-    </header>
+    <h1>Too much squish</h1>
+
+    <img height="300" src="https://image.cdn2.seaart.ai/2023-10-17/20129979763261445/3889d62c2456a382363049cf3813667d49c222cd_high.webp" alt="https://www.seaart.ai/explore/detail/ckn8c1p4msb1k31gu73g">
     
-    <p>A place for photos, art, and stories of big beautiful women. <a href='https://github.com/BlueBunnex/Fatchicks-Bulletin'>Github</a>. <a href="https://e621.net/posts/3105053?q=kirlia+short_stack">Reference</a>.</p>
-
-    <!-- masonry? https://flexmasonry.vercel.app -->
-    <div id="insert"></div>
+    <p>I gotta say, I think I might be too saturated with porn. Nothing makes me horny because I look at porn every day. So I've decided to cool it a bit and temporarily go cold turkey.</p>
     
 </body>
 </html>
