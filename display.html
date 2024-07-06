@@ -31,8 +31,8 @@
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 similar.innerHTML += `
-                    <a style="overflow: hidden; display: block;" href="?id=${ID}">
-                        <img style="float: left;" height="80" src="${content.src}">
+                    <a style="overflow: hidden; display: block; background: #8a9; margin-bottom: 1em;" href="?id=${ID}">
+                        <img style="float: left; max-height: 80px; max-width: 80px;" src="${content.src}">
                         ${content.title}
                     </a>
                 `;
