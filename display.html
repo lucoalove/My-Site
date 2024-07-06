@@ -10,8 +10,11 @@
         h2 { border-bottom: 1px solid black; padding-bottom: 4px; }
         h4 { margin-bottom: 0; }
 
-        #big-display { background: #8a9; display: flex; justify-content: center; }
+        #big-display { background: #acb; display: flex; justify-content: center; }
         #big-display img { max-width: 100%; max-height: 80vh; }
+
+        .card { overflow: hidden; display: block; background: #acb; margin-bottom: 1em; }
+        .card img { float: left; max-height: 80px; max-width: 80px; }
     </style>
 
     <script type="module">
@@ -31,8 +34,8 @@
             // temp: display link for all content
             for (const [ID, content] of Object.entries(json)) {
                 similar.innerHTML += `
-                    <a style="overflow: hidden; display: block; background: #8a9; margin-bottom: 1em;" href="?id=${ID}">
-                        <img style="float: left; max-height: 80px; max-width: 80px;" src="${content.src}">
+                    <a class="card" href="?id=${ID}">
+                        <img src="${content.src}">
                         ${content.title}
                     </a>
                 `;
@@ -54,7 +57,7 @@
 </head>
 <body>
 
-    <header>
+    <header style="border-bottom: 1px solid black;">
         <h1><a href="/">Fatchicks Network</a></h1>
     </header>
 
