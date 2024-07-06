@@ -15,9 +15,9 @@
     <strong id="time">Abstained for </strong>
 
     <script>
-        setInterval(function () {
+        function loadTime() {
 
-            var seconds = (Date.now() / 1000) - 1719979200; // start is June 3, 12AM
+            var seconds = Math.trunc(Date.now() / 1000) - 1719979200; // start is June 3, 12AM
         
             var days    = Math.trunc(seconds / 86400);
             seconds     = seconds % 86400;
@@ -28,9 +28,12 @@
             var minutes = Math.trunc(seconds / 60);
             seconds     = seconds % 60;
             
-            document.getElementById('time').innerHTML += `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('time').innerHTML = `Abstained for ${days}d ${hours}h ${minutes}m ${seconds}s`;
             
-        }, 1000);
+        }
+
+        loadTime();
+        setInterval(loadTime, 1000);
     </script>
 
     <a style="position: absolute; top: 0; right: 0; font-size: smaller;" href="https://github.com/BlueBunnex/Fatchicks-Bulletin">repo</a>
