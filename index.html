@@ -16,7 +16,12 @@
     <script>
         function loadTime() {
 
-            var seconds = 1721188800 - Math.trunc(Date.now() / 1000);
+            var seconds = 1721793600 - Math.trunc(Date.now() / 1000);
+
+            if (seconds < 0) {
+                document.getElementById('time').innerHTML = "no more time, which means I'm probably doing it RIGHT NOW";
+                return;
+            }
         
             var days    = Math.trunc(seconds / 86400);
             seconds     = seconds % 86400;
