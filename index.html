@@ -11,13 +11,12 @@
 
     <img height="300" src="https://image.cdn2.seaart.ai/2023-10-17/20129979763261445/3889d62c2456a382363049cf3813667d49c222cd_high.webp" alt="https://www.seaart.ai/explore/detail/ckn8c1p4msb1k31gu73g">
     
-    <p>Recently I have been oversaturated with porn. Nothing makes me horny because I look at porn every and all day. So, I've decided to abstain from looking at porn, so that when I come back I will enjoy it much more. This website serves as a reminder for me to this goal.</p>
-    <strong id="time">Abstained for </strong>
+    <p>Overexposure to porn makes it less potent. In order to enjoy porn more, I'm gonna try abstaining from looking at it for <strong id="time"></strong>.</p>
 
     <script>
         function loadTime() {
 
-            var seconds = Math.trunc(Date.now() / 1000) - 1719979200; // start is June 3, 12AM
+            var seconds = 1721188800 - Math.trunc(Date.now() / 1000);
         
             var days    = Math.trunc(seconds / 86400);
             seconds     = seconds % 86400;
@@ -28,7 +27,7 @@
             var minutes = Math.trunc(seconds / 60);
             seconds     = seconds % 60;
             
-            document.getElementById('time').innerHTML = `Abstained for ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('time').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             
         }
 
