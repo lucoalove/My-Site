@@ -2,45 +2,52 @@
 <html>
 <head>
     <title>fatchicks.cc</title>
+    <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body style="background: #ffe; text-align: center; width: 40em; margin: auto; font-family: sans-serif;">
-
-    <h1>Too much squish</h1>
-
-    <img height="300" src="https://image.cdn2.seaart.ai/2023-10-17/20129979763261445/3889d62c2456a382363049cf3813667d49c222cd_high.webp" alt="https://www.seaart.ai/explore/detail/ckn8c1p4msb1k31gu73g">
     
-    <p>Overexposure to porn makes it less potent. In order to enjoy porn more, I'm gonna try abstaining from looking at it for <strong id="time"></strong>.</p>
+    <style>
+        body { margin: auto; width: 35em; font-family: sans-serif; line-height: 1.5em; }
 
+        a { color: inherit; }
+
+        .post { padding: 1em; border: 1px solid lightgrey; margin: 1em 0; border-top: 2px solid black; border-radius: 8px; }
+        .post > h2 { font-weight: 400; }
+        .post > small { font-weight: 700; }
+        .post > img { max-width: 100%; }
+    </style>
+    
     <script>
-        function loadTime() {
-
-            var seconds = 1721793600 - Math.trunc(Date.now() / 1000);
-
-            if (seconds < 0) {
-                document.getElementById('time').innerHTML = "no more time, which means I'm probably doing it RIGHT NOW";
-                return;
+        fetch("posts.json")
+        .then(response => {
+            if (!response.ok)
+                throw new Error("HTTP error " + response.status);
+            return response.json();
+        })
+        .then(json => {
+            const postsInsert = document.getElementById('posts-insert');
+            
+            for (const fruit of json.allFruit) {
+                postsInsert.innerHTML += `
+                    <div class="post">
+                        <small>${fruit}</small>
+                        <h2>${fruit}</h2>
+                        ${fruit}
+                    </div>
+                `;
             }
-        
-            var days    = Math.trunc(seconds / 86400);
-            seconds     = seconds % 86400;
-            
-            var hours   = Math.trunc(seconds / 3600);
-            seconds     = seconds % 3600;
-    
-            var minutes = Math.trunc(seconds / 60);
-            seconds     = seconds % 60;
-            
-            document.getElementById('time').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            
-        }
-
-        loadTime();
-        setInterval(loadTime, 1000);
+        })
     </script>
+</head>
+<body>
 
-    <a style="position: absolute; top: 0; right: 0; font-size: smaller;" href="https://github.com/BlueBunnex/Fatchicks-Bulletin">repo</a>
-    
+    <div style="display: flex; justify-content: center; align-items: center; aspect-ratio: 3; background: url('https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg'); background-size: cover; background-position: center;">
+        <h1 style="background: rgba(255,255,255,0.8); padding: 8px;">blog</h1>
+    </div>
+
+    <h2>Posts</h2>
+
+    <div id="posts-insert"></div>
+
 </body>
 </html>
