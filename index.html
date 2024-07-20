@@ -24,15 +24,15 @@
                 throw new Error("HTTP error " + response.status);
             return response.json();
         })
-        .then(json => {
+        .then(posts => {
             const postsInsert = document.getElementById('posts-insert');
             
-            for (const fruit of json.allFruit) {
+            for (const p of posts) {
                 postsInsert.innerHTML += `
                     <div class="post">
-                        <small>${fruit}</small>
-                        <h2>${fruit}</h2>
-                        ${fruit}
+                        <small>${p.date}</small>
+                        <h2>${p.header}</h2>
+                        ${p.body}
                     </div>
                 `;
             }
