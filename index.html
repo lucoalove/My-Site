@@ -7,14 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-        body { color: #222; margin: auto; width: 35em; font-family: sans-serif; line-height: 1.5em; background: #123; }
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        a { color: inherit; }
+        body { color: 333; font-family: "PT Sans", sans-serif; }
 
-        .post { padding: 1em; margin: 1em 0; border-top: 8px solid #0af; border-radius: 8px; background: white; }
-        .post > h2 { font-weight: 400; }
-        .post > small { font-weight: 700; }
-        .post > img { max-width: 100%; }
+        a { color: #44b; font-weight: 700; text-decoration: none; }
+
+        img { height: 200px; }
+        
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid grey; text-align: left; vertical-align: top; padding: 0 0.5em; }
+        th { background: grey; color: white; }
+        p { margin: 0.5em 0; }
+
+        .user { width: 200px; background: #eef6ff; }
     </style>
     
     <script>
@@ -29,11 +35,19 @@
             
             for (const p of posts) {
                 postsInsert.innerHTML += `
-                    <div class="post">
-                        <small>${p.date}</small>
-                        <h2>${p.header}</h2>
-                        ${p.body}
-                    </div>
+                    <table>
+                        <tr>
+                            <th class="meta" colspan="2">${p.header} (${p.date})</th>
+                        </tr>
+                        <tr>
+                            <td class="user">
+                                <p><a href>starcat1992</a></p>
+                                <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
+                                <p><strong>About: </strong> <i>I make mashups!</i></p>
+                            </td>
+                            <td class="body">${p.body}</td>
+                        </tr>
+                    </table>
                 `;
             }
         })
@@ -41,18 +55,28 @@
 </head>
 <body>
 
-    <div class="post">
-        <small>📌 July 21, 2024</small>
-        <h2>hello this is my blog</h2>
-        <p>This is my blog where I kinda just rant or put things that interest me. Wanna find something?</p>
-        <ul>
-            <li><a href="img">My Korone collection</a>! It's mostly AI, but I'll probably draw her too :3</li>
-            <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site</li>
-        </ul>
-        <p>or just scroll down and look at all the silly things I post!!</p>
-        <p>the only rule: KORONE IS MINE</p>
-        <img src="https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg">
-    </div>
+    <table>
+        <tr>
+            <th class="meta" colspan="2">📌 hello this is my blog (July 21, 2024)</th>
+        </tr>
+        <tr>
+            <td class="user">
+                <p><a href>starcat1992</a></p>
+                <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
+                <p><strong>About: </strong> <i>I make mashups!</i></p>
+            </td>
+            <td class="body">
+                <p>This is my blog where I kinda just rant or put things that interest me. Wanna find something?</p>
+                <ul>
+                    <li><a href="img">My Korone collection</a>! It's mostly AI, but I'll probably draw her too :3</li>
+                    <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site</li>
+                </ul>
+                <p>or just scroll down and look at all the silly things I post!!</p>
+                <p>the only rule: KORONE IS MINE</p>
+                <img src="https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg">
+            </td>
+        </tr>
+    </table>
 
     <div id="posts-insert"></div>
 
