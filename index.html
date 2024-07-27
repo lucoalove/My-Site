@@ -13,7 +13,7 @@
 
         a { color: #44b; font-weight: 700; text-decoration: none; }
 
-        img { height: 200px; }
+        img { max-height: 200px; }
         
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid grey; text-align: left; vertical-align: top; padding: 0 0.5em; }
@@ -35,19 +35,17 @@
             
             for (const p of posts) {
                 postsInsert.innerHTML += `
-                    <table>
-                        <tr>
-                            <th class="meta" colspan="2">${p.header} (${p.date})</th>
-                        </tr>
-                        <tr>
-                            <td class="user">
-                                <p><a href>starcat1992</a></p>
-                                <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
-                                <p><strong>About: </strong> <i>I make mashups!</i></p>
-                            </td>
-                            <td class="body">${p.body}</td>
-                        </tr>
-                    </table>
+                    <tr>
+                        <th class="meta" colspan="2">${p.header} (${p.date})</th>
+                    </tr>
+                    <tr>
+                        <td class="user">
+                            <p><a href>starcat1992</a></p>
+                            <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
+                            <p><strong>About: </strong> <i>I make mashups!</i></p>
+                        </td>
+                        <td class="body">${p.body}</td>
+                    </tr>
                 `;
             }
         })
@@ -55,7 +53,7 @@
 </head>
 <body>
 
-    <table>
+    <table id="posts-insert">
         <tr>
             <th class="meta" colspan="2">📌 hello this is my blog (July 21, 2024)</th>
         </tr>
@@ -77,8 +75,6 @@
             </td>
         </tr>
     </table>
-
-    <div id="posts-insert"></div>
 
 </body>
 </html>
