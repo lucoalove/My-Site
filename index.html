@@ -12,15 +12,18 @@
         body { color: 333; font-family: "PT Sans", sans-serif; }
 
         a { color: #44b; font-weight: 700; text-decoration: none; }
-
-        img { max-height: 200px; }
-        img + img { margin-left: 4px; }
         
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid grey; text-align: left; vertical-align: top; padding: 0 0.5em; }
         th { background: grey; color: white; }
         p { margin: 0.5em 0; }
         .user { width: 200px; background: #eef6ff; }
+
+        img { max-height: 200px; }
+        img + img, .friend + .friend { margin-left: 4px; }
+        
+        .friend { border: 1px solid black; background: lightgrey; padding: 4px; display: flex; gap: 4px; align-items: center; }
+        .friend img { width: 60px; aspect-ratio: 1; }
     </style>
     
     <script>
@@ -64,14 +67,21 @@
                 <p><strong>About: </strong> <i>I make mashups!</i></p>
             </td>
             <td class="body">
-                <p>This is my blog where I kinda just rant or put things that interest me. Wanna find something? Look here:</p>
+                <p>This is my blog where I kinda just rant or put things that interest me. Looking for something?</p>
+
+                <h2>Stuff</h2>
                 <ul>
                     <li><a href="korone">My Korone collection</a>! It's mostly AI, but I'll probably draw her too :3 (she's mine btw)</li>
                     <li><a href="https://docs.google.com/document/d/1koTncqnYEULM-_Gjf5UsmWaeqMx8iDaruGI-fnO0Prk/edit?usp=sharing">My self-insert fic</a>. I'm writing this because writing is good for your mental health (I think), and also because, well, girls are in it. <s>I also wanna exceed that loud house fic in length to become the longest piece of English literature.</s></li>
                     <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site</li>
                 </ul>
                 <p>or just scroll down and look at all the silly things I post!!</p>
-                <img src="https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg">
+
+                <h2>Friend(s)</h2>
+                <div class="friend">
+                    <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
+                    Andrew-san
+                </div>
             </td>
         </tr>
     </table>
