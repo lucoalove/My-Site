@@ -27,6 +27,8 @@
     </style>
     
     <script>
+        const postsInsert = document.getElementById('posts-insert');
+        
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
                     <tr>
@@ -73,11 +75,8 @@
             return response.json();
         })
         .then(posts => {
-            const postsInsert = document.getElementById('posts-insert');
-            
-            for (const p of posts) {
+            for (const p of posts)
                 addPost(p.header, p.date, p.body);
-            }
         });
     </script>
 </head>
