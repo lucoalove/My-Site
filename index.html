@@ -27,6 +27,45 @@
     </style>
     
     <script>
+        function addPost(header, date, body) {
+            postsInsert.innerHTML += `
+                    <tr>
+                        <th class="meta" colspan="2">${header} (${date})</th>
+                    </tr>
+                    <tr>
+                        <td class="user">
+                            <p><a href>starcat1992</a></p>
+                            <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
+                            <p><i>"I make mashups!"</i></p>
+                        </td>
+                        <td class="body">${body}</td>
+                    </tr>
+                `;
+        }
+
+        addPost("📌 hello this is my blog", "July 21, 2024", `
+            <p>This is my blog where I kinda just rant or put things that interest me. Looking for something?</p>
+        
+            <h2>Stuff</h2>
+            <ul>
+                <li><a href="korone">My Korone collection</a>! It's mostly AI, but I'll probably draw her too :3 (she's mine btw)</li>
+                <li><a href="https://docs.google.com/document/d/1koTncqnYEULM-_Gjf5UsmWaeqMx8iDaruGI-fnO0Prk/edit?usp=sharing">My self-insert fic</a>. I'm writing this because writing is good for your mental health (I think), and also because, well, girls are in it. <s>I also wanna exceed that loud house fic in length to become the longest piece of English literature.</s></li>
+                <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site</li>
+            </ul>
+            <p>or just scroll down and look at all the silly things I post!!</p>
+        
+            <h2>Friend(s)</h2>
+            <p>
+                <span class="friend">
+                    <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
+                    <span>
+                        <strong>Andrew-san</strong>
+                        <br><i>"Do it"</i>
+                    </span>
+                </span>
+            </p>
+        `);
+        
         fetch("posts.json")
         .then(response => {
             if (!response.ok)
@@ -37,59 +76,14 @@
             const postsInsert = document.getElementById('posts-insert');
             
             for (const p of posts) {
-                postsInsert.innerHTML += `
-                    <tr>
-                        <th class="meta" colspan="2">${p.header} (${p.date})</th>
-                    </tr>
-                    <tr>
-                        <td class="user">
-                            <p><a href>starcat1992</a></p>
-                            <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
-                            <p><i>"I make mashups!"</i></p>
-                        </td>
-                        <td class="body">${p.body}</td>
-                    </tr>
-                `;
+                addPost(p.header, p.date, p.body);
             }
-        })
+        });
     </script>
 </head>
 <body>
 
-    <table id="posts-insert">
-        <tr>
-            <th class="meta" colspan="2">📌 hello this is my blog (July 21, 2024)</th>
-        </tr>
-        <tr>
-            <td class="user">
-                <p><a href>starcat1992</a></p>
-                <center><img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg"></center>
-                <p><i>"I make mashups!"</i></p>
-            </td>
-            <td class="body">
-                <p>This is my blog where I kinda just rant or put things that interest me. Looking for something?</p>
-
-                <h2>Stuff</h2>
-                <ul>
-                    <li><a href="korone">My Korone collection</a>! It's mostly AI, but I'll probably draw her too :3 (she's mine btw)</li>
-                    <li><a href="https://docs.google.com/document/d/1koTncqnYEULM-_Gjf5UsmWaeqMx8iDaruGI-fnO0Prk/edit?usp=sharing">My self-insert fic</a>. I'm writing this because writing is good for your mental health (I think), and also because, well, girls are in it. <s>I also wanna exceed that loud house fic in length to become the longest piece of English literature.</s></li>
-                    <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site</li>
-                </ul>
-                <p>or just scroll down and look at all the silly things I post!!</p>
-
-                <h2>Friend(s)</h2>
-                <p>
-                    <span class="friend">
-                        <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
-                        <div>
-                            <strong>Andrew-san</strong>
-                            <br><i>"Do it"</i>
-                        </div>
-                    </span>
-                </p>
-            </td>
-        </tr>
-    </table>
+    <table id="posts-insert"></table>
 
 </body>
 </html>
