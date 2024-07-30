@@ -32,7 +32,7 @@
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
                     <tr>
-                        <th class="meta" colspan="2">${date} / <i>${header}</i></th>
+                        <th class="meta" colspan="2"><i>${date}</i> / ${header}</th>
                     </tr>
                     <tr>
                         <td class="user">
@@ -45,7 +45,7 @@
                 `;
         }
 
-        addPost("📌 hello this is my blog", "July 21, 2024", `
+        addPost("hello this is my blog", "📌 July 21, 2024", `
             <p>This is my blog where I kinda just rant or put things that interest me. Looking for something?</p>
         
             <h2>Stuff</h2>
