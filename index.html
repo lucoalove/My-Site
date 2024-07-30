@@ -14,8 +14,8 @@
         a { color: #44b; font-weight: 700; text-decoration: none; }
         
         table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #aab; text-align: left; vertical-align: top; padding: 0 0.5em; }
-        th { background: #89a; color: white; font-weight: 400; font-size: smaller; padding: 1em; }
+        th, td { border: 1px solid #789; text-align: left; vertical-align: top; padding: 0 0.5em; }
+        th { background: #789; color: white; font-weight: 400; font-size: smaller; padding: 1em; }
         p { margin: 0.5em 0; }
         .user { width: 200px; background: #eef6ff; text-align: center; }
 
@@ -32,7 +32,7 @@
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
                     <tr>
-                        <th class="meta" colspan="2">${header} (${date})</th>
+                        <th class="meta" colspan="2">${date} / <i>${header}</i></th>
                     </tr>
                     <tr>
                         <td class="user">
