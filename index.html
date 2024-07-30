@@ -76,14 +76,14 @@
             </p>
         `);
         
-        fetch("posts.json")
+        fetch("db.json")
         .then(response => {
             if (!response.ok)
                 throw new Error("HTTP error " + response.status);
             return response.json();
         })
-        .then(posts => {
-            for (const p of posts)
+        .then(json => {
+            for (const p of json.posts)
                 addPost(p.header, p.date, p.body);
         });
     </script>
