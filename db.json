@@ -1,6 +1,11 @@
 {
     "posts": [
         {
+            "date": "July 31, 2024",
+            "header": "Starfleet Delta",
+            "body": "<p>a slightly serious, mysterious, mild-horror (but still sexy) fic about thick babes working in space would be kinda cool</p><p>that is all</p><img src='img/starfleet_delta.png'>"
+        },
+        {
             "date": "July 30, 2024",
             "header": "note for my Minecraft fork",
             "body": "<p>putting this idea here so I remember it for when I decide to implement it into my Minecraft fork <a href='https://github.com/BlueBunnex/Forever-Indev'>Forever Indev</a></p><p>enchanting: you have an enchanter block (name pending), and have its UI literally just be the old villager UI. you exchange rupees to put an enchant on an item, and the amount of rupees needed varies based on the enchant and level. this makes it easily balance-able AND ALSO completely eliminates the annoying randomness, plus feels very RPG-y</p><p>anyways yea PRODUCTIVITY RELATED STRESS BEGONE!!!</p>"
