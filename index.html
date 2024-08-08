@@ -19,8 +19,7 @@
         img { max-width: 100%; max-height: 270px; }
         img + img, .friend + .friend { margin-left: 4px; }
         
-        .friend { display: inline-flex; gap: 4px; padding: 4px; align-items: center; background: #ddd; }
-        .friend img { width: 40px; aspect-ratio: 1; }
+        .friends img { width: 40px; aspect-ratio: 1; }
     </style>
     
     <script type="module">
@@ -48,24 +47,6 @@
                 <li>Not here yet, but: My manga <i>Mana-chan Doesn't Care If She Puts On A Little Weight As Long As She Can Eat New Things!</i>, a slice of life about, well, you read the title.</li>
             </ul>
             <p>or just scroll down and look at all the silly things I post!!</p>
-        
-            <h2>Friend(s)</h2>
-            <p>
-                <span class="friend">
-                    <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
-                    <span>
-                        <strong>Andrew-san</strong>
-                        <br><i>"Do it"</i>
-                    </span>
-                </span>
-                <span class="friend">
-                    <img src="https://pbs.twimg.com/profile_images/1885157789/mizore_shirayuki_400x400.png">
-                    <span>
-                        <strong>PudgeAppreciation</strong>
-                        <br><i>"Don’t go past the alphabet"</i>
-                    </span>
-                </span>
-            </p>
         `);
         
         fetch("db.json")
@@ -82,14 +63,36 @@
 </head>
 <body>
 
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; gap: 1em;">
 
         <div id="posts-insert" style="max-width: 60em;"></div>
     
-        <div style="text-align: center; width: 120px;">
+        <div style="text-align: center; width: 200px;">
             <img width="100%" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
             <h2>redderblanket</h2>
             <i>"I make mashups!"</i>
+
+            <h2>Friend(s)</h2>
+            <table class="friends">
+                <tr>
+                    <td>
+                        <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
+                    </td>
+                    <td>
+                        <strong>Andrew-san</strong>
+                        <br><i>"Do it"</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://pbs.twimg.com/profile_images/1885157789/mizore_shirayuki_400x400.png">
+                    </td>
+                    <td>
+                        <strong>PudgeAppreciation</strong>
+                        <br><i>"Don’t go past the alphabet"</i>
+                    </td>
+                </tr>
+            </table>
         </div>
 
     </div>
