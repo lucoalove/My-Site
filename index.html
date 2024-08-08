@@ -13,16 +13,13 @@
         h2 { font-size: 1.2em; }
         a { color: #44b; text-decoration-style: dotted; }
         
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #789; text-align: left; vertical-align: top; padding: 0 0.5em; }
-        th { background: #789; color: white; font-weight: 400; font-size: smaller; padding: 1em; }
         p { margin: 0.5em 0; }
-        .user { width: 200px; background: #eef6ff; text-align: center; }
+        .userbox { width: 200px; background: #eef6ff; text-align: center; }
 
         img { max-width: 100%; max-height: 270px; }
         img + img, .friend + .friend { margin-left: 4px; }
         
-        .friend { display: inline-flex; gap: 4px; padding: 4px; align-items: center; border: 2px outset #eee; background: #eee; }
+        .friend { display: inline-flex; gap: 4px; padding: 4px; align-items: center; background: #eef6ff; }
         .friend img { width: 40px; aspect-ratio: 1; }
     </style>
     
@@ -31,18 +28,18 @@
         
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
-                    <tr>
-                        <th class="meta" colspan="2"><i>${date}</i> / ${header}</th>
-                    </tr>
-                    <tr>
-                        <td class="user">
-                            <p><strong>starcat1992</strong></p>
-                            <img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
-                            <p><i>"I make mashups!"</i></p>
-                        </td>
-                        <td class="body">${body}</td>
-                    </tr>
-                `;
+                <tr>
+                    <td class="userbox">
+                        <img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
+                        <h2>redderblanket</h2>
+                        <p><i>"I make mashups!"</i></p>
+                    </td>
+                    <td class="body">
+                        <div style="font-size: smaller; border-bottom: 1px solid lightgrey; margin-bottom: 0.5em; padding-bottom: 2px; color: grey;"><i>${date}</i> / ${header}</div>
+                        ${body}
+                    </td>
+                </tr>
+            `;
         }
 
         addPost("hello this is my blog", "📌 July 21, 2024", `
@@ -51,7 +48,7 @@
             <h2>Looking for something?</h2>
             <ul>
                 <li><a href="korone">My Korone collection</a>! It's all AI, lol.</li>
-                <li><a href="news.html">News.html</a>! I love webdesign for things I would have no possible ability to realistically manage. $lt;3</li>
+                <li><a href="news">News thing</a>! I love webdesign for things I would have no possible ability to realistically manage. $lt;3</li>
                 <li><a href="https://bbw.wiki/User:GuessImBigNow">My BBW Wiki page (User:GuessImBigNow)</a>. I like editing for this wiki since it combines my enjoyment of web design, data, and fat girls.</li>
                 <li><a href="https://www.deviantart.com/redderblanket">My DeviantArt</a>. I post whenever I feel it won't stress me out, hehe.</li>
                 <li><a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">Github repo</a> where I host this site.</li>
