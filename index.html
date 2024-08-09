@@ -25,10 +25,21 @@
         
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
-                <div class="post-meta">
-                    ${date} / ${header}
-                </div>
-                ${body}
+                <tr>
+                    <td colspan="2" class="post-meta">
+                        ${date} / ${header}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; width: 140px;">
+                        <img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
+                        <h2>redderblanket</h2>
+                        <i>"I make mashups!"</i>
+                    </td>
+                    <td>
+                        ${body}
+                    </td>
+                </tr>
             `;
         }
 
@@ -61,11 +72,7 @@
 </head>
 <body>
 
-    <img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
-    <h2>redderblanket</h2>
-    <i>"I make mashups!"</i>
-
-    <div id="posts-insert" style="border-left: 1px solid lightgrey; border-right: 1px solid lightgrey; padding: 0 1em;"></div>
+    <table id="posts-insert"></table>
 
 </body>
 </html>
