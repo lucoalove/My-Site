@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        body { color: #333; font-family: "PT Sans", sans-serif; }
+        body { color: #333; font-family: "PT Sans", sans-serif; max-width: 60em; margin: auto; }
         h2 { font-size: 1.2em; }
         a { color: #44b; text-decoration-style: dotted; }
         
@@ -18,7 +18,6 @@
 
         img { max-width: min(420px, 100%); max-height: 270px; }
         img + img { margin-left: 4px; }
-        .friends { text-align: left; }
         .friends img { max-width: 50px; aspect-ratio: 1; }
     </style>
     
@@ -63,39 +62,33 @@
 </head>
 <body>
 
-    <div style="display: flex; justify-content: center; gap: 1em;">
+    <img width="120" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
+    <h2>redderblanket</h2>
+    <i>"I make mashups!"</i>
 
-        <div id="posts-insert" style="max-width: 60em;"></div>
-    
-        <div style="text-align: center; width: 250px;">
-            <img width="100%" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
-            <h2>redderblanket</h2>
-            <i>"I make mashups!"</i>
+    <h2>Friend(s)</h2>
+    <table class="friends">
+        <tr>
+            <td>
+                <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
+            </td>
+            <td>
+                <strong>Andrew-san</strong>
+                <br><i>"Do it"</i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="https://pbs.twimg.com/profile_images/1885157789/mizore_shirayuki_400x400.png">
+            </td>
+            <td>
+                <strong>PudgeAppreciation</strong>
+                <br><i>"Don’t go past the alphabet"</i>
+            </td>
+        </tr>
+    </table>
 
-            <h2>Friend(s)</h2>
-            <table class="friends">
-                <tr>
-                    <td>
-                        <img src="https://media.tenor.com/aE2kxahQBz8AAAAM/ohh.gif">
-                    </td>
-                    <td>
-                        <strong>Andrew-san</strong>
-                        <br><i>"Do it"</i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="https://pbs.twimg.com/profile_images/1885157789/mizore_shirayuki_400x400.png">
-                    </td>
-                    <td>
-                        <strong>PudgeAppreciation</strong>
-                        <br><i>"Don’t go past the alphabet"</i>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-    </div>
+    <div id="posts-insert" style="border-left: 1px solid lightgrey; border-right: 1px solid lightgrey; padding: 0 1em;"></div>
 
 </body>
 </html>
