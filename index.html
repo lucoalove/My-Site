@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        body { color: #333; font-family: "PT Sans", sans-serif; max-width: 60em; margin: auto; }
+        body { color: #333; font-family: "PT Sans", sans-serif; max-width: 60em; margin: 1em auto; }
         
         h2 { font-size: 1.2em; }
         a { color: #44b; text-decoration-style: dotted; }
@@ -17,10 +17,14 @@
 
         table { border-collapse: collapse; }
 
-        th { width: 60px; }
+        tr { border: 1px solid black; }
+        tr:nth-child(odd) { border-bottom: 0; }
+        tr:nth-child(even) { border-top: 0; }
+
+        th { width: 60px; padding: 0; }
         th img { width: 100%; }
         
-        td { border: 1px solid lightgrey; }
+        td { padding: 0.5em; }
         td img { max-width: min(420px, 100%); max-height: 270px; }
         td img + img { margin-left: 4px; }
     </style>
@@ -35,7 +39,7 @@
                         <img src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
                     </th>
                     <td>
-                        <strong>redderblanket</strong> | ${header} (${date})
+                        <strong>redderblanket</strong> // ${header} (${date})
                     </td>
                 </tr>
                 <tr>
