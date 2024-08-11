@@ -14,10 +14,15 @@
         h2 { font-size: 1.2em; }
         a { color: #44b; text-decoration-style: dotted; }
         p { margin: 0.5em 0; }
-        img { max-width: min(420px, 100%); max-height: 270px; }
-        img + img { margin-left: 4px; }
+
+        table { border-collapse: collapse; }
+
+        th { width: 60px; }
+        th img { width: 100%; }
         
         td { border: 1px solid lightgrey; }
+        td img { max-width: min(420px, 100%); max-height: 270px; }
+        td img + img { margin-left: 4px; }
     </style>
     
     <script type="module">
@@ -26,9 +31,9 @@
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
                 <tr>
-                    <td style="width: 120px;">
-                        <img width="100%" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
-                    </td>
+                    <th>
+                        <img src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
+                    </th>
                     <td>
                         <strong>redderblanket</strong> | ${header} (${date})
                     </td>
