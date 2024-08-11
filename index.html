@@ -17,6 +17,8 @@
         
         img { max-width: min(420px, 100%); max-height: 270px; }
         img + img { margin-left: 4px; }
+
+        .post { display: flex; gap: 4px; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 4px grey; }
     </style>
     
     <script type="module">
@@ -24,12 +26,14 @@
         
         function addPost(header, date, body) {
             postsInsert.innerHTML += `
-                <div>
-                    <img style="max-width: 60px;" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
-                    <p>
-                        <strong>redderblanket</strong>  <span style="color: grey;">${header} · ${date}</span>
-                    </p>
-                    ${body}
+                <div class="post">
+                    <img style="max-width: 60px; border-radius: 4px;" src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
+                    <div>
+                        <p>
+                            <strong>redderblanket</strong>  <span style="color: grey;">${header} · ${date}</span>
+                        </p>
+                        ${body}
+                    </div>
                 </div>
             `;
         }
