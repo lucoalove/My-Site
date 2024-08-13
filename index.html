@@ -14,6 +14,7 @@
         h2 { font-size: 1.2em; }
         a { color: #44b; text-decoration-style: dotted; }
         p { margin: 0.5em 0; }
+        p:last-child { margin-bottom: 0;}
         th { text-align: left; font-weight: 400; padding-right: 1em; }
         
         img { max-width: min(420px, 100%); max-height: 270px; }
@@ -29,15 +30,16 @@
     <script type="module">
         const postsInsert = document.getElementById('posts-insert');
         
-        function addPost(header, date, body) {
+        function addPost(tags, date, body) {
             postsInsert.innerHTML += `
                 <div class="post">
                     <div class="sidebar">
                         <img src="https://wallpapers.com/images/hd/green-eyes-tabby-cat-pfp-khzx91ns80rjllmy.jpg">
                     </div>
                     <div class="body">
-                        <div><strong>redderblanket</strong>  <span style="color: grey;">${header} · ${date}</span></div>
+                        <div><strong>redderblanket</strong>  <span style="color: grey;">· ${date}</span></div>
                         ${body}
+                        <p style="color: grey;">${tags}</p>
                     </div>
                 </div>
             `;
@@ -51,7 +53,7 @@
         })
         .then(json => {
             for (const p of json.posts)
-                addPost(p.header, p.date, p.body);
+                addPost(p.tags, p.date, p.body);
         });
     </script>
 </head>
