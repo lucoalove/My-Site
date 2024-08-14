@@ -22,8 +22,9 @@
         #posts-insert { display: flex; flex-direction: column; }
         .post { display: flex; overflow: hidden; background: white; border-top: 1px solid #bbb; }
         .post > .sidebar { width: 60px; padding: 10px; }
-        .post > .sidebar > img { aspect-ratio: 1; }
+        .post > .sidebar > img { aspect-ratio: 1; border-radius: 4px; }
         .post > .body { padding: 10px; flex: 1; }
+        .post > .tags { color: grey; background: #ddd; border-radius: 4px; padding: 1px 6px; }
     </style>
     
     <script type="module">
@@ -38,7 +39,7 @@
                     <div class="body">
                         <div><strong>redderblanket</strong>  <span style="color: grey;">· ${date}</span></div>
                         ${body}
-                        <p style="color: grey;">${tags}</p>
+                        <p class="tags">${tags}</p>
                     </div>
                 </div>
             `;
