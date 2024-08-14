@@ -24,13 +24,12 @@
         .post > .sidebar { width: 60px; padding: 10px; }
         .post > .sidebar > img { aspect-ratio: 1; border-radius: 4px; }
         .post > .body { padding: 10px; flex: 1; }
-        .post > .tags { color: grey; background: #ddd; border-radius: 4px; padding: 1px 6px; }
     </style>
     
     <script type="module">
         const postsInsert = document.getElementById('posts-insert');
         
-        function addPost(tags, date, body) {
+        function addPost(date, body) {
             postsInsert.innerHTML += `
                 <div class="post">
                     <div class="sidebar">
@@ -39,7 +38,6 @@
                     <div class="body">
                         <div><strong>redderblanket</strong>  <span style="color: grey;">· ${date}</span></div>
                         ${body}
-                        <p class="tags">${tags}</p>
                     </div>
                 </div>
             `;
@@ -53,7 +51,7 @@
         })
         .then(json => {
             for (const p of json.posts)
-                addPost(p.tags, p.date, p.body);
+                addPost(p.date, p.body);
         });
     </script>
 </head>
