@@ -20,10 +20,11 @@
         img { width: 100%; }
 
         #posts-insert { display: flex; flex-direction: column; }
-        .post { display: flex; overflow: hidden; background: white; border-top: 1px solid #bbb; }
-        .post > .sidebar { width: 60px; padding: 10px; }
+        .post { display: flex; overflow: hidden; background: white; border-top: 1px solid #bbb; padding: 10px; gap: 10px; }
+        .post > .sidebar { width: 60px; }
         .post > .sidebar > img { aspect-ratio: 1; border-radius: 4px; }
-        .post > .body { padding: 10px; flex: 1; }
+        .post > .body { flex: 1; }
+        .post > .body > img { border-radius: 4px; }
     </style>
     
     <script type="module">
