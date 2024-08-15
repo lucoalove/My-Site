@@ -9,5 +9,8 @@
 <h2>All articles</h2>
 
 <ul style="column-count: 3;">
-    <li><a href="?article=nothing">Nothing here yet!</a></li>
+    <li><a href="?article=yukana_yame">Yukana Yame</a></li>
+    <li><a>Nene Fujinoki</a></li>
+    <li><a>Junichi Hashiba</a></li>
+    <li><a>Junichi's Confectionery Club</a></li>
 </ul>
