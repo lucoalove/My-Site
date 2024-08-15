@@ -16,13 +16,12 @@
         img.thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
     </style>
     <script>
-        fetch("gal_headcanon_wiki/articles/home.txt")
-        .then(file => file.text())
-        .then(text => {
-            document.getElementById('content').innerHTML = text;
+        fetch("articles/home.txt")
+        .then(file => {
+            document.getElementById('content').innerHTML = file.text();
         })
         .catch((error) => {
-            console.log(error)
+            alert("there was an error retrieving that page")
         });
     </script>
 </head>
