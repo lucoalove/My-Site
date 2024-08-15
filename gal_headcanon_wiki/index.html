@@ -17,10 +17,10 @@
     </style>
     <script>
         async function fetchArticle(article) {
-            const response = await fetch(article);
+            const response = await fetch("articles/" + article + ".txt");
             
             if (!response.ok)
-                return `An error has occured: ${response.status}`;
+                return `<h1>An error occurred</h1><p>Could not reach article ${article}.</p><p>Error code: <strong>${response.status}</strong></p>`;
             
             return await response.text();
         }
@@ -30,7 +30,7 @@
         if (article == null)
             article = "home";
         
-        fetchArticle("articles/" + article + ".txt").then(text => {
+        fetchArticle(article).then(text => {
             document.getElementById('content').innerHTML = text;
         });
     </script>
