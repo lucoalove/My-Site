@@ -19,17 +19,18 @@
         async function fetchArticle() {
             const response = await fetch("articles/home.txt");
             
-            if (!response.ok) {
-                const message = `An error has occured: ${response.status}`;
-                return message;
-            }
+            if (!response.ok)
+                return `An error has occured: ${response.status}`;
             
-            const text = await response.text();
-            return text;
+            return await response.text();
         }
+
+        let article = new URLSearchParams(window.location.search).get('article');
+
+        if (article == null)
+            article = "home";
         
-        fetchArticle()
-        .then(text => {
+        fetchArticle("articles/" + article + ".txt").then(text => {
             document.getElementById('content').innerHTML = text;
         });
     </script>
