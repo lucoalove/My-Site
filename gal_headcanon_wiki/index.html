@@ -12,9 +12,12 @@
         a:hover { text-decoration: underline; }
         a:not([href]) { color: red; }
 
-        button { background: #35f; color: white; font: inherit; font-weight: 700; border: 0; border-radius: 2px; padding: 8px 16px; }
+        .thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
 
-        img.thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
+        table { border-collapse: collapse; }
+        td, th { border: 1px solid black; padding: 2px 4px; }
+        td { background: #35f; color: white; }
+        td > img { width: 100%; }
     </style>
     <script>
         async function fetchArticle(article) {
