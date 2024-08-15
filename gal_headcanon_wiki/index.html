@@ -10,6 +10,7 @@
 
         a { text-decoration: none; }
         a:hover { text-decoration: underline; }
+        a:not([href]) { color: red; }
 
         button { background: #35f; color: white; font: inherit; font-weight: 700; border: 0; border-radius: 2px; padding: 8px 16px; }
 
@@ -26,11 +27,8 @@
         }
 
         let article = new URLSearchParams(window.location.search).get('article');
-
-        if (article == null)
-            article = "home";
         
-        fetchArticle(article).then(text => {
+        fetchArticle(article == null ? "home" : article).then(text => {
             document.getElementById('content').innerHTML = text;
         });
     </script>
