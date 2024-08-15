@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Gal Wiki (name wip)</title>
     <style>
-        body { background: #f2f4f6; font-family: sans-serif; margin: 2em; }
+        body { background: #f2f4f6; font-family: sans-serif; margin: 2em; line-height: 1.5em; }
 
-        h1, h2 { border-bottom: 1px solid lightgrey; overflow: hidden; font-family: serif; font-weight: 400; }
+        h1, h2 { border-bottom: 1px solid lightgrey; overflow: hidden; font-family: serif; font-weight: 400; padding-bottom: 4px; }
 
         a { text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -16,8 +16,8 @@
         img.thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
     </style>
     <script>
-        async function fetchArticle() {
-            const response = await fetch("articles/home.txt");
+        async function fetchArticle(article) {
+            const response = await fetch(article);
             
             if (!response.ok)
                 return `An error has occured: ${response.status}`;
