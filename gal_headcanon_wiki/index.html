@@ -16,7 +16,22 @@
         img.thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
     </style>
     <script>
-        document.getElementById('content').innerHTML = (await fetch("articles/home.txt")).text();
+        async function fetchArticle() {
+            const response = await fetch("articles/home.txt");
+            
+            if (!response.ok) {
+                const message = `An error has occured: ${response.status}`;
+                return message;
+            }
+            
+            const text = await response.text();
+            return text;
+        }
+        
+        fetchArticle()
+        .then(text => {
+            document.getElementById('content').innerHTML = text;
+        });
     </script>
 </head>
 <body>
