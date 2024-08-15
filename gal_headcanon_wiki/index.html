@@ -20,7 +20,7 @@
             const response = await fetch("articles/" + article + ".txt");
             
             if (!response.ok)
-                return `<h1>An error occurred</h1><p>Could not reach article ${article}.</p><p>Error code: <strong>${response.status}</strong></p>`;
+                return `<h1>An error occurred</h1><p>Could not reach article "${article}"</p><p>Error code: <strong>${response.status}</strong></p>`;
             
             return await response.text();
         }
