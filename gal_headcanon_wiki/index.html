@@ -16,13 +16,7 @@
         img.thumb { border: 1px solid black; float: right; width: 15em; margin-left: 1em; }
     </style>
     <script>
-        fetch("articles/home.txt")
-        .then(file => {
-            document.getElementById('content').innerHTML = await file.text();
-        })
-        .catch((error) => {
-            alert("there was an error retrieving that page")
-        });
+        document.getElementById('content').innerHTML = (await fetch("articles/home.txt")).text();
     </script>
 </head>
 <body>
