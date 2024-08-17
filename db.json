@@ -2,6 +2,10 @@
     "posts": [
         {
             "date": "Aug 17, 2024",
+            "body": "<p>UPDATE: actually NOT gonna port to HTML 3.0 because Javascript, is not a thing!! and my blog needs that to load the posts lol</p>"
+        },
+        {
+            "date": "Aug 17, 2024",
             "body": "<p>I'm gonna redesign this entire site to use HTML 3.0 (like <a href='http://www.cornica.org'>this</a> site) and it's gonna be FIRE</p><p>why? I dunno it's cute</p>"
         },
         {
