@@ -2,6 +2,10 @@
     "posts": [
         {
             "date": "Aug 21, 2024",
+            "body": "<p>bluecraft will have blue hearts instead of red ones and an anime-girl-focused gameplay loop</p><p>this involves an XP bar that determines your breast size, farming rice and cooking tasty Japanese don, and killing monsters with your poggers sword</p>"
+        },
+        {
+            "date": "Aug 21, 2024",
             "body": "<p>if I can figure out <a href='https://github.com/paulevsGitch/BetterWeather/blob/main/src/main/java/paulevs/betterweather/mixin/client/BaseDimensionMixin.java'>how to use mixins</a> and where to put those mod files (some mod folder in the launcher directory? fabric b1.7.3 modloader??) then I can MAKE BLUECRAFT!! AND MAKE A WEBSITE FOR IT!!!!!! ALL MI MODS!!!!!!!!!1 XDDDDDDDDDD</p><p>-thoughts of the utterly deranged</p>"
         },
         {
