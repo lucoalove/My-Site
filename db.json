@@ -2,6 +2,10 @@
     "posts": [
         {
             "date": "Aug 21, 2024",
+            "body": "<p>if I can figure out <a href='https://github.com/paulevsGitch/BetterWeather/blob/main/src/main/java/paulevs/betterweather/mixin/client/BaseDimensionMixin.java'>how to use mixins</a> and where to put those mod files (some mod folder in the launcher directory?) then I can MAKE BLUECRAFT!! XDD</p><p>-thoughts of the utterly deranged</p>"
+        },
+        {
+            "date": "Aug 21, 2024",
             "body": "<p>bluecraft</p><img src='https://preview.redd.it/making-a-new-base-any-ideas-v0-0sqhjvbay1kd1.png?auto=webp&s=76dac7106e4b7f0cc51ee24b79d2083426d33c81'> <!-- https://www.reddit.com/r/GoldenAgeMinecraft/comments/1exvn8g/making_a_new_base_any_ideas/ -->"
         },
         {
