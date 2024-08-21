@@ -2,6 +2,10 @@
     "posts": [
         {
             "date": "Aug 21, 2024",
+            "body": "<p>BlueCraft will have a restricted worldsize of 64^3 (and will be based in indev)</p>"
+        },
+        {
+            "date": "Aug 21, 2024",
             "body": "<p><a href='https://huggingface.co/mariaWitch/ExperimentalBiggerMerges/tree/main'>bbw aurora borealis</a> is quite the good 1.5 model</p><p>that is all</p><img src='img/bbw_aurora_borealis_base.png'>"
         },
         {
