@@ -1,6 +1,10 @@
 {
     "posts": [
         {
+            "date": "Aug 22, 2024",
+            "body": "<p>I started work on <a href='https://github.com/BlueBunnex/BlueCraft'>BlueCraft</a>... (I just wiped my other fork I didn't like and used the same repo so I wouldn't have to go through the trouble of setting up another one lol)</p>"
+        },
+        {
             "date": "Aug 21, 2024",
             "body": "<p>scope creep is a BITCH I want my project to stay small FOREVER!!</p>"
         },
