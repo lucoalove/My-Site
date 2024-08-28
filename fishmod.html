@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fish Mod</title>
+    <script type="module">
+        var pageID = new URLSearchParams(window.location.search).get('p');
+
+        if (pageID == null)
+            pageID = "home";
+
+        document.getElementById(pageID).style.display = "block";
+    </script>
+</head>
+<body style="width: 640px;">
+    
+    <div style="background: #eee; padding: 1em;">
+        <h1><i>Sonnova Fish!</i> for Minecraft b1.7.3</h1>
+        <div style="text-align: center;">
+            <a href="?">Home</a> • <a href="?=buy">Fishionary</a> • <a href="?">Download</a>
+        </div>
+    </div>
+
+    <div id="home" style="display: none;">
+        Inspired by <a href="https://x.com/tellioaridoitsu/status/1828290518595641788">this tweet</a>.
+    </div>
+
+    <div id="buy" style="display: none;">
+        <p>So much variety! So many items!</p>
+        <img width="100%" src="https://pbs.twimg.com/media/GV9kc45XcAEg-CX?format=jpg&name=medium">
+    </div>
+    
+</body>
+</html>
