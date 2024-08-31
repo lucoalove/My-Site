@@ -10,7 +10,8 @@
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
         body { color: #ddd; font-family: "PT Sans", sans-serif; max-width: 45em; margin: auto; border: 1px solid #444; border-top: 0; border-bottom: 0; background: black; }
-        
+
+        hr { border: 0; border-bottom: 1px solid #444; }
         a { color: #48f; text-decoration-style: dotted; }
         p:last-child { margin-bottom: 0; }
         th { text-align: left; font-weight: 400; padding-right: 1em; }
@@ -31,7 +32,13 @@
     <script type="module">
         const postsInsert = document.getElementById('posts-insert');
         
-        function addPost(date, body) {
+        function addPost(date, imgs, body) {
+
+            let imagesInsert = "";
+
+            for (const img of imgs)
+                imagesInsert += "<img src='${img}'>";
+            
             postsInsert.innerHTML += `
                 <div class="post">
                     <div class="sidebar">
@@ -40,6 +47,9 @@
                     <div class="body">
                         <div><strong>redderblanket</strong>  <span style="color: grey;">· ${date}</span></div>
                         ${body}
+                        ${imagesInsert}
+                        <hr>
+                        <3 10
                     </div>
                 </div>
             `;
@@ -53,7 +63,7 @@
         })
         .then(json => {
             for (const p of json.posts)
-                addPost(p.date, p.body);
+                addPost(p.date, p.imgs == null ? Array() : p.imgs, p.body);
         });
     </script>
 </head>
