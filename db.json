@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Aug 31, 2024",
+            "imgs": [ "https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3e688ccde70cabd67e8ec_68.png" ],
+            "body": "<p>me when I do something that isn't bad perse but doesn't maintain the status quo nor markedly improve my life</p>"
+        },
+        {
+            "date": "Aug 31, 2024",
             "imgs": [ "img/donut_reddit.png" ],
             "body": "<p>I know this is a vent but this is lowkey hot asf >.></p>"
         },
@@ -32,8 +37,8 @@
         },
         {
             "date": "Aug 26, 2024",
-            "imgs": [],
-            "body": "<p>loona</p><img src='https://preview.redd.it/i-think-shes-cute-too-twitter-v0-jgrxttpw63ld1.jpeg?auto=webp&s=32769674f8035be51bcb831d96bad0f80b8f58c8'> <!-- https://www.reddit.com/r/Losercity/comments/1f21j8m/i_think_shes_cute_too_icey_starr_twitter/ -->"
+            "imgs": [ "https://preview.redd.it/i-think-shes-cute-too-twitter-v0-jgrxttpw63ld1.jpeg?auto=webp&s=32769674f8035be51bcb831d96bad0f80b8f58c8" ],
+            "body": "<p>loona</p> <!-- https://www.reddit.com/r/Losercity/comments/1f21j8m/i_think_shes_cute_too_icey_starr_twitter/ -->"
         },
         {
             "date": "Aug 26, 2024",
@@ -72,13 +77,13 @@
         },
         {
             "date": "Aug 25, 2024",
-            "imgs": [],
-            "body": "<p>I gotta admit I'm kinda into barcodes. like, compressed machine-readable data!</p><img src='https://docs.telerik.com/reporting/report-items/barcode/images/Barcodes/barcode-overview.png'>"
+            "imgs": [ "https://docs.telerik.com/reporting/report-items/barcode/images/Barcodes/barcode-overview.png" ],
+            "body": "<p>I gotta admit I'm kinda into barcodes. like, compressed machine-readable data!</p>"
         },
         {
             "date": "Aug 25, 2024",
-            "imgs": [],
-            "body": "<p>im an artist. my style? gigantic jugs</p><img src='img/classic_boob.webp'>"
+            "imgs": [ "classic_boob.webp" ],
+            "body": "<p>im an artist. my style? gigantic jugs</p>"
         },
         {
             "date": "Aug 25, 2024",
@@ -102,13 +107,13 @@
         },
         {
             "date": "Aug 23, 2024",
-            "imgs": [],
-            "body": "<p>white peach 🤤🤤 reminds me of boobs, 🤤🤤🤤🤤</p><img src='https://web-japan.org/kidsweb/img/local_hakuto_pic01.jpg'>"
+            "imgs": [ "https://web-japan.org/kidsweb/img/local_hakuto_pic01.jpg" ],
+            "body": "<p>white peach 🤤🤤 reminds me of boobs, 🤤🤤🤤🤤</p>"
         },
         {
             "date": "Aug 22, 2024",
-            "imgs": [],
-            "body": "<p>this style is so kawaiicoded they are so blisspilled and meepymaxxing I bet they go \"erm, wha do? >.<\"</p><img src='img/kawaiifat1.jpg'><img src='img/kawaiifat2.jpg'>"
+            "imgs": [ "img/kawaiifat1.jpg", "img/kawaiifat2.jpg" ],
+            "body": "<p>this style is so kawaiicoded they are so blisspilled and meepymaxxing I bet they go \"erm, wha do? >.<\"</p>"
         },
         {
             "date": "Aug 22, 2024",
@@ -127,8 +132,8 @@
         },
         {
             "date": "Aug 21, 2024",
-            "imgs": [],
-            "body": "<p>maybe I should try out painting, like my friend <a href='https://dsm5.nekoweb.org/works/paintings/'>vivi</a>. Not digital painting, physical painting. I think it might give more value to it, being an actual Thing I can hold and display instead of something in ma computer. we'll see :3 (below is their painting btw I like the vibe a lot)</p><img src='https://dsm5.nekoweb.org/files/img/paintings/monument-no1.png'>"
+            "imgs": [ "https://dsm5.nekoweb.org/files/img/paintings/monument-no1.png" ],
+            "body": "<p>maybe I should try out painting, like my friend <a href='https://dsm5.nekoweb.org/works/paintings/'>vivi</a>. Not digital painting, physical painting. I think it might give more value to it, being an actual Thing I can hold and display instead of something in ma computer. we'll see :3 (below is their painting btw I like the vibe a lot)</p>"
         },
         {
             "date": "Aug 21, 2024",
@@ -137,8 +142,8 @@
         },
         {
             "date": "Aug 21, 2024",
-            "imgs": [],
-            "body": "<p><a href='https://huggingface.co/mariaWitch/ExperimentalBiggerMerges/tree/main'>bbw aurora borealis</a> is quite the good 1.5 model</p><p>that is all</p><img src='img/bbw_aurora_borealis_base.png'>"
+            "imgs": [ "img/bbw_aurora_borealis_base.png" ],
+            "body": "<p><a href='https://huggingface.co/mariaWitch/ExperimentalBiggerMerges/tree/main'>bbw aurora borealis</a> is quite the good 1.5 model</p><p>that is all</p>"
         },
         {
             "date": "Aug 21, 2024",
@@ -152,13 +157,13 @@
         },
         {
             "date": "Aug 21, 2024",
-            "imgs": [],
-            "body": "<p>bluecraft</p><img src='https://preview.redd.it/making-a-new-base-any-ideas-v0-0sqhjvbay1kd1.png?auto=webp&s=76dac7106e4b7f0cc51ee24b79d2083426d33c81'> <!-- https://www.reddit.com/r/GoldenAgeMinecraft/comments/1exvn8g/making_a_new_base_any_ideas/ -->"
+            "imgs": [ "https://preview.redd.it/making-a-new-base-any-ideas-v0-0sqhjvbay1kd1.png?auto=webp&s=76dac7106e4b7f0cc51ee24b79d2083426d33c81" ],
+            "body": "<p>bluecraft</p> <!-- https://www.reddit.com/r/GoldenAgeMinecraft/comments/1exvn8g/making_a_new_base_any_ideas/ -->"
         },
         {
             "date": "Aug 21, 2024",
-            "imgs": [],
-            "body": "<p>a legacy minecraft blog would be. SO CUTE 😭</p><img src='https://preview.redd.it/had-a-little-romp-in-beta-to-get-our-server-started-v0-qpvj25ll31kd1.jpeg?auto=webp&s=c7a5f8baef40605837efa640d0b7ab390de87d02'><!-- https://www.reddit.com/r/GoldenAgeMinecraft/comments/1exr9cc/had_a_little_romp_in_beta_to_get_our_server/ -->"
+            "imgs": [ "https://preview.redd.it/had-a-little-romp-in-beta-to-get-our-server-started-v0-qpvj25ll31kd1.jpeg?auto=webp&s=c7a5f8baef40605837efa640d0b7ab390de87d02" ],
+            "body": "<p>a legacy minecraft blog would be. SO CUTE 😭</p><!-- https://www.reddit.com/r/GoldenAgeMinecraft/comments/1exr9cc/had_a_little_romp_in_beta_to_get_our_server/ -->"
         },
         {
             "date": "Aug 20, 2024",
@@ -167,8 +172,8 @@
         },
         {
             "date": "Aug 20, 2024",
-            "imgs": [],
-            "body": "<p>I'm back from Hungary (my back hurts like hell from the plane ride) so I can draw now. and that means: working on my trans fursona!! she's 33yo, 5'11\" (same as me), and a mommy that only does what YOU want to do. also, she's very bottom-heavy, so her breasts aren't huge but her hips definitely are...</p><img src='img/fox_mommy_butt.png'>"
+            "imgs": [ "img/fox_mommy_butt.png" ],
+            "body": "<p>I'm back from Hungary (my back hurts like hell from the plane ride) so I can draw now. and that means: working on my trans fursona!! she's 33yo, 5'11\" (same as me), and a mommy that only does what YOU want to do. also, she's very bottom-heavy, so her breasts aren't huge but her hips definitely are...</p>"
         },
         {
             "date": "Aug 18, 2024",
@@ -227,13 +232,13 @@
         },
         {
             "date": "Aug 12, 2024",
-            "imgs": [],
-            "body": "<p>I need to draw characters like <a href='https://x.com/sketches_wizard/status/1822996461929329112'>this</a>, acting out scenes and having Dynamics!! but I'm in Hungary so I can't art -> sad</p><img src='https://pbs.twimg.com/media/GUupptQWMAEqRPa?format=jpg&name=medium'>"
+            "imgs": [ "https://pbs.twimg.com/media/GUupptQWMAEqRPa?format=jpg&name=medium" ],
+            "body": "<p>I need to draw characters like <a href='https://x.com/sketches_wizard/status/1822996461929329112'>this</a>, acting out scenes and having Dynamics!! but I'm in Hungary so I can't art -> sad</p>"
         },
         {
             "date": "Aug 12, 2024",
-            "imgs": [],
-            "body": "<p>I wanna buy a crucible (<a href='https://www.amazon.com/Graphite-Crucible-Including-Crucibles-Stainless/dp/B09WMP12MK/ref=asc_df_B09WMP12MK/?tag=hyprod-20&linkCode=df0&hvadid=692875362841&hvpos=&hvnetw=g&hvrand=5319347741772868918&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9052552&hvtargid=pla-2281435179058&psc=1&mcid=5d2efcdd7c9436bcb0c16d7cd6cf3e6f&hvocijid=5319347741772868918-B09WMP12MK-&hvexpln=73&gad_source=1'>crucible in question</a>) and melt down pennies and cast the molten brass into ingots</p><p>I literally just like Pure things lol</p><img src='https://5.imimg.com/data5/AT/MG/VM/SELLER-19000062/brass-ingot.jpg'>"
+            "imgs": [ "https://5.imimg.com/data5/AT/MG/VM/SELLER-19000062/brass-ingot.jpg" ],
+            "body": "<p>I wanna buy a crucible (<a href='https://www.amazon.com/Graphite-Crucible-Including-Crucibles-Stainless/dp/B09WMP12MK/ref=asc_df_B09WMP12MK/?tag=hyprod-20&linkCode=df0&hvadid=692875362841&hvpos=&hvnetw=g&hvrand=5319347741772868918&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9052552&hvtargid=pla-2281435179058&psc=1&mcid=5d2efcdd7c9436bcb0c16d7cd6cf3e6f&hvocijid=5319347741772868918-B09WMP12MK-&hvexpln=73&gad_source=1'>crucible in question</a>) and melt down pennies and cast the molten brass into ingots</p><p>I literally just like Pure things lol</p>"
         },
         {
             "date": "Aug 11, 2024",
