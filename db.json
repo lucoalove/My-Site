@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Aug 30, 2024",
+            "imgs": [ "img/hooters.webp" ],
+            "body": "<p>they call me the left B)</p>"
+        },
+        {
+            "date": "Aug 30, 2024",
             "imgs": [],
             "body": "<p>blog style update (and now images are stored separately from the body!! yaay!! this took so long to convert!!)</p>"
         },
@@ -297,8 +302,8 @@
         },
         {
             "date": "July 31, 2024",
-            "imgs": [],
-            "body": "<p>a slightly serious, mysterious, mild-horror (but still sexy) fic about thick babes working in space would be kinda cool</p><p>that is all</p><img src='img/starfleet_delta.png'>"
+            "imgs": [ "img/starfleet_delta.png" ],
+            "body": "<p>a slightly serious, mysterious, mild-horror (but still sexy) fic about thick babes working in space would be kinda cool</p><p>that is all</p>"
         },
         {
             "date": "July 30, 2024",
@@ -307,33 +312,33 @@
         },
         {
             "date": "July 30, 2024",
-            "imgs": [],
-            "body": "<p>slight site redesign (again lol)</p><img src='img/old_mc_msgboard.png'>"
+            "imgs": [ "img/old_mc_msgboard.png" ],
+            "body": "<p>slight site redesign (again lol)</p>"
         },
         {
             "date": "July 30, 2024",
-            "imgs": [],
-            "body": "<p>I wanna get strong for a DOMMY MOMMY (plus that dude's build looks mega atractivo no homo tho) (also screw the car lol)</p><img src='img/strong_for_dommy_mommy.webp'>"
+            "imgs": [ "img/strong_for_dommy_mommy.webp" ],
+            "body": "<p>I wanna get strong for a DOMMY MOMMY (plus that dude's build looks mega atractivo no homo tho) (also screw the car lol)</p>"
         },
         {
             "date": "July 29, 2024",
-            "imgs": [],
-            "body": "<p>the era of koro is OVER. I've decided that Inugami Korone is NO LONGER the theme of this blog. She'll still stick around tho but y'know she won't be like a Main Point or whatever</p><img src='https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg'>"
+            "imgs": [ "https://i.pinimg.com/736x/05/83/c5/0583c580b0fe6ee0af35644005d6955b.jpg" ],
+            "body": "<p>the era of koro is OVER. I've decided that Inugami Korone is NO LONGER the theme of this blog. She'll still stick around tho but y'know she won't be like a Main Point or whatever</p>"
         },
         {
             "date": "July 29, 2024",
-            "imgs": [],
-            "body": "<p>Minecraft is so cool. I love items. I love sprites. I love the grid system. I love makin a lil world, a lil house. I like small things</p><img src='img/minecraft_res_tier.webp'><img src='https://media.forgecdn.net/avatars/483/662/637784018867299475.png'><img src='https://static.wikia.nocookie.net/minecraft/images/a/a9/Ruby.png'>"
+            "imgs": [ "img/minecraft_res_tier.webp", "https://media.forgecdn.net/avatars/483/662/637784018867299475.png", "https://static.wikia.nocookie.net/minecraft/images/a/a9/Ruby.png" ],
+            "body": "<p>Minecraft is so cool. I love items. I love sprites. I love the grid system. I love makin a lil world, a lil house. I like small things</p>"
         },
         {
             "date": "July 29, 2024",
-            "imgs": [],
-            "body": "<p>this is Night she's my wife and I'm gonna write self insert fiction where she loves me through it all (and put it on my website) (im so lonely)</p><p>note that I actually still think photography is helping with my Feeling Useless all the time, but that's not gonna stop me from spawning Night into existence</p><img src='img/night.png'><img src='img/night2.png'><img src='img/night3.png'>"
+            "imgs": [ "img/night.png", "img/night2.png", "img/night3.png" ],
+            "body": "<p>this is Night she's my wife and I'm gonna write self insert fiction where she loves me through it all (and put it on my website) (im so lonely)</p><p>note that I actually still think photography is helping with my Feeling Useless all the time, but that's not gonna stop me from spawning Night into existence</p>"
         },
         {
             "date": "July 27, 2024",
-            "imgs": [],
-            "body": "<p>knock on wood, but I think I'm gonna try picking up photography. if anything, it's a motivator to go outside more, and maybe fiddling with camera settings is more fufilling than Krita ones, lol</p><img src='https://media.wired.com/photos/648ba9b2f2de86183cf5b4d9/191:100/w_2580,c_limit/Sony-RX100VA-Compact-Camera-Gear.jpg'>"
+            "imgs": [ "https://media.wired.com/photos/648ba9b2f2de86183cf5b4d9/191:100/w_2580,c_limit/Sony-RX100VA-Compact-Camera-Gear.jpg" ],
+            "body": "<p>knock on wood, but I think I'm gonna try picking up photography. if anything, it's a motivator to go outside more, and maybe fiddling with camera settings is more fufilling than Krita ones, lol</p>"
         },
         {
             "date": "July 27, 2024",
@@ -342,8 +347,8 @@
         },
         {
             "date": "July 27, 2024",
-            "imgs": [],
-            "body": "<p>I'm updating my site to have an old-internet messageboard feel. it even uses tables! how archaic lol</p><img src='https://www.codeproject.com/KB/custom-controls/aspnetforums/flatsortorder1.gif'><img src='https://upload.wikimedia.org/wikipedia/commons/3/33/Forum_spam.png'>"
+            "imgs": [ "https://upload.wikimedia.org/wikipedia/commons/3/33/Forum_spam.png" ],
+            "body": "<p>I'm updating my site to have an old-internet messageboard feel. it even uses tables! how archaic lol</p><img src='https://www.codeproject.com/KB/custom-controls/aspnetforums/flatsortorder1.gif'>"
         },
         {
             "date": "July 26, 2024",
