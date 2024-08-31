@@ -232,13 +232,13 @@
         },
         {
             "date": "Aug 11, 2024",
-            "imgs": [],
-            "body": "<p>mommy</p><img src='img/mommy.png'>"
+            "imgs": [ "img/mommy.png" ],
+            "body": "<p>mommy</p>"
         },
         {
             "date": "Aug 11, 2024",
-            "imgs": [],
-            "body": "<p>I wish I could lock her in my basement and do unspeakable acts to her body</p><img src='img/catgirl_bestgirl.png'>"
+            "imgs": [ "img/catgirl_bestgirl.png" ],
+            "body": "<p>I wish I could lock her in my basement and do unspeakable acts to her body</p>"
         },
         {
             "date": "Aug 11, 2024",
@@ -247,23 +247,23 @@
         },
         {
             "date": "Aug 11, 2024",
-            "imgs": [],
-            "body": "<p>the idea of social media is so. charming. delicate. \"hey guys here's a picture I drew what do you think.\" so based</p><img src='https://www.tweeteraser.com/resources/wp-content/uploads/2024/04/21251651_6392326.jpg'>"
+            "imgs": [ "https://www.tweeteraser.com/resources/wp-content/uploads/2024/04/21251651_6392326.jpg" ],
+            "body": "<p>the idea of social media is so. charming. delicate. \"hey guys here's a picture I drew what do you think.\" so based</p>"
         },
         {
             "date": "Aug 10, 2024",
-            "imgs": [],
-            "body": "<p>crazy oc design right here that I can share with all my oc-having friends and they'd all appreciate me and accept me as their own. btw I drew this with a trackpad</p><p>edit: fuck that should say tanaka</p><img src='img/my_oc.png'>"
+            "imgs": [ "img/my_oc.png" ],
+            "body": "<p>crazy oc design right here that I can share with all my oc-having friends and they'd all appreciate me and accept me as their own. btw I drew this with a trackpad</p><p>edit: fuck that should say tanaka</p>"
         },
         {
             "date": "Aug 10, 2024",
-            "imgs": [],
-            "body": "<p>I could just become a hentai artist. convert this entire site into the place where I document and tag my hentai. make it all pretty and develop a style and cater to my audience while honing and enjoying my craft. I mean I'm kinda already doing that but also school is a thing idk. I just love data bro (porn)</p><img src='img/hentai_wall.jpg'>"
+            "imgs": [ "img/hentai_wall.jpg" ],
+            "body": "<p>I could just become a hentai artist. convert this entire site into the place where I document and tag my hentai. make it all pretty and develop a style and cater to my audience while honing and enjoying my craft. I mean I'm kinda already doing that but also school is a thing idk. I just love data bro (porn)</p>"
         },
         {
             "date": "Aug 7, 2024",
-            "imgs": [],
-            "body": "<p>im gonna do it I gotta this style looks so clean</p><p><s>women (from the mangas) will love me once I do</s></p><img src='img/bokurano.webp'>"
+            "imgs": [ "img/bokurano.webp" ],
+            "body": "<p>im gonna do it I gotta this style looks so clean</p><p><s>women (from the mangas) will love me once I do</s></p>"
         },
         {
             "date": "Aug 7, 2024",
@@ -292,8 +292,8 @@
         },
         {
             "date": "Aug 3, 2024",
-            "imgs": [],
-            "body": "<p>prophecy: the year is 2029, the human genome has been available for experimentation for... six months now</p><p>they created a \"make boobs bigger than beach balls\" gene about two and a half hours after it was legalized</p><img src='img/beachball_yellow.png'><img src='img/beachball_blue.png'><img src='img/beachball_starry.png'><img src='img/beachball_red.png'>"
+            "imgs": [ "img/beachball_yellow.png", "img/beachball_blue.png", "img/beachball_starry.png", "img/beachball_red.png" ],
+            "body": "<p>prophecy: the year is 2029, the human genome has been available for experimentation for... six months now</p><p>they created a \"make boobs bigger than beach balls\" gene about two and a half hours after it was legalized</p>"
         },
         {
             "date": "Aug 3, 2024",
@@ -347,8 +347,8 @@
         },
         {
             "date": "July 27, 2024",
-            "imgs": [ "https://upload.wikimedia.org/wikipedia/commons/3/33/Forum_spam.png" ],
-            "body": "<p>I'm updating my site to have an old-internet messageboard feel. it even uses tables! how archaic lol</p><img src='https://www.codeproject.com/KB/custom-controls/aspnetforums/flatsortorder1.gif'>"
+            "imgs": [ "https://www.codeproject.com/KB/custom-controls/aspnetforums/flatsortorder1.gif", "https://upload.wikimedia.org/wikipedia/commons/3/33/Forum_spam.png" ],
+            "body": "<p>I'm updating my site to have an old-internet messageboard feel. it even uses tables! how archaic lol</p>"
         },
         {
             "date": "July 26, 2024",
