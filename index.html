@@ -20,7 +20,7 @@
         .post > .user { padding: 0.5em; padding-bottom: 0; display: flex; align-items: center; gap: 0.5em; }
         .post > .user > img { aspect-ratio: 1; border-radius: 2px; width: 40px; }
         .post > .body { padding: 0.5em; }
-        .post > .buttons { padding: 0.5em; border-top: 1px solid #aaa; display: flex: gap: 0.5em; align-items: center; }
+        .post > .buttons { padding: 0.5em; border-top: 1px solid #aaa; display: flex; gap: 0.5em; align-items: center; }
         .post > .buttons > img { width: 20px; }
     </style>
     
@@ -48,7 +48,7 @@
                     
                     ${imagesInsert}
                     <div class="buttons">
-                        <img src="heart.svg"> 10
+                        <img src="heart.svg"> ${ Math.floor(Math.random() * 42070); }
                     </div>
                     
                 </div>
