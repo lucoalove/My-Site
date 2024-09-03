@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 2, 2024",
+            "imgs": [ "https://i.kym-cdn.com/photos/images/original/000/825/632/207.png" ],
+            "body": "<p><a href='https://npx.booru.org/'>npx.booru.org</a> is the smallest booru I could find. gives me hope that, given a small server, I could customize and release my own...</p>"
+        },
+        {
+            "date": "Sept 2, 2024",
             "imgs": [],
             "body": "<p>1) <a href='https://gelbooru.com/index.php'>gelbooru.com/index.php</a> is pretty cool, not only the content but just the site is so Clean 2) when I see index.php I cum</p><p>edit: there's also <a href='https://curveybooru.com/'>curveybooru.com</a>, which is smaller (gelbooru has 10 million posts and curvey has only 18k) and loads slower but has more curvy and honestly. pog</p>"
         },
