@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 2, 2024",
+            "imgs": [],
+            "body": "<p>plapbooru</p>"
+        },
+        {
+            "date": "Sept 2, 2024",
             "imgs": [ "https://i.kym-cdn.com/photos/images/original/000/825/632/207.png" ],
             "body": "<p><a href='https://npx.booru.org/'>npx.booru.org</a> is the smallest booru I could find. gives me hope that, given a small server, I could customize and release my own...</p>"
         },
