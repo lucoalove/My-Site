@@ -28,6 +28,10 @@
         
         .post > .buttons { padding: 0.5em; border-top: 1px solid #aaa; display: flex; gap: 0.5em; align-items: center; }
         .post > .buttons > img { width: 20px; }
+
+        @media (orientation: portrait) {
+            body { max-width: 100%; }
+        }
     </style>
     
     <script type="module">
@@ -78,7 +82,7 @@
 </head>
 <body>
 
-    <div style="display: flex; gap: 1em; margin: 1em 0;">
+    <div style="display: flex; gap: 1em; margin: 1em 0; align-items: start;">
         <img style="width: 160px;" src="https://media.tenor.com/K0k1EDr-ZjUAAAAe/little-nerd-cat.png">
         <div>
             <h2 style="margin: 0; border-bottom: 1px solid #aaa;">redderblanket</h2>
