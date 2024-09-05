@@ -1,6 +1,11 @@
 {
     "posts": [
-    {
+        {
+            "date": "Sept 5, 2024",
+            "imgs": [],
+            "body": "<p>I want to make small things. but truly, I <i>do</i> make a lot of small things. maybe I just want to love something, even if I didn't make it</p>"
+        },
+        {
             "date": "Sept 4, 2024",
             "imgs": [ "img/minecraft_skin.png", "img/minecraft_skin_boob.png" ],
             "body": "<p>I should maybe try getting into making minecraft animatics in blender <a href='https://www.tiktok.com/@banaiadrienn2/video/7295775320047668512'>like this one</a>. I mean, the modeling would be easy right?</p>"
