@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 8, 2024",
+            "imgs": [ "https://static.wikia.nocookie.net/gameideas/images/9/9b/Lucoa.png/revision/latest?cb=20171230013003" ],
+            "body": "<p>she's so hot</p>"
+        },
+        {
+            "date": "Sept 8, 2024",
             "imgs": [ "img/popular_mod_versions.png" ],
             "body": "<p>it's times like this where this blog just becomes a notepad for things I don't want to store anywhere else (I'm not using GitHub for storage I swearrr)</p>"
         },
