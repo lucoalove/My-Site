@@ -1,6 +1,11 @@
 {
     "posts": [
         {
+            "date": "Sept 12, 2024",
+            "imgs": [ "img/green_candy.webp" ],
+            "body": "<p>god I love candy. I want to put it in moderately sized glass jars and just savour. my collection</p>"
+        },
+        {
             "date": "Sept 11, 2024",
             "imgs": [],
             "body": "<p><a href='https://en.wikipedia.org/wiki/Luxembourgish'>Luxembourgish</a> is a neat language yeaa (I got caught up in trying to make a whole news site in it, I mean the website looked nice but I don't know Luxembourgish). there's a <a href='https://lod.lu/'>dictionary</a> for it and everything yeaa go Luxembourg 🇱🇺</p>"
