@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <title>news.lu</title>
     <style>
-        nav { background: #3b3f75; padding: 0.5em; display: flex; gap: 1em; }
-        nav a { font-weight: 700; color: white; text-decoration: none; }
+        body { display: flex; flex-direction: column; gap: 1em; align-items: center; }
+        
+        hr { border: 0; border-top: 1px solid #3b3f75; }
+
+        header { width: 964px; }
+        header h1 { font-size: 4rem; padding-top: 1rem; margin: 0; position: relative; background: linear-gradient(to right, white, white, transparent), linear-gradient(to bottom, #EF3340, #EF3340 33%, white 33%, white 67%, #00A3E0 67%); }
+        header nav { background: #3b3f75; padding: 0.5em; display: flex; gap: 1em; }
+        header nav a { font-weight: 700; color: white; text-decoration: none; }
+        header sub { vertical-align: baseline; color: grey; padding-top: 4px; }
     </style>
 </head>
-<body style="width: 964px; margin: auto;">
+<body>
 
-    <header style="margin-bottom: 1em;">
+    <header>
         
-        <h1 style="font-size: 4rem; padding-top: 1rem; margin: 0; position: relative; background: linear-gradient(to right, white, transparent 20%), linear-gradient(to bottom, #EF3340, #EF3340 33%, white 33%, white 67%, #00A3E0 67%);">Titel</h1>
+        <h1>Titel</h1>
         
         <nav>
             <a href="">Iessen</a>
@@ -22,17 +29,19 @@
             <a href="">Amerikanesch Politik</a>
         </nav>
 
-        <div style="font-size: smaller; color: grey; padding-top: 4px;">
-            Eng lëtzebuergesch Onlinezeitung.
-        </div>
+        <sub>Eng lëtzebuergesch Onlinezeitung.</sub>
         
     </header>
-    
-    <img width="200" style="float: right;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/2880px-Flag_of_Luxembourg.svg.png">
 
-    <p>Dëst ass eng Onlinezeitung.</p>
+    <main>
     
-    <p>EN: A <a href="https://en.wikipedia.org/wiki/Luxembourgish">Luxembourgish</a> online newspaper. <a href="https://lod.lu/">Here</a> is a dictionary. <a href="https://www.dailymail.co.uk/ushome/index.html">Here</a> is the daily mail, referenced for this site's layout.</p>
+        <p>Burger</p>
+
+        <hr>
+        
+        <p>EN: A <a href="https://en.wikipedia.org/wiki/Luxembourgish">Luxembourgish</a> online newspaper. <a href="https://lod.lu/">Here</a> is a dictionary. <a href="https://www.dailymail.co.uk/ushome/index.html">Here</a> is the daily mail, referenced for this site's layout.</p>
+
+    </main>
 
 </body>
 </html>
