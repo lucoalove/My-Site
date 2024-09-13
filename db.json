@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 12, 2024",
+            "imgs": [ "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:w3yj2nsifaidqkmbwo4sx7t6/bafkreib3lkilqrya5u7ivdyzgtwf6a3fqc74gowerg25bdqk6inf4ncrku@jpeg" ],
+            "body": ""
+        },
+        {
+            "date": "Sept 12, 2024",
             "imgs": [],
             "body": "<p>the simplest \"brain in a jar\" really only needs three things</p><ol><li>Life support (obviously, stuff like blood circulation)</li><li>Vision interface (this has <a href='https://www.intelligentliving.co/brain-implant-restores-vision-blind-patients/'>already been done</a>)</li><li>Proprioception interface (neuralink?)</li></ol><p>simulate a room with a computer that has internet access, make a 3D model that's 1:1 with the person's original body and controlled by the proprioception interface, and I mean that's all you *really* need (no senses other than sight tho, lmao)</p>"
         },
