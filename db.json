@@ -1,6 +1,11 @@
 {
     "posts": [
         {
+            "date": "Sept 13, 2024",
+            "imgs": [],
+            "body": "<p>Friendship ended with <a href="https://x.com/futon7979">@futon7979</a>, my idol is now <a href="https://x.com/shuz_">@shuz_</a> :3</p>"
+        },
+        {
             "date": "Sept 12, 2024",
             "imgs": [ "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:w3yj2nsifaidqkmbwo4sx7t6/bafkreib3lkilqrya5u7ivdyzgtwf6a3fqc74gowerg25bdqk6inf4ncrku@jpeg" ],
             "body": ""
