@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 15, 2024",
+            "imgs": [ "img/infdevplus.webp" ],
+            "body": "<p>hehe this look nice</p>"
+        },
+        {
+            "date": "Sept 15, 2024",
             "imgs": [],
             "body": "<p>I found out that PHP is goat!! it's actually super simple to use, I made a repo with a very simple messageboard</p><p>I'm also up at 3am, which is not as good, but tomorrow's sunday so as long as I finish my assignment it's whatever lol</p>"
         },
