@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 15, 2024",
+            "imgs": [],
+            "body": "<p>quote from Xen, the creator of stufferAI, that I thought was funny:</p><blockquote>It's fun randomly looking at people's prompts on the site and they'll do stuff like stick their entire prompt inside a million parentheses, with what feels like a long passage from the Bible in between. Then somehow end up making something decent so they feel like this is the correct way and keep adding more stuff to their prompt till it's longer than a novel and browsers can no longer copy it's settings cause it's so long. But the reality is that the generator has zoned out anything they said beyond the second sentence</blockquote>"
+        },
+        {
+            "date": "Sept 15, 2024",
             "imgs": [ "img/infdevplus.webp" ],
             "body": "<p>hehe this look nice</p>"
         },
