@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Sept 19, 2024",
+            "imgs": [ "img/carkon.png" ],
+            "body": "<p>(wedge?) marker + watercolor = new hyperfixation that generates tangible thingies</p>"
+        },
+        {
+            "date": "Sept 19, 2024",
             "imgs": [ "http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcQDvLeIKALXWWF-JQIxOd6TV9Tgy99QjVd5kPxoBZ0oXAzkBlov4D6u3TfvXtafD4X4rfqhbUqYn9ZM9f_k5T0" ],
             "body": "<p>public short-distance travel infrastructure,,, and it's modern, aand it's a box, aaaand it's eeffoc</p>"
         },
