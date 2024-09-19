@@ -6,10 +6,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap');
         
-        body { font-family: sans-serif; background: grey; margin: 0; }
+        body { font-family: sans-serif; background: black; margin: 0; }
 
-        h1 { line-height: 0.6em; font-family: "Red Hat Display", sans-serif; font-size: 2.5em; font-weight: 300; text-transform: uppercase; color: white; margin: 0; }
-        h1 strong { color: #0cf; font-weight: 700; display: block; }
+        h1 { line-height: 0.9em; font-family: "Red Hat Display", sans-serif; font-size: 1.8em; font-weight: 300; text-transform: uppercase; color: white; margin: 0; }
+        h1 strong { color: #fb4; font-weight: 700; display: block; font-size: 1.2em; }
         
         a { text-decoration: none; color: #c92; }
         p, ol { line-height: 1.2em; }
@@ -17,56 +17,69 @@
         img { border: 2px solid black; width: 100%; }
         figcaption { font-size: smaller; font-weight: 700; margin: 4px 0; }
 
-        header, main { width: 50em; margin: auto; box-sizing: border-box; }
+        header { padding: 2em; background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg'); background-size: cover; }
+        nav { padding: 0.5em; background: #112; display: flex; gap: 1em; } nav a { font-weight: 700; }
+        main { background: #334; padding: 1em; }
+        aside { background: #223; }
     </style>
 </head>
 <body>
-    
-    <header style="padding: 2em; background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg'); background-size: cover;">
-        <h1>
-            <strong>Outermost</strong> Interests
-        </h1>
-    </header>
 
-    <main style="background: white; padding: 1em;">
-        <p>A zine is most commonly a small circulation publication of original or appropriated texts and images. More broadly, the term encompasses any self-published unique work of minority interest, usually reproduced via photocopier.</p>
+    <div style="width: 50em; margin: auto;">
+        <header>
+            <h1>
+                <strong>Outermost</strong> Interests
+            </h1>
+        </header>
+
+        <nav>
+            <a href="">Home</a>
+            <a href="">Articles</a>
+            <a href="">Latest</a>
+            <a href="">Catalogue</a>
+            <a href="">Past Releases</a>
+        </nav>
     
-        <p>I don't like the <a href="https://en.wikipedia.org/wiki/IAU_definition_of_planet">IAU's definition of a planet</a>, so I made my own.</p>
-        <ol>
-            <li>Is in orbit around a sun,</li>
-            <li>has sufficient mass to assume hydrostatic equilibrium (a nearly round shape).</li>
-        </ol>
-        <p>A natural celestial body that satisfies both criteria is a planet. If it does not satisfy point 1, add "rogue" to the beginning. If it does not satisfy point 2, replace planet with "planetoid."</p>
-    
-        <p>Looking forward to the <a href="https://en.wikipedia.org/wiki/Nancy_Grace_Roman_Space_Telescope">Roman Space Telescope</a> launch and service.</p>
-    
-        <p>Earth is gonna have a temporary mini-moon (<a href="https://en.wikipedia.org/wiki/2024_PT5">2024 PT5</a>) soon!</p>
-    
-        <hr>
+        <main>
+            <p>A zine is most commonly a small circulation publication of original or appropriated texts and images. More broadly, the term encompasses any self-published unique work of minority interest, usually reproduced via photocopier.</p>
         
-        <p>Space images I find astounding:</p>
-    
-        <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rotation_of_Ultima_Thule.gif/350px-Rotation_of_Ultima_Thule.gif">
-            <figcaption>
-                Near-polar view of <a href="https://en.wikipedia.org/wiki/486958_Arrokoth">486958 Arrokoth</a>'s rotation over a period of nine hours.
-            </figcaption>
-        </figure>
-    
-        <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Images_of_asteroid_Ryugu_from_the_wide_angle_Optical_Navigation_Cameras_%28ONC-W1_and_ONC-W2%29_via_Hayabusa2.jpg">
-            <figcaption>
-                Images of <a href="https://en.wikipedia.org/wiki/162173_Ryugu">162173 Ryugu</a>'s surface made with Hayabusa2 on its mission to bring back samples from its surface.
-            </figcaption>
-        </figure>
-    
-        <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg/580px-Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg">
-            <figcaption>
-                <a href="https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)">Ceres</a> as imaged by Dawn, May 2015.
-            </figcaption>
-        </figure>
-    </main>
+            <p>I don't like the <a href="https://en.wikipedia.org/wiki/IAU_definition_of_planet">IAU's definition of a planet</a>, so I made my own.</p>
+            <ol>
+                <li>Is in orbit around a sun,</li>
+                <li>has sufficient mass to assume hydrostatic equilibrium (a nearly round shape).</li>
+            </ol>
+            <p>A natural celestial body that satisfies both criteria is a planet. If it does not satisfy point 1, add "rogue" to the beginning. If it does not satisfy point 2, replace planet with "planetoid."</p>
+        
+            <p>Looking forward to the <a href="https://en.wikipedia.org/wiki/Nancy_Grace_Roman_Space_Telescope">Roman Space Telescope</a> launch and service.</p>
+        
+            <p>Earth is gonna have a temporary mini-moon (<a href="https://en.wikipedia.org/wiki/2024_PT5">2024 PT5</a>) soon!</p>
+        
+            <hr>
+            
+            <p>Space images I find astounding:</p>
+        
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rotation_of_Ultima_Thule.gif/350px-Rotation_of_Ultima_Thule.gif">
+                <figcaption>
+                    Near-polar view of <a href="https://en.wikipedia.org/wiki/486958_Arrokoth">486958 Arrokoth</a>'s rotation over a period of nine hours.
+                </figcaption>
+            </figure>
+        
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Images_of_asteroid_Ryugu_from_the_wide_angle_Optical_Navigation_Cameras_%28ONC-W1_and_ONC-W2%29_via_Hayabusa2.jpg">
+                <figcaption>
+                    Images of <a href="https://en.wikipedia.org/wiki/162173_Ryugu">162173 Ryugu</a>'s surface made with Hayabusa2 on its mission to bring back samples from its surface.
+                </figcaption>
+            </figure>
+        
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg/580px-Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg">
+                <figcaption>
+                    <a href="https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)">Ceres</a> as imaged by Dawn, May 2015.
+                </figcaption>
+            </figure>
+        </main>
+    </div>
 
 </body>
 </html>
