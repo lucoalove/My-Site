@@ -6,9 +6,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
         
-        body { font-family: sans-serif; background: grey; }
+        body { font-family: sans-serif; background: grey; margin: 0; }
 
-        h1 { line-height: 1em; font-family: "Red Hat Display", sans-serif; font-weight: 400; text-transform: uppercase; color: white; margin: 0; }
+        h1 { line-height: 0.5em; font-family: "Red Hat Display", sans-serif; font-size: 2.5em; font-weight: 400; text-transform: uppercase; color: white; margin: 0; }
         h1 div { text-align: justify; text-justify: inter-character; }
         
         a { text-decoration: none; color: #c92; }
@@ -16,18 +16,28 @@
         
         img { border: 2px solid black; width: 100%; }
         figcaption { font-size: smaller; font-weight: 700; margin: 4px 0; }
+
+        header, main { width: 32em; margin: auto; box-sizing: border-box; }
     </style>
 </head>
 <body>
-<!-- <span style="word-spacing: 1000px;"> &nbsp;</span> -->
-    <header style="width: 30em; margin: auto; padding: 2em;">
+    
+    <header style="padding: 2em;">
         <h1 style="background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg'); background-size: cover;">
-            <div style="color: #0cf; font-weight: 700; font-size: 1.5em;">Outermost</div>
-            <div>Interests</div>
+            
+            <div style="color: #0cf; font-weight: 700; font-size: 1.5em;">
+                Outermost
+                 <span style="word-spacing: 1000px;"> &nbsp;</span> 
+            </div>
+            <div>
+                Interests
+                 <span style="word-spacing: 1000px;"> &nbsp;</span> 
+            </div>
+            
         </h1>
     </header>
 
-    <main style="width: 30em; margin: auto; background: white; padding: 1em;">
+    <main style="background: white; padding: 1em;">
         <p>A zine is most commonly a small circulation publication of original or appropriated texts and images. More broadly, the term encompasses any self-published unique work of minority interest, usually reproduced via photocopier.</p>
     
         <p>I don't like the <a href="https://en.wikipedia.org/wiki/IAU_definition_of_planet">IAU's definition of a planet</a>, so I made my own.</p>
