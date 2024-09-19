@@ -6,12 +6,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap');
         
-        body { font-family: sans-serif; background: black; margin: 0; }
+        body { font-family: sans-serif; background: black; margin: 0; color: #ddd; }
 
         h1 { line-height: 0.9em; font-family: "Red Hat Display", sans-serif; font-size: 1.8em; font-weight: 300; text-transform: uppercase; color: white; margin: 0; }
         h1 strong { color: #fb4; font-weight: 700; display: block; font-size: 1.2em; }
         
-        a { text-decoration: none; color: #c92; }
+        a { text-decoration: none; color: #eb5; }
+        a:hover { text-decoration: underline; }
+        
         p, ol { line-height: 1.2em; }
         
         img { border: 2px solid black; width: 100%; }
@@ -19,8 +21,8 @@
 
         header { padding: 2em; background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg'); background-size: cover; }
         nav { padding: 0.5em; background: #112; display: flex; gap: 1em; } nav a { font-weight: 700; }
-        main { background: #334; padding: 1em; }
-        aside { background: #223; }
+        main { width: 70%; float: left; padding: 1em; background: #334; }
+        aside { width: 30%; float: left; padding: 1em; background: #223; }
     </style>
 </head>
 <body>
@@ -79,6 +81,9 @@
                 </figcaption>
             </figure>
         </main>
+        <aside>
+            cats
+        </aside>
     </div>
 
 </body>
