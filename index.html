@@ -16,20 +16,20 @@
         a { color: #48f; text-decoration-style: dotted; }
         th { text-align: left; padding-right: 1em; white-space: nowrap; vertical-align: top; font-weight: 400; color: #aaa; }
 
-        #posts-insert { display: flex; flex-direction: column; gap: 1em; }
+        #links { margin: 1em 0; display: flex; flex-wrap: wrap; gap: 4px; }
+        #links a { flex: 1; text-align: center; white-space: nowrap; border: 1px solid #aaa; padding: 0.5em 1em; border-radius: 4px; }
 
-        /* post styling */
-        .post { border-bottom: 1px solid lightgrey; }
+        hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
         
+        #posts-insert { display: flex; flex-direction: column; gap: 1em; }
+        
+        /* post styling */
         .post > .user { padding: 0.5em; padding-bottom: 0; display: flex; align-items: center; gap: 0.5em; }
         .post > .user > img { aspect-ratio: 1; border-radius: 2px; width: 32px; }
         
         .post > .body { padding: 0.5em; }
         
         .post > .images > img { width: 100%; display: block; }
-
-        #links { margin: 1em 0; display: flex; flex-wrap: wrap; gap: 4px; }
-        #links a { flex: 1; text-align: center; white-space: nowrap; border: 1px solid #aaa; padding: 0.5em 1em; border-radius: 4px; }
     </style>
     
     <script type="module">
@@ -59,6 +59,8 @@
                     </div>
                     
                 </div>
+                
+                <hr>
             `;
         }
         
