@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+</head>
+<body>
+    <pre>
+    SETUP LOCAL REPO
+    git init
+    git remote add origin <URL>
+    
+    PULL
+    git fetch origin main
+    git reset --hard FETCH_HEAD
+    
+    PUSH
+    git add <. / -all / PATH>
+    git commit -m "<MESSAGE>"
+    git push -u origin main
+    
+    JAR
+    unzip <JAR>.jar -d <DIR>
+    jar cvf <JAR>.jar -C <DIR>/ .
+    </pre>
+</body>
+</html>
