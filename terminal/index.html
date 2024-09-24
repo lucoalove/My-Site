@@ -3,30 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>terminal commands</title>
+    <style>
+        body { font-family: sans-serif; }
+        code { display: inline-block; padding: 3px 5px; background: #ddd; border-radius: 2px; }
+    </style>
 </head>
 <body>
     <h1>SETUP LOCAL REPO</h1>
-    
-    <code>git init</code>
-    <code>git remote add origin &lt;URL&gt;</code>
-    ALSO <code>git remote -v</code>
-    ALSO <code>git remote remove origin</code>
+
+    <div>
+        <code>git init</code>
+    </div>
+    <div>
+        <code>git remote add origin &lt;URL&gt;</code>
+    </div>
+    <div>
+        ALSO <code>git remote -v</code>
+    </div>
+    <div>
+        ALSO <code>git remote remove origin</code>
+    </div>
     
     <h1>PULL</h1>
-    
-    <code>git fetch origin main</code>
-    <code>git reset --hard FETCH_HEAD</code>
+
+    <div>
+        <code>git fetch origin main</code>
+    </div>
+    <div>
+        <code>git reset --hard FETCH_HEAD</code>
+    </div>
     
     <h1>PUSH</h1>
-    
-    <code>git add &lt;. / -all / PATH&gt;</code> <sup><a href="https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period">[help]</a></sup>
-    <code>git commit -m "&lt;MESSAGE&gt;"</code>
-    <code>git push -u origin main</code>
-    OR <code>git push -u origin HEAD:master</code>
+
+    <div>
+        <code>git add &lt;. / -all / PATH&gt;</code> <sup><a href="https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period">[help]</a></sup>
+    </div>
+    <div>
+        <code>git commit -m "&lt;MESSAGE&gt;"</code>
+    </div>
+    <div>
+        <code>git push -u origin main</code>
+    </div>
+    <div>
+        OR <code>git push -u origin HEAD:master</code>
+    </div>
     
     <h1>JAR</h1>
-    
-    <code>unzip &lt;JAR&gt;.jar -d &lt;DIR&gt;</code>
-    <code>jar cvf &lt;JAR&gt;.jar -C &lt;DIR&gt;/ .</code>
+
+    <div>
+        <code>unzip &lt;JAR&gt;.jar -d &lt;DIR&gt;</code>
+    </div>
+    <div>
+        <code>jar cvf &lt;JAR&gt;.jar -C &lt;DIR&gt;/ .</code>
+    </div>
 </body>
 </html>
