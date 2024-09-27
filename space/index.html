@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
         
-        body { font-family: sans-serif; background: black; margin: 0; color: #ddd; }
+        body { font-family: sans-serif; margin: 0; color: #ddd; background-image: url('https://images.pexels.com/photos/2387877/pexels-photo-2387877.jpeg?cs=srgb&dl=pexels-samkolder-2387877.jpg&fm=jpg'); background-size: cover; background-attachment: fixed; }
 
         h1 { line-height: 1.2em; font-family: "Red Hat Display", sans-serif; font-size: 1.2em; font-weight: 300; text-transform: uppercase; color: white; margin: 0; }
         
@@ -19,11 +19,11 @@
         img { border: 2px solid black; width: 100%; }
         figcaption { font-size: smaller; font-weight: 700; margin: 4px 0; }
 
-        header { padding: 2em; background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg'); background-size: cover; }
+        header { padding: 2em; background: #030312; text-align: center; font-size: 2em; }
         nav { padding: 0.5em; background: #112; display: flex; gap: 1em; }
         nav a { font-weight: 700; }
-        main  { width: 70%; float: left; padding: 1em; box-sizing: border-box; background: #334; }
-        aside { width: 30%; float: left; padding: 1em; box-sizing: border-box; background: #223; min-height: 50vh; }
+        main  { width: 70%; float: left; padding: 1em; box-sizing: border-box; background: #030312; }
+        aside { width: 30%; float: left; padding: 1em; box-sizing: border-box; background: #0a0c1a; min-height: 100vh; border-left: 1px solid #334; }
     </style>
 </head>
 <body>
@@ -76,10 +76,23 @@
             </figure>
         </main>
         <aside>
-            <!-- Catalogue, (Zine pdf) Past Releases -->
-            <h4>Celestial Bodies</h4>
-            <a href="">Ceres</a>
-            <a href="">486958 Arrokoth</a>
+            <table>
+                <tr>
+                    <th>
+                        Zine Catalogue
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="">Mars' Ecosystem</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="">Not Allowed To Be Planets</a>
+                    </td>
+                </tr>
+            </table>
         </aside>
     </div>
 
