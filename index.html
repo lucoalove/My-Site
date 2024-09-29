@@ -34,7 +34,7 @@
         .post > .images > img { max-width: 100%; max-height: 500px; display: block; }
     </style>
     
-    <script type="module">
+    <script>
         const postsInsert = document.getElementById('posts-insert');
         
         var posts;
@@ -89,7 +89,6 @@
         })
         .then(json => {
             posts = json.posts;
-            loadMore();
         });
     </script>
 </head>
