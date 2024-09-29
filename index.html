@@ -36,6 +36,7 @@
     
     <script type="module">
         const postsInsert = document.getElementById('posts-insert');
+        var posts;
         
         function addPost(date, imgs, body) {
 
@@ -73,9 +74,13 @@
             return response.json();
         })
         .then(json => {
-            for (const p of json.posts)
-                addPost(p.date, p.imgs == null ? Array() : p.imgs, p.body);
+            posts = json.posts;
         });
+
+        for (let i = 0; i < 10; i++) { 
+            let p = posts[i];
+            addPost(p.date, p.imgs == null ? Array() : p.imgs, p.body);
+        }
     </script>
 </head>
 <body>
@@ -114,6 +119,8 @@
         </div>
     
         <div id="posts-insert"></div>
+
+        <center><a href="">Load more</a></center>
 
     </div>
 
