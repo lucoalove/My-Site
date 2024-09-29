@@ -80,19 +80,23 @@
                 addPost(p.date, p.imgs == null ? Array() : p.imgs, p.body);
             }
         }
-        
-        fetch("db.json")
-        .then(response => {
-            if (!response.ok)
-                throw new Error("HTTP error " + response.status);
-            return response.json();
-        })
-        .then(json => {
-            posts = json.posts;
-        });
+
+        function init() {
+
+            fetch("db.json")
+            .then(response => {
+                if (!response.ok)
+                    throw new Error("HTTP error " + response.status);
+                return response.json();
+            })
+            .then(json => {
+                posts = json.posts;
+                loadMore();
+            });
+        }
     </script>
 </head>
-<body>
+<body onload="init()">
 
     <div style="max-width: 35em; margin: auto; padding: 1em; background: white; border: 1px solid #bbb; border-top: 0; border-bottom: 0;">
         
