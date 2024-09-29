@@ -32,6 +32,8 @@
         .post > .body { padding: 0.5em; }
         
         .post > .images > img { max-width: 100%; max-height: 500px; display: block; }
+
+        #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin: 1em 0; cursor: pointer; }
     </style>
     
     <script>
@@ -133,7 +135,7 @@
     
         <div id="posts-insert"></div>
 
-        <center><button onclick="loadMore()">Load more</button></center>
+        <button onclick="loadMore()" id="loadmore">Load more</button>
 
     </div>
 
