@@ -36,7 +36,10 @@
     
     <script type="module">
         const postsInsert = document.getElementById('posts-insert');
+        
         var posts;
+        var post_i = 0;
+        const post_len = 20;
         
         function addPost(date, imgs, body) {
 
@@ -69,7 +72,10 @@
 
         function loadMore() {
             
-            for (let i = 0; i < 10; i++) { 
+            let i = post_i;
+            post_i += post_len;
+            
+            for (; i < post_i; i++) { 
                 let p = posts[i];
                 addPost(p.date, p.imgs == null ? Array() : p.imgs, p.body);
             }
@@ -124,7 +130,7 @@
     
         <div id="posts-insert"></div>
 
-        <center><a href="">Load more</a></center>
+        <center><button onclick="loadMore()">Load more</button></center>
 
     </div>
 
