@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; margin: 0; }
+        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; margin: 2em; }
 
         .pfp { content: url("img/rosa_pfp.jpg"); }
 
@@ -26,14 +26,11 @@
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
         
         /* post styling */
-        .post > .user { padding: 0.5em; padding-bottom: 0; display: flex; align-items: center; gap: 0.5em; }
-        .post > .user > img { aspect-ratio: 1; border-radius: 2px; width: 32px; }
-        
+        .post > .meta { color: grey; padding: 0.5em; padding-bottom: 0; }
         .post > .body { padding: 0.5em; }
-        
         .post > .images > img { max-width: 100%; max-height: 500px; display: block; }
 
-        #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin: 1em 0; cursor: pointer; }
+        #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
     </style>
     
     <script>
@@ -53,9 +50,8 @@
             postsInsert.innerHTML += `
                 <div class="post">
                 
-                    <div class="user">
-                        <img class="pfp">
-                        <div><strong>redderblanket</strong>  <span style="color: grey;">· ${date} · ${ Math.floor(Math.pow(Math.random(), 2) * 170) } Likes</span></div>
+                    <div class="meta">
+                        ${date} · ${ Math.floor(Math.pow(Math.random(), 2) * 170) } Likes
                     </div>
                     
                     <div class="body">
@@ -100,8 +96,20 @@
 </head>
 <body onload="init()">
 
-    <div style="max-width: 35em; margin: auto; padding: 1em; background: white; border: 1px solid #bbb; border-top: 0; border-bottom: 0;">
+    <div style="max-width: 35em; margin: auto; padding: 1em; background: white; border: 1px solid #bbb; border-radius: 8px;">
+
+        <div style="display: flex; align-items: center; gap: 0.5em;">
+            <img class="pfp" style="aspect-ratio: 1; border-radius: 2px; width: 32px;">
+            <strong>redderblanket</strong>
+        </div>
         
+        <div id="posts-insert"></div>
+
+        <button onclick="loadMore()" id="loadmore">Load more</button>
+
+    </div>
+
+    <div>
         <div style="display: flex; gap: 1em; align-items: start;">
             <img style="width: 160px;" class="pfp">
             <div style="flex: 1;">
@@ -131,11 +139,6 @@
             <a href="terminal">💻 Shell Commands</a>
             <a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">⚙️ Github Repo</a>
         </div>
-    
-        <div id="posts-insert"></div>
-
-        <button onclick="loadMore()" id="loadmore">Load more</button>
-
     </div>
 
 </body>
