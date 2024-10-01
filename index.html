@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; margin: 2em; }
+        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; max-width: 55em; margin: 2em auto; gap: 1em; }
 
         .pfp { content: url("img/rosa_pfp.jpg"); }
 
@@ -27,8 +27,8 @@
         
         /* post styling */
         .post { padding: 1em; }
-        .post > .meta { color: grey; font-size: smaller; }
-        .post > .body + images:has(img) { margin-top: 1em; }
+        .post > .meta { color: grey; font-size: smaller; font-family: monospace; }
+        .post > .body + .images:has(img) { margin-top: 1em; }
         .post > .images > img { max-width: 100%; max-height: 500px; display: block; }
 
         #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
@@ -50,19 +50,9 @@
             
             postsInsert.innerHTML += `
                 <div class="post">
-                
-                    <div class="meta">
-                        ${date} · ${ Math.floor(Math.pow(Math.random(), 2) * 170) } Likes
-                    </div>
-                    
-                    <div class="body">
-                        ${body}
-                    </div>
-
-                    <div class="images" ${ imgs.length > 1 ? "style='display: grid; grid-template-columns: 1fr 1fr; width: 100%;'" : "" }>
-                        ${imagesInsert}
-                    </div>
-                    
+                    <div class="meta">${date}</div>
+                    <div class="body">${body}</div>
+                    <div class="images" ${ imgs.length > 1 ? "style='display: grid; grid-template-columns: 1fr 1fr; width: 100%;'" : "" }>${imagesInsert}</div>
                 </div>
                 
                 <hr>
@@ -97,7 +87,7 @@
 </head>
 <body onload="init()">
 
-    <div style="max-width: 35em; margin: auto; background: white; border: 1px solid #bbb; border-radius: 8px;">
+    <div style="width: 35em; background: white; border: 1px solid #bbb; border-radius: 8px;">
 
         <div style="display: flex; align-items: center; gap: 0.5em; padding: 1em;">
             <img class="pfp" style="aspect-ratio: 1; border-radius: 2px; width: 32px;">
@@ -110,7 +100,7 @@
 
     </div>
 
-    <div>
+    <div style="flex: 1;">
         <div style="display: flex; gap: 1em; align-items: start;">
             <img style="width: 160px;" class="pfp">
             <div style="flex: 1;">
