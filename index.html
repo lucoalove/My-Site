@@ -9,8 +9,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; max-width: 55em; margin: 2em auto; gap: 1em; }
+        body { font-family: "PT Sans", sans-serif; background: #DAE0E6; max-width: 55em; margin: 2em auto; display: flex; align-items: start; gap: 1em; }
 
+        .box { background: white; border: 1px solid #bbb; border-radius: 8px; }
+        
         .pfp { content: url("img/rosa_pfp.jpg"); }
 
         a { color: #48f; text-decoration-style: dotted; }
@@ -87,7 +89,7 @@
 </head>
 <body onload="init()">
 
-    <div style="width: 35em; background: white; border: 1px solid #bbb; border-radius: 8px;">
+    <div class="box" style="width: 40em;">
 
         <div style="display: flex; align-items: center; gap: 0.5em; padding: 1em;">
             <img class="pfp" style="aspect-ratio: 1; border-radius: 2px; width: 32px;">
@@ -96,11 +98,13 @@
         
         <div id="posts-insert"></div>
 
-        <button onclick="loadMore()" id="loadmore">Load more</button>
+        <div style="padding: 1em;">
+            <button onclick="loadMore()" id="loadmore">Load more</button>
+        </div>
 
     </div>
 
-    <div style="flex: 1;">
+    <div class="box" style="flex: 1; padding: 1em;">
         <div style="display: flex; gap: 1em; align-items: start;">
             <img style="width: 160px;" class="pfp">
             <div style="flex: 1;">
