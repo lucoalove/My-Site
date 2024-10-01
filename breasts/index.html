@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     
     <style>
+        :root {
+            --accent: #490; /* #6a2 */
+        }
+        
         body { font-family: sans-serif; margin: auto; width: 761px; }
-        a { color: #490; } /* #6a2 */
+        a { color: var(--accent); }
         img { width: 100%; border: 1px solid black; }
         p { line-height: 1.35em; }
 
         main { float: left; width: 480px; padding-right: 20px; border-right: 1px solid lightgrey; }
         aside { float: left; width: 240px; padding-left: 20px; font-size: smaller; }
-        aside p { border-left: 4px solid #6a2; padding-left: 0.5em; }
-        aside h4 { background: #490; padding: 8px 8px 5px; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; margin-top: 0; }
+        aside p { border-left: 4px solid var(--accent); padding-left: 0.5em; }
+        aside h4 { background: var(--accent); padding: 8px 8px 5px; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; margin-top: 0; }
     </style>
 </head>
 <body>
@@ -32,7 +36,8 @@
 
     <aside>
         <h4>Current Events</h4>
-        <p>Toru Maki just released her long-anticipated <a href="">OnlyFans</a>!</p>
+        <p>Toru Maki just released her long-anticipated OnlyFans! <a href="">-&gt;src</a></p>
+        <p>New growth formula able to increase natural breast size by up to 40%? <a href="">-&gt;src</a></p>
     </aside>
 
 </body>
