@@ -36,6 +36,10 @@
         .post > .images > img { max-width: 100%; max-height: 500px; display: block; }
 
         #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
+
+        @media (orientation: portrait) {
+          body { flex-direction: column-reverse; margin: 1em; }
+        }
     </style>
     
     <script>
