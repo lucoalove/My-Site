@@ -2,8 +2,8 @@
     "posts": [
         {
             "date": "Oct 5, 2024",
-            "imgs": [],
-            "body": "<p>I could get into touhou a little, even just noting the characters I like. like Komachi Onozuka. and draw them too!</p>"
+            "imgs": [ "img/soft_touhou.webp" ],
+            "body": "<p>I could get into touhou a little, even just noting the characters I like. like Komachi Onozuka or Kaguya Houraisan! and draw them too!</p>"
         },
         {
             "date": "Oct 4, 2024",
