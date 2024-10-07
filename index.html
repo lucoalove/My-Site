@@ -20,9 +20,10 @@
 
         p:last-child { margin-bottom: 0; }
 
-        #links { display: flex; flex-direction: column; gap: 4px; }
-        #links a        { transition-duration: 0.5s; border: 1px solid #aaa; padding: 0.5em 1em; border-radius: 4px; }
-        #links a:hover  { transition-duration: 0.07s; transform: scale(1.05); background: #7af; color: black; }
+        #links { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+        #links a img    { width: 100%; display: block; }
+        #links a        { transition-duration: 0.5s; border: 1px solid black; border-radius: 4px; overflow: hidden; }
+        #links a:hover  { transition-duration: 0.07s; transform: scale(1.05); }
         #links a:active { transform: scale(1); }
 
         hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
@@ -140,7 +141,7 @@
             <a href="russian">🥃 Russian Language</a>
             <a href="terminal">💻 Shell Commands</a>
             <a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">⚙️ Github Repo</a>
-            <a href="pokemon" style="overflow: hidden;"><img width="100%" src="pokemon/pokemon_button.png"></a>
+            <a href="pokemon"><img src="pokemon/pokemon_button.png"></a>
         </div>
     </div>
 
