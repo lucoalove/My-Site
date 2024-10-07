@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Oct 7, 2024",
+            "imgs": [ "img/cool_page_link.jpg" ],
+            "body": "<p>demarcating pages with little image icons instead of just text would be pretty cool actually (I stole this example from bbw-chan)</p>"
+        },
+        {
+            "date": "Oct 7, 2024",
             "imgs": [],
             "body": "<p>forums/messageboards/imageboards like bbw-chan and dvach are the SUPERIOR way to communicate on the internet, no I will not elaborate</p>"
         },
