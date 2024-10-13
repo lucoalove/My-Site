@@ -13,6 +13,8 @@
             var images           = document.getElementById("masonry").querySelectorAll("img");
             const containerWidth = document.getElementById("masonry").width;
 
+            console.log(images);
+
             for (let i = 0; i + 2 < images.length; i += 2) {
                 
                 const a1 = images[i  ].naturalWidth / images[i  ].naturalHeight;
