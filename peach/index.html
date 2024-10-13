@@ -9,14 +9,14 @@
     </style>
     <script>
         function updateMasonry(container) {
-            var images = container.querySelectorAll("img");
+            var images = document.getElementById("masonry").querySelectorAll("img");
 
             for (let i = 0; i + 2 < images.length; i += 2) {
                 
                 const a1 = images[i  ].naturalWidth / images[i  ].naturalHeight;
                 const a2 = images[i+1].naturalWidth / images[i+1].naturalHeight;
         
-                const height = container.naturalWidth / (a1 + a2);
+                const height = document.getElementById("masonry").naturalWidth / (a1 + a2);
                 
                 images[i  ].style.width = height * a1 + "px";
                 images[i+1].style.width = height * a2 + "px";
@@ -24,12 +24,12 @@
         }
     </script>
 </head>
-<body>
+<body onresize="updateMasonry();">
     <p>I must draw... my QUEEN</p>
 
     <br><br>
 
-    <div onresize="updateMasonry(this);" style="display: flex; flex-wrap: wrap;">
+    <div id="masonry" style="display: flex; flex-wrap: wrap;">
         <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
         <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
         <img src="queen.png">
