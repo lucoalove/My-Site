@@ -19,13 +19,17 @@
             // process rows
             while (i < images.length) {
 
-                const imageRowCount = Math.min(3, images.length - i); // should calculate from imageMaxHeight parameter
+                const imageRowCount = 5; // should calculate from imageMaxHeight parameter
                 
                 var aspectRatioSum = 0;
 
                 for (let j = i; j < i + imageRowCount; j++) {
-                    const aspectRatio = images[j].naturalWidth / images[j].naturalHeight;
-                    aspectRatioSum += aspectRatio;
+
+                    if (j < images.length) {
+                        aspectRatioSum += images[j].naturalWidth / images[j].naturalHeight;
+                    } else {
+                        aspectRatioSum += 1;
+                    }
                 }
         
                 const height = containerWidth / aspectRatioSum;
@@ -50,6 +54,22 @@
         <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
         <img src="queen.png">
         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
+
+
+        <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
+        <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
+        <img src="queen.png">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
+        <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
+        <img src="queen.png">
+        <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
+        <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
+        <img src="queen.png">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
+        <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
+        <img src="queen.png">
+        <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
     </div>
 </body>
 </html>
