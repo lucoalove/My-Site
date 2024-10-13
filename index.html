@@ -22,7 +22,19 @@
         hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
         p:last-child { margin-bottom: 0; }
 
-        a.panel { border: 1px solid #aaa; border-radius: 8px; overflow: hidden; aspect-ratio: 2; background-size: cover; background-position: center; }
+        a.panel {
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4;
+            background-size: cover;
+            background-position: center;
+            font-weight: 700;
+            color: black;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;
+            text-align: center;
+        }
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
@@ -128,7 +140,7 @@
 
         <h3>Pages</h3>
         
-        <a class="panel" href="pokemon" style="background-image: url('pokemon/pokemon_button.png');"></a>
+        <a class="panel" href="peach" style="background-image: url('peach/queen.png');">Princess Peach</a>
         <a class="panel" href="russian" style="background-image: url('russian/russian_button.png');"></a>
         <a class="panel" href="idea">☀️ Idea Playground</a>
         <a class="panel" href="space">🌌 Space</a>
