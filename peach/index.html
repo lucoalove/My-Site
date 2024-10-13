@@ -8,39 +8,41 @@
         img { display: inline-block; }
     </style>
     <script>
-        function updateMasonry() {
-
-            const container      = document.getElementById("masonry");
-            const images         = container.querySelectorAll("img");
-            const containerWidth = container.offsetWidth;
-
-            console.log(containerWidth);
-
-            for (let i = 0; i < images.length; i += 2) {
-
-                console.log("test1");
-                
-                const a1 = images[i  ].naturalWidth / images[i  ].naturalHeight;
-                const a2 = images[i+1].naturalWidth / images[i+1].naturalHeight;
+        // should calculate imageRowCount from imageMaxHeight parameter
         
-                const height = containerWidth / (a1 + a2);
+        function updateMasonry(id) {
 
-                console.log(a1 + "; " + a2);
-                
-                images[i  ].style.width = height * a1 + "px";
-                images[i+1].style.width = height * a2 + "px";
+            const imageRowCount = 3;
+            
+            const container      = document.getElementById(id);
+            const containerWidth = container.offsetWidth;
+            const images         = container.querySelectorAll("img");
 
-                console.log("test2");
+            for (let i = 0; i < images.length; i += imageRowCount) {
+
+                var aspectRatioSum = 0;
+
+                for (let j = i; j < i + imageRowCount; j++) {
+                    const aspectRatio = images[j].naturalWidth / images[j].naturalHeight;
+                    aspectRatioSum += aspectRatio;
+                }
+        
+                const height = containerWidth / aspectRatioSum;
+
+                for (let j = i; j < i + imageRowCount; j++) {
+                    const aspectRatio = images[j].naturalWidth / images[j].naturalHeight;
+                    images[j].style.width = height * aspectRatio + "px";
+                }
             }
         }
     </script>
 </head>
-<body onresize="updateMasonry();">
+<body onresize="updateMasonry('gallery');">
     <p>I must draw... my QUEEN</p>
 
     <br><br>
 
-    <div id="masonry" style="display: flex; flex-wrap: wrap; overflow: hidden; width: 100%;">
+    <div id="gallery" style="display: flex; flex-wrap: wrap; overflow: hidden; width: 100%;">
         <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
         <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
         <img src="queen.png">
