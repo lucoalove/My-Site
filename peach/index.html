@@ -5,10 +5,13 @@
     <title>Princess Peach hyperfixation</title>
     <style>
         body { background: #fce; }
-        img { display: inline-block; width: 10px; }
+        img { display: inline-block; }
     </style>
     <script>
-        function updateMasonry(container) {
+        function updateMasonry() {
+
+            console.log("test");
+            
             var images = document.getElementById("masonry").querySelectorAll("img");
 
             for (let i = 0; i + 2 < images.length; i += 2) {
