@@ -19,7 +19,7 @@
             // process rows
             while (i < images.length) {
                 
-                const imageRowCount = Math.floor(containerWidth / imageMaxHeight); // calculate from imageMaxHeight parameter
+                const imageRowCount = Math.ceil(containerWidth / imageMaxHeight); // calculate from imageMaxHeight parameter
                 
                 var aspectRatioSum = 0;
 
@@ -44,7 +44,7 @@
         }
     </script>
 </head>
-<body onresize="updateMasonry('gallery', 240);">
+<body onload="updateMasonry('gallery', 240);" onresize="updateMasonry('gallery', 240);">
     <p>I must draw... my QUEEN</p>
 
     <br><br>
