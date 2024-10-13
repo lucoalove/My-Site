@@ -17,9 +17,7 @@
             var i = 0;
 
             // process rows
-            while (i <= images.length - imageRowCount) {
-
-                i += imageRowCount;
+            while (i < images.length) {
 
                 const imageRowCount = Math.min(3, i - imageRowCount); // should calculate from imageMaxHeight parameter
                 
