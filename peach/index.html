@@ -13,6 +13,8 @@
             var images           = document.getElementById("masonry").querySelectorAll("img");
             const containerWidth = document.getElementById("masonry").width;
 
+            console.log(containerWidth);
+
             for (let i = 0; i < images.length; i += 2) {
 
                 console.log("test1");
@@ -22,7 +24,7 @@
         
                 const height = containerWidth / (a1 + a2);
 
-                console.log(height);
+                console.log(a1 + "; " + a2);
                 
                 images[i  ].style.width = height * a1 + "px";
                 images[i+1].style.width = height * a2 + "px";
