@@ -8,18 +8,21 @@
         img { display: inline-block; }
     </style>
     <script>
-        // should calculate imageRowCount from imageMaxHeight parameter
-        
-        function updateMasonry(id) {
-
-            const imageRowCount = 3;
+        function updateMasonry(id, imageMaxHeight) {
             
             const container      = document.getElementById(id);
             const containerWidth = container.offsetWidth;
             const images         = container.querySelectorAll("img");
 
-            for (let i = 0; i < images.length; i += imageRowCount) {
+            var i = 0;
 
+            // process rows
+            while (i <= images.length - imageRowCount) {
+
+                i += imageRowCount;
+
+                const imageRowCount = Math.min(3, i - imageRowCount); // should calculate from imageMaxHeight parameter
+                
                 var aspectRatioSum = 0;
 
                 for (let j = i; j < i + imageRowCount; j++) {
@@ -33,11 +36,13 @@
                     const aspectRatio = images[j].naturalWidth / images[j].naturalHeight;
                     images[j].style.width = height * aspectRatio + "px";
                 }
+
+                i += imageRowCount;
             }
         }
     </script>
 </head>
-<body onresize="updateMasonry('gallery');">
+<body onresize="updateMasonry('gallery', 240);">
     <p>I must draw... my QUEEN</p>
 
     <br><br>
