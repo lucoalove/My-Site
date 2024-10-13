@@ -5,30 +5,34 @@
     <title>Princess Peach hyperfixation</title>
     <style>
         body { background: #fce; width: 700px; margin: auto; }
-        img { display: inline-block; }
-/*         border: 20px solid white; */
+        img { display: inline-block; border: 10px solid white; width: 50%; }
     </style>
 </head>
 <body>
     <p>I must draw... my QUEEN</p>
 
     <br><br>
-    
-    <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
-    <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
-    <img src="queen.png">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
 
+    <div style="display: flex; flex-wrap: wrap;">
+        <img src="https://static.wikia.nocookie.net/mario/images/1/1a/SMBW_Peach_Artwork.png">
+        <img src="https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096">
+        <img src="queen.png">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7dfabdf-a03c-4a2c-94b2-2e6b980f950f/dfi0r7r-b442a8db-26ae-4ddb-a89f-57d4c438388c.png/v1/fill/w_894,h_894,q_70,strp/cm___peach_by_ashenwolf55_dfi0r7r-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y3ZGZhYmRmLWEwM2MtNGEyYy05NGIyLTJlNmI5ODBmOTUwZlwvZGZpMHI3ci1iNDQyYThkYi0yNmFlLTRkZGItYTg5Zi01N2Q0YzQzODM4OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iCV19u4VedtsJKGZHLh-KDw-Iej3M_IO7EhmbPpYMGI">
+    </div>
+    
     <script>
         var images = document.querySelectorAll("img");
 
-        const a1 = images[0].naturalWidth / images[0].naturalHeight;
-        const a2 = images[1].naturalWidth / images[1].naturalHeight;
-
-        const height = 700 / (a1 + a2);
-        
-        images[0].style.width = height * a1 + "px";
-        images[1].style.width = height * a2 + "px";
+        for (let i = 0; i + 2 < images.length; i += 2) { 
+            
+            const a1 = images[i  ].naturalWidth / images[i  ].naturalHeight;
+            const a2 = images[i+1].naturalWidth / images[i+1].naturalHeight;
+    
+            const height = 700 / (a1 + a2);
+            
+            images[i  ].style.width = height * a1 + "px";
+            images[i+1].style.width = height * a2 + "px";
+        }
     </script>
 </body>
 </html>
