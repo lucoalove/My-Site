@@ -11,15 +11,15 @@
         function updateMasonry(id, imageMaxHeight) {
             
             const container      = document.getElementById(id);
-            const containerWidth = container.offsetWidth;
+            const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
             const images         = container.querySelectorAll("img");
 
             var i = 0;
 
             // process rows
             while (i < images.length) {
-
-                const imageRowCount = 5; // should calculate from imageMaxHeight parameter
+                
+                const imageRowCount = Math.floor(containerWidth / imageMaxHeight); // calculate from imageMaxHeight parameter
                 
                 var aspectRatioSum = 0;
 
@@ -34,9 +34,9 @@
         
                 const height = containerWidth / aspectRatioSum;
 
-                for (let j = i; j < i + imageRowCount; j++) {
-                    const aspectRatio = images[j].naturalWidth / images[j].naturalHeight;
-                    images[j].style.width = height * aspectRatio + "px";
+                for (let j = i; j < Math.min(i + imageRowCount, images.length); j++) {
+                    
+                    images[j].style.width = height * (images[j].naturalWidth / images[j].naturalHeight) + "px";
                 }
 
                 i += imageRowCount;
