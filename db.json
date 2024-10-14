@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Oct 14, 2024",
+            "imgs": [ "img/papercraft.jpg" ],
+            "body": "<p>pog</p>"
+        },
+        {
+            "date": "Oct 14, 2024",
             "imgs": [],
             "body": "<p>brain file format is lossy af rn all I got is a fuzzy image of work in there</p>"
         },
