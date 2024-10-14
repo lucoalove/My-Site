@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Oct 14, 2024",
+            "imgs": [],
+            "body": "<p>brain file format is lossy af rn all I got are general concepts of work in there</p>"
+        },
+        {
+            "date": "Oct 14, 2024",
             "imgs": [ "https://pbs.twimg.com/media/GZuu-XEXMA4WprL?format=jpg&name=medium" ],
             "body": "<p>princess peach in mom's jeans would go HARD</p> <!-- https://x.com/lucahjin/status/1845260919443476688/photo/1 -->"
         },
