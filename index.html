@@ -14,7 +14,7 @@
         h2, h3 { margin: 0; border-bottom: 1px solid #aaa; }
         h3 { font-size: 1em; }
         
-        .box { background: white; border: 1px solid #bbb; border-radius: 8px; }
+        .box { background: white; border: 1px solid #bbb; border-radius: 8px; box-sizing: border-box; }
         .pfp { content: url("img/rosa_pfp.jpg"); }
 
         a { color: #48f; text-decoration-style: dotted; }
@@ -124,7 +124,7 @@
 
     <div style="flex: 1;">
         
-        <img style="width: 100%; border-radius: 8px; margin-bottom: 1em;" class="pfp">
+        <img style="width: 100%; margin-bottom: 1em;" class="pfp box">
 
         <div class="box" style="padding: 1em; display: flex; flex-direction: column; gap: 1em;">
             <h2>redderblanket</h2>
@@ -142,7 +142,7 @@
     
             <h3>Pages</h3>
             
-            <a class="panel" href="peach" style="background-image: url('peach/queen.png');">
+            <a class="panel" href="peach" style="background-image: url('https://pbs.twimg.com/media/GY9o5jPaUAAyBOh?format=jpg&name=4096x4096');">
                 <div>Princess Peach</div>
             </a>
             <a class="panel" href="russian" style="background-image: url('https://www.shutterstock.com/image-illustration/russia-waving-flag-wide-format-260nw-640512229.jpg');">
