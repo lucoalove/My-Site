@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Oct 15, 2024",
+            "imgs": ["img/format.png"],
+            "body": ""
+        },
+        {
+            "date": "Oct 15, 2024",
             "imgs": [],
             "body": "<p>Minecraft vegan mod: Encourage large-scale, diverse farming; no more \"one ingredient food item is best in the game,\" the only four-shank foods are ones made from four ingredients</p>"
         },
