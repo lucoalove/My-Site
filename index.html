@@ -27,10 +27,6 @@
             border-radius: 8px;
             overflow: hidden;
             aspect-ratio: 4;
-
-            color: black;
-            font-size: 1.5em;
-            font-weight: 700;
             
             display: flex;
             justify-content: center;
@@ -38,10 +34,8 @@
 
             background-size: cover;
             background-position: top;
-
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: white;
         }
+        a.panel div { background: rgba(0,0,0,0.5); color: white; font-size: 1.5em; font-weight: 700; }
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
@@ -147,11 +141,18 @@
 
         <h3>Pages</h3>
         
-        <a class="panel" href="peach" style="background-image: url('peach/queen.png');">Princess Peach</a>
-        <a class="panel" href="russian" style="background-image: url('https://www.shutterstock.com/image-illustration/russia-waving-flag-wide-format-260nw-640512229.jpg');">Russian</a>
-        <a class="panel" href="idea">☀️ Idea Playground</a>
-        <a class="panel" href="space">🌌 Space</a>
-        <a class="panel" href="terminal">💻 Shell Commands</a>
+        <a class="panel" href="peach" style="background-image: url('peach/queen.png');">
+            <div>Princess Peach</div>
+        </a>
+        <a class="panel" href="russian" style="background-image: url('https://www.shutterstock.com/image-illustration/russia-waving-flag-wide-format-260nw-640512229.jpg');">
+            <div>Russian</div>
+        </a>
+        <a class="panel" href="idea">
+            <div>Idea Playground</div>
+        </a>
+        <a class="panel" href="terminal" style="background-image: url('https://www.freecodecamp.org/news/content/images/2022/03/pexels-pixabay-207580.jpg');">
+            <div>Shell Commands</div>
+        </a>
 
         <h3>Portal</h3>
 
