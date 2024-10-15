@@ -2,7 +2,12 @@
     "posts": [
         {
             "date": "Oct 15, 2024",
-            "imgs": ["img/format.png"],
+            "imgs": [],
+            "body": "for now I'll just print papercrafts at whatever size a single swipe of the transform tool procures because standarization, while awesome, makes me shiver in my boots"
+        },
+        {
+            "date": "Oct 15, 2024",
+            "imgs": [ "img/format.png" ],
             "body": ""
         },
         {
