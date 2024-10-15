@@ -1,6 +1,11 @@
 {
     "posts": [
         {
+            "date": "Oct 15, 2024",
+            "imgs": [],
+            "body": "<p>\"All printouts are standardized to 0.125cm/pixel.\" BARS</p>"
+        },
+        {
             "date": "Oct 14, 2024",
             "imgs": [ "img/papercraft.jpg" ],
             "body": "<p>pog</p>"
