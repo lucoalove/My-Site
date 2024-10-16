@@ -24,14 +24,20 @@
                         
                         <br><br>
                         
-                        Post on guestbook (php!):
-                        <br><small>not a thing yet</small>
+                        <form action="" method="GET">
+                            <input type="text" placeholder="Name (blank for anonymous)">
+                            <br><input type="text" placeholder="Message">
+                            <br>File 1 (required): <input type="file" name="file1">
+                            <br>File 2 (optional): <input type="file" name="file2">
+                            <br>File 3 (optional): <input type="file" name="file3">
+                            <br><input type="submit" name="search" value="Post">
+                        </form>
 
                         <br><br><br><br>
 
-                        <form action="http://www.cornica.org/search/" method="GET" class="search">
-                            <input type="text" name="words" class="search-words" value="" placeholder="Search words">
-                            <input type="submit" name="search" class="search-submit" value="Search">
+                        <form action="http://www.cornica.org/search/" method="GET">
+                            <input type="text" name="words" value="" placeholder="Search words">
+                            <input type="submit" name="search" value="Search">
                         </form>
                         
                         <table cellpadding="10" border="1" bgcolor="#fff">
@@ -75,7 +81,7 @@
     
                         <br>
     
-                        <small>End of posts</small>
+                        <center><small>End of posts</small></center>
                         
                     </td>
                 </tr>
