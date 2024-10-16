@@ -2,6 +2,11 @@
     "posts": [
         {
             "date": "Oct 15, 2024",
+            "imgs": [ "img/majalyanwi.png" ],
+            "body": "<p>the Majalyanwi, who live in Majalya, who speak Majalyatem. or something</p>"
+        },
+        {
+            "date": "Oct 15, 2024",
             "imgs": [],
             "body": "<p>I have a clinginess problem</p>"
         },
