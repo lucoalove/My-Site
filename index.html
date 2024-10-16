@@ -112,6 +112,8 @@
             .then(json => {
                 posts = json.posts;
                 loadMore();
+
+                document.getElementById("feeling").innerText = json.feeling;
             });
         }
     </script>
@@ -137,9 +139,9 @@
 
     <div style="flex: 1; display: flex; flex-direction: column; gap: 1em;">
         
-        <img style="width: 100%; border-color: black;" class="pfp box">
+        <img style="width: 100%; border-color: #777;" class="pfp box">
 
-        <div class="box" id="feeling">we march on</div>
+        <div class="box" id="feeling"></div>
 
         <div class="box" style="padding: 1em; display: flex; flex-direction: column; gap: 1em;">
             <h2>redderblanket</h2>
