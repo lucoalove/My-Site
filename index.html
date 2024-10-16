@@ -22,6 +22,20 @@
         hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
         p:last-child { margin-bottom: 0; }
 
+        #feeling { background: #48f; color: white; padding: 1em; font-weight: 700; position: relative; }
+        #feeling::before {
+        	// layout
+        	content: '';
+        	position: absolute;
+        	width: 0;
+        	height: 0;
+        	bottom: 100%;
+        	left: 1em;
+        	border: .75rem solid transparent;
+        	border-top: none;
+            border-bottom-color: #48f;
+        }
+
         a.panel {
             border: 1px solid #aaa;
             border-radius: 8px;
@@ -125,6 +139,8 @@
     <div style="flex: 1;">
         
         <img style="width: 100%; margin-bottom: 1em;" class="pfp box">
+
+        <div class="box" id="feeling">we march on</div>
 
         <div class="box" style="padding: 1em; display: flex; flex-direction: column; gap: 1em;">
             <h2>redderblanket</h2>
