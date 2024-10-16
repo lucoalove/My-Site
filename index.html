@@ -22,18 +22,17 @@
         hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
         p:last-child { margin-bottom: 0; }
 
-        #feeling { background: #48f; color: white; padding: 1em; font-weight: 700; position: relative; }
+        #feeling { background: #48f; color: white; padding: 1em; font-weight: 700; position: relative; border-color: #26c; }
         #feeling::before {
-        	// layout
         	content: '';
         	position: absolute;
-        	width: 0;
-        	height: 0;
-        	bottom: 100%;
+        	width: 1em;
+        	height: 1em; transform: rotate(45deg);
+        	top: -9px;
         	left: 1em;
-        	border: .75rem solid transparent;
-        	border-top: none;
-            border-bottom-color: #48f;
+            background: #48f;
+            border-top: 1px solid #26c;
+            border-left: 1px solid #26c;
         }
 
         a.panel {
@@ -138,7 +137,7 @@
 
     <div style="flex: 1; display: flex; flex-direction: column; gap: 1em;">
         
-        <img style="width: 100%;" class="pfp box">
+        <img style="width: 100%; border-color: black;" class="pfp box">
 
         <div class="box" id="feeling">we march on</div>
 
