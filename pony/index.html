@@ -22,12 +22,33 @@
                                 <tr>
                                     <td>
                                         <form action="" method="GET">
-                                            <input type="text" name="name" placeholder="Name (blank for anonymous)">
-                                            <br><input type="text" name="message" placeholder="Message">
-                                            <br>File 1 (required): <input type="file" name="file1">
-                                            <br>File 2 (optional): <input type="file" name="file2">
-                                            <br>File 3 (optional): <input type="file" name="file3">
-                                            <br><input type="submit" value="Post">
+                                            
+                                            <table>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td><input type="text" name="name" placeholder="leave blank for anonymous"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Message<font color="#f00">*</font></td>
+                                                    <td><input type="text" name="message" placeholder="Message"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>File 1<font color="#f00">*</font></td>
+                                                    <td><input type="file" name="file1"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>File 2</td>
+                                                    <td><input type="file" name="file2"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>File 3</td>
+                                                    <td><input type="file" name="file3"></td>
+                                                </tr>
+                                            </table>
+                                            <br>
+                                            <input type="submit" value="Post">
+                                            <font color="#f00">*Required field</font>
+                                            
                                         </form>
                                     </td>
                                 </tr>
