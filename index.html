@@ -119,6 +119,10 @@
                     document.getElementById("pages").innerHTML += `<a class="panel" href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');"><div>${ page.title }</div></a>`;
                 }
 
+                for (const link of json.portalLinks) {
+                    document.getElementById("portal").innerHTML += `<a href="${ link.href }">${ link.title }</a>`;
+                }
+
                 for (const pfp of document.getElementsByClassName("pfp")) {
                     console.log("loadé");
                     pfp.src = json.pfpUrl;
@@ -172,12 +176,7 @@
     
             <h3>Portal</h3>
     
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <a href="https://www.deviantart.com/redderblanket">🖌️ DeviantArt (RedderBlanket)</a>
-                <a href="https://x.com/fatnekotid">🦜 Twitter (@fatnekotid)</a>
-                <a href="https://x.com/shuz_">🦜 My idol (@shuz_)</a>
-                <a href="https://github.com/BlueBunnex/Fatchicks-Bulletin">⚙️ Github Repo</a>
-            </div>
+            <div id="portal" style="display: flex; flex-direction: column; gap: 8px;"></div>
         </div>
         
     </div>
