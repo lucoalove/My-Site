@@ -120,7 +120,8 @@
                 }
 
                 for (const pfp of document.getElementsByClassName("pfp")) {
-                    pfp.style.content = "url('${ json.pfpUrl }')";
+                    debug.log("loadé");
+                    pfp.src = json.pfpUrl;
                 }
             });
         }
