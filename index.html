@@ -15,7 +15,6 @@
         h3 { font-size: 1em; }
         
         .box { background: white; border: 1px solid #bbb; border-radius: 8px; box-sizing: border-box; }
-        .pfp { content: url("img/rosa_pfp.jpg"); }
         .stack { display: flex; flex-direction: column; gap: 1em; }
 
         a { color: #48f; text-decoration-style: dotted; }
@@ -118,6 +117,10 @@
 
                 for (const page of json.pages) {
                     document.getElementById("pages").innerHTML += `<a class="panel" href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');"><div>${ page.title }</div></a>`;
+                }
+
+                for (const pfp of document.getElementsByClassName("pfp")) {
+                    pfp.style.content = "url('${ json.pfpUrl }')";
                 }
             });
         }
