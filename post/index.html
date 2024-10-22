@@ -4,6 +4,13 @@
     <title>fatchicks.cc</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+        body { font-family: "PT Sans", sans-serif; }
+        img { max-height: 500px; }
+    </style>
     
     <script>
 
@@ -29,19 +36,16 @@
                     return;
                 }
 
-                const container = document.getElementById('container');
-                const post      = json.posts[json.posts.length - 1 - id];
+                const post = json.posts[json.posts.length - 1 - id];
 
                 let imagesInsert = "";
 
                 for (const img of post.imgs)
-                    imagesInsert += `<img height="200" src="${ img }">`;
-                
-                container.innerHTML = `
-                    <div>${ post.date }</div>
-                    <div>${ post.body }</div>
-                    <div>${ imagesInsert }</div>
-                `;
+                    imagesInsert += `<img src="${ img }">`;
+
+                document.getElementById('meta').innerHTML   = post.date;
+                document.getElementById('body').innerHTML   = post.body;
+                document.getElementById('images').innerHTML = imagesInsert;
             });
         }
         
@@ -49,7 +53,9 @@
 </head>
 <body onload="init()">
 
-    <div id="container"></div>
+    <div id="meta"></div>
+    <div id="body"></div>
+    <div id="images"></div>
 
 </body>
 </html>
