@@ -43,6 +43,11 @@
     "posts": [
         {
             "date": "Oct 22, 2024",
+            "imgs": [ "img/vanilla_lady.webp", "img/chocolate_lady.webp" ],
+            "body": "<p>icecream ladies at only $2.50/lady</p>"
+        },
+        {
+            "date": "Oct 22, 2024",
             "imgs": [],
             "body": "<p>legit no aspirations right now. I don't even feel like this blog post is worth making because of how little I have to say (even though that's the whole point of the blog right, to talk about my feelings). I have... no passion to do anything. it's just work, and then... exist</p>"
         },
