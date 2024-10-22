@@ -43,6 +43,11 @@
     "posts": [
         {
             "date": "Oct 22, 2024",
+            "imgs": [ "http://www.minieco.co.uk/images/nov11/paper-gem5.jpg" ],
+            "body": "<p><a href='https://www.minieco.co.uk/paper-gems/'>making paper gems hehe</a></p>"
+        },
+        {
+            "date": "Oct 22, 2024",
             "imgs": [ "/img/vanilla_lady.webp", "/img/chocolate_lady.webp" ],
             "body": "<p>icecream ladies at only $2.50/lady</p>"
         },
