@@ -7,11 +7,11 @@
     
     <script>
 
-        const id = new URLSearchParams(window.location.search).get('id');
+        const id = parseInt(new URLSearchParams(window.location.search).get('id'));
         
         function init() {
 
-            if (!Number.isInteger(id)) {
+            if (isNaN(id) || id < 0) {
                 alert("invalid post id!");
                 return;
             }
@@ -23,6 +23,11 @@
                 return response.json();
             })
             .then(json => {
+
+                if (id >= json.posts.length) {
+                    alert("invalid post id!");
+                    return;
+                }
 
                 const container = document.getElementById('container');
                 const post      = json.posts[json.posts.length - 1 - id];
