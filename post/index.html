@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fatchicks.cc</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        
+        function init() {
+
+            fetch("db.json")
+            .then(response => {
+                if (!response.ok)
+                    throw new Error("HTTP error " + response.status);
+                return response.json();
+            })
+            .then(json => {
+
+                const container = document.getElementById('container');
+                const post      = json.posts[json.posts.length - 1];
+
+                let imagesInsert = "";
+
+                for (const img of post.imgs)
+                    imagesInsert += `<img height="200" src="${ img }">`;
+                
+                container.innerHTML = `
+                    <div>${ post.date }</div>
+                    <div>${ post.body }</div>
+                    <div>${ imagesInsert }</div>
+                `;
+            });
+        }
+        
+    </script>
+</head>
+<body onload="init()">
+
+    <div id="container"></div>
+
+</body>
+</html>
