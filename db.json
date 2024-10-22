@@ -1,6 +1,6 @@
 {
     "pfpUrl": "img/ponjy_pfp.jpg",
-    "feeling": "emotionally exhausted",
+    "feeling": "empty and aimless",
     "pages": [
         {
             "href": "russian",
@@ -41,6 +41,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Oct 22, 2024",
+            "imgs": [],
+            "body": "<p>legit no aspirations right now. I don't even feel like this blog post is worth making because of how little I have to say (even though that's the whole point of the blog right, to talk about my feelings). I have... no passion to do anything. it's just work, and then... exist</p>"
+        },
         {
             "date": "Oct 20, 2024",
             "imgs": [ "https://static.wikia.nocookie.net/animalcrossing/images/d/d4/Beau_NH.png" ],
