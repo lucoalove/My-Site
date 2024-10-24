@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <link rel="stylesheet" href="/shared.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
@@ -13,14 +14,12 @@
 
         h2, h3 { margin: 0; border-bottom: 1px solid #aaa; }
         h3 { font-size: 1em; }
-        
-        .box { background: white; border: 1px solid #bbb; border-radius: 8px; box-sizing: border-box; }
-        .stack { display: flex; flex-direction: column; gap: 1em; }
-
         a { color: #48f; text-decoration-style: dotted; }
         th { text-align: left; padding-right: 1em; white-space: nowrap; vertical-align: top; font-weight: 400; color: #aaa; }
         hr { border: 0; border-top: 1px solid lightgrey; margin: 0; }
         p:last-child { margin-bottom: 0; }
+        
+        .stack { display: flex; flex-direction: column; gap: 1em; }
 
         #feeling { background: #48f; color: white; padding: 1em; font-weight: 700; position: relative; border-color: #26c; }
         #feeling::before {
@@ -35,6 +34,7 @@
             border-left: 1px solid #26c;
         }
 
+        /* button panels in pages area */
         a.panel {
             border: 1px solid #aaa;
             border-radius: 8px;
@@ -152,7 +152,7 @@
 
     <div class="stack" style="flex: 1;">
         
-        <img style="border-color: #999; image-rendering: crisp-edges;" class="pfp box">
+        <img style="border-color: #999; image-rendering: crisp-edges; width: 100%;" class="pfp box">
 
         <div class="box" id="feeling"></div>
 
