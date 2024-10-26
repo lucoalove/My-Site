@@ -43,6 +43,11 @@
     "posts": [
         {
             "date": "Oct 26, 2024",
+            "imgs": [ "updated_format_styleguide.png" ],
+            "body": "<p>I made a new styleguide since the old one was dysfunctional :3</p>"
+        },
+        {
+            "date": "Oct 26, 2024",
             "imgs": [],
             "body": "<p>microwave and vacuum are both interesting words because they're both an appliance and a science thingy, where the appliance was originally longer (microwave oven, vacuum cleaner) before getting shortened, even becoming the more common meaning of their corresponding word</p>"
         },
