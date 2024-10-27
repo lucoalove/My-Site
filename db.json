@@ -16,6 +16,11 @@
             "href": "terminal",
             "backgroundUrl": "https://www.freecodecamp.org/news/content/images/2022/03/pexels-pixabay-207580.jpg",
             "title": "Shell Commands"
+        },
+        {
+            "href": "softbody",
+            "backgroundUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_GEGcPFIFE8KI_ZxuzftntOlQKZVM4hE8-g&s",
+            "title": "Blender Softbodies"
         }
     ],
     "portalLinks": [
@@ -43,7 +48,7 @@
     "posts": [
         {
             "date": "Oct 26, 2024",
-            "imgs": [ "updated_format_styleguide.png" ],
+            "imgs": [ "/img/updated_format_styleguide.png" ],
             "body": "<p>I made a new styleguide since the old one was dysfunctional :3</p>"
         },
         {
