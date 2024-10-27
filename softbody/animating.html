@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blender Softbodies</title>
+
+    <link rel="stylesheet" href="softbody.css">
+</head>
+<body>
+
+    <aside>
+        <div>
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="simulating.html">Simulating a soft-body</a></li>
+                <li><a href="animating.html">Animating</a></li>
+                <li><a href="exporting.html">Exporting a video</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <h1>Softbody BBW Simulation in Blender</h1>
+
+        <h2>Animating</h2>
+        <p>If you're just satisfied with simulating BBWs flopping onto the floor, you can skip to the next section on <strong>Exporting a video.</strong> If you're interested in growth sequences, animating movement, and so forth, keep reading!</p>
+
+        <h3>Making some parts of the model fixed in place (Cloth pinning)</h3>
+        <p><strong>If you want some vertices to be fixed in place, you can pin them.</strong> They will stay locked in place while the non-pinned parts will behave like a soft-body.</p>
+        <ol>
+            <li>Select your object.</li>
+            <li>Create a new vertex group under <var>Data > Vertex Groups</var> and clicking the + symbol. Rename it to "Pin", or anything else you'd like.</li>
+            <li>Go into edit mode (by pressing tab), select the vertices you want to be pinned, and assign them to the vertex group you made by clicking <var>Assign</var> while the vertices are selected.</li>
+            <li>Go to <var>Physics > Shape</var> (under cloth properties) and assign your new vertex group to <var>Pin Group</var>.</li>
+        </ol>
+        <p><strong>If you want to move/animate the pinned vertices,</strong> you can attach them to a <strong>hook</strong>.</p>
+        https://www.youtube.com/watch?v=y_fysD5B9xs
+        <p>Moving/animating the hook will move the pinned vertices.</p>
+
+        <h3>Expansion animation (Shapekeys)</h3>
+        
+        <h3>Bones and rigging</h3>
+    </main>
+
+</body>
+</html>
