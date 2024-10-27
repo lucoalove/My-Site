@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blender Softbodies</title>
+
+    <link rel="stylesheet" href="softbody.css">
+</head>
+<body>
+
+    <aside>
+        <div>
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="simulating.html">Simulating a soft-body</a></li>
+                <li><a href="animating.html">Animating</a></li>
+                <li><a href="exporting.html">Exporting a video</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <h1>Softbody BBW Simulation in Blender</h1>
+
+        <h2>Simulating a soft-body</h2>
+
+          <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
+          
+          <iframe src="https://www.youtube.com/embed/EdIGfANAF7M"></iframe>
+
+          <p>To create the most basic softbody, all you need to do is:</p>
+
+          <p><strong>1. Add a mesh for the floor with a collision modifier.</strong></p>
+
+          <p><strong>2. Add a model with a cloth modifier.</strong> Place this above your "floor." This modifier contains all the parameters you will use to refine your soft-body simulation.</p>
+
+          <p><strong>3. Press space, or press the play button in the timeline.</strong> Your model should fall onto the floor and squish into it.</p>
+
+          <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
+          
+          <h3>Refining the simulation</h3>
+          <ul>
+              <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
+              <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
+              <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
+          </ul>
+    </main>
+
+</body>
+</html>
