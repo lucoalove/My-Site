@@ -49,6 +49,10 @@
 
             <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08cc0d7f-6c8c-4298-a9af-e7902213713f/dei0bo6-f88e4f38-fd0d-4070-ba77-9232a1d0f011.jpg/v1/fill/w_1192,h_670,q_70,strp/3d_immobile_ssbbw_roroko_room_filling_by_jellnill_dei0bo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcLzA4Y2MwZDdmLTZjOGMtNDI5OC1hOWFmLWU3OTAyMjEzNzEzZlwvZGVpMGJvNi1mODhlNGYzOC1mZDBkLTQwNzAtYmE3Ny05MjMyYTFkMGYwMTEuanBnIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.3z3KR44pLNL7Ss0t6razjx5FqpcvJ-_qp-BgCBzF8-A">
             <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8c27f51c-2ecd-421a-a4f7-59add6cbbccd/deb1zg0-5696a7f7-547a-4cc1-a5ee-a3b1ae3c67d9.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhjMjdmNTFjLTJlY2QtNDIxYS1hNGY3LTU5YWRkNmNiYmNjZFwvZGViMXpnMC01Njk2YTdmNy01NDdhLTRjYzEtYTVlZS1hM2IxYWUzYzY3ZDkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Xw5QBsLh_P27qIheC4Y7qPOgb41yWcDfBHFhZd3qoms">
+            <video controls height="200">
+              <source src="gummybear.mp4" type="video/mp4">
+            </video>
+
             <br>
             <small>
                 1. <a href="https://www.deviantart.com/jellnill/art/3d-immobile-ssbbw-Roroko-room-filling-876774678">source</a>
@@ -57,22 +61,33 @@
 
             <p>As it turns out, simulating soft-bodies (and soft-bodied girls) isn't as easy as just clicking the "Add Soft-Body" button. I wanted to compile what I've learned about simulating BBWs into one tutorial to make it easier for new artists to pick up, or for more experienced artists to reference.</p>
             <p>This tutorial will teach you how to <strong>simulate BBWs with Blender soft-bodies</strong> (make them squish against themselves and other objects, move with physics, and be animated). You will also learn how to <strong>render and export</strong> your simulation as a video.</p>
-            <p>This tutorial does not cover how to <strong>install Blender</strong>, <strong>model</strong>, or <strong>texture/create custom shaders</strong>.</p>
+            <p>This tutorial does not cover how to <strong>install Blender</strong>, <strong>model</strong>, or <strong>texture/create custom shaders</strong>. It also assumes you have basic experience in Blender already (such as moving objects and navigating the menus).</p>
             <p>This tutorial is not finished. I'm still learning too!!</p>
             
             <!-- shaders can help increase the softness of your model -->
 
             <h2 id="creating">Creating a soft-body</h2>
 
+            <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
+            
             <iframe src="https://www.youtube.com/embed/EdIGfANAF7M"></iframe>
 
-            <p>I highly recommend <strong>watching the entire video above for comprehensive explanations</strong> of the settings you'll be using. However, if you just want the settings:</p>
+            <p>To create the most basic softbody, all you need to do is:</p>
 
-            <ol>
-                <li>OOD Make sure you have <var>Goal</var> disabled. Then increase the <var>Object > Mass</var> value.</li>
-            </ol>
+            <p><strong>1. Add a mesh for the floor with a collision modifier.</strong></p>
 
-            <p>While this is a good place to start (especially for a simple ball), you will need to tweak these settings to get better results on a case-by-case basis. Experiment!</p>
+            <p><strong>2. Add a model with a cloth modifier.</strong> Place this above your "floor." This modifier contains all the parameters you will use to refine your soft-body simulation.</p>
+
+            <p><strong>3. Press space, or press the play button in the timeline.</strong> Your model should fall onto the floor and squish into it.</p>
+
+            <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
+            
+            <h3>Refining the simulation</h3>
+            <ul>
+                <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
+                <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
+                <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
+            </ul>
 
             <h2 id="animating">Animating</h2>
             <p>If you're just satisfied with simulating BBWs flopping onto the floor, you can skip to the next section on <strong>Exporting a video.</strong> If you're interested in growth sequences, animating movement, and so forth, keep reading!</p>
