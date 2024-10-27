@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body { font-family: "Roboto", sans-serif; font-size: 18px; color: #333; background: #ddd; margin: 0; }
+body { font-family: "Roboto", sans-serif; font-size: 18px; color: #333; background: #ddd; margin: 0; display: flex; }
 
 h1, h2, h3 { font-family: "Roboto Condensed", sans-serif; }
 h1 { font-size: 2.5em; }
@@ -13,7 +13,11 @@ img { height: 200px; }
 p { line-height: 1.5em; }
 li { margin-bottom: 1em; }
 
+aside { flex: 0 0 15em; background: #05b; padding: 1em; }
 aside, aside a { color: #ddd; }
+aside > div { position: fixed; width: 15em; }
+
+main { flex: 0 1 60em; padding: 1em; }
 main a { color: #05b; }
 
 iframe { aspect-ratio: calc(16 / 9); height: 400px; border: 0; }
