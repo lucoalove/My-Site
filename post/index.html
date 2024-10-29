@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/shared.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        img { max-width: 100%; }
-    </style>
-    
+    <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
     <script>
 
         const id = parseInt(new URLSearchParams(window.location.search).get('id'));
@@ -43,9 +39,11 @@
                 for (const img of post.imgs)
                     imagesInsert += `<img src="${ img }">`;
 
-                document.getElementById('meta').innerHTML   = `<strong>redderblanket</strong> · post.date`;
+                document.getElementById('meta').innerHTML   = `<strong>redderblanket</strong> · ${ post.date }`;
                 document.getElementById('body').innerHTML   = post.body;
                 document.getElementById('images').innerHTML = imagesInsert;
+
+                updateMasonry("images", 500);
             });
         }
         
