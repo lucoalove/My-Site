@@ -125,19 +125,25 @@
 </head>
 <body onload="init()">
 
-    <div class="box" style="flex: 0 0 35em;">
+    <div class="stack" style="flex: 0 0 35em;">
 
-        <div style="display: flex; align-items: center; gap: 0.5em; padding: 1em;">
-            <img class="pfp" style="aspect-ratio: 1; border-radius: 2px; width: 32px;">
-            <strong>redderblanket</strong>
+        <div class="box" style="padding: 1em;">
+            <div id="pages" class="stack"></div>
         </div>
 
-        <hr>
-        
-        <div id="posts-insert"></div>
-
-        <div style="padding: 1em;">
-            <button onclick="loadMore()" id="loadmore">Load more</button>
+        <div class="box">
+            <div style="display: flex; align-items: center; gap: 0.5em; padding: 1em;">
+                <img class="pfp" style="aspect-ratio: 1; border-radius: 2px; width: 32px;">
+                <strong>redderblanket</strong>
+            </div>
+    
+            <hr>
+            
+            <div id="posts-insert"></div>
+    
+            <div style="padding: 1em;">
+                <button onclick="loadMore()" id="loadmore">Load more</button>
+            </div>
         </div>
 
     </div>
@@ -161,10 +167,6 @@
                     <td>I rant about emotions or things that interest me (boobs!)</td>
                 </tr>
             </table>
-    
-            <h3>Pages</h3>
-            
-            <div id="pages" class="stack"></div>
     
             <h3>Portal</h3>
     
