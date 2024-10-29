@@ -37,7 +37,7 @@
                 let imagesInsert = "";
 
                 for (const img of post.imgs)
-                    imagesInsert += `<img src="${ img }">`;
+                    imagesInsert += `<img class="item" src="${ img }">`;
 
                 document.getElementById('meta').innerHTML   = `<strong>redderblanket</strong> · ${ post.date }`;
                 document.getElementById('body').innerHTML   = post.body;
@@ -54,7 +54,7 @@
     <div class="box" style="padding: 1em; width: 100%;">
         <div id="meta"></div>
         <div id="body"></div>
-        <div id="images"></div>
+        <div id="images" style="display: flex; flex-wrap: wrap; align-items: start;"></div>
     </div>
 
 </body>
