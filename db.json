@@ -47,6 +47,11 @@
     ],
     "posts": [
         {
+            "date": "Oct 29, 2024",
+            "imgs": [],
+            "body": "<p>Twine story engine <a href='https://anvilandthechipmunks.itch.io/big-aspirations'>fat games</a> 🤤</p>"
+        },
+        {
             "date": "Oct 28, 2024",
             "imgs": [],
             "body": "<p>What if I made a super simple visual novel engine, with game-files like:</p><p style='font-family: monospace;'>FLAG_LONER int<br><br>END_DEFINE<br><br>#0<br>$IMAGE dark_road1.png<br>You walk along the dimly lit path.<br>$IMAGE dark_road2.png<br>A cloaked stranger steps into the light from amongst the trees up ahead.<br>&gt;1 Walk past them.<br>&gt;2 \"Who're you?\"<br><br>#1<br>$IMAGE dark_road2.png<br>$FLAG_LONER 1<br>You try to avoid trouble, but it seems like trouble wants you.<br>(etc)</p><p>variables turn it from a trivial project to a mildly difficult project, so here's a version without them (literally just a 'choose your own adventure' book)</p><p style=\"font-family: monospace; color: grey;\"><span style=\"color: blue;\">#0</span> <span style=\"color: red;\">bedroom.png</span><br>It's the first day of high school, and you're so nervous! You've always wanted to have a girlfriend, and now, at Yukutaku High, it might just become a reality.<br>But first, what's for breakfast? Gotta start this big day strong!<br><span style=\"color: blue;\">&gt;1</span> <span style=\"color: green;\">Pancakes.</span><br><span style=\"color: blue;\">&gt;2</span> <span style=\"color: green;\">Milk and cereal.</span><br><br><span style=\"color: blue;\">#1</span> <span style=\"color: red;\">pancakes.png</span><br>Chocolate chip pancakes, your favourite!<br>...</p>"
