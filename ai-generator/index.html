@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI horde ui (wip :3)</title>
+
+    <style>
+        body { background: #1d161a; color: #ccc; display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start; min-height: 100vh; font-family: sans-serif; line-height: 1.2em; }
+
+        a { color: #d53; }
+
+        input, textarea { background: none; border: 1px solid #ccc; color: inherit; }
+
+        #generateButton { cursor: pointer; background: none; border: 2px solid #d53; font: inherit; font-weight: 700; color: #d53; padding: 0.5em; }
+        #generateButton:disabled { background: black; border-color: darkred; color: darkred; }
+
+        #gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+        #gallery > img { width: 100%; }
+
+        #prompt { max-width: 100%; min-width: 100%; min-height: 2em; box-sizing: border-box; }
+
+        #debug { border: 1px solid #444; background: black; font-size: smaller; font-family: monospace; word-wrap: break-word; min-height: 1em; }
+    </style>
+    
+    <script type="module">
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        const debug          = document.getElementById("debug");
+        const key            = document.getElementById("key");
+        const prompt         = document.getElementById("prompt");
+        const mainImage      = document.getElementById("mainImage");
+        const gallery        = document.getElementById("gallery");
+        const generateButton = document.getElementById("generateButton");
+
+        generateButton.onclick = startGeneration;
+
+        key.value = getCookie("apikey");
+
+        var currentID;
+        
+        async function startGeneration() {
+
+            generateButton.disabled = true;
+            debug.innerHTML = "";
+        
+            try {
+        
+                const payload = {
+                    prompt             : prompt.value,
+                    extra_slow_workers : true,
+                    nsfw               : true
+                    //models             : [ "Austism/chronos-hermes-13b" ]
+                };
+
+                const startTime = Date.now();
+
+                const response = await fetch("https://stablehorde.net/api/v2/generate/async",
+                    {
+                        method: "POST",
+                        headers: {
+                            "content-type" : "application/json",
+                            "apikey"       : key.value
+                        },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                const responseJson = await response.json();
+
+                currentID = responseJson.id;
+                debug.innerHTML = response.status;
+
+                if (response.status == 202) {
+
+                    // save key to cookie
+                    setCookie("apikey", key.value, 50);
+
+                    // wait for generation
+                    const generation = await retrieveGeneration();
+                    const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+
+                    mainImage.src = generation.img;
+                    gallery.innerHTML = `<img src="${ generation.img }">${ gallery.innerHTML }`;
+
+                    debug.innerHTML = `Finished generating in ${ timeElapsed }s.`;
+
+                } else {
+                    throw Error(JSON.stringify(responseJson));
+                }
+        
+            } catch (error) {
+                debug.innerHTML = "<span style='color: red;'>" + error + "</span>";
+            }
+
+            generateButton.disabled = false;
+        }
+
+        async function retrieveGeneration() {
+
+            var finished = false;
+
+            while (!finished) {
+
+                await new Promise(r => setTimeout(r, 5000));
+
+                // check
+                const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + currentID,
+                {
+                    method: "GET"
+                }
+                )).json();
+
+                debug.innerHTML = JSON.stringify(response);
+
+                finished = response.finished == 1;
+            }
+
+            // status
+            const response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + currentID,
+            {
+                method: "GET"
+            }
+            )).json();
+
+            debug.innerHTML = JSON.stringify(response);
+
+            return response.generations[0];
+        }
+
+    </script>
+</head>
+<body>
+    
+    <div style="overflow: hidden;">
+
+        Key: <input type="text" id="key">
+
+        <br><br>
+
+        <textarea id="prompt" rows="4" placeholder="Prompt..."></textarea>
+
+        <br><br>
+
+        <button type="button" id="generateButton">Generate</button>
+
+        <br><br>
+
+        <div id="debug"></div>
+
+        <br><br><br><br><br>
+
+        literally just garbage stable diffusion models available bleh I'll fix later<br>
+        c.cu, betterwithsalt, spellsx.<br>
+        "slightly" can decrease a term<br>
+        small breasts, big breasts, huge breasts, gigantic breasts<br>
+        [<a href="https://stablehorde.net/api/">AI Horde API</a>]
+
+    </div>
+
+    <div>
+
+        <img id="mainImage" width="100%">
+
+        <div id="gallery"></div>
+
+    </div>
+
+</body>
+</html>
