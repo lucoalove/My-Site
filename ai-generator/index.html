@@ -95,7 +95,7 @@
                 const responseJson = await response.json();
                 const currentID    = responseJson.id;
                 
-                debug.innerHTML = responseJson;
+                debug.innerHTML = JSON.stringify(responseJson);
 
                 if (response.status != 202) {
                     throw Error(JSON.stringify(responseJson));
@@ -201,37 +201,44 @@
 <body>
     
     <div>
-
         <textarea id="prompt" rows="4" placeholder="Prompt..."></textarea>
 
         <br><br>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start;">
+            <div>
+                <table style="width: 100%;">
+                    <tr>
+                        <td><a href="https://stablehorde.net/">AI Horde</a> API<br>Key (optional):</td>
+                        <td><input type="text" id="key"></td>
+                    </tr>
+                    <tr>
+                        <td>Model:</td>
+                        <td><select id="modelSelector"></select></td>
+                    </tr>
+                    <tr>
+                        <td>Width:</td>
+                        <td style="display: flex;">
+                            <span id="widthReadout">640</span>
+                            <input type="range" id="widthSlider" min="512" max="1024" step="64" value="640" oninput="updateReadout('widthSlider', 'widthReadout')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Height:</td>
+                        <td style="display: flex;">
+                            <span id="heightReadout">832</span>
+                            <input type="range" id="heightSlider" min="512" max="1024" step="64" value="832" oninput="updateReadout('heightSlider', 'heightReadout')">
+                        </td>
+                    </tr>
+                </table>
+                <small>Powered by the <a href="https://stablehorde.net/api/">AI Horde API</a></small>
+                
+                <br><br><br><br><br>
 
-            <table>
-                <tr>
-                    <td><a href="https://stablehorde.net/">AI Horde</a> API<br>Key (optional):</td>
-                    <td><input type="text" id="key"></td>
-                </tr>
-                <tr>
-                    <td>Model:</td>
-                    <td><select id="modelSelector"></select></td>
-                </tr>
-                <tr>
-                    <td>Width:</td>
-                    <td style="display: flex;">
-                        <span id="widthReadout">640</span>
-                        <input type="range" id="widthSlider" min="512" max="1024" step="64" value="640" oninput="updateReadout('widthSlider', 'widthReadout')">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Height:</td>
-                    <td style="display: flex;">
-                        <span id="heightReadout">832</span>
-                        <input type="range" id="heightSlider" min="512" max="1024" step="64" value="832" oninput="updateReadout('heightSlider', 'heightReadout')">
-                    </td>
-                </tr>
-            </table>
+                c.cu, betterwithsalt, spellsx.<br>
+                "slightly" can decrease a term<br>
+                small breasts, big breasts, huge breasts, gigantic breasts<br><br>
+            </div>
 
             <div style="overflow: hidden;">
                 <button type="button" id="generateButton">Generate</button>
@@ -240,24 +247,12 @@
                 <br><br>
                 <div id="allGenerations"></div>
             </div>
-            
         </div>
-
-        <br><br><br><br><br>
-
-        c.cu, betterwithsalt, spellsx.<br>
-        "slightly" can decrease a term<br>
-        small breasts, big breasts, huge breasts, gigantic breasts<br><br>
-        <small>Powered by the <a href="https://stablehorde.net/api/">AI Horde API</a></small>
-
     </div>
 
     <div>
-
         <img id="mainImage">
-
         <div id="gallery"></div>
-
     </div>
 
 </body>
