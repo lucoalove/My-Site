@@ -76,6 +76,11 @@
         async function startGeneration() {
 
             debug.innerHTML = "";
+
+            const generationElement = document.createElement("div");
+            allGenerations.appendChild(generationElement);
+
+            generationElement.innerHTML = "Generation starting...";
             
             try {
         
@@ -108,9 +113,6 @@
                 
                 debug.innerHTML = response;
 
-                const generationElement = document.createElement("div");
-                allGenerations.appendChild(generationElement);
-
                 if (response.status == 202) {
 
                     // save key to cookie
@@ -130,6 +132,7 @@
                 }
         
             } catch (error) {
+                generationElement.innerHTML = "Generation failed.";
                 debug.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
         }
