@@ -75,10 +75,10 @@
             try {
         
                 const payload = {
-                    prompt             : prompt.value,
-                    //extra_slow_workers : true,
-                    nsfw               : true,
-                    models             : (modelSelector.value == "any" ? [] : [ modelSelector.value ])
+                    prompt            : prompt.value,
+                    //extra_slow_workers: true,
+                    nsfw              : true,
+                    models            : (modelSelector.value == "any" ? [] : [ modelSelector.value ])
                 };
 
                 const startTime = Date.now();
@@ -87,8 +87,8 @@
                     {
                         method: "POST",
                         headers: {
-                            "content-type" : "application/json",
-                            "apikey"       : key.value
+                            "content-type": "application/json",
+                            "apikey"      : key.value
                         },
                         body: JSON.stringify(payload)
                     }
@@ -133,11 +133,7 @@
                 await new Promise(r => setTimeout(r, 5000));
 
                 // check
-                const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + currentID,
-                {
-                    method: "GET"
-                }
-                )).json();
+                const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + currentID, { method: "GET" })).json();
 
                 debug.innerHTML = JSON.stringify(response);
 
@@ -145,11 +141,7 @@
             }
 
             // status
-            const response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + currentID,
-            {
-                method: "GET"
-            }
-            )).json();
+            const response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + currentID, { method: "GET" })).json();
 
             debug.innerHTML = JSON.stringify(response);
 
@@ -157,22 +149,18 @@
         }
 
         // models
-        let response = await (await fetch("https://stablehorde.net/api/v2/status/models",
-        {
-            method: "GET",
-            headers: {
-                "content-type" : "application/json"
-            },
-            query: {
-                "min_count" : 10
+        let response = await (await fetch("https://stablehorde.net/api/v2/status/models?" + new URLSearchParams({ min_count: 10 }).toString(),
+            {
+                method: "GET",
+                headers: {
+                    "content-type": "application/json"
+                }
             }
-        }
         )).json();
 
-        console.log(response);
-
         for (const model in response)
-        modelSelector.innerHTML += `<option value="${ model.name }">${ model.name }</option>`;
+            console.log(model);
+            //modelSelector.innerHTML += `<option value="${ model.name }">${ model.name }</option>`;
 
     </script>
 </head>
