@@ -64,6 +64,9 @@
         generateButton.onclick = startGeneration;
 
         key.value = getCookie("apikey");
+        if (key.value.trim().length === 0) {
+            key.value = "0000000000";
+        }
 
         var currentID;
         
@@ -177,7 +180,7 @@
     
     <div style="overflow: hidden;">
 
-        <a href="https://stablehorde.net/">AI Horde</a> API Key: <input type="text" id="key">
+        <a href="https://stablehorde.net/">AI Horde</a> API Key (optional): <input type="text" id="key">
 
         <br><br>
 
