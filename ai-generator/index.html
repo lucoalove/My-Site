@@ -24,6 +24,8 @@
         #debug { border: 1px solid #444; background: black; font-size: smaller; font-family: monospace; word-wrap: break-word; min-height: 1em; }
         
         #mainImage { width: 100%; }
+
+        #widthSlider, #heightSlider { width: 100%; }
     </style>
     
     <script type="module">
@@ -59,6 +61,8 @@
         const generateButton   = document.getElementById("generateButton");
         const generationStatus = document.getElementById("generationStatus");
         const modelSelector    = document.getElementById("modelSelector");
+        const widthSlider      = document.getElementById("widthSlider");
+        const heightSlider     = document.getElementById("heightSlider");
 
         generateButton.onclick = startGeneration;
 
@@ -82,8 +86,8 @@
                     models: (modelSelector.value == "any" ? [] : [ modelSelector.value ]),
                     params: {
                         //seed: "dogs",
-                        width : 640,
-                        height: 832
+                        width : Math.min(Math.max( widthSlider.value -  (widthSlider.value % 64), 512), 1024),
+                        height: Math.min(Math.max(heightSlider.value - (heightSlider.value % 64), 512), 1024)
                     }
                 };
 
@@ -202,6 +206,20 @@
                 <tr>
                     <td>Model:</td>
                     <td><select id="modelSelector"></select></td>
+                </tr>
+                <tr>
+                    <td>Width:</td>
+                    <td>
+<!--                         <span id="widthReadout">640</span> -->
+                        <input type="range" id="widthSlider" min="512" max="1024" step="64" value="640">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Height:</td>
+                    <td>
+<!--                         <span id="heightReadout">832</span> -->
+                        <input type="range" id="heightSlider" min="512" max="1024" step="64" value="832">
+                    </td>
                 </tr>
             </table>
 
