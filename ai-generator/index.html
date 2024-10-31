@@ -78,10 +78,14 @@
             try {
         
                 const payload = {
-                    prompt            : prompt.value,
-                    //extra_slow_workers: true,
-                    nsfw              : true,
-                    models            : (modelSelector.value == "any" ? [] : [ modelSelector.value ])
+                    prompt: prompt.value,
+                    nsfw  : true,
+                    models: (modelSelector.value == "any" ? [] : [ modelSelector.value ]),
+                    params: {
+                        //seed: "dogs",
+                        width : 640,
+                        height: 832
+                    }
                 };
 
                 const startTime = Date.now();
@@ -178,23 +182,23 @@
 </head>
 <body>
     
-    <div style="overflow: hidden;">
-
-        <a href="https://stablehorde.net/">AI Horde</a> API Key (optional): <input type="text" id="key">
-
-        <br><br>
+    <div>
 
         <textarea id="prompt" rows="4" placeholder="Prompt..."></textarea>
 
-        <br><br>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
 
-        <select id="modelSelector"></select>
+            <div>
+                <p><a href="https://stablehorde.net/">AI Horde</a> API Key (optional): <input type="text" id="key"></p>
+                <p><select id="modelSelector"></select></p>
+            </div>
 
-        <button type="button" id="generateButton">Generate</button>
-
-        <br><br>
-
-        <div id="debug"></div>
+            <div style="overflow: hidden;">
+                <button type="button" id="generateButton">Generate</button>
+                <div id="debug"></div>
+            </div>
+            
+        </div>
 
         <br><br><br><br><br>
 
