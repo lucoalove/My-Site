@@ -161,9 +161,11 @@
         {
             method: "GET",
             headers: {
-                "content-type" : "application/json",
-                "min_count"    : 10
+                "content-type" : "application/json"
             },
+            query: {
+                "min_count" : 10
+            }
         }
         )).json();
 
