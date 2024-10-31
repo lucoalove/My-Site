@@ -6,14 +6,18 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        :root {
+            --color: #c63;
+        }
         
         body { font-family: "Roboto", sans-serif; background: #181216; color: #bbb; display: grid; grid-template-columns: 3fr 2fr; gap: 1em; align-items: start; min-height: 100vh; line-height: 1.2em; }
 
-        a { color: #c63; }
+        a { color: var(--color); }
 
         input, textarea { background: none; border: 1px solid #ccc; color: inherit; }
 
-        #generateButton { cursor: pointer; background: none; border: 2px solid #c63; font: inherit; color: #c63; padding: 0.5em; }
+        #generateButton { cursor: pointer; background: none; border: 2px solid var(--color); font: inherit; color: var(--color); padding: 0.5em; }
         #generateButton:disabled { background: black; border-color: darkred; color: darkred; }
 
         #gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
@@ -96,6 +100,8 @@
                 const response     = await requestGeneration();
                 const responseJson = await response.json();
                 const currentID    = responseJson.id;
+
+                generateButton.disabled = false;
                 
                 debug.innerHTML = JSON.stringify(responseJson);
 
@@ -114,14 +120,12 @@
                 mainImage.src = generation.img;
                 gallery.innerHTML = `<img src="${ generation.img }">${ gallery.innerHTML }`;
 
-                generationElement.innerHTML = `Finished generating in ${ timeElapsed }s.`;
+                generationElement.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.`;
         
             } catch (error) {
                 generationElement.innerHTML = "Generation failed.";
                 debug.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
-
-            generateButton.disabled = false;
         }
 
         async function requestGeneration() {
