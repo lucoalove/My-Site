@@ -61,6 +61,7 @@
         const mainImage      = document.getElementById("mainImage");
         const gallery        = document.getElementById("gallery");
         const generateButton = document.getElementById("generateButton");
+        const generatorInfo  = document.getElementById("generatorInfo");
 
         generateButton.onclick = startGeneration;
 
@@ -78,7 +79,7 @@
                 const payload = {
                     prompt             : prompt.value,
                     extra_slow_workers : true,
-                    nsfw               : true
+                    nsfw               : true,
                     models             : MODELS
                 };
 
@@ -157,9 +158,9 @@
             return response.generations[0];
         }
 
-        debug.innerHTML += "Active models: ";
+        generatorInfo.innerHTML += "Active models: ";
         for (let model in MODELS) {
-            debug.innerHTML += "${model}, ";
+            generatorInfo.innerHTML += "${model}, ";
         }
 
     </script>
@@ -182,9 +183,10 @@
 
         <div id="debug"></div>
 
+        <div id="generatorInfo"></div>
+
         <br><br><br><br><br>
 
-        literally just garbage stable diffusion models available bleh I'll fix later<br>
         c.cu, betterwithsalt, spellsx.<br>
         "slightly" can decrease a term<br>
         small breasts, big breasts, huge breasts, gigantic breasts<br>
