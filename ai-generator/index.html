@@ -187,6 +187,13 @@
         loadModels();
 
     </script>
+
+    <script>
+        function updateReadout(inputId, readoutId) {
+
+            document.getElementById(readoutId).innerHTML = document.getElementById(inputId).value;
+        }
+    </script>
 </head>
 <body>
     
@@ -209,16 +216,16 @@
                 </tr>
                 <tr>
                     <td>Width:</td>
-                    <td>
-<!--                         <span id="widthReadout">640</span> -->
-                        <input type="range" id="widthSlider" min="512" max="1024" step="64" value="640">
+                    <td style="display: flex;">
+                        <span id="widthReadout">640</span>
+                        <input type="range" id="widthSlider" min="512" max="1024" step="64" value="640" oninput="updateReadout('widthSlider', 'widthReadout')">
                     </td>
                 </tr>
                 <tr>
                     <td>Height:</td>
-                    <td>
-<!--                         <span id="heightReadout">832</span> -->
-                        <input type="range" id="heightSlider" min="512" max="1024" step="64" value="832">
+                    <td style="display: flex;">
+                        <span id="heightReadout">832</span>
+                        <input type="range" id="heightSlider" min="512" max="1024" step="64" value="832" oninput="updateReadout('heightSlider', 'heightReadout')">
                     </td>
                 </tr>
             </table>
@@ -226,7 +233,7 @@
             <div style="overflow: hidden;">
                 <button type="button" id="generateButton">Generate</button>
                 <span id="generationStatus"></span>
-                <br>
+                <br><br>
                 <div id="debug"></div>
             </div>
             
