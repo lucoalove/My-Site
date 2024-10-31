@@ -53,7 +53,10 @@
             return "";
         }
 
-        const MODELS = [ "Bigbellybabes_v20" ];
+        const MODELS = {
+            "any"   : [],
+            "anime" : [ "Bigbellybabes_v20" ]
+        }
 
         const debug          = document.getElementById("debug");
         const key            = document.getElementById("key");
@@ -61,7 +64,7 @@
         const mainImage      = document.getElementById("mainImage");
         const gallery        = document.getElementById("gallery");
         const generateButton = document.getElementById("generateButton");
-        const generatorInfo  = document.getElementById("generatorInfo");
+        const modelSelector  = document.getElementById("modelSelector");
 
         generateButton.onclick = startGeneration;
 
@@ -78,9 +81,9 @@
         
                 const payload = {
                     prompt             : prompt.value,
-                    extra_slow_workers : true,
+                    //extra_slow_workers : true,
                     nsfw               : true,
-                    models             : MODELS
+                    models             : MODELS[modelSelector.value]
                 };
 
                 const startTime = Date.now();
@@ -158,11 +161,6 @@
             return response.generations[0];
         }
 
-        generatorInfo.innerHTML += "Active models: ";
-        for (let model in MODELS) {
-            generatorInfo.innerHTML += "${model}, ";
-        }
-
     </script>
 </head>
 <body>
@@ -177,13 +175,16 @@
 
         <br><br>
 
+        <select id="modelSelector">
+          <option value="any">Any Style</option>
+          <option value="anime">Anime</option>
+        </select>
+
         <button type="button" id="generateButton">Generate</button>
 
         <br><br>
 
         <div id="debug"></div>
-
-        <div id="generatorInfo"></div>
 
         <br><br><br><br><br>
 
