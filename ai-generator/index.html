@@ -117,7 +117,7 @@
                     setCookie("apikey", key.value, 50);
 
                     // wait for generation
-                    const generation = await retrieveGeneration();
+                    const generation = await retrieveGeneration(generationElement);
                     const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
                     mainImage.src = generation.img;
@@ -130,12 +130,11 @@
                 }
         
             } catch (error) {
-                generationElement.innerHTML = "Generation failed.";
-                debug.innerHTML = "<span style='color: red;'>" + error + "</span>";
+                debug.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
         }
 
-        async function retrieveGeneration() {
+        async function retrieveGeneration(status) {
 
             var finished = false;
 
@@ -148,7 +147,7 @@
 
                 debug.innerHTML = JSON.stringify(response);
 
-                generationStatus.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })`;
+                status.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })`;
 
                 finished = response.finished == 1;
             }
