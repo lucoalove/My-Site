@@ -52,6 +52,11 @@
     ],
     "posts": [
         {
+            "date": "Oct 31, 2024",
+            "imgs": [],
+            "body": "<p>wow, Ukranian is such a pretty language (I saw a peppa pig clip in it, it had mr potato his voice was warm)</p><p>also it's halloween woa</p>"
+        },
+        {
             "date": "Oct 30, 2024",
             "imgs": [],
             "body": "<p><a href='https://stablehorde.net/'>AI Horde</a> is actually so cool (in both concept and usability), and I made a cool web ui that should show up as a page on this blog now for people to plug their api key into to generate! it's a really bad web ui. I'll fix it later</p><p>also I already lost my key lol I had to regen a new one turns out cookies are. volatile...</p>"
