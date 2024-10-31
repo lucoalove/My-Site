@@ -190,7 +190,9 @@
 
         <textarea id="prompt" rows="4" placeholder="Prompt..."></textarea>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+        <br><br>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start;">
 
             <table>
                 <tr>
@@ -204,11 +206,10 @@
             </table>
 
             <div style="overflow: hidden;">
-                <p>
-                    <button type="button" id="generateButton">Generate</button>
-                    <span id="generationStatus"></span>
-                </p>
-                <p id="debug"></p>
+                <button type="button" id="generateButton">Generate</button>
+                <span id="generationStatus"></span>
+                <br>
+                <div id="debug"></div>
             </div>
             
         </div>
