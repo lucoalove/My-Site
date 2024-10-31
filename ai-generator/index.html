@@ -51,13 +51,14 @@
             return "";
         }
 
-        const debug          = document.getElementById("debug");
-        const key            = document.getElementById("key");
-        const prompt         = document.getElementById("prompt");
-        const mainImage      = document.getElementById("mainImage");
-        const gallery        = document.getElementById("gallery");
-        const generateButton = document.getElementById("generateButton");
-        const modelSelector  = document.getElementById("modelSelector");
+        const debug            = document.getElementById("debug");
+        const key              = document.getElementById("key");
+        const prompt           = document.getElementById("prompt");
+        const mainImage        = document.getElementById("mainImage");
+        const gallery          = document.getElementById("gallery");
+        const generateButton   = document.getElementById("generateButton");
+        const generationStatus = document.getElementById("generationStatus");
+        const modelSelector    = document.getElementById("modelSelector");
 
         generateButton.onclick = startGeneration;
 
@@ -104,6 +105,8 @@
                 currentID = responseJson.id;
                 debug.innerHTML = response.status;
 
+                generationStatus.innerHTML = "Beginning generation...";
+
                 if (response.status == 202) {
 
                     // save key to cookie
@@ -116,13 +119,14 @@
                     mainImage.src = generation.img;
                     gallery.innerHTML = `<img src="${ generation.img }">${ gallery.innerHTML }`;
 
-                    debug.innerHTML = `Finished generating in ${ timeElapsed }s.`;
+                    generationStatus.innerHTML = `Finished generating in ${ timeElapsed }s.`;
 
                 } else {
                     throw Error(JSON.stringify(responseJson));
                 }
         
             } catch (error) {
+                generationStatus.innerHTML = "Generation failed.";
                 debug.innerHTML = "<span style='color: red;'>" + error + "</span>";
             }
 
@@ -141,6 +145,8 @@
                 const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + currentID, { method: "GET" })).json();
 
                 debug.innerHTML = JSON.stringify(response);
+
+                generationStatus.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })`;
 
                 finished = response.finished == 1;
             }
@@ -198,7 +204,10 @@
             </table>
 
             <div style="overflow: hidden;">
-                <p><button type="button" id="generateButton">Generate</button></p>
+                <p>
+                    <button type="button" id="generateButton">Generate</button>
+                    <span id="generationStatus"></span>
+                </p>
                 <p id="debug"></p>
             </div>
             
