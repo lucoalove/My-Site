@@ -148,19 +148,28 @@
             return response.generations[0];
         }
 
-        // models
-        let response = await (await fetch("https://stablehorde.net/api/v2/status/models?" + new URLSearchParams({ min_count: 10 }).toString(),
-            {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json"
+        async function loadModels() {
+        
+            // models
+            let response = await (await fetch("https://stablehorde.net/api/v2/status/models?" + new URLSearchParams({ min_count: 10 }).toString(),
+                {
+                    method: "GET",
+                    headers: {
+                        "content-type": "application/json"
+                    }
                 }
+            )).json();
+    
+            modelSelector.innerHTML = "<option value='any'>Any Model</option>";
+            
+            for (const model of response) {
+                
+                console.log(model);
+                modelSelector.innerHTML += `<option value="${ model.name }">${ model.name }</option>`;
             }
-        )).json();
+        }
 
-        for (const model in response)
-            console.log(model);
-            //modelSelector.innerHTML += `<option value="${ model.name }">${ model.name }</option>`;
+        loadModels();
 
     </script>
 </head>
@@ -176,9 +185,7 @@
 
         <br><br>
 
-        <select id="modelSelector">
-            <option value="any">Any Model</option>
-        </select>
+        <select id="modelSelector"></select>
 
         <button type="button" id="generateButton">Generate</button>
 
