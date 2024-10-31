@@ -14,6 +14,7 @@
         input, textarea { background: none; border: 1px solid #ccc; color: inherit; }
 
         #generateButton { cursor: pointer; background: none; border: 2px solid #c63; font: inherit; color: #c63; padding: 0.5em; }
+        #generateButton:disabled { background: black; border-color: darkred; color: darkred; }
 
         #gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
         #gallery > img { width: 100%; }
@@ -80,6 +81,7 @@
         
         async function generate() {
 
+            generateButton.disabled = true;
             debug.innerHTML = "";
 
             const generationElement = document.createElement("div");
@@ -118,6 +120,8 @@
                 generationElement.innerHTML = "Generation failed.";
                 debug.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
+
+            generateButton.disabled = false;
         }
 
         async function requestGeneration() {
@@ -200,7 +204,7 @@
 </head>
 <body>
     
-    <div>
+    <div style="overflow: hidden;">
         <textarea id="prompt" rows="4" placeholder="Prompt..."></textarea>
 
         <br><br>
