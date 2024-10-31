@@ -138,7 +138,7 @@
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        "apikey"      : (key.value.trim().length === 0) ? "0000000000" : key.value;
+                        "apikey"      : ((key.value.trim().length === 0) ? "0000000000" : key.value)
                     },
                     body: JSON.stringify(payload)
                 }
