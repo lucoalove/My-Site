@@ -53,11 +53,6 @@
             return "";
         }
 
-        const MODELS = {
-            "any"   : [],
-            "anime" : [ "Bigbellybabes_v20" ]
-        }
-
         const debug          = document.getElementById("debug");
         const key            = document.getElementById("key");
         const prompt         = document.getElementById("prompt");
@@ -83,7 +78,7 @@
                     prompt             : prompt.value,
                     //extra_slow_workers : true,
                     nsfw               : true,
-                    models             : MODELS[modelSelector.value]
+                    models             : (modelSelector.value == "any" ? [] : [ modelSelector.value ])
                 };
 
                 const startTime = Date.now();
@@ -161,6 +156,22 @@
             return response.generations[0];
         }
 
+        // models
+        let response = await (await fetch("https://stablehorde.net/api/v2/status/models/",
+        {
+            method: "GET",
+            headers: {
+                "content-type" : "application/json",
+                "min_count"    : 10
+            },
+        }
+        )).json();
+
+        console.log(response);
+
+        for (const model in response)
+        modelSelector.innerHTML += `<option value="${ model.name }">${ model.name }</option>`;
+
     </script>
 </head>
 <body>
@@ -176,8 +187,7 @@
         <br><br>
 
         <select id="modelSelector">
-          <option value="any">Any Style</option>
-          <option value="anime">Anime</option>
+            <option value="any">Any Model</option>
         </select>
 
         <button type="button" id="generateButton">Generate</button>
