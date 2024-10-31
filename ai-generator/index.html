@@ -14,7 +14,6 @@
         input, textarea { background: none; border: 1px solid #ccc; color: inherit; }
 
         #generateButton { cursor: pointer; background: none; border: 2px solid #c63; font: inherit; color: #c63; padding: 0.5em; }
-        #generateButton:disabled { background: black; border-color: darkred; color: darkred; }
 
         #gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
         #gallery > img { width: 100%; }
@@ -22,6 +21,9 @@
         #prompt { max-width: 100%; min-width: 100%; min-height: 2em; box-sizing: border-box; }
 
         #debug { border: 1px solid #444; background: black; font-size: smaller; font-family: monospace; word-wrap: break-word; min-height: 1em; }
+
+        #allGenerations { display: flex; flex-direction: column-reverse; gap: 1em; }
+        #allGenerations > div { border: 1px solid #ccc; padding: 0.5em; }
         
         #mainImage { width: 100%; }
 
@@ -59,10 +61,10 @@
         const mainImage        = document.getElementById("mainImage");
         const gallery          = document.getElementById("gallery");
         const generateButton   = document.getElementById("generateButton");
-        const generationStatus = document.getElementById("generationStatus");
         const modelSelector    = document.getElementById("modelSelector");
         const widthSlider      = document.getElementById("widthSlider");
         const heightSlider     = document.getElementById("heightSlider");
+        const allGenerations   = document.getElementById("allGenerations");
 
         generateButton.onclick = startGeneration;
 
@@ -70,14 +72,11 @@
         if (key.value.trim().length === 0) {
             key.value = "0000000000";
         }
-
-        var currentID;
         
         async function startGeneration() {
 
-            generateButton.disabled = true;
             debug.innerHTML = "";
-        
+            
             try {
         
                 const payload = {
@@ -105,11 +104,12 @@
                 );
 
                 const responseJson = await response.json();
+                const currentID = responseJson.id;
+                
+                debug.innerHTML = response;
 
-                currentID = responseJson.id;
-                debug.innerHTML = response.status;
-
-                generationStatus.innerHTML = "Beginning generation...";
+                const generationElement = document.createElement("div");
+                allGenerations.appendChild(generationElement);
 
                 if (response.status == 202) {
 
@@ -123,18 +123,16 @@
                     mainImage.src = generation.img;
                     gallery.innerHTML = `<img src="${ generation.img }">${ gallery.innerHTML }`;
 
-                    generationStatus.innerHTML = `Finished generating in ${ timeElapsed }s.`;
+                    generationElement.innerHTML = `Finished generating in ${ timeElapsed }s.`;
 
                 } else {
                     throw Error(JSON.stringify(responseJson));
                 }
         
             } catch (error) {
-                generationStatus.innerHTML = "Generation failed.";
+                generationElement.innerHTML = "Generation failed.";
                 debug.innerHTML = "<span style='color: red;'>" + error + "</span>";
             }
-
-            generateButton.disabled = false;
         }
 
         async function retrieveGeneration() {
@@ -232,9 +230,10 @@
 
             <div style="overflow: hidden;">
                 <button type="button" id="generateButton">Generate</button>
-                <span id="generationStatus"></span>
                 <br><br>
                 <div id="debug"></div>
+                <br><br>
+                <div id="allGenerations"></div>
             </div>
             
         </div>
