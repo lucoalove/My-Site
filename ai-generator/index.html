@@ -151,7 +151,7 @@
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        "apikey"      : (isBlank(key) ? "0000000000" : key.value)
+                        "apikey"      : (isBlank(key.value) ? "0000000000" : key.value)
                     },
                     body: JSON.stringify(payload)
                 }
