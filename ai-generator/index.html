@@ -63,12 +63,17 @@
 
             document.getElementById(readoutId).innerHTML = document.getElementById(inputId).value;
         }
+
+        function isBlank(string) {
+            return string.value.trim().length === 0;
+        }
     </script>
     
     <script type="module">
 
         const debug            = document.getElementById("debug");
         const key              = document.getElementById("key");
+        const seed             = document.getElementById("seed");
         const prompt           = document.getElementById("prompt");
         const mainImage        = document.getElementById("mainImage");
         const gallery          = document.getElementById("gallery");
@@ -135,7 +140,7 @@
                 nsfw  : true,
                 models: (modelSelector.value == "any" ? [] : [ modelSelector.value ]),
                 params: {
-                    //seed: "dogs",
+                    seed  : (isBlank(seed.value) ? ("" + Math.floor(Math.random() * 999999999)) : seed.value),
                     width : Math.min(Math.max( widthSlider.value -  (widthSlider.value % 64), 512), 1024),
                     height: Math.min(Math.max(heightSlider.value - (heightSlider.value % 64), 512), 1024)
                 }
@@ -146,7 +151,7 @@
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        "apikey"      : ((key.value.trim().length === 0) ? "0000000000" : key.value)
+                        "apikey"      : (isBlank(key) ? "0000000000" : key.value)
                     },
                     body: JSON.stringify(payload)
                 }
@@ -221,8 +226,15 @@
                         <td><input type="text" id="key"></td>
                     </tr>
                     <tr>
+                        <br>
+                    </tr>
+                    <tr>
                         <td>Model:</td>
                         <td><select id="modelSelector"></select></td>
+                    </tr>
+                    <tr>
+                        <td>Seed:</td>
+                        <td><input type="text" id="seed" placeholder="Random"></td>
                     </tr>
                     <tr>
                         <td>Width:</td>
@@ -239,8 +251,9 @@
                         </td>
                     </tr>
                 </table>
-                <small>Powered by the <a href="https://stablehorde.net/api/">AI Horde API</a></small><br>
-                <small>"Kudos" give you priority when generating. Want to generate faster? Rate images for kudos <a href="https://tinybots.net/artbot/rate">here</a>.</small>
+                
+                <p><small>Powered by the <a href="https://stablehorde.net/api/">AI Horde API</a></small></p>
+                <p><small>"Kudos" give you priority when generating. Want to generate faster? Rate images for kudos <a href="https://tinybots.net/artbot/rate">here</a>.</small></p>
                 
                 <br><br><br><br><br>
 
