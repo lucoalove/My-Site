@@ -1,6 +1,6 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
-    "feeling": "glum glum",
+    "feeling": "things are lookin up",
     "pages": [
         {
             "href": "russian",
@@ -26,6 +26,11 @@
             "href": "ai-generator",
             "backgroundUrl": "https://cdn.zbaseglobal.com/saasbox/resources/webp/1-1__678ac3ef9a1fabb7903beb0923465f86.webp",
             "title": "AI Generator"
+        },
+        {
+            "href": "worldbuilding",
+            "backgroundUrl": "https://cdn.openart.ai/stable_diffusion/5d96ff19df835d93d806ad958442a0172a057fcc_2000x2000.webp",
+            "title": "Worldbuilding"
         }
     ],
     "portalLinks": [
