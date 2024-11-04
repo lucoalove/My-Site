@@ -28,9 +28,9 @@
             "title": "AI Generator"
         },
         {
-            "href": "worldbuilding",
-            "backgroundUrl": "https://cdn.openart.ai/stable_diffusion/5d96ff19df835d93d806ad958442a0172a057fcc_2000x2000.webp",
-            "title": "Worldbuilding"
+            "href": "chub-appreciation",
+            "backgroundUrl": "https://www.animeherald.com/wp-content/uploads/2024/06/VTuber-header-001-20240629.jpg",
+            "title": "Chub Appreciation"
         }
     ],
     "portalLinks": [
@@ -56,6 +56,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Nov 4, 2024",
+            "imgs": [],
+            "body": "<p>&gt;This is a <strong>small</strong> world building project. I really like worldbuilding but get bored quickly, but no harm in trying.</p><p>anyways I got bored</p>"
+        },
         {
             "date": "Nov 3, 2024",
             "imgs": [],
