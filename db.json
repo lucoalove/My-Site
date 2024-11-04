@@ -26,11 +26,6 @@
             "href": "ai-generator",
             "backgroundUrl": "https://cdn.zbaseglobal.com/saasbox/resources/webp/1-1__678ac3ef9a1fabb7903beb0923465f86.webp",
             "title": "AI Generator"
-        },
-        {
-            "href": "chub-appreciation",
-            "backgroundUrl": "https://www.animeherald.com/wp-content/uploads/2024/06/VTuber-header-001-20240629.jpg",
-            "title": "Chub Appreciation"
         }
     ],
     "portalLinks": [
@@ -56,6 +51,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Nov 4, 2024",
+            "imgs": [],
+            "body": "<p>unsure of when an idea should go in the idea playground and when it should be put into its own page. im not gonna think too hard about it tho</p>"
+        },
         {
             "date": "Nov 4, 2024",
             "imgs": [],
