@@ -17,51 +17,39 @@
         
         td { text-align: right; }
     </style>
+
+    <script type="module">
+        const waifus = [
+            { name: "Senko-san", series: "Sewayaki Kitsune no Senko-san", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f27901f-e545-40ea-beaf-1800fa3a05e0/ddbr12x-88cf5497-d193-4bdb-8c8a-d16dcfdc7b25.png/v1/fill/w_1280,h_1423/senko_san_the_helpful_fox_by_doggoyt_ddbr12x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQyMyIsInBhdGgiOiJcL2ZcLzBmMjc5MDFmLWU1NDUtNDBlYS1iZWFmLTE4MDBmYTNhMDVlMFwvZGRicjEyeC04OGNmNTQ5Ny1kMTkzLTRiZGItOGM4YS1kMTZkY2ZkYzdiMjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.UTW_TxgdLhR2PU9u_QM7_rNEsO1BtOdMdsKM1p2tMHI" },
+            { name: "Usada Pekora", series: "Vtuba", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7173f6a4-2df6-4589-b330-abbdd60794ee/dekph98-965ae44c-e8df-4ae6-b325-746bc84d6344.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxNzNmNmE0LTJkZjYtNDU4OS1iMzMwLWFiYmRkNjA3OTRlZVwvZGVrcGg5OC05NjVhZTQ0Yy1lOGRmLTRhZTYtYjMyNS03NDZiYzg0ZDYzNDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0UM7ezj-DJrdlzj-shjrc5ofedeQ5S1oKTlPxVcwZ04" },
+            { name: "Mint Castella", series: "Vtuba", image: "https://images-ng.pixai.art/images/orig/d53e1851-c9da-46c9-aeb2-69f82a0976db" },
+            { name: "Kashino", series: "Azur Lane", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a71d0697-3e89-49a8-ba05-180af0f6b8a1/dfxjzqt-4faa0f0d-2120-48c4-9b2b-82da9ffb8470.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E3MWQwNjk3LTNlODktNDlhOC1iYTA1LTE4MGFmMGY2YjhhMVwvZGZ4anpxdC00ZmFhMGYwZC0yMTIwLTQ4YzQtOWIyYi04MmRhOWZmYjg0NzAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s1jq0vwIlYRn4V3nR3lPdDC_SaGevwxywk88zHWVkEo" }
+        ];
+
+        const insert = document.getElementById("insert");
+
+        for (const i in waifus) {
+
+            const waifu = waifus[i];
+            
+            insert.innerHTML += `
+                <tr>
+                    <th>
+                        ${ waifu.name }
+                        <i>${ waifu.series }</i>
+                        <div>${ i }</div>
+                    </th>
+                    <td>
+                        <img src="{ waifu.image }">
+                    </td>
+                </tr>
+            `;
+        }
+    </script>
 </head>
 <body>
     <p>Ranking my waifus &lt;3. Many chubby characters (canon or non-canon).</p>
 
-    <table>
-        <tr>
-            <th>
-                Senko-san
-                <i>Sewayaki Kitsune no Senko-san</i>
-                <div>1</div>
-            </th>
-            <td>
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f27901f-e545-40ea-beaf-1800fa3a05e0/ddbr12x-88cf5497-d193-4bdb-8c8a-d16dcfdc7b25.png/v1/fill/w_1280,h_1423/senko_san_the_helpful_fox_by_doggoyt_ddbr12x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQyMyIsInBhdGgiOiJcL2ZcLzBmMjc5MDFmLWU1NDUtNDBlYS1iZWFmLTE4MDBmYTNhMDVlMFwvZGRicjEyeC04OGNmNTQ5Ny1kMTkzLTRiZGItOGM4YS1kMTZkY2ZkYzdiMjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.UTW_TxgdLhR2PU9u_QM7_rNEsO1BtOdMdsKM1p2tMHI">
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Usada Pekora
-                <i>Vtuba</i>
-                <div>2</div>
-            </th>
-            <td>
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7173f6a4-2df6-4589-b330-abbdd60794ee/dekph98-965ae44c-e8df-4ae6-b325-746bc84d6344.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxNzNmNmE0LTJkZjYtNDU4OS1iMzMwLWFiYmRkNjA3OTRlZVwvZGVrcGg5OC05NjVhZTQ0Yy1lOGRmLTRhZTYtYjMyNS03NDZiYzg0ZDYzNDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0UM7ezj-DJrdlzj-shjrc5ofedeQ5S1oKTlPxVcwZ04">
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Mint Castella
-                <i>Vtuba</i>
-                <div>3</div>
-            </th>
-            <td>
-                <img src="https://images-ng.pixai.art/images/orig/d53e1851-c9da-46c9-aeb2-69f82a0976db">
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Kashino
-                <i>Azur Lane</i>
-                <div>4</div>
-            </th>
-            <td>
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a71d0697-3e89-49a8-ba05-180af0f6b8a1/dfxjzqt-4faa0f0d-2120-48c4-9b2b-82da9ffb8470.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E3MWQwNjk3LTNlODktNDlhOC1iYTA1LTE4MGFmMGY2YjhhMVwvZGZ4anpxdC00ZmFhMGYwZC0yMTIwLTQ4YzQtOWIyYi04MmRhOWZmYjg0NzAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s1jq0vwIlYRn4V3nR3lPdDC_SaGevwxywk88zHWVkEo">
-            </td>
-        </tr>
-    </table>
+    <table id="insert"></table>
 </body>
 </html>
