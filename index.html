@@ -63,8 +63,27 @@
         var posts;
         var post_i = 0;
         const post_len = 20;
+
+        async function updateMasonry(images) {
+
+            /*
+             * Wait for all images to load before continuing.
+             * Otherwise, their size won't load and we cannot
+             * update the masonry.
+             */
+            for (const image of images.childNodes) {
+                
+                await new Promise(res => {
+                    if (image.complete) { return res(); }
+                    image.onload = () => res();
+                    image.onerror = () => res();
+                });
+            }
+
+            updateMasonryElement(images, 300, true);
+        }
         
-        async function addPost(postsInsert, id, date, imgs, body) {
+        function addPost(postsInsert, id, date, imgs, body) {
 
             /*
              * Create post and add post to postInsert.
@@ -100,17 +119,6 @@
                     element.classList.add("item");
     
                     images.appendChild(element);
-
-                    /*
-                     * Wait for image to load before continuing.
-                     * Otherwise, their size won't load and
-                     * we cannot update the masonry.
-                     */
-                    await new Promise(res => {
-                        if (element.complete) { return res(); }
-                        element.onload = () => res();
-                        element.onerror = () => res();
-                    });
                 }
 
                 /*
@@ -118,14 +126,14 @@
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
-                    updateMasonryElement(images, 300, true);
+                    updateMasonry(images);
                 }
             }
             
             postsInsert.innerHTML += "<hr>";
         }
 
-        async function loadMore() {
+        function loadMore() {
 
             const postsInsert = document.getElementById('posts-insert');
             
@@ -134,7 +142,7 @@
             
             for (; i < post_i; i++) { 
                 let p = posts[i];
-                await addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
+                addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
             }
         }
 
