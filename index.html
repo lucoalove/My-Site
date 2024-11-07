@@ -111,15 +111,13 @@
                  * items' dimensions are non-zero, so we trigger a reflow.
                  *
                  * If images aren't cached, they'll load as 0x0 regardless,
-                 * so we only update once they report non-zero.
+                 * which SUCKS and idk what to do to fix it.
                  */
                 if (imgs.length > 1) {
                     
-                    setTimeout(function() {
-                        console.log(images.offsetWidth);
-                        console.log(images.offsetHeight);
-                        updateMasonryElement(images, 300, true);
-                    }, 3000);
+                    console.log(images.clientWidth);
+                    console.log(images.clientHeight);
+                    updateMasonryElement(images, 300, true);
                 }
             }
             
