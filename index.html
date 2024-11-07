@@ -134,19 +134,26 @@
                 return;
             }
 
+            // disable button while loading
             loadingMorePosts = true;
             document.getElementById("loadmore").disabled = true;
 
+            // load post_len more posts
             const postsInsert = document.getElementById('posts-insert');
             
             let i = post_i;
             post_i += post_len;
             
             for (; i < post_i; i++) { 
+
+                // once we reach the end of all posts, we don't have to reenable
+                if (i == posts.length) { return; }
+                
                 let p = posts[i];
                 await addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
             }
 
+            // reenable button once done loading
             loadingMorePosts = false;
             document.getElementById("loadmore").disabled = false;
         }
