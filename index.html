@@ -105,7 +105,8 @@
                 post.appendChild(images);
 
                 /*
-                 * Update masonry if necessary.
+                 * Update masonry if necessary (single images
+                 * aren't updated, keeping them bigger).
                  *
                  * Annoyingly, if images aren't already cached
                  * they don't have a width/height, which messes
@@ -113,8 +114,6 @@
                  */
                 if (imgs.length > 1) {
                     updateMasonryElement(images, 300, true);
-                    
-                    setTimeout(function() { console.log(images); }, 500); // test
                 }
             }
             
