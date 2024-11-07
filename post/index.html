@@ -46,12 +46,12 @@
                     let element = document.createElement("img");
 
                     element.src = src;
-                    element.class = "item";
+                    element.classList.add("item");
 
                     images.appendChild(element);
                 }
 
-                updateMasonry("images", 500);
+                updateMasonry("images", 500, true);
             });
         }
         
