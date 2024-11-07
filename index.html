@@ -64,9 +64,7 @@
         var post_i = 0;
         const post_len = 20;
         
-        async function addPost(id, date, imgs, body) {
-
-            const postsInsert = document.getElementById('posts-insert');
+        async function addPost(postsInsert, id, date, imgs, body) {
 
             /*
              * Create post and add post to postInsert.
@@ -103,11 +101,13 @@
     
                     images.appendChild(element);
 
-                    // Wait for image to load before continuing.
+                    /*
+                     * Wait for image to load before continuing.
+                     * Otherwise, their size won't load and
+                     * we cannot update the masonry.
+                     */
                     await new Promise(res => {
-                        if (element.complete) {
-                            return res();
-                        }
+                        if (element.complete) { return res(); }
                         element.onload = () => res();
                         element.onerror = () => res();
                     });
@@ -116,10 +116,6 @@
                 /*
                  * Update masonry if necessary (single images
                  * aren't updated, keeping them bigger).
-                 *
-                 * Annoyingly, if images aren't already cached
-                 * they don't have a width/height, which messes
-                 * up the masonry update.
                  */
                 if (imgs.length > 1) {
                     updateMasonryElement(images, 300, true);
@@ -130,13 +126,15 @@
         }
 
         async function loadMore() {
+
+            const postsInsert = document.getElementById('posts-insert');
             
             let i = post_i;
             post_i += post_len;
             
             for (; i < post_i; i++) { 
                 let p = posts[i];
-                await addPost(posts.length - 1 - i, p.date, p.imgs, p.body);
+                await addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
             }
         }
 
