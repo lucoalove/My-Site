@@ -65,9 +65,17 @@
         
         function addPost(id, date, imgs, body) {
 
-            // imgs.length > 1 ? "style='display: grid; grid-template-columns: 1fr 1fr; width: 100%;'" : ""
-
             const postsInsert = document.getElementById('posts-insert');
+
+            /*
+             * Create post.
+             */
+            const post = document.createElement("div");
+
+            post.classList.add("post");
+            
+            post.innerHTML = `<a class="meta" href="https://www.fatchicks.cc/post/?id=${ id }">${ date }</a>
+                              <div class="body">${ body }</div>`;
 
             /*
              * Create images area and add images.
@@ -82,20 +90,19 @@
 
                 element.src = src;
                 element.classList.add("item");
-                element.height = "200px";
+
+                if (imgs.length == 1) {
+                    element.height = 500;
+                } else {
+                    element.height = 200;
+                }
 
                 images.appendChild(element);
             }
 
             /*
-             * Create post, add images to post, update masonry, and add to postInsert.
+             * Add images to post, update masonry, and add to postInsert.
              */
-            const post = document.createElement("div");
-
-            post.classList.add("post");
-            
-            post.innerHTML = `<a class="meta" href="https://www.fatchicks.cc/post/?id=${ id }">${ date }</a>
-                              <div class="body">${ body }</div>`;
 
             post.appendChild(images);
             
