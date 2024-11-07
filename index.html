@@ -106,9 +106,13 @@
 
                 /*
                  * Update masonry if necessary.
+                 *
+                 * We set a short timeout so that images
+                 * that aren't already cached fully load
+                 * in before updating the masonry.
                  */
                 if (imgs.length > 1) {
-                    updateMasonryElement(images, 300, true);
+                    setTimeout(function() { updateMasonryElement(images, 300, true); }, 500);
                 }
             }
             
