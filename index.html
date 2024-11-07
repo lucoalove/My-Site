@@ -55,7 +55,7 @@
         .post { padding: 1em; }
         .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
         .body + .images:has(img) { margin-top: 1em; }
-        .images > img { max-width: 100%; max-height: 500px; display: block; }
+        .images > img { max-width: 100%; max-height: 500px; }
     </style>
     
     <script>
@@ -91,12 +91,6 @@
                 element.src = src;
                 element.classList.add("item");
 
-                if (imgs.length == 1) {
-                    element.height = 500;
-                } else {
-                    element.height = 200;
-                }
-
                 images.appendChild(element);
             }
 
@@ -108,7 +102,9 @@
             
             postsInsert.appendChild(post);
 
-            //updateMasonryElement(images, 500, true);
+            if (imgs.length > 1) {
+                updateMasonryElement(images, 300, true);
+            }
             
             postsInsert.innerHTML += "<hr>";
         }
