@@ -103,7 +103,8 @@
             postsInsert.appendChild(post);
 
             if (imgs.length > 1) {
-                updateMasonryElement(images, 300, true);
+                // gotta wait a sec or something for it to get appended properly or something idk lol
+                setTimeout(function(){ updateMasonryElement(images, 300, true); }, 1000);
             }
             
             postsInsert.innerHTML += "<hr>";
