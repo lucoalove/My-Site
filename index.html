@@ -55,7 +55,7 @@
         .post { padding: 1em; }
         .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
         .body + .images:has(img) { margin-top: 1em; }
-        .images > img { max-width: 100%; max-height: 500px; min-width: 1px; min-height: 1px; }
+        .images > img { max-width: 100%; max-height: 500px; }
     </style>
 
     <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
@@ -106,21 +106,8 @@
 
                 /*
                  * Update masonry if necessary.
-                 *
-                 * When calling this function, we need to make sure its
-                 * items' dimensions are non-zero, so we trigger a reflow.
-                 *
-                 * If images aren't cached, they'll load as 0x0 regardless,
-                 * which SUCKS and idk what to do to fix it.
                  */
                 if (imgs.length > 1) {
-
-                    for (const child of images.childNodes) {
-                        console.log(child.clientWidth + " " + child.clientHeight);
-                    }
-                    
-                    console.log(images.clientWidth + " " + images.clientHeight);
-                    
                     updateMasonryElement(images, 300, true);
                 }
             }
