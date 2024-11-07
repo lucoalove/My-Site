@@ -51,11 +51,11 @@
     
                     // wait for image to load, because loaded
                     // image is needed for updating masonry
-                    await new Promise(res => {
-                        if (element.complete) { return res(); }
-                        element.onload = () => res();
-                        element.onerror = () => res();
-                    });
+                    // await new Promise(res => {
+                    //     if (element.complete) { return res(); }
+                    //     element.onload = () => res();
+                    //     element.onerror = () => res();
+                    // });
                 }
     
                 updateMasonryId("images", 500);
