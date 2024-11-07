@@ -69,7 +69,7 @@
             const postsInsert = document.getElementById('posts-insert');
 
             /*
-             * Create post.
+             * Create post and add post to postInsert.
              */
             const post = document.createElement("div");
 
@@ -77,6 +77,8 @@
             
             post.innerHTML = `<a class="meta" href="https://www.fatchicks.cc/post/?id=${ id }">${ date }</a>
                               <div class="body">${ body }</div>`;
+
+            postsInsert.appendChild(post);
 
             if (imgs) {
                 
@@ -101,18 +103,13 @@
                  * Add images area to post.
                  */
                 post.appendChild(images);
-                
-            } else {
 
-            }
-
-            /*
-             * Add post to postInsert, and update masonry if necessary.
-             */
-            postsInsert.appendChild(post);
-    
-            if (imgs && imgs.length > 1) {
-                updateMasonryElement(images, 300, true);
+                /*
+                 * Update masonry if necessary.
+                 */
+                if (imgs.length > 1) {
+                    updateMasonryElement(images, 300, true);
+                }
             }
             
             postsInsert.innerHTML += "<hr>";
