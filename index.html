@@ -115,9 +115,15 @@
                  * after a short timeout.
                  */
                 if (imgs.length > 1) {
-                    void(images.offsetHeight);
                     
-                    setTimeout(function() { updateMasonryElement(images, 300, true); }, 500);
+                    setTimeout(function() {
+                        
+                        console.log(images.offsetWidth);
+                        console.log(images.offsetHeight);
+                        
+                        updateMasonryElement(images, 300, true);
+                        
+                    }, 500);
                 }
             }
             
