@@ -106,13 +106,18 @@
 
                 /*
                  * Update masonry if necessary.
+                 *
                  * When calling this function, we need to make sure its
                  * items' dimensions are non-zero, so we trigger a reflow.
+                 *
+                 * If images aren't cached, they'll load as 0x0 regardless,
+                 * which messes up the masonry update, so we only update
+                 * after a short timeout.
                  */
                 if (imgs.length > 1) {
-                    console.log(images.offsetWidth);
-                    console.log(images.offsetHeight);
-                    updateMasonryElement(images, 300, true);
+                    void(images.offsetHeight);
+                    
+                    setTimeout(function() { updateMasonryElement(images, 300, true); }, 500);
                 }
             }
             
