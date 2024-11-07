@@ -57,7 +57,8 @@
         .body + .images:has(img) { margin-top: 1em; }
         .images > img { max-width: 100%; max-height: 500px; }
     </style>
-    
+
+    <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
     <script>
         var posts;
         var post_i = 0;
@@ -95,9 +96,8 @@
             }
 
             /*
-             * Add images to post, update masonry, and add to postInsert.
+             * Add images to post, add to postInsert, and update masonry.
              */
-
             post.appendChild(images);
             
             postsInsert.appendChild(post);
