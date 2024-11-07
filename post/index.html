@@ -35,7 +35,7 @@
                 const post = json.posts[json.posts.length - 1 - id];
 
                 // add post header and body
-                document.getElementById('postheader').innerHTML   = `<img class="pfp" src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
+                document.getElementById('postheader').innerHTML   = `<img src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
                 document.getElementById('body').innerHTML         = post.body;
 
                 // add and arrange post images
@@ -49,6 +49,14 @@
                     element.classList.add("item");
 
                     images.appendChild(element);
+
+                    // wait for image to load, because loaded
+                    // image is needed for updating masonry
+                    await new Promise(res => {
+                        if (element.complete) { return res(); }
+                        element.onload = () => res();
+                        element.onerror = () => res();
+                    });
                 }
 
                 updateMasonryId("images", 500);
@@ -59,7 +67,8 @@
 </head>
 <body onload="init()">
 
-    <div class="box" style="width: 100%; overflow: hidden; word-wrap: break-word;">
+    <div class="box" style="width: 100%; overflow: hidden; word-wrap: break-word; position: relative;">
+        <a href="/" style="position: absolute; top: 0; left: 0; transform: translate(-100%);">Go back!!</a>
         <div id="postheader"></div>
         <hr>
         <div id="body" style="padding: 1em;"></div>
