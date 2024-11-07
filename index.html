@@ -92,6 +92,13 @@
                 for (const src of imgs) {
     
                     let element = document.createElement("img");
+
+                    element.onload = function() {
+                        
+                        if (imgs.length > 1) {
+                            updateMasonryElement(images, 300, true);
+                        }
+                    };
     
                     element.src = src;
                     element.classList.add("item");
