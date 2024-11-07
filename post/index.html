@@ -44,6 +44,9 @@
                 document.getElementById('images').innerHTML       = imagesInsert;
 
                 updateMasonry("images", 500);
+
+                // load pfp :D
+                document.getElementsByClassName("pfp")[0].src = json.pfpUrl;
             });
         }
         
