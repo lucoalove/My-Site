@@ -13,52 +13,54 @@
         const id = parseInt(new URLSearchParams(window.location.search).get('id'));
 
         if (isNaN(id) || id < 0) {
+            
             alert("invalid post id!");
-            return;
+            
+        } else {
+
+            fetch("/db.json")
+            .then(response => {
+                if (!response.ok)
+                    throw new Error("HTTP error " + response.status);
+                return response.json();
+            })
+            .then(json => {
+    
+                if (id >= json.posts.length) {
+                    alert("invalid post id!");
+                    return;
+                }
+    
+                const post = json.posts[json.posts.length - 1 - id];
+    
+                // add post header and body
+                document.getElementById('postheader').innerHTML   = `<img src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
+                document.getElementById('body').innerHTML         = post.body;
+    
+                // add and arrange post images
+                const images = document.getElementById('images');
+    
+                for (const src of post.imgs) {
+    
+                    let element = document.createElement("img");
+    
+                    element.src = src;
+                    element.classList.add("item");
+    
+                    images.appendChild(element);
+    
+                    // wait for image to load, because loaded
+                    // image is needed for updating masonry
+                    await new Promise(res => {
+                        if (element.complete) { return res(); }
+                        element.onload = () => res();
+                        element.onerror = () => res();
+                    });
+                }
+    
+                updateMasonryId("images", 500);
+            });
         }
-
-        fetch("/db.json")
-        .then(response => {
-            if (!response.ok)
-                throw new Error("HTTP error " + response.status);
-            return response.json();
-        })
-        .then(json => {
-
-            if (id >= json.posts.length) {
-                alert("invalid post id!");
-                return;
-            }
-
-            const post = json.posts[json.posts.length - 1 - id];
-
-            // add post header and body
-            document.getElementById('postheader').innerHTML   = `<img src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
-            document.getElementById('body').innerHTML         = post.body;
-
-            // add and arrange post images
-            const images = document.getElementById('images');
-
-            for (const src of post.imgs) {
-
-                let element = document.createElement("img");
-
-                element.src = src;
-                element.classList.add("item");
-
-                images.appendChild(element);
-
-                // wait for image to load, because loaded
-                // image is needed for updating masonry
-                await new Promise(res => {
-                    if (element.complete) { return res(); }
-                    element.onload = () => res();
-                    element.onerror = () => res();
-                });
-            }
-
-            updateMasonryId("images", 500);
-        });
         
     </script>
 </head>
