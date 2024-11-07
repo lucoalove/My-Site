@@ -39,9 +39,9 @@
                 for (const img of post.imgs)
                     imagesInsert += `<img class="item" src="${ img }">`;
 
-                document.getElementById('meta').innerHTML   = `<strong>redderblanket</strong> · ${ post.date }`;
-                document.getElementById('body').innerHTML   = post.body;
-                document.getElementById('images').innerHTML = imagesInsert;
+                document.getElementById('postheader').innerHTML   = `<img class="pfp"> <strong>redderblanket</strong> · ${ post.date }`;
+                document.getElementById('body').innerHTML         = post.body;
+                document.getElementById('images').innerHTML       = imagesInsert;
 
                 updateMasonry("images", 500);
             });
@@ -51,11 +51,11 @@
 </head>
 <body onload="init()">
 
-    <div class="box" style="padding: 1em; width: 100%; overflow: hidden; word-wrap: break-word;">
-        <div id="meta"></div>
+    <div class="box" style="width: 100%; overflow: hidden; word-wrap: break-word;">
+        <div id="postheader"></div>
         <hr>
-        <div id="body"></div>
-        <div id="images" style="display: flex; flex-wrap: wrap; align-items: start;"></div>
+        <div id="body" style="padding: 1em;"></div>
+        <div id="images" style="padding: 1em; display: flex; flex-wrap: wrap; align-items: start;"></div>
     </div>
 
 </body>
