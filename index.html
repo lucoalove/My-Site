@@ -95,6 +95,7 @@
     
                     element.src = src;
                     element.classList.add("item");
+                    element.width = 100; // gotta make sure it doesn't default to 0 when updating masonry
     
                     images.appendChild(element);
                 }
