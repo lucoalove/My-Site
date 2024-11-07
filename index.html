@@ -69,7 +69,11 @@
 
             const postsInsert = document.getElementById('posts-insert');
 
+            /*
+             * Create images area and add images.
+             */
             const images = document.createElement("div");
+            
             images.classList.add("images");
 
             for (const src of imgs) {
@@ -78,21 +82,28 @@
 
                 element.src = src;
                 element.classList.add("item");
+                element.height = "200px";
 
                 images.appendChild(element);
             }
+
+            /*
+             * Create post, add images to post, update masonry, and add to postInsert.
+             */
+            const post = document.createElement("div");
+
+            post.classList.add("post");
             
-            postsInsert.innerHTML += `
-                <div class="post">
-                    <a class="meta" href="https://www.fatchicks.cc/post/?id=${ id }">${ date }</a>
-                    <div class="body">${ body }</div>
-                    images
-                </div>
-                
-                <hr>
-            `;
+            post.innerHTML = `<a class="meta" href="https://www.fatchicks.cc/post/?id=${ id }">${ date }</a>
+                              <div class="body">${ body }</div>`;
+
+            post.appendChild(images);
+            
+            postsInsert.appendChild(post);
 
             //updateMasonryElement(images, 500, true);
+            
+            postsInsert.innerHTML += "<hr>";
         }
 
         function loadMore() {
