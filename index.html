@@ -109,9 +109,11 @@
                  *
                  * We set a short timeout so that images
                  * that aren't already cached fully load
-                 * in before updating the masonry.
+                 * in before updating the masonry.       <= unsure if this works lol
                  */
                 if (imgs.length > 1) {
+                    console.log(images.offsetWidth);  // reflow
+                    console.log(images.offsetHeight);
                     setTimeout(function() { updateMasonryElement(images, 300, true); }, 500);
                 }
             }
