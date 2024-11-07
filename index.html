@@ -50,6 +50,7 @@
         #portal { display: flex; flex-direction: column; gap: 8px; }
 
         #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
+        #loadmore:disabled { border-color: red; }
         
         /* post styling */
         .post { padding: 1em; }
@@ -58,36 +59,15 @@
         .images > img { max-width: 100%; max-height: 500px; }
     </style>
 
-    <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
-    <script>
+    <script type="module" src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
+    <script type="module">
         var posts;
         var post_i = 0;
         const post_len = 20;
 
-        async function updateMasonry(images) {
-
-            console.log(images.offsetWidth);
-
-            /*
-             * Wait for all images to load before continuing.
-             * Otherwise, their size won't load and we cannot
-             * update the masonry.
-             */
-            for (const image of images.childNodes) {
-                
-                await new Promise(res => {
-                    if (image.complete) { return res(); }
-                    image.onload = () => res();
-                    image.onerror = () => res();
-                });
-            }
-
-            console.log(images.offsetWidth);
-
-            updateMasonryElement(images, 300, true);
-        }
+        var loadingMorePosts = false;
         
-        function addPost(postsInsert, id, date, imgs, body) {
+        async function addPost(postsInsert, id, date, imgs, body) {
 
             /*
              * Create post and add post to postInsert.
@@ -123,6 +103,17 @@
                     element.classList.add("item");
     
                     images.appendChild(element);
+
+                    /*
+                     * Wait for image to load (or fail to) before continuing.
+                     * Otherwise, their sizes won't load and we cannot update
+                     * the masonry properly.
+                     */
+                    await new Promise(res => {
+                        if (image.complete) { return res(); }
+                        image.onload = () => res();
+                        image.onerror = () => res();
+                    });
                 }
 
                 /*
@@ -130,15 +121,21 @@
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
-                    console.log(images.offsetWidth);
-                    updateMasonry(images);
+                    updateMasonryElement(images, 300, true);
                 }
             }
             
             postsInsert.innerHTML += "<hr>";
         }
 
-        function loadMore() {
+        async function loadMore() {
+
+            if (loadingMorePosts) {
+                return;
+            }
+
+            loadingMorePosts = true;
+            document.getElementById("loadmore").disabled = true;
 
             const postsInsert = document.getElementById('posts-insert');
             
@@ -147,40 +144,43 @@
             
             for (; i < post_i; i++) { 
                 let p = posts[i];
-                addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
+                await addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
             }
+
+            loadingMorePosts = false;
+            document.getElementById("loadmore").disabled = false;
         }
 
-        function init() {
+        // Initialize.
+        fetch("db.json")
+        .then(response => {
+            if (!response.ok)
+                throw new Error("HTTP error " + response.status);
+            return response.json();
+        })
+        .then(json => {
+            posts = json.posts;
+            loadMore();
 
-            fetch("db.json")
-            .then(response => {
-                if (!response.ok)
-                    throw new Error("HTTP error " + response.status);
-                return response.json();
-            })
-            .then(json => {
-                posts = json.posts;
-                loadMore();
+            document.getElementById("feeling").innerText = json.feeling;
 
-                document.getElementById("feeling").innerText = json.feeling;
+            for (const page of json.pages) {
+                document.getElementById("pages").innerHTML += `<a class="panel" href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');"><div>${ page.title }</div></a>`;
+            }
 
-                for (const page of json.pages) {
-                    document.getElementById("pages").innerHTML += `<a class="panel" href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');"><div>${ page.title }</div></a>`;
-                }
+            for (const link of json.portalLinks) {
+                document.getElementById("portal").innerHTML += `<a href="${ link.href }">${ link.title }</a>`;
+            }
 
-                for (const link of json.portalLinks) {
-                    document.getElementById("portal").innerHTML += `<a href="${ link.href }">${ link.title }</a>`;
-                }
+            for (const pfp of document.getElementsByClassName("pfp")) {
+                pfp.src = json.pfpUrl;
+            }
 
-                for (const pfp of document.getElementsByClassName("pfp")) {
-                    pfp.src = json.pfpUrl;
-                }
-            });
-        }
+            document.getElementById("loadmore").addEventListener("click", loadMore);
+        });
     </script>
 </head>
-<body onload="init()">
+<body>
 
     <div class="stack" style="flex: 0 0 35em; overflow: hidden; word-wrap: break-word;">
 
@@ -197,7 +197,7 @@
             <div id="posts-insert"></div>
     
             <div style="padding: 1em;">
-                <button onclick="loadMore()" id="loadmore">Load more</button>
+                <button id="loadmore">Load more</button>
             </div>
         </div>
 
