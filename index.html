@@ -66,6 +66,8 @@
 
         async function updateMasonry(images) {
 
+            debug.log(images.offsetWidth);
+
             /*
              * Wait for all images to load before continuing.
              * Otherwise, their size won't load and we cannot
@@ -79,6 +81,8 @@
                     image.onerror = () => res();
                 });
             }
+
+            debug.log(images.offsetWidth);
 
             updateMasonryElement(images, 300, true);
         }
@@ -126,6 +130,7 @@
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
+                    debug.log(images.offsetWidth);
                     updateMasonry(images);
                 }
             }
