@@ -48,6 +48,8 @@
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
+        #portal { display: flex; flex-direction: column; gap: 8px; }
+
         #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
         
         /* post styling */
@@ -125,7 +127,7 @@
 </head>
 <body onload="init()">
 
-    <div class="stack" style="flex: 0 0 35em;">
+    <div class="stack" style="flex: 0 0 35em; overflow: hidden; word-wrap: break-word;">
 
         <div id="pages" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;"></div>
 
@@ -168,7 +170,7 @@
     
             <h3>Portal</h3>
     
-            <div id="portal" style="display: flex; flex-direction: column; gap: 8px;"></div>
+            <div id="portal"></div>
         </div>
         
     </div>
