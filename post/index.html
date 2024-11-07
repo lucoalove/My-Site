@@ -8,64 +8,61 @@
     <link rel="stylesheet" href="/shared.css">
 
     <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
-    <script>
+    <script type="module">
 
         const id = parseInt(new URLSearchParams(window.location.search).get('id'));
-        
-        function init() {
 
-            if (isNaN(id) || id < 0) {
+        if (isNaN(id) || id < 0) {
+            alert("invalid post id!");
+            return;
+        }
+
+        fetch("/db.json")
+        .then(response => {
+            if (!response.ok)
+                throw new Error("HTTP error " + response.status);
+            return response.json();
+        })
+        .then(json => {
+
+            if (id >= json.posts.length) {
                 alert("invalid post id!");
                 return;
             }
 
-            fetch("/db.json")
-            .then(response => {
-                if (!response.ok)
-                    throw new Error("HTTP error " + response.status);
-                return response.json();
-            })
-            .then(json => {
+            const post = json.posts[json.posts.length - 1 - id];
 
-                if (id >= json.posts.length) {
-                    alert("invalid post id!");
-                    return;
-                }
+            // add post header and body
+            document.getElementById('postheader').innerHTML   = `<img src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
+            document.getElementById('body').innerHTML         = post.body;
 
-                const post = json.posts[json.posts.length - 1 - id];
+            // add and arrange post images
+            const images = document.getElementById('images');
 
-                // add post header and body
-                document.getElementById('postheader').innerHTML   = `<img src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
-                document.getElementById('body').innerHTML         = post.body;
+            for (const src of post.imgs) {
 
-                // add and arrange post images
-                const images = document.getElementById('images');
+                let element = document.createElement("img");
 
-                for (const src of post.imgs) {
+                element.src = src;
+                element.classList.add("item");
 
-                    let element = document.createElement("img");
+                images.appendChild(element);
 
-                    element.src = src;
-                    element.classList.add("item");
+                // wait for image to load, because loaded
+                // image is needed for updating masonry
+                await new Promise(res => {
+                    if (element.complete) { return res(); }
+                    element.onload = () => res();
+                    element.onerror = () => res();
+                });
+            }
 
-                    images.appendChild(element);
-
-                    // wait for image to load, because loaded
-                    // image is needed for updating masonry
-                    await new Promise(res => {
-                        if (element.complete) { return res(); }
-                        element.onload = () => res();
-                        element.onerror = () => res();
-                    });
-                }
-
-                updateMasonryId("images", 500);
-            });
-        }
+            updateMasonryId("images", 500);
+        });
         
     </script>
 </head>
-<body onload="init()">
+<body>
 
     <div class="box" style="width: 100%; overflow: hidden; word-wrap: break-word; position: relative;">
         <a href="/" style="position: absolute; top: 0; left: 0; transform: translate(-100%);">Go back!!</a>
