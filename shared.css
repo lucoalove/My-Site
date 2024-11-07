@@ -19,3 +19,12 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
 }
+
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid lightgrey;
+}
+
+#postheader { display: flex; align-items: center; gap: 0.5em; padding: 1em; }
+#postheader > img { aspect-ratio: 1; border-radius: 2px; width: 32px; }
