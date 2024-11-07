@@ -39,14 +39,11 @@
                 for (const img of post.imgs)
                     imagesInsert += `<img class="item" src="${ img }">`;
 
-                document.getElementById('postheader').innerHTML   = `<img class="pfp"> <strong>redderblanket</strong> · ${ post.date }`;
+                document.getElementById('postheader').innerHTML   = `<img class="pfp" src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
                 document.getElementById('body').innerHTML         = post.body;
                 document.getElementById('images').innerHTML       = imagesInsert;
 
                 updateMasonry("images", 500);
-
-                // load pfp :D
-                document.getElementsByClassName("pfp")[0].src = json.pfpUrl;
             });
         }
         
@@ -58,7 +55,7 @@
         <div id="postheader"></div>
         <hr>
         <div id="body" style="padding: 1em;"></div>
-        <div id="images" style="padding: 1em; display: flex; flex-wrap: wrap; align-items: start;"></div>
+        <div id="images" style="padding: 1em; padding-top: 0; display: flex; flex-wrap: wrap; align-items: start;"></div>
     </div>
 
 </body>
