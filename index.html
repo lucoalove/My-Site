@@ -64,7 +64,7 @@
         var post_i = 0;
         const post_len = 20;
         
-        function addPost(id, date, imgs, body) {
+        async function addPost(id, date, imgs, body) {
 
             const postsInsert = document.getElementById('posts-insert');
 
@@ -103,7 +103,14 @@
     
                     images.appendChild(element);
 
-                    console.log(element.naturalHeight); // reflow?
+                    // Wait for image to load before continuing.
+                    await new Promise(res => {
+                        if (element.complete) {
+                            return res();
+                        }
+                        element.onload = () => res();
+                        element.onerror = () => res();
+                    });
                 }
 
                 /*
@@ -122,14 +129,14 @@
             postsInsert.innerHTML += "<hr>";
         }
 
-        function loadMore() {
+        async function loadMore() {
             
             let i = post_i;
             post_i += post_len;
             
             for (; i < post_i; i++) { 
                 let p = posts[i];
-                addPost(posts.length - 1 - i, p.date, p.imgs, p.body);
+                await addPost(posts.length - 1 - i, p.date, p.imgs, p.body);
             }
         }
 
