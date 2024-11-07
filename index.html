@@ -83,12 +83,17 @@
             if (imgs) {
                 
                 /*
-                 * Create images area and add images to it.
+                 * Create images area and add it to post.
                  */
                 const images = document.createElement("div");
                 
                 images.classList.add("images");
-    
+
+                post.appendChild(images);
+
+                /*
+                 * Add images to image area.
+                 */
                 for (const src of imgs) {
     
                     let element = document.createElement("img");
@@ -106,11 +111,6 @@
     
                     images.appendChild(element);
                 }
-    
-                /*
-                 * Add images area to post.
-                 */
-                post.appendChild(images);
 
                 /*
                  * Update masonry if necessary (single images
