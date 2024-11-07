@@ -34,14 +34,22 @@
 
                 const post = json.posts[json.posts.length - 1 - id];
 
-                let imagesInsert = "";
-
-                for (const img of post.imgs)
-                    imagesInsert += `<img class="item" src="${ img }">`;
-
+                // add post header and body
                 document.getElementById('postheader').innerHTML   = `<img class="pfp" src="${ json.pfpUrl }"> <strong>redderblanket</strong> · ${ post.date }`;
                 document.getElementById('body').innerHTML         = post.body;
-                document.getElementById('images').innerHTML       = imagesInsert;
+
+                // add and arrange post images
+                const images = document.getElementById('images');
+
+                for (const src of post.imgs) {
+
+                    let element = document.createElement("img");
+
+                    element.src = src;
+                    element.class = "item";
+
+                    images.insert(element);
+                }
 
                 updateMasonry("images", 500);
             });
