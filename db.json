@@ -58,6 +58,11 @@
     "posts": [
         {
             "date": "Nov 8, 2024",
+            "imgs": [ "/img/gyaru_korone.webp", "/img/gyaru_gura.webp", "/img/gyaru_pekora.webp" ],
+            "body": "<p>I should make a weight gain dating game in Twine featuring Inugami Korone, Gawr Gura, and Usada Pekora</p><p>or at least draw them in this cool outfit I came up with, basically it's jean shorts + thigh highs + white tank top + red tie, it's so gyarucoded</p>"
+        },
+        {
+            "date": "Nov 8, 2024",
             "imgs": [ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeo-_gzAV-6cmCM-aSZ-rdcJPyEmr7oRiX1Q&s" ],
             "body": "<p>birdwatching is cool I wanna learn the difference between finches and swallows and wrens and warblers and sparrows and <a href='https://en.wikipedia.org/wiki/Tit_(bird)'>tits</a> in my area</p><p>tits in my area 🤤</p>"
         },
