@@ -45,6 +45,7 @@
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
         #portal { display: flex; flex-direction: column; gap: 4px; }
+        #portal > a { padding: 0.5em; }
 
         #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
         #loadmore:disabled { filter: brightness(50%); }
@@ -173,7 +174,7 @@
             }
 
             for (const link of json.portalLinks) {
-                document.getElementById("portal").innerHTML += `<a href="${ link.href }" style="padding: 0.5em;" class="box">${ link.title }</a>`;
+                document.getElementById("portal").innerHTML += `<hr><a href="${ link.href }">${ link.title }</a>`;
             }
 
             for (const pfp of document.getElementsByClassName("pfp")) {
@@ -227,9 +228,9 @@
                     <td>I rant about emotions or things that interest me (boobs!)</td>
                 </tr>
             </table>
-        </div>
 
-        <div id="portal"></div>
+            <div id="portal"></div>
+        </div>
         
     </div>
 
