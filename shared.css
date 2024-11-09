@@ -1,29 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 body {
-  font-family: "PT Sans", sans-serif;
-  background: #DAE0E6;
-  max-width: 55em;
-  margin: 2em auto;
-  display: flex;
-  align-items: start; gap: 1em;
+    font-family: "PT Sans", sans-serif;
+    background: #DAE0E6;
+    max-width: 55em;
+    margin: 2em auto;
+    display: flex;
+    align-items: start; gap: 1em;
 }
 
 @media (orientation: portrait) {
-  body { flex-direction: column-reverse; margin: 1em; }
+    body { flex-direction: column-reverse; margin: 1em; }
 }
 
 .box {
-  background: white;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  box-sizing: border-box;
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 hr {
-  margin: 0;
-  border: 0;
-  border-top: 1px solid lightgrey;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid lightgrey;
 }
 
 #postheader { display: flex; align-items: center; gap: 0.5em; padding: 1em; }
