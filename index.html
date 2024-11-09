@@ -28,11 +28,9 @@
         }
 
         /* pages area + page panels */
-        #pages { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+        #pages { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; padding: 4px; }
         a.panel {
-            border: 1px solid #999;
             border-radius: 8px;
-            overflow: hidden;
             aspect-ratio: 2;
             
             display: flex;
@@ -190,7 +188,7 @@
 
     <div class="stack" style="flex: 0 0 35em; overflow: hidden; word-wrap: break-word;">
 
-        <div id="pages"></div>
+        <div id="pages" class="box"></div>
 
         <div class="box">
             <div id="postheader">
