@@ -8,8 +8,6 @@
 
     <link rel="stylesheet" href="/shared.css">
     <style>
-        h2, h3 { margin: 0; border-bottom: 1px solid #aaa; }
-        h3 { font-size: 1em; }
         a { color: #48f; text-decoration-style: dotted; }
         th { text-align: left; padding-right: 1em; white-space: nowrap; vertical-align: top; font-weight: 400; color: #aaa; }
         p:last-child { margin-bottom: 0; }
@@ -177,7 +175,7 @@
             }
 
             for (const link of json.portalLinks) {
-                document.getElementById("portal").innerHTML += `<a href="${ link.href }">${ link.title }</a>`;
+                document.getElementById("portal").innerHTML += `<a href="${ link.href }" style="padding: 0.5em;" class="box">${ link.title }</a>`;
             }
 
             for (const pfp of document.getElementsByClassName("pfp")) {
@@ -218,7 +216,7 @@
         <div class="box" id="feeling"></div>
 
         <div class="box stack" style="padding: 1em;">
-            <h2>redderblanket</h2>
+            <h2 style="margin: 0; border-bottom: 1px solid #aaa;">redderblanket</h2>
     
             <table>
                 <tr>
@@ -230,11 +228,9 @@
                     <td>I rant about emotions or things that interest me (boobs!)</td>
                 </tr>
             </table>
-    
-            <h3>Portal</h3>
-    
-            <div id="portal"></div>
         </div>
+
+        <div id="portal"></div>
 
         <small style="color: grey;">Itch.io (games) page coming soon?</small>
         <small style="color: grey;">Curseforge (MC mods) page coming soon?</small>
