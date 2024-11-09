@@ -29,12 +29,13 @@
             border-left: 1px solid #26c;
         }
 
-        /* button panels in pages area */
+        /* pages area + page panels */
+        #pages { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
         a.panel {
             border: 1px solid #999;
             border-radius: 8px;
             overflow: hidden;
-            aspect-ratio: 4;
+            aspect-ratio: 2;
             
             display: flex;
             justify-content: center;
@@ -43,7 +44,7 @@
             background-size: cover;
             background-position: center;
         }
-        a.panel div { background: rgba(0,0,0,0.7); color: white; font-size: 1.5em; font-weight: 700; padding: 4px 8px; }
+        a.panel div { background: rgba(0,0,0,0.7); color: white; font-size: 1.2em; font-weight: 700; padding: 4px 8px; }
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
@@ -191,7 +192,7 @@
 
     <div class="stack" style="flex: 0 0 35em; overflow: hidden; word-wrap: break-word;">
 
-        <div id="pages" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;"></div>
+        <div id="pages"></div>
 
         <div class="box">
             <div id="postheader">
@@ -234,6 +235,9 @@
     
             <div id="portal"></div>
         </div>
+
+        <small style="color: grey;">Itch.io (games) page coming soon?</small>
+        <small style="color: grey;">Curseforge (MC mods) page coming soon?</small>
         
     </div>
 
