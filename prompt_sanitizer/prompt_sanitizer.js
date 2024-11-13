@@ -22,8 +22,15 @@ function sanitize_prompt(prompt) {
     // remove commas preceding a closing parenthesis (even when separated by spaces)
     prompt = prompt.replace(/, *\)/g, ")");
 
+    // ...and also when following an opening parenthesis
+    prompt = prompt.replace(/\( *,/g, "(");
+
     // normalize to one space after each comma
     prompt = prompt.replace(/, */g, ", ");
+
+    // remove spaces between parenthesis and the text they contain
+    prompt = prompt.replace(/ +\)/g, ")");
+    prompt = prompt.replace(/\( +/g, "(");
 
     return prompt;
 }
