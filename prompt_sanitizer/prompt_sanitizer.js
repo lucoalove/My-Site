@@ -6,9 +6,9 @@ function sanitize_prompt(prompt) {
     prompt = prompt.replace(/ +/g, " ");
 
     // remove any instances of "((()))" or "( )" and similar
-    while (prompt.match(/(\( +\))/g) != null) {
+    while (prompt.match(/(\( *\))/g) != null) {
         
-        prompt = prompt.replace(/(\( +\))/g, "");
+        prompt = prompt.replace(/(\( *\))/g, "");
     }
 
     // replace concurrent commas (even separated by spaces) with a single comma followed by (an arbitrary amount of) spaces
