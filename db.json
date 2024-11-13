@@ -72,7 +72,7 @@
         {
             "date": "Nov 13, 2024",
             "imgs": [],
-            "body": "<p>new simple choose-your-own-adventure engine code? slightly more readable than last time?</p><p>scene(0, bedroom.png) {<br><br>You are walking around in the forest.<br>It's quite dark, but up ahead glows a clearing with a [1|lake] surrounding a [2|statue].<br><br>}</p>"
+            "body": "<p>new simple choose-your-own-adventure engine code? slightly more readable than last time?</p><p>scene(0, forest.png) {</p><p style="margin-left: 1em;">You are walking around in the forest.<br>It's quite dark, but up ahead glows a clearing with a [1|lake] surrounding a [2|statue].</p><p>}</p>"
         },
         {
             "date": "Nov 13, 2024",
