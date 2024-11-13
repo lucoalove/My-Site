@@ -5,11 +5,11 @@
     <title>Waifu Ranking / fatchicks.cc</title>
     <style>
         body { background: black; color: #ccc; font-family: sans-serif; width: 45em; margin: auto; }
-        img { height: 200px; }
 
         table { border-collapse: collapse; width: 100%; }
         
         th, td { border-bottom: 1px solid #336; padding: 8px; }
+        img { height: 200px; }
         
         th { text-align: left; font-size: 2em; position: relative; }
         th i { color: #66b; display: block; font-weight: 400; font-size: 0.5em; }
@@ -32,9 +32,29 @@
             { name: "Kashino", series: "Azur Lane", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a71d0697-3e89-49a8-ba05-180af0f6b8a1/dfxjzqt-4faa0f0d-2120-48c4-9b2b-82da9ffb8470.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E3MWQwNjk3LTNlODktNDlhOC1iYTA1LTE4MGFmMGY2YjhhMVwvZGZ4anpxdC00ZmFhMGYwZC0yMTIwLTQ4YzQtOWIyYi04MmRhOWZmYjg0NzAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s1jq0vwIlYRn4V3nR3lPdDC_SaGevwxywk88zHWVkEo" }
         ];
 
+        // podium
+        document.getElementById("gold-insert").innerHTML = `
+            <img src="${ waifus[0].image }">
+            <h3>${ waifus[0].name }</h3>
+            <div>${ waifus[0].series }</div>
+        `;
+
+        document.getElementById("silver-insert").innerHTML = `
+            <img src="${ waifus[1].image }">
+            <h3>${ waifus[1].name }</h3>
+            <div>${ waifus[1].series }</div>
+        `;
+
+        document.getElementById("bronze-insert").innerHTML = `
+            <img src="${ waifus[2].image }">
+            <h3>${ waifus[2].name }</h3>
+            <div>${ waifus[2].series }</div>
+        `;
+
+        // rest of list
         const tbody = document.createElement("tbody");
 
-        for (let i = 0; i < waifus.length; i++) {
+        for (let i = 3; i < waifus.length; i++) {
 
             const waifu = waifus[i];
             
@@ -60,16 +80,16 @@
 
     <div style="display: flex; gap: 4px; align-items: flex-end;">
         <div style="flex: 1;">
-            cat
-            <div style="background: #444; height: 15em;"></div>
+            <div id="silver-insert"></div>
+            <div style="background: #444; height: 10em;"></div>
         </div>
         <div style="flex: 1;">
-            cat
-            <div style="background: #760; height: 15em;"></div>
+            <div id="gold-insert"></div>
+            <div style="background: #750; height: 15em;"></div>
         </div>
         <div style="flex: 1;">
-            cat
-            <div style="background: #620; height: 15em;"></div>
+            <div id="bronze-insert"></div>
+            <div style="background: #522; height: 5em;"></div>
         </div>
     </div>
 
