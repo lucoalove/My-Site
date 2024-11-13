@@ -72,6 +72,11 @@
         {
             "date": "Nov 13, 2024",
             "imgs": [],
+            "body": "<p>new simple choose-your-own-adventure engine code? slightly more readable than last time?</p><p>scene(0, bedroom.png) {<br><br>You are walking around in the forest. It's quite dark.<br>Suddenly, you see a band of orcs.<br><br>jump(1, Let's fight!)<br>jump(2, Let's not!)<br>}</p>"
+        },
+        {
+            "date": "Nov 13, 2024",
+            "imgs": [],
             "body": "<p>minecraft crockpot cooking mechanic</p><p>i.e. bread + pork + milk + egg + potato => Pork Cutlet Meal (restores 8 hunger and crazy saturation + saturation effect)</p><p>the only issue with this is... what makes it different from shapeless crafting in a crafting table</p>"
         },
         {
