@@ -1,8 +1,6 @@
 // I love you, https://regexr.com/ <3
 
-// Removes sequences of more than two linebreaks
-// Removes spaces before parenthesis and commas
-// Adds a space after commas
+// if I have to write documentation of what this does specifically besides just "makes prompts look good" I'm gonna weep
 
 function sanitize_prompt(prompt) {
 
@@ -31,6 +29,12 @@ function sanitize_prompt(prompt) {
     // remove spaces between parenthesis and the text they contain
     prompt = prompt.replace(/ +\)/g, ")");
     prompt = prompt.replace(/\( +/g, "(");
+
+    // remove spaces between linebreaks
+    prompt = prompt.replace(/\n +\n/g, "\n\n");
+
+    // remove sequences of more than two linebreaks
+    prompt = prompt.replace(/\n\n\n+/g, "\n\n");
 
     return prompt;
 }
