@@ -3,7 +3,7 @@
 function sanitize_prompt(prompt) {
 
     // remove any instances of "((()))" or "( )" and similar
-    while (prompt.match(/(\( +\))/g).length > 0) {
+    while (prompt.match(/(\( +\))/g) != null) {
         
         prompt = prompt.replace(/(\( +\))/g, "");
     }
