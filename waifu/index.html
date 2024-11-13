@@ -19,6 +19,7 @@
         td { text-align: right; }
 
         #gold-insert, #silver-insert, #bronze-insert { text-align: center; }
+        .podium { font-size: 4em; display: flex; align-items: center; justify-content: center; border-top-left-radius: 8px; border-top-right-radius: 8px; font-weight: 700; }
     </style>
 
     <script type="module">
@@ -84,15 +85,15 @@
     <div style="display: flex; gap: 4px; align-items: flex-end;">
         <div style="flex: 1;">
             <div id="silver-insert"></div>
-            <div style="background: #444; height: 10em; width: 50%; margin: auto;"></div>
+            <div class="podium" style="background: #444; height: 10em;">2</div>
         </div>
         <div style="flex: 1;">
             <div id="gold-insert"></div>
-            <div style="background: #750; height: 15em; width: 50%; margin: auto;"></div>
+            <div class="podium" style="background: #750; height: 15em;">1</div>
         </div>
         <div style="flex: 1;">
             <div id="bronze-insert"></div>
-            <div style="background: #522; height: 5em; width: 50%; margin: auto;"></div>
+            <div class="podium" style="background: #522; height: 5em;">3</div>
         </div>
     </div>
 
