@@ -6,16 +6,19 @@
     <style>
         body { background: black; color: #ccc; font-family: sans-serif; width: 45em; margin: auto; }
 
+        .series { color: #66b; display: block; font-weight: 400; font-size: 0.5em; font-style: italic; }
+
         table { border-collapse: collapse; width: 100%; }
         
         th, td { border-bottom: 1px solid #336; padding: 8px; }
         img { height: 200px; }
         
         th { text-align: left; font-size: 2em; position: relative; }
-        th i { color: #66b; display: block; font-weight: 400; font-size: 0.5em; }
-        th div { color: #112; font-size: 200px; position: absolute; left: 0; top: 50%; transform: translateY(-45%); z-index: -1; }
+        .number { color: #112; font-size: 200px; position: absolute; left: 0; top: 50%; transform: translateY(-45%); z-index: -1; }
         
         td { text-align: right; }
+
+        #gold-insert, #silver-insert, #bronze-insert { text-align: center; }
     </style>
 
     <script type="module">
@@ -35,20 +38,20 @@
         // podium
         document.getElementById("gold-insert").innerHTML = `
             <img src="${ waifus[0].image }">
-            <h3>${ waifus[0].name }</h3>
-            <div>${ waifus[0].series }</div>
+            <h2>${ waifus[0].name }</h2>
+            <p class="series">${ waifus[0].series }</p>
         `;
 
         document.getElementById("silver-insert").innerHTML = `
             <img src="${ waifus[1].image }">
-            <h3>${ waifus[1].name }</h3>
-            <div>${ waifus[1].series }</div>
+            <h2>${ waifus[1].name }</h2>
+            <p class="series">${ waifus[1].series }</p>
         `;
 
         document.getElementById("bronze-insert").innerHTML = `
             <img src="${ waifus[2].image }">
-            <h3>${ waifus[2].name }</h3>
-            <div>${ waifus[2].series }</div>
+            <h2>${ waifus[2].name }</h2>
+            <p class="series">${ waifus[2].series }</p>
         `;
 
         // rest of list
@@ -62,8 +65,8 @@
                 <tr>
                     <th>
                         ${ waifu.name }
-                        <i>${ waifu.series }</i>
-                        <div>${ i + 1 }</div>
+                        <div class="series">${ waifu.series }</div>
+                        <div class="number">${ i + 1 }</div>
                     </th>
                     <td>
                         <img src="${ waifu.image }">
