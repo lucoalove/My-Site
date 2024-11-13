@@ -1,4 +1,9 @@
 function sanitize_prompt(prompt) {
 
-    return "hamburger";
+    while (prompt.includes("()")) {
+        
+        prompt = prompt.replace(/()/g, "");
+    }
+
+    return prompt;
 }
