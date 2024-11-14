@@ -101,7 +101,15 @@
 
                 const startTime = Date.now();
 
-                const response     = await requestGeneration();
+                const response = await requestGeneration(
+                    isBlank(keyIn.value) ? "0000000000" : keyIn.value,
+                    promptIn.value,
+                    modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ],
+                    isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value,
+                    Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
+                    Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
+                );
+                
                 const responseJson = await response.json();
                 const currentID    = responseJson.id;
 
@@ -132,16 +140,16 @@
             }
         }
 
-        async function requestGeneration() {
+        async function requestGeneration(apikey, prompt, models, seed, width, height) {
 
             const payload = {
-                prompt: promptIn.value,
+                prompt: prompt,
                 nsfw  : true,
-                models: (modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ]),
+                models: models,
                 params: {
-                    seed  : (isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value),
-                    width : Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
-                    height: Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
+                    seed  : seed,
+                    width : width,
+                    height: height
                 }
             };
 
@@ -150,7 +158,7 @@
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        "apikey"      : (isBlank(keyIn.value) ? "0000000000" : keyIn.value)
+                        "apikey"      : apikey
                     },
                     body: JSON.stringify(payload)
                 }
@@ -220,7 +228,8 @@
         <br><br>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start;">
-            <div>
+            
+            <div style="overflow: hidden;">
                 <table style="width: 100%;">
                     <tr>
                         <td><a href="https://stablehorde.net/">AI Horde</a> API<br>Key (optional):</td>
@@ -263,11 +272,12 @@
                 <div id="debug"></div>
             </div>
 
-            <div style="overflow: hidden;">
+            <div>
                 <button type="button" id="generateButton">Generate</button>
                 <br><br>
                 <div id="genList"></div>
             </div>
+            
         </div>
     </div>
 
