@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <title>Fediverse App</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         :root { --accent: #64d; }
         
-        body { width: 45em; margin: auto; font-family: "Outfit", sans-serif; }
+        body { width: 60ex; margin: auto; font-family: "Barlow Semi Condensed", sans-serif; font-size: 18px; }
 
         a { color: var(--accent); }
 
         nav { display: flex; gap: 1em; border-bottom: 1px solid lightgrey; margin: 0.5em 0 1em; }
         nav button { border: 0; color: grey; background: none; font: inherit; padding: 0.5em; cursor: pointer; }
         nav button:disabled { padding-bottom: calc(0.5em - 2px); color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
-        nav input { flex: 1; padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
+        nav input { flex: 1; font: inherit; font-size: smaller; padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
 
-        .account-box #header-box { position: relative; overflow: hidden; border-radius: 1em; background: #eee; }
-        .account-box #header { width: 100%; display: block; aspect-ratio: 2 auto; }
+        .account-box #header-box { position: relative; overflow: hidden; border-radius: 1em; background: #eee; aspect-ratio: 3; }
+        .account-box #header { width: 100%; display: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .account-box #avatar { width: 120px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-top-right-radius: 1em; }
         .account-box #display-name { margin-bottom: 0; }
         .account-box #account { color: grey; }
