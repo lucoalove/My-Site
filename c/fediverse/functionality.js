@@ -2,6 +2,8 @@
 
 const contentInsert            = document.getElementById("content-insert");
 
+const templateStatus = document.getElementById("template-status");
+
 const buttonLoadStatusesPublic    = document.getElementById("button-load-statuses-public");
 const buttonLoadStatusesFollowers = document.getElementById("button-load-statuses-followers");
 const inputLoadFromSearch         = document.getElementById("input-load-from-search");
@@ -10,7 +12,7 @@ buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
 buttonLoadStatusesFollowers.onclick = loadStatusesFollowers;
 inputLoadFromSearch.onchange        = loadFromSearch;
 
-async function fetchAndInsertStatuses(URL) {
+async function get(URL) {
 
     const response = await fetch(URL,
         {
@@ -21,16 +23,22 @@ async function fetchAndInsertStatuses(URL) {
         }
     );
 
-    if (response.status != 200) {
+    if (response.status == 200) {
+        
+        return response;
+    } else {
         alert("Error " + response.status);
-        return;
+        return null;
     }
+}
 
-    const statuses = await response.json();
+async function insertStatuses(statuses) {
 
     console.log(statuses);
 
     for (const status of statuses) {
+
+        let statusEmbed = templateStatus.content.cloneNode(true);
 
         let imageEmbed = "";
 
@@ -40,17 +48,12 @@ async function fetchAndInsertStatuses(URL) {
                 imageEmbed += `<img height="200" src="${ media.url }">`;
         }
 
-        contentInsert.innerHTML += `
-            <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
-                <strong><a href="${ status.account.url }">${ status.account.username }</a></strong>
-                <br>
-                ${ status.content }
-                <br>
-                ${ imageEmbed }
-                <br>
-                Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }
-            </div>
-        `;
+        statusEmbed.getElementById("username").innerText = status.account.username;
+        statusEmbed.getElementById("content").innerText  = status.content;
+        statusEmbed.getElementById("images").innerText   = imageEmbed;
+        statusEmbed.getElementById("meta").innerText     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+        
+        contentInsert.appendChild(statusEmbed);
     }
 }
 
@@ -93,7 +96,12 @@ async function loadStatusesPublic() {
     contentInsert.innerHTML = "Loading...";
 
     // fetch
-    fetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public?limit=40");
+    const response = await get("https://mastodon.social/api/v1/timelines/public?limit=40");
+
+    if (response) {
+
+        insertStatuses(await response.json());
+    }
 }
 
 loadStatusesPublic();
