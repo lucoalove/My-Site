@@ -99,8 +99,6 @@
             
             try {
 
-                const startTime = Date.now();
-
                 const payload = {
                     prompt: promptIn.value,
                     nsfw  : true,
@@ -119,8 +117,6 @@
                 
                 const responseJson = await response.json();
                 const currentID    = responseJson.id;
-
-                generateButton.disabled = false;
                 
                 debugOut.innerHTML = JSON.stringify(responseJson);
 
@@ -131,15 +127,15 @@
                 // save key to cookie
                 setCookie("apikey", keyIn.value, 50);
 
+                // allow generate button press
+                generateButton.disabled = false;
+
                 // wait for generation
                 const generation = await waitForGeneration(payload, currentID, generationElement);
-                const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
                 // post finished generation
                 mainImageOut.src = generation.img;
                 galleryOut.innerHTML = `<img src="${ generation.img }">${ galleryOut.innerHTML }`;
-
-                generationElement.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small>${ payload.prompt }</small>`;
         
             } catch (error) {
                 generationElement.innerHTML = "Generation failed.";
@@ -167,26 +163,31 @@
 
         async function waitForGeneration(payload, id, statusOut) {
 
+            const startTime = Date.now();
             var finished = false;
+
+            var response;
 
             while (!finished) {
 
                 await new Promise(r => setTimeout(r, 5000));
 
                 // check
-                const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + id, { method: "GET" })).json();
-
+                response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + id, { method: "GET" })).json();
                 debugOut.innerHTML = JSON.stringify(response);
 
-                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small>${ payload.prompt }</small>`;
+                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small style="color: lightgrey;">${ payload.prompt }</small>`;
 
                 finished = response.finished == 1;
             }
 
             // status
-            const response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + id, { method: "GET" })).json();
-
+            response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + id, { method: "GET" })).json();
             debugOut.innerHTML = JSON.stringify(response);
+
+            const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+            
+            statusOut.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small style="color: lightgrey;">${ payload.prompt }</small>`;
 
             return response.generations[0];
         }
