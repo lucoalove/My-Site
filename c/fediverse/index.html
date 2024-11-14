@@ -23,8 +23,8 @@
 
     <template id="template-status">
         <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
-            <img id="avatar" height="30">
-            <div>
+            <div style="display: flex; gap: 1em;">
+                <img id="avatar" height="30">
                 <strong id="display-name"></strong>
                 <span id="account" style="color: grey;"></span>
             </div>
@@ -34,7 +34,7 @@
         </div>
     </template>
 
-    <template id="template-user">
+    <template id="template-account">
         <div>
             <img id="header" width="100%">
             <img id="avatar" height="80">
@@ -50,7 +50,7 @@
     <div style="display: flex; gap: 1em; border-bottom: 1px solid lightgrey;">
         <button id="button-load-statuses-public">Global</button>
         <button id="button-load-statuses-followers">Followers</button>
-        <input style="flex: 1;" id="input-load-from-search" type="text" placeholder="Search @users or #hashtags">
+        <input style="flex: 1;" id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
     </div>
 
     <div id="content-insert"></div>
