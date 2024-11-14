@@ -46,10 +46,13 @@ async function insertAccount(account) {
     acctEmbed.getElementById("avatar").src                = account.avatar;
     acctEmbed.getElementById("header").src                = account.header;
     acctEmbed.getElementById("display-name").innerText    = account.display_name;
-    acctEmbed.getElementById("account").innerText         = "@" + account.acct;
     acctEmbed.getElementById("note").innerHTML            = account.note;
     acctEmbed.getElementById("followers-count").innerText = account.followers_count;
     acctEmbed.getElementById("following-count").innerText = account.following_count;
+
+    let accountPart = acctEmbed.getElementById("account").innerText;
+    accountPart.innerText = "@" + account.acct;
+    accountPart.href      = "?search=@" + account.acct;
     
     contentInsert.appendChild(acctEmbed);
 }
