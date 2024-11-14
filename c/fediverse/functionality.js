@@ -46,12 +46,12 @@ async function insertAccount(account) {
 
     let acctEmbed = templateAccount.content.cloneNode(true);
 
-    acctEmbed.getElementById("avatar").src                = account.avatar;
-    acctEmbed.getElementById("header").backgroundImage    = `url("${ account.header }")`;
-    acctEmbed.getElementById("display-name").innerText    = account.display_name;
-    acctEmbed.getElementById("note").innerHTML            = account.note;
-    acctEmbed.getElementById("followers-count").innerText = account.followers_count;
-    acctEmbed.getElementById("following-count").innerText = account.following_count;
+    acctEmbed.getElementById("avatar").src                   = account.avatar;
+    acctEmbed.getElementById("header").style.backgroundImage = `url("${ account.header }")`;
+    acctEmbed.getElementById("display-name").innerText       = account.display_name;
+    acctEmbed.getElementById("note").innerHTML               = account.note;
+    acctEmbed.getElementById("followers-count").innerText    = account.followers_count;
+    acctEmbed.getElementById("following-count").innerText    = account.following_count;
 
     let accountPart = acctEmbed.getElementById("account");
     accountPart.innerText = "@" + account.acct;
