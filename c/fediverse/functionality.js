@@ -52,8 +52,8 @@ async function insertStatuses(statuses) {
 
         statusEmbed.getElementById("username").innerText = status.account.username;
         statusEmbed.getElementById("content").innerHTML  = status.content;
-        statusEmbed.getElementById("images").innerText   = imageEmbed;
-        statusEmbed.getElementById("meta").innerText     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+        statusEmbed.getElementById("images").innerHTML   = imageEmbed;
+        statusEmbed.getElementById("meta").innerHTML     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
         
         contentInsert.appendChild(statusEmbed);
     }
@@ -69,10 +69,12 @@ async function loadFromSearch() {
     // decode what they're trying to search (user or hashtag)
     if (inputLoadFromSearch.value.charAt(0) === '@') {
 
-        alert("you are searching for a user!");
-
         // user search
-        // https://mastodon.social/api/v1/accounts/lookup?acct=johnnnnn
+        const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ inputLoadFromSearch.value }`);
+
+        console.log(lookupResponse);
+        console.log(await lookupResponse.json());
+        
         // https://mastodon.social/api/v1/accounts/113480132212449271/statuses
         
     } else {
@@ -97,6 +99,7 @@ async function loadStatusesFollowers() {
     contentInsert.innerHTML = "Loading...";
 
     // fetch
+    contentInsert.innerHTML = "Accounts don't exist yet. Why are you here?";
 }
 
 async function loadStatusesPublic() {
