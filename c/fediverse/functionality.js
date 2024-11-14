@@ -72,6 +72,12 @@ async function insertStatuses(statuses) {
 
     for (const status of statuses) {
 
+        // for now just skip any sensitive statuses
+        if (status.sensitive) {
+            continue;
+        }
+
+        // initialized the status embed
         let statusEmbed = templateStatus.content.cloneNode(true);
 
         let imageEmbed = "";
