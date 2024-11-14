@@ -145,10 +145,10 @@ async function loadFromSearchTerm(term) {
     
         // hashtag search
         const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
-        contentInsert.innerHTML = "";
     
         if (response) {
-            
+
+            contentInsert.innerHTML = `<p><strong>Statuses matching ${  }:</strong></p>`;
             await insertStatuses(await response.json());
             
         } else {
