@@ -94,21 +94,20 @@
 
             const generationElement = document.createElement("div");
             genListOut.appendChild(generationElement);
-
             generationElement.innerHTML = "Generation starting...";
+
+            const payload = {
+                prompt: promptIn.value,
+                nsfw  : true,
+                models: modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ],
+                params: {
+                    seed  : isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value,
+                    width : Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
+                    height: Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
+                }
+            };
             
             try {
-
-                const payload = {
-                    prompt: promptIn.value,
-                    nsfw  : true,
-                    models: modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ],
-                    params: {
-                        seed  : isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value,
-                        width : Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
-                        height: Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
-                    }
-                };
 
                 const response = await requestGeneration(
                     payload,
@@ -123,25 +122,25 @@
                 if (response.status != 202) {
                     throw Error(JSON.stringify(responseJson));
                 }
-                
-                // save key to cookie
-                setCookie("apikey", keyIn.value, 50);
 
-                // allow generate button press
                 generateButton.disabled = false;
 
+                // save key to cookie
+                setCookie("apikey", keyIn.value, 50);
+    
                 // wait for generation
                 const generation = await waitForGeneration(payload, currentID, generationElement);
-
+    
                 // post finished generation
                 mainImageOut.src = generation.img;
                 galleryOut.innerHTML = `<img src="${ generation.img }">${ galleryOut.innerHTML }`;
         
             } catch (error) {
-                generationElement.innerHTML = "Generation failed.";
 
                 generateButton.disabled = false;
-                debugOut.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
+                
+                generationElement.innerHTML = "Generation failed.";
+                debugOut.innerHTML = `<span style="color: red;">Error: ${ error }</span>`;
             }
         }
 
@@ -176,7 +175,7 @@
                 response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + id, { method: "GET" })).json();
                 debugOut.innerHTML = JSON.stringify(response);
 
-                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small style="color: lightgrey;">${ payload.prompt }</small>`;
+                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small style="color: grey;">${ payload.prompt }</small>`;
 
                 finished = response.finished == 1;
             }
@@ -187,7 +186,7 @@
 
             const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
             
-            statusOut.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small style="color: lightgrey;">${ payload.prompt }</small>`;
+            statusOut.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small style="color: grey;">${ payload.prompt }</small>`;
 
             return response.generations[0];
         }
