@@ -5,10 +5,15 @@
     <title>Fediverse (Mastodon?) App</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+        :root { --accent: #d64; }
+        
         body { width: 45em; margin: auto; font-family: "Outfit", sans-serif; }
 
+        a { color: var(--accent); }
+        
         button { border: 0; color: grey; background: none; font: inherit; padding: 0.5em; cursor: pointer; }
-        button:disabled { padding-bottom: calc(0.5em - 2px); color: #d64; border-bottom: 2px solid #d64; font-weight: 700; }
+        button:disabled { padding-bottom: calc(0.5em - 2px); color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
 
         input { padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
     </style>
@@ -24,7 +29,7 @@
         buttonLoadStatusesPublic.onclick = loadStatusesPublic;
         inputLoadFromSearch.onchange     = loadFromSearch;
 
-        async function doTheFetchAndInsertStatuses(URL) {
+        async function fetchAndInsertStatuses(URL) {
 
             const response = await fetch(URL,
                 {
@@ -74,22 +79,25 @@
             contentInsert.innerHTML = "";
 
             // decode what they're trying to search (user or hashtag)
-
-            // /api/v1/accounts/lookup?acct=johnnnnn
-            // /api/v1/accounts/113480132212449271/statuses
             
-            // /api/v1/timelines/tag/sillycat?limit=5
+            // hashtag search
+            fetchAndInsertStatuses(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value }?limit=40`);
+
+            // user search (idk how I should do this actually)
+            // https://mastodon.social/api/v1/accounts/lookup?acct=johnnnnn
+            // https://mastodon.social/api/v1/accounts/113480132212449271/statuses
         }
         
         async function loadStatusesPublic() {
 
             // reset context
             buttonLoadStatusesPublic.disabled = true;
+            inputLoadFromSearch.value = "";
 
             contentInsert.innerHTML = "";
 
             // fetch
-            doTheFetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public?limit=40");
+            fetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public?limit=40");
         }
 
         loadStatusesPublic();
