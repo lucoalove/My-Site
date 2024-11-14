@@ -7,10 +7,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
         body { width: 45em; margin: auto; font-family: "Outfit", sans-serif; }
 
-        button { color: grey; background: none; font: inherit; padding: 1em; }
-        button:disabled { color: #d64; border-bottom: 2px solid #d64; font-weight: 700; }
+        button { border: 0; color: grey; background: none; font: inherit; padding: 0.5em; cursor: pointer; }
+        button:disabled { padding-bottom: calc(0.5em - 2px); color: #d64; border-bottom: 2px solid #d64; font-weight: 700; }
 
-        input { padding: 1em; }
+        input { padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
     </style>
     <script type="module">
 
@@ -98,7 +98,8 @@
 <body>
 
     <div style="display: flex; gap: 1em; border-bottom: 1px solid lightgrey;">
-        <button id="button-load-statuses-public">Public Feed</button>
+        <button id="button-load-statuses-public">Global</button>
+        <button id="button-load-statuses-followers">Followers</button>
         <input style="flex: 1;" id="input-load-from-search" type="text" placeholder="Search @users or #hashtags">
     </div>
 
