@@ -36,6 +36,8 @@ async function insertStatuses(statuses) {
 
     console.log(statuses);
 
+    contentInsert.innerHTML = "";
+
     for (const status of statuses) {
 
         let statusEmbed = templateStatus.content.cloneNode(true);
@@ -49,7 +51,7 @@ async function insertStatuses(statuses) {
         }
 
         statusEmbed.getElementById("username").innerText = status.account.username;
-        statusEmbed.getElementById("content").innerText  = status.content;
+        statusEmbed.getElementById("content").innerHTML  = status.content;
         statusEmbed.getElementById("images").innerText   = imageEmbed;
         statusEmbed.getElementById("meta").innerText     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
         
@@ -100,7 +102,7 @@ async function loadStatusesPublic() {
 
     if (response) {
 
-        insertStatuses(await response.json());
+        await insertStatuses(await response.json());
     }
 }
 
