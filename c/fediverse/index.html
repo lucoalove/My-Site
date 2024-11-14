@@ -23,8 +23,9 @@
 
     <template id="template-status">
         <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
+            <img id="avatar" height="30">
             <div>
-                <strong id="username"></strong>
+                <strong id="display-name"></strong>
                 <span id="account" style="color: grey;"></span>
             </div>
             <div id="content"></div>
@@ -34,7 +35,16 @@
     </template>
 
     <template id="template-user">
-        
+        <div>
+            <img id="header" width="100%">
+            <img id="avatar" height="80">
+            <h2 id="display-name"></h2>
+            <div id="account" style="color: grey;"></div>
+            <div style="font-weight: 700; display: flex; flex-gap: 2em;">
+                <div>Followers: <span id="followers-count" style="color: var(--accent);"></span></div>
+                <div>Following: <span id="following-count" style="color: var(--accent);"></span></div>
+            </div>
+        </div>
     </template>
 
     <div style="display: flex; gap: 1em; border-bottom: 1px solid lightgrey;">
