@@ -109,22 +109,21 @@
             
             try {
 
-                const responseID = await requestGeneration(
+                const generationID = await requestGeneration(
                     payload,
                     isBlank(keyIn.value) ? "0000000000" : keyIn.value
                 );
 
-                if (respondID == -1) {
+                if (generationID == -1)
                     throw Error(JSON.stringify(responseJson));
-                }
 
                 generateButton.disabled = false;
 
-                // save key to cookie
+                // save key to cookie (since we know it works)
                 setCookie("apikey", keyIn.value, 50);
     
                 // wait for generation
-                const generation = await waitForGeneration(payload, currentID, generationElement);
+                const generation = await waitForGeneration(payload, generationID, generationElement);
     
                 // post finished generation
                 mainImageOut.src = generation.img;
