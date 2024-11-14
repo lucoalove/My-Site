@@ -1,5 +1,7 @@
 // Tutorial: https://docs.joinmastodon.org/client/intro/
 
+// gonna have to make it so different pages actually change the url...
+
 const contentInsert            = document.getElementById("content-insert");
 
 const templateStatus  = document.getElementById("template-status");
@@ -45,6 +47,7 @@ async function insertAccount(account) {
     acctEmbed.getElementById("header").src                = account.header;
     acctEmbed.getElementById("display-name").innerText    = account.display_name;
     acctEmbed.getElementById("account").innerText         = "@" + account.acct;
+    acctEmbed.getElementById("note").innerHTML            = account.note;
     acctEmbed.getElementById("followers-count").innerText = account.followers_count;
     acctEmbed.getElementById("following-count").innerText = account.following_count;
     
