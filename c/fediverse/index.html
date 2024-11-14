@@ -22,10 +22,28 @@
         const buttonLoadStatusesPublic = document.getElementById("button-load-statuses-public");
         const inputLoadFromSearch      = document.getElementById("input-load-from-search");
         
-        loadStatusesPublicButton.onclick = loadStatusesPublic;
+        buttonLoadStatusesPublic.onclick = loadStatusesPublic;
         inputLoadFromSearch.onchange     = loadFromSearch;
 
-        function insertStatuses(statuses) {
+        async function doTheFetchAndInsertStatuses(URL) {
+
+            const response = await fetch(URL,
+                {
+                    method: "GET",
+                    headers: {
+                        "content-type": "application/json"
+                    }
+                }
+            );
+    
+            if (response.status != 200) {
+                alert("Error " + response.status);
+                return;
+            }
+
+            const statuses = await response.json();
+
+            console.log(statuses);
 
             for (const status of statuses) {
     
@@ -56,7 +74,7 @@
 
             contentInsert.innerHTML = "";
 
-            // decode what they're trying to search
+            // decode what they're trying to search (user or hashtag)
 
         }
         
@@ -68,26 +86,7 @@
             contentInsert.innerHTML = "";
 
             // fetch
-            const response = await fetch("https://mastodon.social/api/v1/timelines/public",
-                {
-                    method: "GET",
-                    headers: {
-                        "content-type": "application/json"
-                    }
-                }
-            );
-    
-            if (response.status == 200) {
-    
-                const statuses = await response.json();
-    
-                console.log(statuses);
-    
-                insertStatuses(statuses);
-    
-            } else {
-                alert("Error " + response.status);
-            }
+            doTheFetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public");
         }
 
         loadStatusesPublic();
