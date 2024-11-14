@@ -51,12 +51,23 @@
 
         async function loadFromSearch() {
 
+            // reset context
+            buttonLoadStatusesPublic.disabled = false;
+
+            contentInsert.innerHTML = "";
+
+            // decode what they're trying to search
+
         }
         
         async function loadStatusesPublic() {
 
+            // reset context
             buttonLoadStatusesPublic.disabled = true;
-            
+
+            contentInsert.innerHTML = "";
+
+            // fetch
             const response = await fetch("https://mastodon.social/api/v1/timelines/public",
                 {
                     method: "GET",
