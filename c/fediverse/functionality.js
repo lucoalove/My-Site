@@ -33,6 +33,18 @@ async function get(URL) {
     }
 }
 
+async function insertUser(user) {
+
+    // display-name
+    // acct
+    
+    // avatar (image)
+    // header
+    
+    // followers_count
+    // following_count
+}
+
 async function insertStatuses(statuses) {
 
     console.log(statuses);
@@ -55,11 +67,12 @@ async function insertStatuses(statuses) {
                 imageEmbed += `<img height="200" src="${ media.url }">`;
         }
 
-        statusEmbed.getElementById("username").innerText = status.account.username;
-        statusEmbed.getElementById("account").innerText = "@" + status.account.acct;
-        statusEmbed.getElementById("content").innerHTML  = status.content;
-        statusEmbed.getElementById("images").innerHTML   = imageEmbed;
-        statusEmbed.getElementById("meta").innerHTML     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+        statusEmbed.getElementById("display-name").innerText = status.account.display_name;
+        statusEmbed.getElementById("account").innerText      = "@" + status.account.acct;
+        statusEmbed.getElementById("avatar").src             = status.account.avatar;
+        statusEmbed.getElementById("content").innerHTML      = status.content;
+        statusEmbed.getElementById("images").innerHTML       = imageEmbed;
+        statusEmbed.getElementById("meta").innerHTML         = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
         
         contentInsert.appendChild(statusEmbed);
     }
@@ -90,11 +103,10 @@ async function loadFromSearch() {
 
             const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
             const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
-
-            console.log(await userResponse.json());
             
             if (userResponse && userStatusesResponse) {
-                
+
+                await insertUser(await userResponse.json());
                 await insertStatuses(await userStatusesResponse.json());
                 
             } else {
