@@ -17,8 +17,7 @@
         nav button:disabled { padding-bottom: calc(0.5em - 2px); color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
         nav input { flex: 1; font: inherit; font-size: smaller; padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
 
-        .account-box #header-box { position: relative; overflow: hidden; border-radius: 1em; background: #eee; aspect-ratio: 3; }
-        .account-box #header { width: 100%; display: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .account-box #header { position: relative; overflow: hidden; border-radius: 1em; background-color: #eee; background-position: center; background-size: cover; aspect-ratio: 2; }
         .account-box #avatar { width: 120px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-top-right-radius: 1em; }
         .account-box #display-name { margin-bottom: 0; }
         .account-box #account { color: grey; }
@@ -44,8 +43,7 @@
 
     <template id="template-account">
         <div class="account-box">
-            <div id="header-box">
-                <img id="header">
+            <div id="header">
                 <img id="avatar">
             </div>
             <h2 id="display-name"></h2>
