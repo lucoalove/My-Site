@@ -148,7 +148,7 @@ async function loadFromSearchTerm(term) {
     
         if (response) {
 
-            contentInsert.innerHTML = `<p><strong>Statuses matching ${  }:</strong></p>`;
+            contentInsert.innerHTML = `<p><strong>Statuses with ${ term }</strong></p>`;
             await insertStatuses(await response.json());
             
         } else {
