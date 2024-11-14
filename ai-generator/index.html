@@ -101,13 +101,20 @@
 
                 const startTime = Date.now();
 
+                const payload = {
+                    prompt: promptIn.value,
+                    nsfw  : true,
+                    models: modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ],
+                    params: {
+                        seed  : isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value,
+                        width : Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
+                        height: Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
+                    }
+                };
+
                 const response = await requestGeneration(
-                    isBlank(keyIn.value) ? "0000000000" : keyIn.value,
-                    promptIn.value,
-                    modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ],
-                    isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value,
-                    Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
-                    Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
+                    payload,
+                    isBlank(keyIn.value) ? "0000000000" : keyIn.value
                 );
                 
                 const responseJson = await response.json();
@@ -125,33 +132,24 @@
                 setCookie("apikey", keyIn.value, 50);
 
                 // wait for generation
-                const generation = await retrieveGeneration(currentID, generationElement);
+                const generation = await waitForGeneration(payload, currentID, generationElement);
                 const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
                 // post finished generation
                 mainImageOut.src = generation.img;
                 galleryOut.innerHTML = `<img src="${ generation.img }">${ galleryOut.innerHTML }`;
 
-                generationElement.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.`;
+                generationElement.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small>${ payload.prompt }</small>`;
         
             } catch (error) {
                 generationElement.innerHTML = "Generation failed.";
+
+                generateButton.disabled = false;
                 debugOut.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
         }
 
-        async function requestGeneration(apikey, prompt, models, seed, width, height) {
-
-            const payload = {
-                prompt: prompt,
-                nsfw  : true,
-                models: models,
-                params: {
-                    seed  : seed,
-                    width : width,
-                    height: height
-                }
-            };
+        async function requestGeneration(payload, apikey) {
 
             const response = await fetch("https://stablehorde.net/api/v2/generate/async",
                 {
@@ -167,7 +165,7 @@
             return response;
         }
 
-        async function retrieveGeneration(id, statusOut) {
+        async function waitForGeneration(payload, id, statusOut) {
 
             var finished = false;
 
@@ -180,7 +178,7 @@
 
                 debugOut.innerHTML = JSON.stringify(response);
 
-                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })`;
+                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small>${ payload.prompt }</small>`;
 
                 finished = response.finished == 1;
             }
