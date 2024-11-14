@@ -47,7 +47,7 @@ async function insertAccount(account) {
     let acctEmbed = templateAccount.content.cloneNode(true);
 
     acctEmbed.getElementById("avatar").src                = account.avatar;
-    acctEmbed.getElementById("header").src                = account.header;
+    acctEmbed.getElementById("header").backgroundImage    = `url("${ account.header }")`;
     acctEmbed.getElementById("display-name").innerText    = account.display_name;
     acctEmbed.getElementById("note").innerHTML            = account.note;
     acctEmbed.getElementById("followers-count").innerText = account.followers_count;
