@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Fediverse (Mastodon?) App</title>
+    <title>Fediverse App</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
@@ -20,6 +20,19 @@
     <script type="module" src="functionality.js"></script>
 </head>
 <body>
+
+    <template id="template-status">
+        <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
+            <strong id="username"></strong>
+            <div id="content"></div>
+            <div id="images"></div>
+            <div id="meta"></div>
+        </div>
+    </template>
+
+    <template id="template-user">
+        
+    </template>
 
     <div style="display: flex; gap: 1em; border-bottom: 1px solid lightgrey;">
         <button id="button-load-statuses-public">Global</button>
