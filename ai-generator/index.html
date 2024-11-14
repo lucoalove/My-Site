@@ -162,9 +162,12 @@
         async function waitForGeneration(payload, id, statusOut) {
 
             const startTime = Date.now();
+            const payloadInfo = `<small style="color: grey;">[${ payload.params.seed }, ${ payload.params.width }x${ payload.params.height }] ${ payload.prompt }</small>`;
+            
             var finished = false;
-
             var response;
+
+            statusOut.innerHTML = `Waiting on generation`;
 
             while (!finished) {
 
@@ -174,7 +177,7 @@
                 response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + id, { method: "GET" })).json();
                 debugOut.innerHTML = JSON.stringify(response);
 
-                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br><small style="color: grey;">${ payload.prompt }</small>`;
+                statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })<br>${ payloadInfo }`;
 
                 finished = response.finished == 1;
             }
@@ -185,7 +188,7 @@
 
             const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
             
-            statusOut.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br><small style="color: grey;">${ payload.prompt }</small>`;
+            statusOut.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.<br>${ payloadInfo }`;
 
             return response.generations[0];
         }
