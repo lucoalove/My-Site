@@ -80,8 +80,10 @@ async function loadFromSearch() {
 
         if (lookupResponse) {
 
-            const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }`);
-            const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }/statuses`);
+            const lookupJson = await lookupResponse.json();
+
+            const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
+            const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
 
             console.log(userResponse);
             
