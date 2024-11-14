@@ -36,14 +36,15 @@ async function get(URL) {
 
 async function insertAccount(account) {
 
-    console.log("DEBUG_ACCT: " + account);
+    console.log("DEBUG_ACCT:");
+    console.log(account);
 
     let acctEmbed = templateAccount.content.cloneNode(true);
 
     acctEmbed.getElementById("avatar").src                = account.avatar;
     acctEmbed.getElementById("header").src                = account.header;
     acctEmbed.getElementById("display-name").innerText    = account.display_name;
-    acctEmbed.getElementById("account").innerText         = account.acct;
+    acctEmbed.getElementById("account").innerText         = "@" + account.acct;
     acctEmbed.getElementById("followers-count").innerText = account.followers_count;
     acctEmbed.getElementById("following-count").innerText = account.following_count;
     
@@ -52,7 +53,8 @@ async function insertAccount(account) {
 
 async function insertStatuses(statuses) {
 
-    console.log("DEBUG_STATUSES: " + statuses);
+    console.log("DEBUG_STATUSES:");
+    console.log(statuses);
 
     if (statuses.length == 0) {
         contentInsert.innerHTML += "No statuses to display.";
@@ -95,10 +97,10 @@ async function loadFromSearch() {
 
     contentInsert.innerHTML = "Loading...";
 
-    // decode what they're trying to search (user or hashtag)
+    // decode what they're trying to search (account or hashtag)
     if (inputLoadFromSearch.value.charAt(0) === '@') {
 
-        // user search
+        // account search
         const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ inputLoadFromSearch.value }`);
         contentInsert.innerHTML = "";
         
