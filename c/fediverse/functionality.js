@@ -2,7 +2,8 @@
 
 const contentInsert            = document.getElementById("content-insert");
 
-const templateStatus = document.getElementById("template-status");
+const templateStatus  = document.getElementById("template-status");
+const templateAccount = document.getElementById("template-account");
 
 const buttonLoadStatusesPublic    = document.getElementById("button-load-statuses-public");
 const buttonLoadStatusesFollowers = document.getElementById("button-load-statuses-followers");
@@ -33,26 +34,29 @@ async function get(URL) {
     }
 }
 
-async function insertUser(user) {
+async function insertAccount(account) {
 
-    // display-name
-    // acct
+    console.log("DEBUG_ACCT: " + account);
+
+    let acctEmbed = templateAccount.content.cloneNode(true);
+
+    acctEmbed.getElementById("avatar").src                = account.avatar;
+    acctEmbed.getElementById("header").src                = account.header;
+    acctEmbed.getElementById("display-name").innerText    = account.display_name;
+    acctEmbed.getElementById("account").innerText         = account.acct;
+    acctEmbed.getElementById("followers-count").innerText = account.followers_count;
+    acctEmbed.getElementById("following-count").innerText = account.following_count;
     
-    // avatar (image)
-    // header
-    
-    // followers_count
-    // following_count
+    contentInsert.appendChild(acctEmbed);
 }
 
 async function insertStatuses(statuses) {
 
-    console.log(statuses);
+    console.log("DEBUG_STATUSES: " + statuses);
 
-    if (statuses.length > 0) {
-        contentInsert.innerHTML = "";
-    } else {
-        contentInsert.innerHTML = "No statuses to display.";
+    if (statuses.length == 0) {
+        contentInsert.innerHTML += "No statuses to display.";
+        return;
     }
 
     for (const status of statuses) {
@@ -96,18 +100,19 @@ async function loadFromSearch() {
 
         // user search
         const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ inputLoadFromSearch.value }`);
-
+        contentInsert.innerHTML = "";
+        
         if (lookupResponse) {
 
             const lookupJson = await lookupResponse.json();
 
-            const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
-            const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
+            const acctResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
+            const acctStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
             
-            if (userResponse && userStatusesResponse) {
+            if (acctResponse && acctStatusesResponse) {
 
-                await insertUser(await userResponse.json());
-                await insertStatuses(await userStatusesResponse.json());
+                await insertAccount(await acctResponse.json());
+                await insertStatuses(await acctStatusesResponse.json());
                 
             } else {
                 
@@ -123,6 +128,7 @@ async function loadFromSearch() {
     
         // hashtag search
         const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value.replace("#", "") }?limit=40`);
+        contentInsert.innerHTML = "";
     
         if (response) {
             
@@ -142,9 +148,9 @@ async function loadStatusesFollowers() {
     buttonLoadStatusesFollowers.disabled = true;
     inputLoadFromSearch.value = "";
 
-    contentInsert.innerHTML = "Loading...";
-
     // fetch
+    contentInsert.innerHTML = "Loading...";
+    
     contentInsert.innerHTML = "Accounts don't exist yet. Why are you here?";
 }
 
@@ -155,11 +161,11 @@ async function loadStatusesPublic() { // set context public?
     buttonLoadStatusesFollowers.disabled = false;
     inputLoadFromSearch.value = "";
 
-    contentInsert.innerHTML = "Loading...";
-
     // fetch
+    contentInsert.innerHTML = "Loading...";
     const response = await get("https://mastodon.social/api/v1/timelines/public?limit=40");
-
+    contentInsert.innerHTML = "";
+    
     if (response) {
 
         await insertStatuses(await response.json());
