@@ -51,6 +51,7 @@ async function insertStatuses(statuses) {
         }
 
         statusEmbed.getElementById("username").innerText = status.account.username;
+        statusEmbed.getElementById("account").innerText = "@" + status.account.acct;
         statusEmbed.getElementById("content").innerHTML  = status.content;
         statusEmbed.getElementById("images").innerHTML   = imageEmbed;
         statusEmbed.getElementById("meta").innerHTML     = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
