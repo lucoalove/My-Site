@@ -3,6 +3,8 @@
 // this code is (or at least ought to be) front-end design agnostic :3
 // basically it just specifies IDs for stuff but other than that like, do what you want we ball
 
+const paramSearch = new URLSearchParams(window.location.search).get("search");
+
 const contentInsert            = document.getElementById("content-insert");
 
 const templateStatus  = document.getElementById("template-status");
@@ -96,7 +98,7 @@ async function insertStatuses(statuses) {
 
 async function loadFromSearch() {
 
-    window.location.href = "?search=" + inputLoadFromSearch.value.trim();
+    window.location.href = "?search=" + inputLoadFromSearch.value.trim().replace("#", "");
 }
 
 async function loadFromSearchTerm(term) {
@@ -165,6 +167,9 @@ async function loadStatusesFollowers() {
     buttonLoadStatusesFollowers.disabled = true;
     inputLoadFromSearch.value = "";
 
+    if (paramSearch)
+        window.history.pushState({}, "", "?");
+    
     // fetch
     contentInsert.innerHTML = "Loading...";
     
@@ -177,6 +182,9 @@ async function loadStatusesPublic() { // set context public?
     buttonLoadStatusesPublic.disabled = true;
     buttonLoadStatusesFollowers.disabled = false;
     inputLoadFromSearch.value = "";
+
+    if (paramSearch)
+        window.history.pushState({}, "", "?");
 
     // fetch
     contentInsert.innerHTML = "Loading...";
@@ -195,12 +203,10 @@ async function loadStatusesPublic() { // set context public?
 
 
 
-let search = new URLSearchParams(window.location.search).get("search");
+console.log(paramSearch);
 
-console.log(search);
-
-if (search) {
-    loadFromSearchTerm(search);
+if (paramSearch) {
+    loadFromSearchTerm(paramSearch);
 } else {
     loadStatusesPublic();
 }
