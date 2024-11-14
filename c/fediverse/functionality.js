@@ -61,6 +61,12 @@ async function insertStatuses(statuses) {
 
 async function loadFromSearch() {
 
+    if (isBlank(inputLoadFromSearch.value)) {
+        
+        loadStatusesPublic();
+        return;
+    }
+
     // reset context
     buttonLoadStatusesPublic.disabled = false;
 
@@ -74,10 +80,13 @@ async function loadFromSearch() {
 
         if (lookupResponse) {
 
-            const uhm = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }/statuses`);
+            const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }`);
+            const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }/statuses`);
 
-            if (uhm)
-                await insertStatuses(await uhm.json());
+            console.log(userResponse);
+            
+            if (userStatusesResponse)
+                await insertStatuses(await userStatusesResponse.json());
         }
         
     } else {
@@ -103,7 +112,7 @@ async function loadStatusesFollowers() {
     contentInsert.innerHTML = "Accounts don't exist yet. Why are you here?";
 }
 
-async function loadStatusesPublic() {
+async function loadStatusesPublic() { // set context public?
 
     // reset context
     buttonLoadStatusesPublic.disabled = true;
