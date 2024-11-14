@@ -1,8 +1,5 @@
 // Tutorial: https://docs.joinmastodon.org/client/intro/
 
-// gonna have to make it so different pages actually change the url...
-// new URLSearchParams(window.location.search).get("search");
-
 // this code is (or at least ought to be) front-end design agnostic :3
 // basically it just specifies IDs for stuff but other than that like, do what you want we ball
 
@@ -99,7 +96,12 @@ async function insertStatuses(statuses) {
 
 async function loadFromSearch() {
 
-    if (inputLoadFromSearch.value.trim() === "") {
+    window.location.href = "?search=" + inputLoadFromSearch.value.trim();
+}
+
+async function loadFromSearchTerm(term) {
+
+    if (term.trim() === "") {
         
         loadStatusesPublic();
         return;
@@ -111,10 +113,10 @@ async function loadFromSearch() {
     contentInsert.innerHTML = "Loading...";
 
     // decode what they're trying to search (account or hashtag)
-    if (inputLoadFromSearch.value.charAt(0) === '@') {
+    if (term.charAt(0) === '@') {
 
         // account search
-        const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ inputLoadFromSearch.value }`);
+        const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ term }`);
         contentInsert.innerHTML = "";
         
         if (lookupResponse) {
@@ -142,7 +144,7 @@ async function loadFromSearch() {
     } else {
     
         // hashtag search
-        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value.replace("#", "") }?limit=40`);
+        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
         contentInsert.innerHTML = "";
     
         if (response) {
@@ -191,4 +193,14 @@ async function loadStatusesPublic() { // set context public?
     }
 }
 
-loadStatusesPublic();
+
+
+let search = new URLSearchParams(window.location.search).get("search");
+
+console.log(search);
+
+if (search) {
+    loadFromSearchTerm(search);
+} else {
+    loadStatusesPublic();
+}
