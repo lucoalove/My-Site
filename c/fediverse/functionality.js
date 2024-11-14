@@ -1,6 +1,7 @@
 // Tutorial: https://docs.joinmastodon.org/client/intro/
 
 // gonna have to make it so different pages actually change the url...
+// new URLSearchParams(window.location.search).get("search");
 
 const contentInsert            = document.getElementById("content-insert");
 
@@ -50,7 +51,7 @@ async function insertAccount(account) {
     acctEmbed.getElementById("followers-count").innerText = account.followers_count;
     acctEmbed.getElementById("following-count").innerText = account.following_count;
 
-    let accountPart = acctEmbed.getElementById("account").innerText;
+    let accountPart = acctEmbed.getElementById("account");
     accountPart.innerText = "@" + account.acct;
     accountPart.href      = "?search=@" + account.acct;
     
