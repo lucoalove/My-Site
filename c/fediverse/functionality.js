@@ -72,20 +72,21 @@ async function loadFromSearch() {
         // user search
         const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ inputLoadFromSearch.value }`);
 
-        console.log(lookupResponse);
-        console.log(await lookupResponse.json());
-        
-        // https://mastodon.social/api/v1/accounts/113480132212449271/statuses
+        if (lookupResponse) {
+
+            const uhm = await get(`https://mastodon.social/api/v1/accounts/${ (await lookupResponse.json()).id }/statuses`);
+
+            if (uhm)
+                await insertStatuses(await uhm.json());
+        }
         
     } else {
     
         // hashtag search
         const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value }?limit=40`);
     
-        if (response) {
-    
+        if (response)
             await insertStatuses(await response.json());
-        }
     }
 }
 
