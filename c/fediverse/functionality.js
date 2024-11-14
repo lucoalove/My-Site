@@ -89,7 +89,7 @@ async function insertStatuses(statuses) {
         statusEmbed.getElementById("images").innerHTML       = imageEmbed;
         statusEmbed.getElementById("meta").innerHTML         = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
 
-        let accountPart = acctEmbed.getElementById("account");
+        let accountPart = statusEmbed.getElementById("account");
         accountPart.innerText = "@" + status.account.acct;
         accountPart.href      = "?search=@" + status.account.acct;
         
