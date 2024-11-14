@@ -27,8 +27,8 @@
 
         #debug { border: 1px solid #444; background: black; font-size: smaller; font-family: monospace; word-wrap: break-word; min-height: 1em; }
 
-        #allGenerations { display: flex; flex-direction: column-reverse; gap: 1em; }
-        #allGenerations > div { border: 1px solid #ccc; padding: 0.5em; }
+        #genList { display: flex; flex-direction: column-reverse; gap: 1em; }
+        #genList > div { border: 1px solid #ccc; padding: 0.5em; }
         
         #mainImage { width: 100%; }
 
@@ -60,7 +60,6 @@
         }
         
         function updateReadout(inputId, readoutId) {
-
             document.getElementById(readoutId).innerHTML = document.getElementById(inputId).value;
         }
 
@@ -71,30 +70,30 @@
     
     <script type="module">
 
-        const debug            = document.getElementById("debug");
-        const key              = document.getElementById("key");
-        const seed             = document.getElementById("seed");
-        const prompt           = document.getElementById("prompt");
-        const mainImage        = document.getElementById("mainImage");
-        const gallery          = document.getElementById("gallery");
-        const generateButton   = document.getElementById("generateButton");
-        const modelSelector    = document.getElementById("modelSelector");
-        const widthSlider      = document.getElementById("widthSlider");
-        const heightSlider     = document.getElementById("heightSlider");
-        const allGenerations   = document.getElementById("allGenerations");
+        const debugOut           = document.getElementById("debug");
+        const keyIn              = document.getElementById("key");
+        const seedIn             = document.getElementById("seed");
+        const promptIn           = document.getElementById("prompt");
+        const mainImageOut       = document.getElementById("mainImage");
+        const galleryOut         = document.getElementById("gallery");
+        const generateButton     = document.getElementById("generateButton");
+        const modelSelectorIn    = document.getElementById("modelSelector");
+        const widthSliderIn      = document.getElementById("widthSlider");
+        const heightSliderIn     = document.getElementById("heightSlider");
+        const genListOut         = document.getElementById("genList");
 
         generateButton.onclick = generate;
 
         // load api key from cookies
-        key.value = getCookie("apikey");
+        keyIn.value = getCookie("apikey");
         
         async function generate() {
 
             generateButton.disabled = true;
-            debug.innerHTML = "";
+            debugOut.innerHTML = "";
 
             const generationElement = document.createElement("div");
-            allGenerations.appendChild(generationElement);
+            genListOut.appendChild(generationElement);
 
             generationElement.innerHTML = "Generation starting...";
             
@@ -108,41 +107,41 @@
 
                 generateButton.disabled = false;
                 
-                debug.innerHTML = JSON.stringify(responseJson);
+                debugOut.innerHTML = JSON.stringify(responseJson);
 
                 if (response.status != 202) {
                     throw Error(JSON.stringify(responseJson));
                 }
                 
                 // save key to cookie
-                setCookie("apikey", key.value, 50);
+                setCookie("apikey", keyIn.value, 50);
 
                 // wait for generation
                 const generation = await retrieveGeneration(currentID, generationElement);
                 const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
                 // post finished generation
-                mainImage.src = generation.img;
-                gallery.innerHTML = `<img src="${ generation.img }">${ gallery.innerHTML }`;
+                mainImageOut.src = generation.img;
+                galleryOut.innerHTML = `<img src="${ generation.img }">${ galleryOut.innerHTML }`;
 
                 generationElement.innerHTML = `Finished generating in <span style="color: var(--color);">${ timeElapsed }s</span>.`;
         
             } catch (error) {
                 generationElement.innerHTML = "Generation failed.";
-                debug.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
+                debugOut.innerHTML = `<span style="color: red;">Generation failed: ${ error }</span>`;
             }
         }
 
         async function requestGeneration() {
 
             const payload = {
-                prompt: prompt.value,
+                prompt: promptIn.value,
                 nsfw  : true,
-                models: (modelSelector.value == "any" ? [] : [ modelSelector.value ]),
+                models: (modelSelectorIn.value == "any" ? [] : [ modelSelectorIn.value ]),
                 params: {
-                    seed  : (isBlank(seed.value) ? ("" + Math.floor(Math.random() * 999999999)) : seed.value),
-                    width : Math.min(Math.max( widthSlider.value -  (widthSlider.value % 64), 512), 1024),
-                    height: Math.min(Math.max(heightSlider.value - (heightSlider.value % 64), 512), 1024)
+                    seed  : (isBlank(seedIn.value) ? ("" + Math.floor(Math.random() * 999999999)) : seedIn.value),
+                    width : Math.min(Math.max( widthSliderIn.value -  (widthSliderIn.value % 64), 512), 1024),
+                    height: Math.min(Math.max(heightSliderIn.value - (heightSliderIn.value % 64), 512), 1024)
                 }
             };
 
@@ -151,7 +150,7 @@
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        "apikey"      : (isBlank(key.value) ? "0000000000" : key.value)
+                        "apikey"      : (isBlank(keyIn.value) ? "0000000000" : keyIn.value)
                     },
                     body: JSON.stringify(payload)
                 }
@@ -171,7 +170,7 @@
                 // check
                 const response = await (await fetch("https://stablehorde.net/api/v2/generate/check/" + id, { method: "GET" })).json();
 
-                debug.innerHTML = JSON.stringify(response);
+                debugOut.innerHTML = JSON.stringify(response);
 
                 statusOut.innerHTML = `Waiting on generation (position in queue: ${ response.queue_position })`;
 
@@ -181,7 +180,7 @@
             // status
             const response = await (await fetch("https://stablehorde.net/api/v2/generate/status/" + id, { method: "GET" })).json();
 
-            debug.innerHTML = JSON.stringify(response);
+            debugOut.innerHTML = JSON.stringify(response);
 
             return response.generations[0];
         }
@@ -198,12 +197,12 @@
                 }
             )).json();
     
-            modelSelector.innerHTML = "<option value='any'>Any Model</option>";
+            modelSelectorIn.innerHTML = "<option value='any'>Any Model</option>";
             
             for (const model of response) {
                 
                 console.log(model);
-                modelSelector.innerHTML += `<option value="${ model.name }">${ model.name } (${ model.count })</option>`;
+                modelSelectorIn.innerHTML += `<option value="${ model.name }">${ model.name } (${ model.count })</option>`;
             }
         }
 
@@ -260,14 +259,14 @@
                 
                 <p><small>Powered by the <a href="https://stablehorde.net/api/">AI Horde API</a></small></p>
                 <p><small>"Kudos" give you priority when generating. Want to generate faster? Rate images for kudos <a href="https://tinybots.net/artbot/rate">here</a>.</small></p>
+
+                <div id="debug"></div>
             </div>
 
             <div style="overflow: hidden;">
                 <button type="button" id="generateButton">Generate</button>
                 <br><br>
-                <div id="debug"></div>
-                <br><br>
-                <div id="allGenerations"></div>
+                <div id="genList"></div>
             </div>
         </div>
     </div>
