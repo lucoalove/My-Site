@@ -61,7 +61,7 @@ async function insertStatuses(statuses) {
 
 async function loadFromSearch() {
 
-    if (isBlank(inputLoadFromSearch.value)) {
+    if (inputLoadFromSearch.value.trim() === "") {
         
         loadStatusesPublic();
         return;
