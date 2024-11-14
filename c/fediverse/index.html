@@ -37,12 +37,13 @@
     <template id="template-account">
         <div>
             <div style="position: relative; overflow: hidden; border-radius: 1em;">
-                <img id="header" style="width: 100%;">
-                <img id="avatar" style="width: 80px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-radius: 1em;">
+                <img id="header" style="width: 100%; display: block;">
+                <img id="avatar" style="width: 120px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-top-right-radius: 1em;">
             </div>
-            <h2 id="display-name"></h2>
+            <h2 id="display-name" style="margin-bottom: 0;"></h2>
             <div id="account" style="color: grey;"></div>
-            <div style="font-weight: 700; display: flex; flex-gap: 2em;">
+            <div id="note"></div>
+            <div style="font-weight: 700; display: flex; gap: 2em;">
                 <div>Followers: <span id="followers-count" style="color: var(--accent);"></span></div>
                 <div>Following: <span id="following-count" style="color: var(--accent);"></span></div>
             </div>
