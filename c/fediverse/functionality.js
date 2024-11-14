@@ -27,7 +27,6 @@ async function get(URL) {
         
         return response;
     } else {
-        alert("Error " + response.status);
         return null;
     }
 }
@@ -36,7 +35,11 @@ async function insertStatuses(statuses) {
 
     console.log(statuses);
 
-    contentInsert.innerHTML = "";
+    if (statuses.length > 0) {
+        contentInsert.innerHTML = "";
+    } else {
+        contentInsert.innerHTML = "No statuses to display.";
+    }
 
     for (const status of statuses) {
 
@@ -86,7 +89,7 @@ async function loadFromSearch() {
             const userResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
             const userStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
 
-            console.log(userResponse);
+            console.log(await userResponse.json());
             
             if (userStatusesResponse)
                 await insertStatuses(await userStatusesResponse.json());
@@ -95,7 +98,7 @@ async function loadFromSearch() {
     } else {
     
         // hashtag search
-        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value }?limit=40`);
+        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value.replace("#", "") }?limit=40`);
     
         if (response)
             await insertStatuses(await response.json());
