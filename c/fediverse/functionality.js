@@ -67,13 +67,24 @@ async function loadFromSearch() {
     contentInsert.innerHTML = "Loading...";
 
     // decode what they're trying to search (user or hashtag)
-    
-    // hashtag search
-    fetchAndInsertStatuses(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value }?limit=40`);
+    if (inputLoadFromSearch.value.charAt(0) === '@') {
 
-    // user search (idk how I should do this actually)
-    // https://mastodon.social/api/v1/accounts/lookup?acct=johnnnnn
-    // https://mastodon.social/api/v1/accounts/113480132212449271/statuses
+        alert("you are searching for a user!");
+
+        // user search
+        // https://mastodon.social/api/v1/accounts/lookup?acct=johnnnnn
+        // https://mastodon.social/api/v1/accounts/113480132212449271/statuses
+        
+    } else {
+    
+        // hashtag search
+        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value }?limit=40`);
+    
+        if (response) {
+    
+            await insertStatuses(await response.json());
+        }
+    }
 }
 
 async function loadStatusesFollowers() {
