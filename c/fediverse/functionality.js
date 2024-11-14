@@ -26,7 +26,9 @@ async function get(URL) {
     if (response.status == 200) {
         
         return response;
+        
     } else {
+        
         return null;
     }
 }
@@ -91,8 +93,18 @@ async function loadFromSearch() {
 
             console.log(await userResponse.json());
             
-            if (userStatusesResponse)
+            if (userResponse && userStatusesResponse) {
+                
                 await insertStatuses(await userStatusesResponse.json());
+                
+            } else {
+                
+                contentInsert.innerHTML = "There was an error.";
+            }
+            
+        } else {
+            
+            contentInsert.innerHTML = "There was an error.";
         }
         
     } else {
@@ -100,8 +112,14 @@ async function loadFromSearch() {
         // hashtag search
         const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ inputLoadFromSearch.value.replace("#", "") }?limit=40`);
     
-        if (response)
+        if (response) {
+            
             await insertStatuses(await response.json());
+            
+        } else {
+            
+            contentInsert.innerHTML = "There was an error.";
+        }
     }
 }
 
@@ -133,6 +151,10 @@ async function loadStatusesPublic() { // set context public?
     if (response) {
 
         await insertStatuses(await response.json());
+        
+    } else {
+        
+        contentInsert.innerHTML = "There was an error.";
     }
 }
 
