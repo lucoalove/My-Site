@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title of the document</title>
+    <title>Fediverse (Mastodon?) App</title>
+    <style>
+        body { width: 45em; margin: auto; }
+    </style>
     <script>
 
         // Tutorial: https://docs.joinmastodon.org/client/intro/
@@ -14,8 +17,10 @@
         // /api/v1/timelines/tag/sillycat?limit=5
 
         async function init() {
+
+            const statusInsert = document.getElementById("status-insert");
             
-            const response = await fetch("https://mastodon.social/api/v1/timelines/tag/sillycat?limit=5",
+            const response = await fetch("https://mastodon.social/api/v1/timelines/tag/oppai?limit=40",
                 {
                     method: "GET",
                     headers: {
@@ -40,7 +45,7 @@
                             imageEmbed += `<img height="200" src="${ media.url }">`;
                     }
     
-                    document.body.innerHTML += `
+                    statusInsert.innerHTML += `
                         <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
                             <strong>${ status.account.username } (${ status.account.url })</strong>
                             <br>
@@ -64,6 +69,8 @@
         <button style="flex: 1;" onclick="">Public Feed</button>
         <input style="flex: 1;" type="text" placeholder="Search @users or #hashtags">
     </div>
+
+    <div id="status-insert"></div>
     
 </body>
 </html>
