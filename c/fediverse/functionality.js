@@ -3,6 +3,9 @@
 // gonna have to make it so different pages actually change the url...
 // new URLSearchParams(window.location.search).get("search");
 
+// this code is (or at least ought to be) front-end design agnostic :3
+// basically it just specifies IDs for stuff but other than that like, do what you want we ball
+
 const contentInsert            = document.getElementById("content-insert");
 
 const templateStatus  = document.getElementById("template-status");
@@ -81,11 +84,14 @@ async function insertStatuses(statuses) {
         }
 
         statusEmbed.getElementById("display-name").innerText = status.account.display_name;
-        statusEmbed.getElementById("account").innerText      = "@" + status.account.acct;
         statusEmbed.getElementById("avatar").src             = status.account.avatar;
         statusEmbed.getElementById("content").innerHTML      = status.content;
         statusEmbed.getElementById("images").innerHTML       = imageEmbed;
         statusEmbed.getElementById("meta").innerHTML         = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+
+        let accountPart = acctEmbed.getElementById("account");
+        accountPart.innerText = "@" + status.account.acct;
+        accountPart.href      = "?search=@" + status.account.acct;
         
         contentInsert.appendChild(statusEmbed);
     }
