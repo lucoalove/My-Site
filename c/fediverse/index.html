@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Fediverse (Mastodon?) App</title>
     <style>
-        body { width: 45em; margin: auto; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+        body { width: 45em; margin: auto; font-family: "Outfit", sans-serif; }
     </style>
-    <script>
+    <script type="module">
 
         // Tutorial: https://docs.joinmastodon.org/client/intro/
 
@@ -16,9 +17,14 @@
         // /api/v1/accounts/113480132212449271/statuses
         // /api/v1/timelines/tag/sillycat?limit=5
 
-        async function init() {
+        const statusInsert = document.getElementById("status-insert");
+        const loadStatusesPublicButton = document.getElementById("load-statuses-public-button");
 
-            const statusInsert = document.getElementById("status-insert");
+        loadStatusesPublicButton.onclick = loadStatusesPublic;
+        
+        async function loadStatusesPublic() {
+
+            loadStatusesPublicButton.disabled = true;
             
             const response = await fetch("https://mastodon.social/api/v1/timelines/tag/oppai?limit=40",
                 {
@@ -47,7 +53,7 @@
     
                     statusInsert.innerHTML += `
                         <div style="margin: 1em 0; padding: 1em; border: 1px solid black; border-radius: 8px;">
-                            <strong>${ status.account.username } (${ status.account.url })</strong>
+                            <strong><a href="${ status.account.url }">${ status.account.username }</a></strong>
                             <br>
                             ${ status.content }
                             <br>
@@ -61,12 +67,14 @@
                 document.body.innerHTML += "Error " + response.status;
             }
         }
+
+        loadStatusesPublic();
     </script>
 </head>
-<body onload="init()">
+<body>
 
     <div style="display: flex; gap: 4px;">
-        <button style="flex: 1;" onclick="">Public Feed</button>
+        <button style="flex: 1;" id="load-statuses-public-button">Public Feed</button>
         <input style="flex: 1;" type="text" placeholder="Search @users or #hashtags">
     </div>
 
