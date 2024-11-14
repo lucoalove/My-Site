@@ -92,7 +92,8 @@ async function insertStatuses(statuses) {
         statusEmbed.getElementById("avatar").src             = status.account.avatar;
         statusEmbed.getElementById("content").innerHTML      = status.content;
         statusEmbed.getElementById("images").innerHTML       = imageEmbed;
-        statusEmbed.getElementById("meta").innerHTML         = `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+        
+        // `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
 
         let accountPart = statusEmbed.getElementById("account");
         accountPart.innerText = "@" + status.account.acct;
@@ -195,10 +196,10 @@ async function loadStatusesPublic() { // set context public?
     // fetch
     contentInsert.innerHTML = "Loading...";
     const response = await get("https://mastodon.social/api/v1/timelines/public?limit=40");
-    contentInsert.innerHTML = "";
     
     if (response) {
 
+        contentInsert.innerHTML = "";
         await insertStatuses(await response.json());
         
     } else {
