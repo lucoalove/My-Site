@@ -7,20 +7,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
         body { width: 45em; margin: auto; font-family: "Outfit", sans-serif; }
 
-        button { color: #932; border: 2px solid #932; background: none; font: inherit; font-weight: 700; }
-        button:disabled { color: #d64; border-color: #d64; }
+        button { color: grey; background: none; font: inherit; padding: 1em; }
+        button:disabled { color: #d64; border-bottom: 2px solid #d64; font-weight: 700; }
 
-        input { border: 2px solid #932; }
+        input { padding: 1em; }
     </style>
     <script type="module">
 
         // Tutorial: https://docs.joinmastodon.org/client/intro/
-
-        // /api/v1/accounts/lookup?acct=johnnnnn
-
-        // /api/v1/timelines/public
-        // /api/v1/accounts/113480132212449271/statuses
-        // /api/v1/timelines/tag/sillycat?limit=5
 
         const contentInsert            = document.getElementById("content-insert");
         
@@ -81,6 +75,10 @@
 
             // decode what they're trying to search (user or hashtag)
 
+            // /api/v1/accounts/lookup?acct=johnnnnn
+            // /api/v1/accounts/113480132212449271/statuses
+            
+            // /api/v1/timelines/tag/sillycat?limit=5
         }
         
         async function loadStatusesPublic() {
@@ -91,7 +89,7 @@
             contentInsert.innerHTML = "";
 
             // fetch
-            doTheFetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public");
+            doTheFetchAndInsertStatuses("https://mastodon.social/api/v1/timelines/public?limit=40");
         }
 
         loadStatusesPublic();
@@ -99,8 +97,8 @@
 </head>
 <body>
 
-    <div style="display: flex; gap: 4px;">
-        <button style="flex: 1;" id="button-load-statuses-public">Public Feed</button>
+    <div style="display: flex; gap: 1em; border-bottom: 1px solid lightgrey;">
+        <button id="button-load-statuses-public">Public Feed</button>
         <input style="flex: 1;" id="input-load-from-search" type="text" placeholder="Search @users or #hashtags">
     </div>
 
