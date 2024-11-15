@@ -92,31 +92,35 @@ async function get(endpoint) {
  * yea
  */
 
-async function initAuthentication() {
+async function getLoggedInAccount() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
     // https://docs.joinmastodon.org/client/authorized/#actions
 
     if (accessToken) {
 
-        // make sure the accessToken is still valid
-        if ((await get("/api/v1/accounts/verify_credentials")).status == 200) {
+        // get account with accessToken (and make sure the accessToken is still valid)
+        const credentialsResponse = await get("/api/v1/accounts/verify_credentials");
+        
+        if (credentialsResponse.status == 200) {
 
-            alert("logged in!!! " + accessToken);
+            // return the account
+            return await credentialsResponse.json();
             
         } else {
 
-            // if not, clear its cookie
-            alert("you got logged out :(");
+            // if accessToken is not valid, clear its cookie (effectively automatically logging out)
             accessToken = null;
             setCookie("access_token", "", -100);
+
+            return null;
 
         }
         
     } else {
 
-        alert("not logged in...");
-
+        // not logged in
+        return null;
     }
 }
 
@@ -148,9 +152,9 @@ async function requestAuthentication() {
     const clientID              = credentialApplication.client_id;
     const clientSecret          = credentialApplication.client_secret;
 
-    // cache client_id and client_secret for later
-    setCookie("client_id", clientID, 21);
-    setCookie("client_secret", clientSecret, 21);
+    // cache client_id and client_secret for auth.html to use
+    setCookie("client_id", clientID, 1);
+    setCookie("client_secret", clientSecret, 1);
     
     /*
      * Tell the user to authorize themselves under that client.
@@ -388,7 +392,7 @@ async function loadStatusesPublic() { // set context public?
 
 async function init() {
 
-    await initAuthentication();
+    console.log(await getLoggedInAccount());
 
     if (paramSearch) {
         loadFromSearchTerm(paramSearch);
