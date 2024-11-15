@@ -44,7 +44,7 @@ function embedEmojis(string, emojis) {
 
     for (const emoji of emojis) {
 
-        string = string.replaceAll(`:${ emoji.shortcode }:`, `<img class="emoji" src="${ emoji.url }">`);
+        string = string.replaceAll(`:${ emoji.shortcode }:`, `<img class="emoji" alt=":${ emoji.shortcode }:" title=":${ emoji.shortcode }:" src="${ emoji.url }">`);
     }
 
     return string;
