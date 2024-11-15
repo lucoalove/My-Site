@@ -18,6 +18,16 @@ buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
 buttonLoadStatusesFollowers.onclick = loadStatusesFollowers;
 inputLoadFromSearch.onchange        = loadFromSearch;
 
+function isBlank(string) {
+
+    return string.trim().length == 0;
+}
+
+function hideElement(element) {
+
+    element.style.display = "none";
+}
+
 async function get(URL) {
 
     const response = await fetch(URL,
@@ -86,7 +96,7 @@ async function insertStatuses(statuses) {
         if (sourceStatus == displayedStatus) {
 
             // hide reblogger info
-            statusEmbed.getElementById("reblogger-account-info").style.display = "none";
+            hideElement(statusEmbed.getElementById("reblogger-account-info"));
             
         } else {
 
@@ -96,24 +106,45 @@ async function insertStatuses(statuses) {
             rebloggerAccountPart.href      = "?search=@" + sourceStatus.account.acct;
         }
 
-        let imageEmbed = "";
+        {
+            statusEmbed.getElementById("display-name").innerText = isBlank(displayedStatus.account.display_name) ? displayedStatus.account.username : displayedStatus.account.display_name;
+            statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
+        }
+        
+        {
+            if (isBlank(displayedStatus.content)) {
+                hideElement(statusEmbed.getElementById("content"));
+            } else {
+                statusEmbed.getElementById("content").innerHTML = displayedStatus.content;
+            }
+        }
+        
+        {
+            if (displayedStatus.media_attachments.length == 0) {
 
-        for (const media of displayedStatus.media_attachments) {
+                hideElement(statusEmbed.getElementById("images"));
+                
+            } else {
 
-            if (media.type === "image")
-                imageEmbed += `<img height="200" src="${ media.url }">`;
+                let imageEmbed = "";
+    
+                for (const media of displayedStatus.media_attachments) {
+        
+                    if (media.type === "image")
+                        imageEmbed += `<img height="200" src="${ media.url }">`;
+                }
+    
+                statusEmbed.getElementById("images").innerHTML = imageEmbed;
+            }
+        }
+        
+        {
+            const accountPart = statusEmbed.getElementById("account");
+            accountPart.innerText = "@" + displayedStatus.account.acct;
+            accountPart.href      = "?search=@" + displayedStatus.account.acct;
         }
 
-        statusEmbed.getElementById("display-name").innerText = displayedStatus.account.display_name;
-        statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
-        statusEmbed.getElementById("content").innerHTML      = displayedStatus.content;
-        statusEmbed.getElementById("images").innerHTML       = imageEmbed;
-        
         // `Likes: ${ displayedStatus.favourites_count } / Reblogs: ${ displayedStatus.reblogs_count } / Replies: ${ displayedStatus.replies_count }`;
-
-        const accountPart = statusEmbed.getElementById("account");
-        accountPart.innerText = "@" + displayedStatus.account.acct;
-        accountPart.href      = "?search=@" + displayedStatus.account.acct;
         
         contentInsert.appendChild(statusEmbed);
     }
