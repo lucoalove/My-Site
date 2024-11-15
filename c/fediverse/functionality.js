@@ -86,7 +86,7 @@ async function authenticate() {
 
     if (applicationRequestResponse.status != 200) {
         
-        alert("Error authenticating: " + response.status);
+        alert("Error authenticating: " + applicationRequestResponse.status);
         return;
     }
 
@@ -99,10 +99,16 @@ async function authenticate() {
     /*
      * 2) Authorize the user under that client
      */
-    const authorizeUserResponse = await get(`https://mastodon.social/oauth/authorize?client_id=${ clientID }&scope=read+write+push&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`);
+    const authorizeUserResponse = await get(`/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`);
+
+    if (!authorizeUserResponse) {
+
+        alert("Error :(");
+        return;
+    }
     
     console.log(authorizeUserResponse);
-    console.log(await authorizeUserResponse.json()); // code!
+    console.log(await authorizeUserResponse.json()); // we need .code
     
 
     /*
