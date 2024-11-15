@@ -30,6 +30,7 @@
         .status #account { color: var(--text-off); }
         .status #reblogger-account-info { color: var(--text-off); font-size: smaller; }
         .status #reblogger-account { color: var(--text-off); }
+        .status #images img { max-width: 100%; }
         .status p:first-child { margin-top: 0; }
         .status p:last-child { margin-bottom: 0; }
         .status #status-sidebar { display: flex; flex-direction: column; gap: 1em; align-items: center; padding: 1em; padding-right: 0; font-weight: 700; color: var(--text-off); }
@@ -48,15 +49,15 @@
                 
                 <button type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-off)"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
-                    <div id="like-count">0</div>
+                    <div id="like-count"></div>
                 </button>
                 <button type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-off)"><path d="M280-80 120-240l160-160 56 58-62 62h406v-160h80v240H274l62 62-56 58Zm-80-440v-240h486l-62-62 56-58 160 160-160 160-56-58 62-62H280v160h-80Z"/></svg>
-                    <div id="repost-count">0</div>
+                    <div id="repost-count"></div>
                 </button>
                 <button type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-off)"><path d="M880-80 720-240H320q-33 0-56.5-23.5T240-320v-40h440q33 0 56.5-23.5T760-440v-280h40q33 0 56.5 23.5T880-640v560ZM160-473l47-47h393v-280H160v327ZM80-280v-520q0-33 23.5-56.5T160-880h440q33 0 56.5 23.5T680-800v280q0 33-23.5 56.5T600-440H240L80-280Zm80-240v-280 280Z"/></svg>
-                    <div id="comment-count">0</div>
+                    <div id="comment-count"></div>
                 </button>
                 
             </div>
@@ -93,7 +94,7 @@
 
     <nav>
         <button id="button-load-statuses-public">Global</button>
-        <button id="button-load-statuses-followers">Followers</button>
+        <button id="button-load-statuses-following">Following</button>
         <input id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
     </nav>
 
