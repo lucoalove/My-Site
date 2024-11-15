@@ -64,8 +64,11 @@ async function get(endpoint) {
 async function authenticate() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
+    // (should) cache ID, secret, and access_token...
 
-    // register an application
+    /*
+     * 1) Register a client application (get client_id and client_secret)
+     */
     const applicationRequestResponse = await fetch("https://mastodon.social/api/v1/apps",
         {
             method: "POST",
@@ -90,37 +93,55 @@ async function authenticate() {
     const credentialApplication = await applicationRequestResponse.json();
     const clientID              = credentialApplication.client_id;
     const clientSecret          = credentialApplication.client_secret;
-    
-    // (should) cache ID and secret
 
-    // get access token via application
-    const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
+    /*
+     * 2) Authorize the user under that client
+     */
+    const authorizeUserResponse = await fetch("https://mastodon.social/oauth/authorize",
         {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                "client_id":     clientID,
-                "client_secret": clientSecret,
-                "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
-                "grant_type":    "client_credentials"
+                "client_id":    clientID,
+                "scope":        "read write push",
+                "redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
+                //"response_type"=code
             })
         }
     );
+    
+    console.log(authorizeUserResponse);
+    console.log(await authorizeUserResponse.json());
+    
 
-    if (authenticationRequestResponse.status != 200) {
+    /*
+     * 3) Get access token via application
+     */
+    // const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
+    //     {
+    //         method: "POST",
+    //         headers: {
+    //             "content-type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             "client_id":     clientID,
+    //             "client_secret": clientSecret,
+    //             "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
+    //             "grant_type":    "client_credentials"
+    //         })
+    //     }
+    // );
+
+    // if (authenticationRequestResponse.status != 200) {
         
-        alert("Error authenticating: " + response.status);
-        return;
-    }
+    //     alert("Error authenticating: " + response.status);
+    //     return;
+    // }
     
-    const token = await authenticationRequestResponse.json();
-    const accessToken = token.access_token;
-    
-    // (should) access token
-
-    console.log(token);
+    // const token = await authenticationRequestResponse.json();
+    // const accessToken = token.access_token;
     
 }
 
@@ -348,12 +369,15 @@ async function loadStatusesPublic() { // set context public?
     }
 }
 
+async function init() {
 
+    await authenticate();
 
-if (paramSearch) {
-    loadFromSearchTerm(paramSearch);
-} else {
-    loadStatusesPublic();
+    if (paramSearch) {
+        loadFromSearchTerm(paramSearch);
+    } else {
+        loadStatusesPublic();
+    }
 }
 
-authenticate();
+init();
