@@ -6,7 +6,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-        :root { --accent: #69f; --border: #002; --text: #fff; --text-off: #9ac; --background: #235; }
+        :root { --accent: #69f; --border: #002; --text: #fff; --text-off: #9ac; --background: #235; --status-background: #1d2844; }
         
         body { width: 72ex; margin: auto; font-family: "Hind", sans-serif; color: var(--text); background: var(--background); }
 
@@ -24,10 +24,9 @@
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { margin: 1em 0; display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-        .status, .status #avatar { box-shadow: 0 2px 8px -4px var(--border); }
+        .status { margin: 1em 0; display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--status-background); box-shadow: 0 2px 8px -4px black; }
         .status #account-info { display: flex; gap: 1em; align-items: center; }
-        .status #avatar { width: 64px; border-radius: 4px; }
+        .status #avatar { width: 64px; border-radius: 4px; box-shadow: 0 2px 4px black; }
         .status #account { color: var(--text-off); }
         .status #reblogger-account-info { color: var(--text-off); font-size: smaller; }
         .status #reblogger-account { color: var(--text-off); }
