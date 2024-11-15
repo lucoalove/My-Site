@@ -103,10 +103,11 @@ async function initAuthentication() {
     // https://docs.joinmastodon.org/client/token/#creating-our-application
 
     /*
-     * 1) coming back from user authentication with code query param => request and cache access token
-     * 2) access token is already cached => logged in!
+     * 1) access token is cached => already logged in!
+     * 2) coming back from user authentication with code query param => request and cache access token, then reload page
      *
      * if either fail, should reset their corresponding values and restart page
+     * there is so much that can fail... I need to check so many conditions...
      */
 
     const accessToken = getCookie("access_token");
@@ -127,8 +128,8 @@ async function initAuthentication() {
                     "content-type": "application/json"
                 },
                 body: JSON.stringify({
-                    "client_id":     clientID,
-                    "client_secret": clientSecret,
+                    "client_id":     getCookie("client_id"),
+                    "client_secret": getCookie("client_secret"),
                     "redirect_uri":  "https://www.fatchicks.cc/c/fediverse/",
                     "grant_type":    "authorization_code",
                     "code":          paramCode,
@@ -139,7 +140,7 @@ async function initAuthentication() {
     
         if (tokenRequestResponse.status != 200) {
             
-            alert("Error authenticating: " + response.status);
+            alert("Error authenticating: " + tokenRequestResponse.status);
             return;
         }
         
