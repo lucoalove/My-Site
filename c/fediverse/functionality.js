@@ -38,9 +38,9 @@ function embedEmojis(string, emojis) {
     return string;
 }
 
-async function get(URL) {
+async function get(endpoint) {
 
-    const response = await fetch(URL,
+    const response = await fetch("https://mastodon.social" + endpoint,
         {
             method: "GET",
             headers: {
@@ -59,6 +59,29 @@ async function get(URL) {
     }
 }
 
+async function authenticate() {
+
+    // https://docs.joinmastodon.org/client/token/#creating-our-application
+
+    const response = await fetch("https://mastodon.social/api/v1/apps",
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: {
+                "client_name": "Test Application",
+                "redirect_uris": "urn:ietf:wg:oauth:2.0:oob",
+                "scopes": "read write push",
+                "website": "https://www.fatchicks.cc/c/fediverse/"
+            }
+        }
+    );
+
+    console.log(response);
+    console.log(await response.json());
+}
+
 async function insertAccount(account) {
 
     console.log("DEBUG_ACCT:");
@@ -68,7 +91,7 @@ async function insertAccount(account) {
 
     acctEmbed.getElementById("avatar").src                   = account.avatar;
     acctEmbed.getElementById("header").style.backgroundImage = `url("${ account.header }")`;
-    acctEmbed.getElementById("note").innerHTML               = embedEmojis(account.note, account.emojis); // no idea if account.note is ever null
+    acctEmbed.getElementById("note").innerHTML               = embedEmojis(account.note, account.emojis); // account.note is never null, just empty, so this is ok :)
     acctEmbed.getElementById("followers-count").innerText    = account.followers_count;
     acctEmbed.getElementById("following-count").innerText    = account.following_count;
 
@@ -131,7 +154,7 @@ async function insertStatuses(statuses) {
                 displayedStatus.account.emojis
             );
             
-            statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
+            statusEmbed.getElementById("avatar").src = displayedStatus.account.avatar;
 
             const accountPart = statusEmbed.getElementById("account");
             accountPart.innerText = "@" + displayedStatus.account.acct;
@@ -200,15 +223,15 @@ async function loadFromSearchTerm(term) {
     if (term.charAt(0) === '@') {
 
         // account search
-        const lookupResponse = await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${ term }`);
+        const lookupResponse = await get(`/api/v1/accounts/lookup?acct=${ term }`);
         contentInsert.innerHTML = "";
         
         if (lookupResponse) {
 
             const lookupJson = await lookupResponse.json();
 
-            const acctResponse         = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }`);
-            const acctStatusesResponse = await get(`https://mastodon.social/api/v1/accounts/${ lookupJson.id }/statuses`);
+            const acctResponse         = await get(`/api/v1/accounts/${ lookupJson.id }`);
+            const acctStatusesResponse = await get(`/api/v1/accounts/${ lookupJson.id }/statuses`);
             
             if (acctResponse && acctStatusesResponse) {
 
@@ -228,7 +251,7 @@ async function loadFromSearchTerm(term) {
     } else {
     
         // hashtag search
-        const response = await get(`https://mastodon.social/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
+        const response = await get(`/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
     
         if (response) {
 
@@ -270,7 +293,7 @@ async function loadStatusesPublic() { // set context public?
 
     // fetch
     contentInsert.innerHTML = "Loading...";
-    const response = await get("https://mastodon.social/api/v1/timelines/public?limit=40");
+    const response = await get("/api/v1/timelines/public?limit=40");
     
     if (response) {
 
@@ -285,10 +308,10 @@ async function loadStatusesPublic() { // set context public?
 
 
 
-console.log(paramSearch);
-
 if (paramSearch) {
     loadFromSearchTerm(paramSearch);
 } else {
     loadStatusesPublic();
 }
+
+authenticate();
