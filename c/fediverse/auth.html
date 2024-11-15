@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Authenticating...</title>
+    <script>
+
+        const paramCode = new URLSearchParams(window.location.search).get("code");
+        
+        if (paramCode) {
+
+            const tokenRequestResponse = await fetch(targetURL + "/oauth/token",
+                {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "client_id":     getCookie("client_id"),
+                        "client_secret": getCookie("client_secret"),
+                        "redirect_uri":  "https://www.fatchicks.cc/c/fediverse/auth.html",
+                        "grant_type":    "authorization_code",
+                        "code":          paramCode,
+                        "scope":         "read write push"
+                    })
+                }
+            );
+        
+            if (tokenRequestResponse.status != 200) {
+                
+                alert("Error authenticating: " + tokenRequestResponse.status);
+                
+            } else {
+    
+                const token = await tokenRequestResponse.json();
+                const accessToken = token.access_token;
+        
+                // cache access token
+                setCookie("access_token", accessToken, 21);
+            }
+        }
+
+        // change page to index.html (without query!) once done
+        window.location.replace("index.html");
+        
+    </script>
+</head>
+<body>
+    Authenticating...
+</body>
+</html>
