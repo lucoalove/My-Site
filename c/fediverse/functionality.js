@@ -68,7 +68,7 @@ async function insertAccount(account) {
 
     acctEmbed.getElementById("avatar").src                   = account.avatar;
     acctEmbed.getElementById("header").style.backgroundImage = `url("${ account.header }")`;
-    acctEmbed.getElementById("note").innerHTML               = account.note;
+    acctEmbed.getElementById("note").innerHTML               = embedEmojis(account.note, account.emojis); // no idea if account.note is ever null
     acctEmbed.getElementById("followers-count").innerText    = account.followers_count;
     acctEmbed.getElementById("following-count").innerText    = account.following_count;
 
