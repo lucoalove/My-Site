@@ -392,8 +392,19 @@ async function loadStatusesPublic() { // set context public?
 
 async function init() {
 
-    console.log(await getLoggedInAccount());
+    const account = await getLoggedInAccount();
 
+    // load account information
+    if (account) {
+        
+        document.getElementById("menu-logged-out").style.display = "none";
+        
+    } else {
+        
+        document.getElementById("menu-logged-in").style.display = "none";
+    }
+
+    // load content information
     if (paramSearch) {
         loadFromSearchTerm(paramSearch);
     } else {
