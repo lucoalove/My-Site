@@ -24,8 +24,14 @@
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { margin: 1em 0; padding: 1em; border: 1px solid lightgrey; border-radius: 8px; }
+        .status { margin: 1em 0; display: flex; flex-direction: column; gap: 1em; padding: 1em; border: 1px solid lightgrey; border-radius: 8px; }
         .status #account-info { display: flex; gap: 1em; align-items: center; }
+        .status #avatar { width: 30px; border-radius: 4px; }
+        .status #account { color: grey; }
+        .status #reblogger-account-info { color: grey; font-size: smaller; }
+        .status #reblogger-account { color: grey; }
+        .status p:first-child { margin-top: 0; }
+        .status p:last-child { margin-bottom: 0; }
     </style>
     <script type="module" src="functionality.js"></script>
 </head>
@@ -33,13 +39,13 @@
 
     <template id="template-status">
         <div class="status">
-            <div id="reblogger-account-info" style="color: grey; margin-bottom: 1em; font-size: smaller;">
-                ⤷ Reblogged by <a id="reblogger-account" style="color: grey;"></a>
+            <div id="reblogger-account-info">
+                ⤷ Reblogged by <a id="reblogger-account"></a>
             </div>
             <div id="account-info">
-                <img id="avatar" style="width: 30px; border-radius: 4px;">
+                <img id="avatar">
                 <strong id="display-name"></strong>
-                <a id="account" style="color: grey;"></a>
+                <a id="account"></a>
             </div>
             <div id="content"></div>
             <div id="images"></div>
