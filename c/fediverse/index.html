@@ -23,14 +23,16 @@
         nav button:disabled { padding-bottom: calc(0.5em - 2px); color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
         nav input { flex: 1; font: inherit; font-size: smaller; padding: 0.5em; border: 0; border-left: 1px solid var(--border); background: none; color: inherit; }
 
-        .account-box #header { position: relative; overflow: hidden; border-radius: 1em; background-color: #eee; background-position: center; background-size: cover; aspect-ratio: 2; z-index: -1; }
+        #content-insert { display: flex; flex-direction: column; gap: 1em; }
+        
+        .account-box #header { position: relative; overflow: hidden; border-radius: 1em; background-color: var(--status-background); background-position: center; background-size: cover; aspect-ratio: 2; z-index: -1; }
         .account-box #avatar { width: 120px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-top-right-radius: 1em; }
         .account-box #display-name { margin-bottom: 0; }
         .account-box #account { color: var(--text-off); }
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { margin: 1em 0; display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--status-background); box-shadow: 0 2px 8px -4px black; }
+        .status { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--status-background); box-shadow: 0 2px 8px -4px black; }
         .status #account-info { display: flex; flex-wrap: wrap; gap: 0 0.5em; align-items: center; }
         .status #avatar { width: 64px; border-radius: 4px; box-shadow: 0 2px 4px black; }
         .status #account { color: var(--text-off); }
@@ -112,6 +114,7 @@
     <main class="centerizer">
 
         <div class="width-center" id="content-insert"></div>
+        <br><br>
 
     </main>
     
