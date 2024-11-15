@@ -6,7 +6,6 @@
 // provider = https://mastodon.social ...?
 
 const paramSearch = new URLSearchParams(window.location.search).get("search");
-const paramCode   = new URLSearchParams(window.location.search).get("code");
 
 const contentInsert = document.getElementById("content-insert");
 
@@ -65,8 +64,21 @@ async function get(endpoint) {
 async function authenticate() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
-    // (should) cache ID, secret, and access_token...
 
+    /*
+     * there are "function entrance" states:
+     *
+     * 1) no client => create client and request user authentication
+     * 2) coming back from user authentication with code => request and cache access token
+     * 3) access token is cached => logged in!
+     *
+     * if 2 or 3 fail, clear their respective values and go back to 1
+     */ 
+    
+    const paramCode = new URLSearchParams(window.location.search).get("code");
+
+    // first: if (access_token exists in cookies)
+    
     if (paramCode) {
 
         alert("login time!");
@@ -94,6 +106,8 @@ async function authenticate() {
         
         // const token = await authenticationRequestResponse.json();
         // const accessToken = token.access_token;
+
+        // cache access_token then reload page without query
 
     } else {
     
@@ -124,11 +138,13 @@ async function authenticate() {
         const credentialApplication = await applicationRequestResponse.json();
         const clientID              = credentialApplication.client_id;
         const clientSecret          = credentialApplication.client_secret;
-    
+
+        // cache client_id and client_secret
+        
         /*
          * Tell the user to authorize themselves under that client
          */
-        window.location.replace(`/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
+        window.location.replace("https://mastodon.social" + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
     }
     
 }
