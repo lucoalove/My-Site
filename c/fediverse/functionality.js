@@ -5,6 +5,8 @@
 
 const targetURL = "https://mastodon.social";
 
+const accessToken = getCookie("access_token");
+
 const paramSearch = new URLSearchParams(window.location.search).get("search");
 
 const contentInsert = document.getElementById("content-insert");
@@ -73,14 +75,29 @@ function embedEmojis(string, emojis) {
 
 async function get(endpoint) {
 
-    const response = await fetch(targetURL + endpoint,
-        {
+    let payload;
+
+    if (accessToken) {
+        
+        payload = {
             method: "GET",
             headers: {
-                "content-type": "application/json"
+                "content-type":  "application/json",
+                "Authorization": "Bearer " + accessToken;
             }
-        }
-    );
+        };
+        
+    } else {
+
+        payload = {
+            method: "GET",
+            headers: {
+                "content-type":  "application/json"
+            }
+        };
+    }
+    
+    const response = await fetch(targetURL + endpoint, payload);
 
     if (response.status == 200) {
         
@@ -103,11 +120,21 @@ async function initAuthentication() {
     // https://docs.joinmastodon.org/client/token/#creating-our-application
     // https://docs.joinmastodon.org/client/authorized/#actions
 
-    const accessToken = getCookie("access_token");
-
     if (accessToken) {
 
-        alert("logged in!!! " + accessToken);
+        // make sure the accessToken is still valid
+        if ((await get("/api/v1/accounts/verify_credentials")).status == 200) {
+
+            alert("logged in!!! " + accessToken);
+            
+        } else {
+
+            // if not, clear its cookie
+            alert("you got logged out :(");
+            accessToken = null;
+            setCookie("access_token", "", -100);
+
+        }
         
     } else {
 
