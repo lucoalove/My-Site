@@ -401,16 +401,16 @@ async function init() {
 
         const menu = document.getElementById("menu-logged-in");
         
-        menu.getElementById("avatar").src = account.avatar;
+        menu.querySelector("#avatar").src = account.avatar;
     
-        menu.getElementById("display-name").innerHTML = embedEmojis(
+        menu.querySelector("#display-name").innerHTML = embedEmojis(
             isBlank(account.display_name)
                 ? account.username
                 : account.display_name,
             account.emojis
         );
     
-        let accountPart = menu.getElementById("account");
+        let accountPart = menu.querySelector("#account");
         accountPart.innerText = "@" + account.acct;
         accountPart.href      = "?search=@" + account.acct;
         
