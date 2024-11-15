@@ -6,11 +6,12 @@
     
     <script type="module">
 
-        const paramCode = new URLSearchParams(window.location.search).get("code");
+        const paramCode      = new URLSearchParams(window.location.search).get("code");
+        const paramTargetURL = new URLSearchParams(window.location.search).get("state");
         
         if (paramCode) {
 
-            const tokenRequestResponse = await fetch(targetURL + "/oauth/token",
+            const tokenRequestResponse = await fetch(paramTargetURL + "/oauth/token",
                 {
                     method: "POST",
                     headers: {
