@@ -182,7 +182,7 @@ async function requestAuthentication() {
      * resulting code will be used to get an access token, which
      * is stored in cookies and used to log them in.
      */
-    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code`;
+    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code&state=${ targetURL }`;
 }
 
 async function insertAccount(account) {
