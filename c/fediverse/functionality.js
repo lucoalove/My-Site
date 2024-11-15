@@ -94,6 +94,8 @@ async function authenticate() {
     const clientID              = credentialApplication.client_id;
     const clientSecret          = credentialApplication.client_secret;
 
+    console.log(credentialApplication);
+
     /*
      * 2) Authorize the user under that client
      */
