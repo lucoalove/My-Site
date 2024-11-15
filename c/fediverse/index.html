@@ -8,7 +8,12 @@
 
         :root { --accent: #6d9; --border: #010; --text: #fff; --text-off: #9bc; --background: #134; --status-background: #0c2c3a; }
         
-        body { width: 72ex; margin: auto; font-family: "Hind", sans-serif; color: var(--text); background: var(--background); }
+        body { margin: 0; font-family: "Hind", sans-serif; color: var(--text); background: var(--background); }
+
+        .centerizer { display: flex; align-items: flex-start; justify-content: center; gap: 1em; }
+        .width-center { width: 72ex; }
+
+        header { position: sticky; top: 0; background: var(--background); }
 
         a { color: var(--accent); text-decoration-thickness: 0.5px; text-decoration-style: dotted; }
 
@@ -93,13 +98,21 @@
         </div>
     </template>
 
-    <nav>
-        <button id="button-load-statuses-public">Global</button>
-        <button id="button-load-statuses-following">Following</button>
-        <input id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
-    </nav>
+    <header class="centerizer">
 
-    <div id="content-insert"></div>
+        <nav class="width-center">
+            <button id="button-load-statuses-public">Global</button>
+            <button id="button-load-statuses-following">Following</button>
+            <input id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
+        </nav>
+        
+    </header>
+
+    <main class="centerizer">
+
+        <div class="width-center" id="content-insert"></div>
+
+    </main>
     
 </body>
 </html>
