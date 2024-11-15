@@ -70,34 +70,50 @@ async function insertStatuses(statuses) {
         return;
     }
 
-    for (const status of statuses) {
+    for (const sourceStatus of statuses) {
 
         // for now just skip any sensitive statuses
-        if (status.sensitive) {
+        if (sourceStatus.sensitive) {
             continue;
         }
 
         // initialized the status embed
         let statusEmbed = templateStatus.content.cloneNode(true);
 
+        // if this is a reblog, we need to display the reblog and not this status
+        const displayedStatus = sourceStatus.reblog == null ? sourceStatus : sourceStatus.reblog;
+        
+        if (sourceStatus == displayedStatus) {
+
+            // hide reblogger info
+            statusEmbed.getElementById("reblogger-account-info").style.display = "none";
+            
+        } else {
+
+            // fill reblogger info
+            const rebloggerAccountPart = statusEmbed.getElementById("reblogger-account");
+            rebloggerAccountPart.innerText = "@" + sourceStatus.account.acct;
+            rebloggerAccountPart.href      = "?search=@" + sourceStatus.account.acct;
+        }
+
         let imageEmbed = "";
 
-        for (const media of status.media_attachments) {
+        for (const media of displayedStatus.media_attachments) {
 
             if (media.type === "image")
                 imageEmbed += `<img height="200" src="${ media.url }">`;
         }
 
-        statusEmbed.getElementById("display-name").innerText = status.account.display_name;
-        statusEmbed.getElementById("avatar").src             = status.account.avatar;
-        statusEmbed.getElementById("content").innerHTML      = status.content;
+        statusEmbed.getElementById("display-name").innerText = displayedStatus.account.display_name;
+        statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
+        statusEmbed.getElementById("content").innerHTML      = displayedStatus.content;
         statusEmbed.getElementById("images").innerHTML       = imageEmbed;
         
-        // `Likes: ${ status.favourites_count } / Reblogs: ${ status.reblogs_count } / Replies: ${ status.replies_count }`;
+        // `Likes: ${ displayedStatus.favourites_count } / Reblogs: ${ displayedStatus.reblogs_count } / Replies: ${ displayedStatus.replies_count }`;
 
-        let accountPart = statusEmbed.getElementById("account");
-        accountPart.innerText = "@" + status.account.acct;
-        accountPart.href      = "?search=@" + status.account.acct;
+        const accountPart = statusEmbed.getElementById("account");
+        accountPart.innerText = "@" + displayedStatus.account.acct;
+        accountPart.href      = "?search=@" + displayedStatus.account.acct;
         
         contentInsert.appendChild(statusEmbed);
     }
