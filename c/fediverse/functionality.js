@@ -83,7 +83,7 @@ async function get(endpoint) {
             method: "GET",
             headers: {
                 "content-type":  "application/json",
-                "Authorization": "Bearer " + accessToken;
+                "Authorization": "Bearer " + accessToken
             }
         };
         
