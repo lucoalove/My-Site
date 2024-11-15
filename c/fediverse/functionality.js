@@ -28,6 +28,16 @@ function hideElement(element) {
     element.style.display = "none";
 }
 
+function embedEmojis(string, emojis) {
+
+    for (const emoji of emojis) {
+
+        string = string.replaceAll(`:${ emoji.shortcode }:`, `<img class="emoji" src="${ emoji.url }">`);
+    }
+
+    return string;
+}
+
 async function get(URL) {
 
     const response = await fetch(URL,
@@ -121,7 +131,7 @@ async function insertStatuses(statuses) {
             if (isBlank(displayedStatus.content)) {
                 hideElement(statusEmbed.getElementById("content"));
             } else {
-                statusEmbed.getElementById("content").innerHTML = displayedStatus.content;
+                statusEmbed.getElementById("content").innerHTML = embedEmojis(displayedStatus.content, displayedStatus.emojis);
             }
         }
 
