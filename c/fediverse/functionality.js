@@ -101,67 +101,24 @@ async function get(endpoint) {
 async function initAuthentication() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
-
-    /*
-     * 1) access token is cached => already logged in!
-     * 2) coming back from user authentication with code query param => request and cache access token, then reload page
-     *
-     * if either fail, should reset their corresponding values and restart page
-     * there is so much that can fail... I need to check so many conditions...
-     */
+    // https://docs.joinmastodon.org/client/authorized/#actions
 
     const accessToken = getCookie("access_token");
-    const paramCode = new URLSearchParams(window.location.search).get("code");
 
     if (accessToken) {
 
         alert("logged in!!! " + accessToken);
-    
-    } else if (paramCode) {
-
-        // y'know, this section could be a separate authentication page
-
-        const tokenRequestResponse = await fetch(targetURL + "/oauth/token",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    "client_id":     getCookie("client_id"),
-                    "client_secret": getCookie("client_secret"),
-                    "redirect_uri":  "https://www.fatchicks.cc/c/fediverse/",
-                    "grant_type":    "authorization_code",
-                    "code":          paramCode,
-                    "scope":         "read write push"
-                })
-            }
-        );
-    
-        if (tokenRequestResponse.status != 200) {
-            
-            alert("Error authenticating: " + tokenRequestResponse.status);
-            return;
-        }
         
-        const token = await tokenRequestResponse.json();
-        const accessToken = token.access_token;
-
-        // cache access_token then reload page without query
-        setCookie("access_token", accessToken, 21);
-        window.location.replace("?");
-
     } else {
-    
-        // not logged in or logging in
+
+        alert("not logged in...");
+
     }
 }
 
 async function requestAuthentication() {
 
-    /*
-     * Register a client application (get client_id and client_secret).
-     */
+    // register a client application (for client_id and client_secret)
     const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
         {
             method: "POST",
@@ -170,7 +127,7 @@ async function requestAuthentication() {
             },
             body: JSON.stringify({
                 "client_name":   "Test Application",
-                "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/" ],
+                "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/auth.html" ],
                 "scopes":        "read write push",
                 "website":       "https://www.fatchicks.cc/c/fediverse/"
             })
@@ -194,11 +151,11 @@ async function requestAuthentication() {
     /*
      * Tell the user to authorize themselves under that client.
      * 
-     * They will then be redirected back to this page where the
-     * resulting code will be used to get an access token and
-     * log them in.
+     * They will then be redirected to the auth page where the
+     * resulting code will be used to get an access token, which
+     * is stored in cookies and used to log them in.
      */
-    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/&response_type=code`;
+    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code`;
 }
 
 async function insertAccount(account) {
