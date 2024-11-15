@@ -3,7 +3,7 @@
 // this code is (or at least ought to be) front-end design agnostic :3
 // basically it just specifies IDs for stuff but other than that like, do what you want we ball
 
-// provider = https://mastodon.social ...?
+const targetURL = "https://mastodon.social";
 
 const paramSearch = new URLSearchParams(window.location.search).get("search");
 
@@ -42,7 +42,7 @@ function embedEmojis(string, emojis) {
 
 async function get(endpoint) {
 
-    const response = await fetch("https://mastodon.social" + endpoint,
+    const response = await fetch(targetURL + endpoint,
         {
             method: "GET",
             headers: {
@@ -83,7 +83,7 @@ async function authenticate() {
 
         alert("login time!");
 
-        // const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
+        // const authenticationRequestResponse = await fetch(targetURL + "/oauth/token",
         //     {
         //         method: "POST",
         //         headers: {
@@ -114,7 +114,7 @@ async function authenticate() {
         /*
          * Register a client application (get client_id and client_secret)
          */
-        const applicationRequestResponse = await fetch("https://mastodon.social/api/v1/apps",
+        const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
             {
                 method: "POST",
                 headers: {
@@ -144,7 +144,7 @@ async function authenticate() {
         /*
          * Tell the user to authorize themselves under that client
          */
-        window.location.replace("https://mastodon.social" + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
+        window.location.replace(targetURL + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
     }
     
 }
