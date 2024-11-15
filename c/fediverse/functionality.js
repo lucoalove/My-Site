@@ -99,20 +99,7 @@ async function authenticate() {
     /*
      * 2) Authorize the user under that client
      */
-    const authorizeUserResponse = await fetch("https://mastodon.social/oauth/authorize",
-        {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                "client_id":     clientID,
-                "scope":         "read write push",
-                "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
-                "response_type": "code"
-            })
-        }
-    );
+    const authorizeUserResponse = await get(`https://mastodon.social/oauth/authorize?client_id=${ clientID }&scope=read+write+push&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`);
     
     console.log(authorizeUserResponse);
     console.log(await authorizeUserResponse.json()); // code!
