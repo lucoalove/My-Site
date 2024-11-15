@@ -11,11 +11,11 @@ const templateStatus  = document.getElementById("template-status");
 const templateAccount = document.getElementById("template-account");
 
 const buttonLoadStatusesPublic    = document.getElementById("button-load-statuses-public");
-const buttonLoadStatusesFollowers = document.getElementById("button-load-statuses-followers");
+const buttonLoadStatusesFollowing = document.getElementById("button-load-statuses-following");
 const inputLoadFromSearch         = document.getElementById("input-load-from-search");
 
 buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
-buttonLoadStatusesFollowers.onclick = loadStatusesFollowers;
+buttonLoadStatusesFollowing.onclick = loadStatusesFollowing;
 inputLoadFromSearch.onchange        = loadFromSearch;
 
 function isBlank(string) {
@@ -106,11 +106,17 @@ async function insertStatuses(statuses) {
             rebloggerAccountPart.href      = "?search=@" + sourceStatus.account.acct;
         }
 
+        // account
         {
             statusEmbed.getElementById("display-name").innerText = isBlank(displayedStatus.account.display_name) ? displayedStatus.account.username : displayedStatus.account.display_name;
             statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
+
+            const accountPart = statusEmbed.getElementById("account");
+            accountPart.innerText = "@" + displayedStatus.account.acct;
+            accountPart.href      = "?search=@" + displayedStatus.account.acct;
         }
-        
+
+        // content
         {
             if (isBlank(displayedStatus.content)) {
                 hideElement(statusEmbed.getElementById("content"));
@@ -118,7 +124,8 @@ async function insertStatuses(statuses) {
                 statusEmbed.getElementById("content").innerHTML = displayedStatus.content;
             }
         }
-        
+
+        // image gallery
         {
             if (displayedStatus.media_attachments.length == 0) {
 
@@ -131,20 +138,19 @@ async function insertStatuses(statuses) {
                 for (const media of displayedStatus.media_attachments) {
         
                     if (media.type === "image")
-                        imageEmbed += `<img height="200" src="${ media.url }">`;
+                        imageEmbed += `<img src="${ media.url }">`;
                 }
     
                 statusEmbed.getElementById("images").innerHTML = imageEmbed;
             }
         }
-        
-        {
-            const accountPart = statusEmbed.getElementById("account");
-            accountPart.innerText = "@" + displayedStatus.account.acct;
-            accountPart.href      = "?search=@" + displayedStatus.account.acct;
-        }
 
-        // `Likes: ${ displayedStatus.favourites_count } / Reblogs: ${ displayedStatus.reblogs_count } / Replies: ${ displayedStatus.replies_count }`;
+        // analytics
+        {
+            statusEmbed.getElementById("like-count").innerText    = displayedStatus.favourites_count;
+            statusEmbed.getElementById("repost-count").innerText  = displayedStatus.reblogs_count;
+            statusEmbed.getElementById("comment-count").innerText = displayedStatus.replies_count;
+        }
         
         contentInsert.appendChild(statusEmbed);
     }
@@ -214,11 +220,11 @@ async function loadFromSearchTerm(term) {
     }
 }
 
-async function loadStatusesFollowers() {
+async function loadStatusesFollowing() {
     
     // reset context
     buttonLoadStatusesPublic.disabled = false;
-    buttonLoadStatusesFollowers.disabled = true;
+    buttonLoadStatusesFollowing.disabled = true;
     inputLoadFromSearch.value = "";
 
     if (paramSearch)
@@ -234,7 +240,7 @@ async function loadStatusesPublic() { // set context public?
 
     // reset context
     buttonLoadStatusesPublic.disabled = true;
-    buttonLoadStatusesFollowers.disabled = false;
+    buttonLoadStatusesFollowing.disabled = false;
     inputLoadFromSearch.value = "";
 
     if (paramSearch)
