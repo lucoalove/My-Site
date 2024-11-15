@@ -71,7 +71,7 @@ async function authenticate() {
             },
             body: {
                 "client_name": "Test Application",
-                "redirect_uris": "urn:ietf:wg:oauth:2.0:oob",
+                "redirect_uris": [ "urn:ietf:wg:oauth:2.0:oob" ],
                 "scopes": "read write push",
                 "website": "https://www.fatchicks.cc/c/fediverse/"
             }
