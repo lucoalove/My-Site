@@ -3,6 +3,8 @@
 // this code is (or at least ought to be) front-end design agnostic :3
 // basically it just specifies IDs for stuff but other than that like, do what you want we ball
 
+// provider = https://mastodon.social ...?
+
 const paramSearch = new URLSearchParams(window.location.search).get("search");
 
 const contentInsert = document.getElementById("content-insert");
@@ -63,23 +65,63 @@ async function authenticate() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
 
-    const response = await fetch("https://mastodon.social/api/v1/apps",
+    // register an application
+    const applicationRequestResponse = await fetch("https://mastodon.social/api/v1/apps",
         {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                "client_name": "Test Application",
+                "client_name":   "Test Application",
                 "redirect_uris": [ "urn:ietf:wg:oauth:2.0:oob" ],
-                "scopes": "read write push",
-                "website": "https://www.fatchicks.cc/c/fediverse/"
+                "scopes":        "read write push",
+                "website":       "https://www.fatchicks.cc/c/fediverse/"
             })
         }
     );
 
-    console.log(response);
-    console.log(await response.json());
+    if (applicationRequestResponse.status != 200) {
+        
+        alert("Error authenticating: " + response.status);
+        return;
+    }
+
+    const credentialApplication = await applicationRequestResponse.json();
+    const clientID              = credentialApplication.client_id;
+    const clientSecret          = credentialApplication.client_secret;
+    
+    // (should) cache ID and secret
+
+    // get access token via application
+    const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "client_id":     clientID,
+                "client_secret": clientSecret,
+                "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
+                "grant_type":    "client_credentials"
+            })
+        }
+    );
+
+    if (authenticationRequestResponse.status != 200) {
+        
+        alert("Error authenticating: " + response.status);
+        return;
+    }
+    
+    const token = await authenticationRequestResponse.json();
+    const accessToken = token.access_token;
+    
+    // (should) access token
+
+    console.log(token);
+    
 }
 
 async function insertAccount(account) {
