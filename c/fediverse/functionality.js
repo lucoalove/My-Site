@@ -5,7 +5,7 @@
 
 const paramSearch = new URLSearchParams(window.location.search).get("search");
 
-const contentInsert            = document.getElementById("content-insert");
+const contentInsert = document.getElementById("content-insert");
 
 const templateStatus  = document.getElementById("template-status");
 const templateAccount = document.getElementById("template-account");
@@ -72,7 +72,7 @@ async function insertAccount(account) {
     acctEmbed.getElementById("followers-count").innerText    = account.followers_count;
     acctEmbed.getElementById("following-count").innerText    = account.following_count;
 
-    acctEmbed.getElementById("display-name").innerText = embedEmojis(
+    acctEmbed.getElementById("display-name").innerHTML = embedEmojis(
         isBlank(account.display_name)
             ? account.username
             : account.display_name,
@@ -124,7 +124,7 @@ async function insertStatuses(statuses) {
 
         // account
         {
-            statusEmbed.getElementById("display-name").innerText = embedEmojis(
+            statusEmbed.getElementById("display-name").innerHTML = embedEmojis(
                 isBlank(displayedStatus.account.display_name)
                     ? displayedStatus.account.username
                     : displayedStatus.account.display_name,
