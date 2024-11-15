@@ -12,7 +12,7 @@
 
         .centerizer { display: flex; align-items: flex-start; justify-content: center; gap: 2em; }
         .width-center { width: 72ex; }
-        .width-sidebar { width: 24ex; }
+        .width-sidebar { width: 36ex; }
 
         header { position: sticky; top: 0; background: var(--background); margin-bottom: 1em; }
 
@@ -119,27 +119,28 @@
     <main class="centerizer">
 
         <div class="width-sidebar">
+            
             <div style="position: fixed;">
-                
                 <div id="menu-logged-out">
                     <button type="button" id="button-log-in" class="width-sidebar">Log In With Mastodon</button>
                 </div>
-    
                 <div id="menu-logged-in">
                     
-                    <div id="header" style="padding: 0.5em; display: flex; gap: 0.5em; aspect-ratio: 2; background-size: cover; background-position: center; border-radius: 1em;">
-                        <img id="avatar" class="width-sidebar" style="border-radius: 0.5em;">
-                        <div style="background: #000a; border-radius: 0.5em;">
+                    <div class="width-sidebar" style="overflow: hidden; border-radius: 1em; background: var(--status-background);">
+                        <div id="header" style="padding: 0.5em; aspect-ratio: 2; background-size: cover; background-position: center; border-radius: 1em;">
+                            <img id="avatar" style="border-radius: 0.5em; height: 100%;">
+                        </div>
+                        <div style="padding: 0.5em;">
                             <h3 id="display-name" style="margin-bottom: 0;"></h3>
                             <a id="account" style="color: var(--text-off);"></a>
+    
+                            <br>Make post coming soon :)
                         </div>
                     </div>
-
-                    Make post coming soon :)
                     
                 </div>
-                
             </div>
+            
         </div>
 
         <div class="width-center" id="content-insert"></div>
