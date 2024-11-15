@@ -6,6 +6,7 @@
 // provider = https://mastodon.social ...?
 
 const paramSearch = new URLSearchParams(window.location.search).get("search");
+const paramCode   = new URLSearchParams(window.location.search).get("code");
 
 const contentInsert = document.getElementById("content-insert");
 
@@ -66,77 +67,69 @@ async function authenticate() {
     // https://docs.joinmastodon.org/client/token/#creating-our-application
     // (should) cache ID, secret, and access_token...
 
-    /*
-     * 1) Register a client application (get client_id and client_secret)
-     */
-    const applicationRequestResponse = await fetch("https://mastodon.social/api/v1/apps",
-        {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                "client_name":   "Test Application",
-                "redirect_uris": [ "urn:ietf:wg:oauth:2.0:oob" ],
-                "scopes":        "read write push",
-                "website":       "https://www.fatchicks.cc/c/fediverse/"
-            })
+    if (paramCode) {
+
+        alert("login time!");
+
+        // const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
+        //     {
+        //         method: "POST",
+        //         headers: {
+        //             "content-type": "application/json"
+        //         },
+        //         body: JSON.stringify({
+        //             "client_id":     clientID,
+        //             "client_secret": clientSecret,
+        //             "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
+        //             "grant_type":    "client_credentials"
+        //         })
+        //     }
+        // );
+    
+        // if (authenticationRequestResponse.status != 200) {
+            
+        //     alert("Error authenticating: " + response.status);
+        //     return;
+        // }
+        
+        // const token = await authenticationRequestResponse.json();
+        // const accessToken = token.access_token;
+
+    } else {
+    
+        /*
+         * Register a client application (get client_id and client_secret)
+         */
+        const applicationRequestResponse = await fetch("https://mastodon.social/api/v1/apps",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    "client_name":   "Test Application",
+                    "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/" ],
+                    "scopes":        "read write push",
+                    "website":       "https://www.fatchicks.cc/c/fediverse/"
+                })
+            }
+        );
+    
+        if (applicationRequestResponse.status != 200) {
+            
+            alert("Error authenticating: " + applicationRequestResponse.status);
+            return;
         }
-    );
-
-    if (applicationRequestResponse.status != 200) {
-        
-        alert("Error authenticating: " + applicationRequestResponse.status);
-        return;
+    
+        const credentialApplication = await applicationRequestResponse.json();
+        const clientID              = credentialApplication.client_id;
+        const clientSecret          = credentialApplication.client_secret;
+    
+        /*
+         * Tell the user to authorize themselves under that client
+         */
+        window.location.replace(`/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
     }
-
-    const credentialApplication = await applicationRequestResponse.json();
-    const clientID              = credentialApplication.client_id;
-    const clientSecret          = credentialApplication.client_secret;
-
-    console.log(credentialApplication);
-
-    /*
-     * 2) Authorize the user under that client
-     */
-    const authorizeUserResponse = await get(`/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`);
-
-    if (!authorizeUserResponse) {
-
-        alert("Error :(");
-        return;
-    }
-    
-    console.log(authorizeUserResponse);
-    console.log(await authorizeUserResponse.json()); // we need .code
-    
-
-    /*
-     * 3) Get access token via application
-     */
-    // const authenticationRequestResponse = await fetch("https://mastodon.social/oauth/token",
-    //     {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             "client_id":     clientID,
-    //             "client_secret": clientSecret,
-    //             "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
-    //             "grant_type":    "client_credentials"
-    //         })
-    //     }
-    // );
-
-    // if (authenticationRequestResponse.status != 200) {
-        
-    //     alert("Error authenticating: " + response.status);
-    //     return;
-    // }
-    
-    // const token = await authenticationRequestResponse.json();
-    // const accessToken = token.access_token;
     
 }
 
