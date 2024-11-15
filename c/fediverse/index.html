@@ -24,7 +24,7 @@
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { margin: 1em 0; display: flex; flex-direction: column; gap: 1em; border: 1px solid var(--border); border-radius: 8px; }
+        .status { margin: 1em 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
         .status #account-info { display: flex; gap: 1em; align-items: center; }
         .status #avatar { width: 30px; border-radius: 4px; }
         .status #account { color: grey; }
@@ -39,7 +39,8 @@
 
     <template id="template-status">
         <div class="status">
-            <div style="padding: 1em;">
+            
+            <div style="padding: 1em; display: flex; flex-direction: column; gap: 1em;">
                 <div id="reblogger-account-info">
                     ⤷ Reblogged by <a id="reblogger-account"></a>
                 </div>
@@ -51,9 +52,13 @@
                 <div id="content"></div>
                 <div id="images"></div>
             </div>
-            <div style="padding: 0.5em; background: red;">
-                
+            
+            <div style="padding: 0.5em; background: red; display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                <div style="background: #d33;">Like</div>
+                <div style="background: #5a5;">Reblog</div>
+                <div style="background: #44b;">Comment</div>
             </div>
+            
         </div>
     </template>
 
