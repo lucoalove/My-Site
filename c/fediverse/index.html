@@ -30,9 +30,10 @@
         .status #account { color: var(--text-off); }
         .status #reblogger-account-info { color: var(--text-off); font-size: smaller; }
         .status #reblogger-account { color: var(--text-off); }
-        .status #images img { max-width: 100%; }
+        .status #images img { max-width: 100%; border-radius: 4px; }
         .status p:first-child { margin-top: 0; }
         .status p:last-child { margin-bottom: 0; }
+        .status #status-main { flex: 1; width: 0; padding: 1em; display: flex; flex-direction: column; gap: 1em; }
         .status #status-sidebar { display: flex; flex-direction: column; gap: 1em; align-items: center; padding: 1em; padding-right: 0; font-weight: 700; color: var(--text-off); }
         .status #status-sidebar button { border: 0; background: none; padding: 0; cursor: pointer; display: flex; align-items: center; gap: 0.2em; font: inherit; color: inherit; }
     </style>
@@ -62,7 +63,7 @@
                 
             </div>
             
-            <div style="flex: 1; padding: 1em; display: flex; flex-direction: column; gap: 1em;">
+            <div id="status-main">
                 <div id="reblogger-account-info">
                     ⤷ Reblogged by <a id="reblogger-account"></a>
                 </div>
