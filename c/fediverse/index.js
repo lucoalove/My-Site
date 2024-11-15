@@ -1,7 +1,9 @@
 // Tutorial: https://docs.joinmastodon.org/client/intro/
 
-// this code is (or at least ought to be) front-end design agnostic :3
-// basically it just specifies IDs for stuff but other than that like, do what you want we ball
+// For account actions: https://docs.joinmastodon.org/client/authorized/#actions
+
+// this code is Mostly Kinda front-end design agnostic
+// it avoids styling stuff and just modifies HTML elements via their id, but it's... inflexible rn lol
 
 const targetURL = "https://mastodon.social";
 
@@ -94,9 +96,6 @@ async function get(endpoint) {
 
 async function getLoggedInAccount() {
 
-    // https://docs.joinmastodon.org/client/token/#creating-our-application
-    // https://docs.joinmastodon.org/client/authorized/#actions
-
     if (accessToken) {
 
         // get account with accessToken (and make sure the accessToken is still valid)
@@ -125,6 +124,8 @@ async function getLoggedInAccount() {
 }
 
 async function requestAuthentication() {
+
+    // https://docs.joinmastodon.org/client/token/#creating-our-application
 
     // register a client application (for client_id and client_secret)
     const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
@@ -401,7 +402,8 @@ async function init() {
 
         const menu = document.getElementById("menu-logged-in");
         
-        menu.querySelector("#avatar").src = account.avatar;
+        menu.querySelector("#avatar").src                        = account.avatar;
+        acctEmbed.querySelector("#header").style.backgroundImage = `url("${ account.header }")`;
     
         menu.querySelector("#display-name").innerHTML = embedEmojis(
             isBlank(account.display_name)
