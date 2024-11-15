@@ -15,10 +15,12 @@ const templateAccount = document.getElementById("template-account");
 const buttonLoadStatusesPublic    = document.getElementById("button-load-statuses-public");
 const buttonLoadStatusesFollowing = document.getElementById("button-load-statuses-following");
 const inputLoadFromSearch         = document.getElementById("input-load-from-search");
+const buttonLogIn                 = document.getElementById("button-log-in");
 
 buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
 buttonLoadStatusesFollowing.onclick = loadStatusesFollowing;
 inputLoadFromSearch.onchange        = loadFromSearch;
+buttonLogIn.onclick                 = requestAuthentication;
 
 function isBlank(string) {
 
@@ -61,7 +63,7 @@ async function get(endpoint) {
     }
 }
 
-async function authenticate() {
+async function initAuthentication() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
 
@@ -108,45 +110,51 @@ async function authenticate() {
         // const accessToken = token.access_token;
 
         // cache access_token then reload page without query
+        // window.location.replace("?");
 
     } else {
     
-        /*
-         * Register a client application (get client_id and client_secret)
-         */
-        const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    "client_name":   "Test Application",
-                    "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/" ],
-                    "scopes":        "read write push",
-                    "website":       "https://www.fatchicks.cc/c/fediverse/"
-                })
-            }
-        );
-    
-        if (applicationRequestResponse.status != 200) {
-            
-            alert("Error authenticating: " + applicationRequestResponse.status);
-            return;
-        }
-    
-        const credentialApplication = await applicationRequestResponse.json();
-        const clientID              = credentialApplication.client_id;
-        const clientSecret          = credentialApplication.client_secret;
-
-        // cache client_id and client_secret
-        
-        /*
-         * Tell the user to authorize themselves under that client
-         */
-        window.location.replace(targetURL + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/`);
+        alert("not logged in");
     }
     
+}
+
+async function requestAuthentication() {
+
+    /*
+     * Register a client application (get client_id and client_secret)
+     */
+    const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "client_name":   "Test Application",
+                "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/" ],
+                "scopes":        "read write push",
+                "website":       "https://www.fatchicks.cc/c/fediverse/"
+            })
+        }
+    );
+
+    if (applicationRequestResponse.status != 200) {
+        
+        alert("Error authenticating: " + applicationRequestResponse.status);
+        return;
+    }
+
+    const credentialApplication = await applicationRequestResponse.json();
+    const clientID              = credentialApplication.client_id;
+    const clientSecret          = credentialApplication.client_secret;
+
+    // cache client_id and client_secret
+    
+    /*
+     * Tell the user to authorize themselves under that client
+     */
+    window.location.replace(targetURL + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/&response_type=code`);
 }
 
 async function insertAccount(account) {
