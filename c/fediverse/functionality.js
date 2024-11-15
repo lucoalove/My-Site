@@ -106,16 +106,16 @@ async function authenticate() {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                "client_id":    clientID,
-                "scope":        "read write push",
-                "redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
-                //"response_type"=code
+                "client_id":     clientID,
+                "scope":         "read write push",
+                "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
+                "response_type": "code"
             })
         }
     );
     
     console.log(authorizeUserResponse);
-    console.log(await authorizeUserResponse.json());
+    console.log(await authorizeUserResponse.json()); // code!
     
 
     /*
