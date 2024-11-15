@@ -402,8 +402,8 @@ async function init() {
 
         const menu = document.getElementById("menu-logged-in");
         
-        menu.querySelector("#avatar").src                        = account.avatar;
-        acctEmbed.querySelector("#header").style.backgroundImage = `url("${ account.header }")`;
+        menu.querySelector("#avatar").src                   = account.avatar;
+        menu.querySelector("#header").style.backgroundImage = `url("${ account.header }")`;
     
         menu.querySelector("#display-name").innerHTML = embedEmojis(
             isBlank(account.display_name)
