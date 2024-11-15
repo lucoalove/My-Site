@@ -68,10 +68,16 @@ async function insertAccount(account) {
 
     acctEmbed.getElementById("avatar").src                   = account.avatar;
     acctEmbed.getElementById("header").style.backgroundImage = `url("${ account.header }")`;
-    acctEmbed.getElementById("display-name").innerText       = account.display_name;
     acctEmbed.getElementById("note").innerHTML               = account.note;
     acctEmbed.getElementById("followers-count").innerText    = account.followers_count;
     acctEmbed.getElementById("following-count").innerText    = account.following_count;
+
+    acctEmbed.getElementById("display-name").innerText = embedEmojis(
+        isBlank(account.display_name)
+            ? account.username
+            : account.display_name,
+        account.emojis
+    );
 
     let accountPart = acctEmbed.getElementById("account");
     accountPart.innerText = "@" + account.acct;
@@ -118,7 +124,13 @@ async function insertStatuses(statuses) {
 
         // account
         {
-            statusEmbed.getElementById("display-name").innerText = isBlank(displayedStatus.account.display_name) ? displayedStatus.account.username : displayedStatus.account.display_name;
+            statusEmbed.getElementById("display-name").innerText = embedEmojis(
+                isBlank(displayedStatus.account.display_name)
+                    ? displayedStatus.account.username
+                    : displayedStatus.account.display_name,
+                displayedStatus.account.emojis
+            );
+            
             statusEmbed.getElementById("avatar").src             = displayedStatus.account.avatar;
 
             const accountPart = statusEmbed.getElementById("account");
