@@ -122,7 +122,7 @@ async function initAuthentication() {
 async function requestAuthentication() {
 
     /*
-     * Register a client application (get client_id and client_secret)
+     * Register a client application (get client_id and client_secret).
      */
     const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
         {
@@ -152,9 +152,13 @@ async function requestAuthentication() {
     // cache client_id and client_secret
     
     /*
-     * Tell the user to authorize themselves under that client
+     * Tell the user to authorize themselves under that client.
+     * 
+     * They will then be redirected back to this page where the
+     * resulting code will be used to get an access token and
+     * log them in.
      */
-    window.location.replace(targetURL + `/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/&response_type=code`);
+    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/&response_type=code`;
 }
 
 async function insertAccount(account) {
@@ -383,7 +387,7 @@ async function loadStatusesPublic() { // set context public?
 
 async function init() {
 
-    await authenticate();
+    await initAuthentication();
 
     if (paramSearch) {
         loadFromSearchTerm(paramSearch);
