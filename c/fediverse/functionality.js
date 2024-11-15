@@ -22,6 +22,35 @@ buttonLoadStatusesFollowing.onclick = loadStatusesFollowing;
 inputLoadFromSearch.onchange        = loadFromSearch;
 buttonLogIn.onclick                 = requestAuthentication;
 
+
+
+/*
+ * Helper functions
+ */
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return null;
+}
+
 function isBlank(string) {
 
     return string.trim().length == 0;
@@ -63,60 +92,68 @@ async function get(endpoint) {
     }
 }
 
+
+
+/*
+ * yea
+ */
+
 async function initAuthentication() {
 
     // https://docs.joinmastodon.org/client/token/#creating-our-application
 
     /*
-     * there are "function entrance" states:
+     * 1) coming back from user authentication with code query param => request and cache access token
+     * 2) access token is already cached => logged in!
      *
-     * 1) no client => create client and request user authentication
-     * 2) coming back from user authentication with code => request and cache access token
-     * 3) access token is cached => logged in!
-     *
-     * if 2 or 3 fail, clear their respective values and go back to 1
-     */ 
-    
+     * if either fail, should reset their corresponding values and restart page
+     */
+
+    const accessToken = getCookie("access_token");
     const paramCode = new URLSearchParams(window.location.search).get("code");
 
-    // first: if (access_token exists in cookies)
-    
-    if (paramCode) {
+    if (accessToken) {
 
-        alert("login time!");
-
-        // const authenticationRequestResponse = await fetch(targetURL + "/oauth/token",
-        //     {
-        //         method: "POST",
-        //         headers: {
-        //             "content-type": "application/json"
-        //         },
-        //         body: JSON.stringify({
-        //             "client_id":     clientID,
-        //             "client_secret": clientSecret,
-        //             "redirect_uri":  "urn:ietf:wg:oauth:2.0:oob",
-        //             "grant_type":    "client_credentials"
-        //         })
-        //     }
-        // );
+        alert("logged in!!! " + accessToken);
     
-        // if (authenticationRequestResponse.status != 200) {
+    } else if (paramCode) {
+
+        // y'know, this section could be a separate authentication page
+
+        const tokenRequestResponse = await fetch(targetURL + "/oauth/token",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    "client_id":     clientID,
+                    "client_secret": clientSecret,
+                    "redirect_uri":  "https://www.fatchicks.cc/c/fediverse/",
+                    "grant_type":    "authorization_code",
+                    "code":          paramCode,
+                    "scope":         "read write push"
+                })
+            }
+        );
+    
+        if (tokenRequestResponse.status != 200) {
             
-        //     alert("Error authenticating: " + response.status);
-        //     return;
-        // }
+            alert("Error authenticating: " + response.status);
+            return;
+        }
         
-        // const token = await authenticationRequestResponse.json();
-        // const accessToken = token.access_token;
+        const token = await tokenRequestResponse.json();
+        const accessToken = token.access_token;
 
         // cache access_token then reload page without query
-        // window.location.replace("?");
+        setCookie("access_token", accessToken, 21);
+        window.location.replace("?");
 
     } else {
     
-        alert("not logged in");
+        // not logged in or logging in
     }
-    
 }
 
 async function requestAuthentication() {
@@ -149,7 +186,9 @@ async function requestAuthentication() {
     const clientID              = credentialApplication.client_id;
     const clientSecret          = credentialApplication.client_secret;
 
-    // cache client_id and client_secret
+    // cache client_id and client_secret for later
+    setCookie("client_id", clientID, 21);
+    setCookie("client_secret", clientSecret, 21);
     
     /*
      * Tell the user to authorize themselves under that client.
