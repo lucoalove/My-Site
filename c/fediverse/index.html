@@ -117,15 +117,19 @@
     <main class="centerizer">
 
         <div class="width-sidebar">
-            
-            <div id="menu-logged-out">
-                <button type="button" id="button-log-in">Log In With Mastodon</button>
+            <div style="position: fixed;">
+                
+                <div id="menu-logged-out">
+                    <button type="button" id="button-log-in">Log In With Mastodon</button>
+                </div>
+    
+                <div id="menu-logged-in">
+                    <img id="avatar" style="width: 100%; border-radius: 8px;">
+                    <h3 id="display-name" style="margin-bottom: 0;"></h3>
+                    <a id="account"></a>
+                </div>
+                
             </div>
-
-            <div id="menu-logged-in">
-                Logged in!
-            </div>
-            
         </div>
 
         <div class="width-center" id="content-insert"></div>
