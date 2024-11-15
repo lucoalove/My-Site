@@ -33,7 +33,9 @@
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--status-background); box-shadow: 0 2px 8px -4px black; }
+        .shaded-box { border: 1px solid var(--border); border-radius: 0.5em; overflow: hidden; background: var(--status-background); box-shadow: 0 2px 8px -4px black; }
+        
+        .status { display: flex; }
         .status #account-info { display: flex; flex-wrap: wrap; gap: 0 0.5em; align-items: center; }
         .status #avatar { width: 64px; border-radius: 4px; box-shadow: 0 2px 4px black; }
         .status #account { color: var(--text-off); }
@@ -55,7 +57,7 @@
 <body>
 
     <template id="template-status">
-        <div class="status">
+        <div class="status shaded-box">
 
             <div id="status-sidebar">
                 
@@ -121,17 +123,19 @@
         <div class="width-sidebar">
             
             <div style="position: fixed;">
+                
                 <div id="menu-logged-out">
                     <button type="button" id="button-log-in" class="width-sidebar">Log In With Mastodon</button>
                 </div>
+                
                 <div id="menu-logged-in">
                     
-                    <div class="width-sidebar" style="overflow: hidden; border-radius: 1em; background: var(--status-background);">
-                        <div id="header" style="padding: 0.5em; aspect-ratio: 2; background-size: cover; background-position: center; border-radius: 1em;">
-                            <img id="avatar" style="border-radius: 0.5em; height: 100%;">
+                    <div class="width-sidebar shaded-box">
+                        <div id="header" style="padding: 1em; aspect-ratio: 2; background-size: cover; background-position: center;">
+                            <img id="avatar" style="border-radius: 0.5em; height: 100%; transform: translateY(2em);">
                         </div>
-                        <div style="padding: 0.5em;">
-                            <h3 id="display-name" style="margin-bottom: 0;"></h3>
+                        <div style="padding: 1em;">
+                            <h3 id="display-name" style="margin: 0; margin-top: 2em;"></h3>
                             <a id="account" style="color: var(--text-off);"></a>
     
                             <br>Make post coming soon :)
@@ -139,6 +143,7 @@
                     </div>
                     
                 </div>
+                
             </div>
             
         </div>
