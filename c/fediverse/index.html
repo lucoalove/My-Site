@@ -12,7 +12,7 @@
 
         .centerizer { display: flex; align-items: flex-start; justify-content: center; gap: 1em; }
         .width-center { width: 72ex; }
-        .width-sidebar { width: 24px; }
+        .width-sidebar { width: 24ex; }
 
         header { position: sticky; top: 0; background: var(--background); margin-bottom: 1em; }
 
@@ -104,24 +104,23 @@
 
     <header class="centerizer">
 
-        <div class="width-sidebar">
-            <button type="button" id="button-log-in">Log In With Mastodon</button>
-        </div>
-
         <nav class="width-center">
             <button id="button-load-statuses-public">Global</button>
             <button id="button-load-statuses-following">Following</button>
             <input id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
         </nav>
-
-        <div class="width-sidebar"></div>
         
     </header>
 
     <main class="centerizer">
 
+        <div class="width-sidebar">
+            <button type="button" id="button-log-in">Log In With Mastodon</button>
+        </div>
+
         <div class="width-center" id="content-insert"></div>
-        <br><br>
+
+        <div class="width-sidebar"></div>
 
     </main>
     
