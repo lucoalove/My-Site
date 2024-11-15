@@ -6,16 +6,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-        :root { --accent: #64d; }
+        :root { --accent: #69f; --border: #013; }
         
-        body { width: 66ex; margin: auto; font-family: "Hind", sans-serif; }
+        body { width: 66ex; margin: auto; font-family: "Hind", sans-serif; color: #eee; background: #235; }
 
         a { color: var(--accent); }
 
-        nav { display: flex; gap: 1em; border-bottom: 1px solid lightgrey; margin: 0.5em 0 1em; }
+        nav { display: flex; gap: 1em; border-bottom: 1px solid var(--border); margin: 0.5em 0 1em; }
         nav button { border: 0; color: grey; background: none; font: inherit; padding: 0.5em; cursor: pointer; }
         nav button:disabled { padding-bottom: calc(0.5em - 2px); color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
-        nav input { flex: 1; font: inherit; font-size: smaller; padding: 0.5em; border: 0; border-left: 1px solid lightgrey; }
+        nav input { flex: 1; font: inherit; font-size: smaller; padding: 0.5em; border: 0; border-left: 1px solid var(--border); }
 
         .account-box #header { position: relative; overflow: hidden; border-radius: 1em; background-color: #eee; background-position: center; background-size: cover; aspect-ratio: 2; }
         .account-box #avatar { width: 120px; border: 4px solid white; position: absolute; bottom: -4px; left: -4px; border-top-right-radius: 1em; }
@@ -24,7 +24,7 @@
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
         .account-box #followers-count, .account-box #following-count { color: var(--accent); }
 
-        .status { margin: 1em 0; display: flex; flex-direction: column; gap: 1em; padding: 1em; border: 1px solid lightgrey; border-radius: 8px; }
+        .status { margin: 1em 0; display: flex; flex-direction: column; gap: 1em; border: 1px solid var(--border); border-radius: 8px; }
         .status #account-info { display: flex; gap: 1em; align-items: center; }
         .status #avatar { width: 30px; border-radius: 4px; }
         .status #account { color: grey; }
@@ -39,16 +39,21 @@
 
     <template id="template-status">
         <div class="status">
-            <div id="reblogger-account-info">
-                ⤷ Reblogged by <a id="reblogger-account"></a>
+            <div style="padding: 1em;">
+                <div id="reblogger-account-info">
+                    ⤷ Reblogged by <a id="reblogger-account"></a>
+                </div>
+                <div id="account-info">
+                    <img id="avatar">
+                    <strong id="display-name"></strong>
+                    <a id="account"></a>
+                </div>
+                <div id="content"></div>
+                <div id="images"></div>
             </div>
-            <div id="account-info">
-                <img id="avatar">
-                <strong id="display-name"></strong>
-                <a id="account"></a>
+            <div style="padding: 0.5em; background: red;">
+                
             </div>
-            <div id="content"></div>
-            <div id="images"></div>
         </div>
     </template>
 
