@@ -398,6 +398,21 @@ async function init() {
     if (account) {
         
         document.getElementById("menu-logged-out").style.display = "none";
+
+        const menu = document.getElementById("menu-logged-in");
+        
+        menu.getElementById("avatar").src = account.avatar;
+    
+        menu.getElementById("display-name").innerHTML = embedEmojis(
+            isBlank(account.display_name)
+                ? account.username
+                : account.display_name,
+            account.emojis
+        );
+    
+        let accountPart = menu.getElementById("account");
+        accountPart.innerText = "@" + account.acct;
+        accountPart.href      = "?search=@" + account.acct;
         
     } else {
         
