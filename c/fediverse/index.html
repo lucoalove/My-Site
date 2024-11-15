@@ -6,11 +6,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-        :root { --accent: #69f; --border: #002; --text: #fff; --text-off: #9ab; }
+        :root { --accent: #69f; --border: #002; --text: #fff; --text-off: #9ac; --background: #235; }
         
-        body { width: 72ex; margin: auto; font-family: "Hind", sans-serif; color: var(--text); background: #235; }
+        body { width: 72ex; margin: auto; font-family: "Hind", sans-serif; color: var(--text); background: var(--background); }
 
-        a { color: var(--accent); }
+        a { color: var(--accent); text-decoration-thickness: 0.5px; text-decoration-style: dotted; }
 
         nav { display: flex; gap: 1em; border-bottom: 1px solid var(--border); margin: 0.5em 0 1em; }
         nav button { border: 0; color: var(--text-off); background: none; font: inherit; padding: 0.5em; cursor: pointer; }
