@@ -76,6 +76,11 @@
     "posts": [
         {
             "date": "Nov 17, 2024",
+            "imgs": [ "https://steamuserimages-a.akamaihd.net/ugc/29931060619052666/F5FF765D852F71540F035A74C49A0A0CA0526D25/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" ],
+            "body": "<p><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=3367036325&searchtext='>I think I'm in love with modding</a></p>"
+        },
+        {
+            "date": "Nov 17, 2024",
             "imgs": [],
             "body": "<p>a simple, inoffensive spelling reform would just be to rewrite \"listen\" as \"lissen\" to match \"lesson\" and \"lessen\"</p><p>and \"fasten\" can follow suit as \"fassen\"</p>"
         },
