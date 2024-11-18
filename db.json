@@ -76,6 +76,11 @@
     "posts": [
         {
             "date": "Nov 18, 2024",
+            "imgs": [ "https://pbs.twimg.com/media/Gccf0wbaMAEgh8Y?format=jpg&name=medium" ],
+            "body": "<p>good LORD I need to draw like this (<a href='https://x.com/Chile_Paper/status/1857488614541922306'>source</a>)</p>"
+        },
+        {
+            "date": "Nov 18, 2024",
             "imgs": [ "/img/random1.webp", "/img/random2.jpg", "/img/random3.jpg" ],
             "body": "<p>some random memes on my computer I don't want on my computer but might use later idk man they're topical</p>"
         },
