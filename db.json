@@ -76,7 +76,7 @@
     "posts": [
         {
             "date": "Nov 18, 2024",
-            "imgs": [ "random1.webp", "random2.jpg", "random3.jpg" ],
+            "imgs": [ "/img/random1.webp", "/img/random2.jpg", "/img/random3.jpg" ],
             "body": "<p>some random memes on my computer I don't want on my computer but might use later idk man they're topical</p>"
         },
         {
