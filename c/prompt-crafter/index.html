@@ -20,10 +20,11 @@
         ];
 
         const clothing = [
-            { display_name: "Default for character" },
-            { display_name: "Nude" },
+            { display_name: "Default for character", value: "" },
+            { display_name: "Nude", value: "naked, exposed nipples" },
             { display_name: "Cat Maid", value: "cat_lingerie, cat_cutout, cat_ear_panties, maid outfit, cat maid cutout dress" },
-            { display_name: "Pajamas" }
+            { display_name: "Pajamas", value: "loose pajamas" },
+            { display_name: "Suit", value: "black suit, red tie, business suit, formal suit, stockings" }
         ];
 
         function init() {
@@ -51,6 +52,15 @@
             }
 
             // load clothing
+            const clothingArea = document.getElementById("clothing");
+            
+            for (const i in clothing) {
+                
+                clothingArea.innerHTML += `
+                    <input class="boxy" type="radio" oninput="craft()" id="clothing${ i }" name="clothing" value="${ clothing[i].value }"${ i == 0 ? " checked" : "" }>
+                    <label for="clothing${ i }">${ clothing[i].display_name }</label>
+                `;
+            }
         }
         
 
@@ -111,6 +121,10 @@
             if (comments)
                 output.value += "\n\n/* character */\n";
             output.value += document.querySelector('input[name="characters"]:checked').value + ", ";
+
+            if (comments)
+                output.value += "\n\n/* clothing */\n";
+            output.value += document.querySelector('input[name="clothing"]:checked').value + ", ";
             
             if (comments)
                 output.value += "\n\n/* figure */\n";
@@ -158,7 +172,9 @@
         </label>
         2girls
         <br><br>
-        
+
+        fullbody/upperbody (needs to disable hips slider)
+        <br>
         angle (from above, from front, from side, from behind, from below; + dutch angle), mood, pose/action
     
         <h3>Scene</h3>
@@ -175,6 +191,9 @@
         </div>
     
         <h3>Clothing</h3>
+        <div style="overflow-x: scroll;">
+            <div id="clothing" style="display: flex; gap: 1em;"></div>
+        </div>
     
         <h3>Figure</h3>
         checkboxes: cellulite, stretch marks, deep cleavage
