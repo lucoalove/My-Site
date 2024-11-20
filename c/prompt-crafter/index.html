@@ -76,7 +76,7 @@
         angle, 1girl/2girl
         
         <h3>Artists</h3>
-        <div id="artists" style="display: grid; grid-template-columns: repeat(auto-fill, 180px); gap: 1em;">
+        <div id="artists" style="display: flex; gap: 1em; overflow-x: scroll;">
             
             <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
             <label for="blushyspicy" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgK8Lx11D2D8azuT1eM_l4GytBvz3OaDgcZg&s');">blushyspicy</label>
@@ -99,7 +99,7 @@
         </div>
 
         <h3>Design</h3>
-        <p>Plan: swap out this section for a preset "scene" choice and a "character" choice (and a mood choice? action choice? ah!) (and maybe a "clothing" choice, with "Default for character," "Nude," and some presets like "Maid")</p>
+        <p>Plan: swap out this section for a preset "Scene" choice, "Character" choice, and "Clothing" choice (with "Default for character," "Nude," and some presets like "Maid") (and a mood choice? pose/action choice? idk)</p>
         <textarea id="design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, pink shirt, on the beach..." oninput="craft()"></textarea>
 
         <h3>Figure</h3>
