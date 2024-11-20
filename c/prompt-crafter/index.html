@@ -5,9 +5,23 @@
     <title>Prompt Crafter</title>
 
     <script>
-        // slider generated via heirarchy: small breasts, (slightly) big breasts, (slightly) huge breasts, (slightly) giant breasts
+        const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly giant", "giant", "hyper" ];
 
-        // thickness?: (deep cleavage:1.5), (massive boobs:1.2), (thick thighs:1.5), (big ass), (hyper hips:1.5), (cellulite), (stretch marks), (fat knees), (fat calves), hands on hips, belly sticking out, from above, hourglass, narrow waist
+        // thickness: (deep cleavage:1.5), (massive boobs:1.2), (thick thighs:1.5), (big ass), (hyper hips:1.5), (cellulite), (stretch marks), (fat knees), (fat calves), hands on hips, belly sticking out, from above, hourglass, narrow waist
+        function constructBreastsPrompt(value) {
+
+            return sizeHeirarchy[value] + " breasts";
+        }
+
+        function constructBellyPrompt(value) {
+
+            return sizeHeirarchy[value] + " belly";
+        }
+        
+        function constructHipsPrompt(value) {
+
+            return sizeHeirarchy[value] + " hips";
+        }
         
         function craft() {
 
@@ -19,17 +33,28 @@
                 best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,
                 
                 /* artists */
-                blushyspicy(artist), c.cu(artist), betterwithsalt, <<lazorchef>>, kipteitei, spellsx,
+                blushyspicy(artist), c.cu(artist), betterwithsalt(artist), lazorchef(artist), kipteitei(artist), spellsx(artist),
 
                 /* character design */
-                ${ document.getElementById("character-design").innerText }
+                ${ document.getElementById("character-design").value }
+
+                /* thickness */
+                ${ constructBreastsPrompt(document.getElementById("breasts-thickness").value) },
+                ${ constructBellyPrompt(document.getElementById("belly-thickness").value) },
+                ${ constructHipsPrompt(document.getElementById("hips-thickness").value) }
             `;
         }
     </script>
-</head>
-<body style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
 
-    <div>
+    <style>
+        body { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-family: sans-serif; }
+        h3 { border-bottom: 1px solid grey; }
+        textarea { max-width: 99%; min-width: 99%; }
+    </style>
+</head>
+<body>
+
+    <div style="overflow: hidden;">
 
         <h3>Composition</h3>
         angle
@@ -38,28 +63,26 @@
         multi choice
 
         <h3>Character Design</h3>
-        <textarea id="character-design" rows="8" width="100%" placeholder="red hair, blue eyes, pink shirt...">
-            
-        </textarea>
+        <textarea id="character-design" rows="8" placeholder="red hair, blue eyes, pink shirt..." onchange="craft()"></textarea>
 
         <h3>Thickness</h3>
         <table>
             <tr>
                 <td>Breasts:</td>
                 <td>
-                    <input type="range" min="1" max="100" value="50" onchange="craft()">
+                    <input id="breasts-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Belly:</td>
                 <td>
-                    <input type="range" min="1" max="100" value="50" onchange="craft()">
+                    <input id="belly-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Hips:</td>
                 <td>
-                    <input type="range" min="1" max="100" value="50" onchange="craft()">
+                    <input id="hips-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
                 </td>
             </tr>
         </table>
