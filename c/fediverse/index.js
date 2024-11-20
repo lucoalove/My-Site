@@ -39,7 +39,13 @@ if (account) {
     buttonAccount.onclick = requestAuthentication;
 }
 
+inputLoadFromSearch.value = new URLSearchParams(window.location.search).get("search");
+refreshContext();
 
+
+/*
+ * BELOW THIS ARE FUNCTION DECLARATIONS
+ */
 
 /*
  * Helper functions
@@ -253,7 +259,7 @@ async function refreshContext() {
     } else {
 
         // hashtag search
-        setContextToTimeline(false, false, `/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
+        await setContextToTimeline(false, false, `/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
 
         contentInsert.innerHTML = `<p><strong>Statuses with #${ term }</strong></p>` + contentInsert.innerHTML;
 
@@ -318,6 +324,8 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
         contentInsert.innerHTML = "There was an error retrieving the timeline.";
     }
 }
+
+
 
 /*
  * Account stuff
@@ -394,6 +402,3 @@ async function requestAuthentication() {
      */
     window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code&state=${ targetURL }`;
 }
-
-inputLoadFromSearch.value = new URLSearchParams(window.location.search).get("search");
-refreshContext();
