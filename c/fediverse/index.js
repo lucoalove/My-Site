@@ -23,7 +23,6 @@ buttonLoadStatusesFollowing.onclick = function() { setContextToTimeline(false, t
 inputLoadFromSearch.onchange        = refreshContext;
 
 const account = await getLoggedInAccount();
-const buttonAccount = document.getElementById("button-account");
 
 if (account) {
 
