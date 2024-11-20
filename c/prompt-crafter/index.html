@@ -34,7 +34,7 @@
             for (const i in artists) {
                 
                 artistsArea.innerHTML += `
-                    <input type="checkbox" oninput="craft()" id="artist${ i }" value="${ artists[i].value }">
+                    <input class="boxy" type="checkbox" oninput="craft()" id="artist${ i }" value="${ artists[i].value }">
                     <label for="artist${ i }" style="background-image: url('${ artists[i].image }');">${ artists[i].display_name }</label>
                 `;
             }
@@ -104,8 +104,8 @@
         
         input[type="checkbox"] { display: none; }
         
-        label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; flex: 0 0 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
-        input[type="checkbox"]:checked + label { filter: brightness(1); }
+        input.boxy         + label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; flex: 0 0 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
+        input.boxy:checked + label { filter: brightness(1); }
     </style>
 </head>
 <body onload="init();">
