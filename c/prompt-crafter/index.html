@@ -61,7 +61,7 @@
         
         input[type="checkbox"] { display: none; }
         
-        label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
+        label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; width: 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
         input[type="checkbox"]:checked + label { filter: brightness(1); }
     </style>
 </head>
@@ -76,26 +76,28 @@
         angle, 1girl/2girl
         
         <h3>Artists</h3>
-        <div id="artists" style="display: flex; gap: 1em; overflow-x: scroll;">
-            
-            <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
-            <label for="blushyspicy" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgK8Lx11D2D8azuT1eM_l4GytBvz3OaDgcZg&s');">blushyspicy</label>
-            
-            <input type="checkbox" oninput="craft()" id="ccu" value="c.cu(artist)">
-            <label for="ccu" style="background-image: url('https://cdn.donmai.us/original/17/b1/17b1e5ee5aca849222dc07769ce8fc1c.jpg');">c.cu</label>
-            
-            <input type="checkbox" oninput="craft()" id="betterwithsalt" value="betterwithsalt(artist)">
-            <label for="betterwithsalt" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL5aCFvwGuNr21hmh1k_vZQkG6PUwbGZc1Q&s');">betterwithsalt</label>
-            
-            <input type="checkbox" oninput="craft()" id="lazorchef" value="lazorchef(artist)">
-            <label for="lazorchef" style="background-image: url('https://img3.gelbooru.com/images/33/47/33471ecc92fe4d837008060b655680a7.jpeg');">lazorchef</label>
-            
-            <input type="checkbox" oninput="craft()" id="kipteitei" value="kipteitei(artist)">
-            <label for="kipteitei" style="background-image: url('https://us.rule34.xxx//images/1369/df94d57ec4183e3d1388be87554e6800.jpeg?11567121');">kipteitei</label>
-            
-            <input type="checkbox" oninput="craft()" id="spellsx" value="spellsx(artist)">
-            <label for="spellsx" style="background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f36db054-75cc-4adf-be52-8b8e930ce06a/dfsa3l6-c79e5776-2d3a-47a3-b814-5379f05d57d1.jpg/v1/fill/w_861,h_928,q_70,strp/_as4_7__the_hot_neighbor_by_spellsx_dfsa3l6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE1NyIsInBhdGgiOiJcL2ZcL2YzNmRiMDU0LTc1Y2MtNGFkZi1iZTUyLThiOGU5MzBjZTA2YVwvZGZzYTNsNi1jNzllNTc3Ni0yZDNhLTQ3YTMtYjgxNC01Mzc5ZjA1ZDU3ZDEuanBnIiwid2lkdGgiOiI8PTIwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.T_vWlVrU2mS2V_vzKHspj9Ffkh6VDLFFWLSTgs53iAc');">spellsx</label>
-            
+        <div style="overflow-x: scroll;">
+            <div id="artists" style="display: flex; gap: 1em;">
+                
+                <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
+                <label for="blushyspicy" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgK8Lx11D2D8azuT1eM_l4GytBvz3OaDgcZg&s');">blushyspicy</label>
+                
+                <input type="checkbox" oninput="craft()" id="ccu" value="c.cu(artist)">
+                <label for="ccu" style="background-image: url('https://cdn.donmai.us/original/17/b1/17b1e5ee5aca849222dc07769ce8fc1c.jpg');">c.cu</label>
+                
+                <input type="checkbox" oninput="craft()" id="betterwithsalt" value="betterwithsalt(artist)">
+                <label for="betterwithsalt" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL5aCFvwGuNr21hmh1k_vZQkG6PUwbGZc1Q&s');">betterwithsalt</label>
+                
+                <input type="checkbox" oninput="craft()" id="lazorchef" value="lazorchef(artist)">
+                <label for="lazorchef" style="background-image: url('https://img3.gelbooru.com/images/33/47/33471ecc92fe4d837008060b655680a7.jpeg');">lazorchef</label>
+                
+                <input type="checkbox" oninput="craft()" id="kipteitei" value="kipteitei(artist)">
+                <label for="kipteitei" style="background-image: url('https://us.rule34.xxx//images/1369/df94d57ec4183e3d1388be87554e6800.jpeg?11567121');">kipteitei</label>
+                
+                <input type="checkbox" oninput="craft()" id="spellsx" value="spellsx(artist)">
+                <label for="spellsx" style="background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f36db054-75cc-4adf-be52-8b8e930ce06a/dfsa3l6-c79e5776-2d3a-47a3-b814-5379f05d57d1.jpg/v1/fill/w_861,h_928,q_70,strp/_as4_7__the_hot_neighbor_by_spellsx_dfsa3l6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE1NyIsInBhdGgiOiJcL2ZcL2YzNmRiMDU0LTc1Y2MtNGFkZi1iZTUyLThiOGU5MzBjZTA2YVwvZGZzYTNsNi1jNzllNTc3Ni0yZDNhLTQ3YTMtYjgxNC01Mzc5ZjA1ZDU3ZDEuanBnIiwid2lkdGgiOiI8PTIwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.T_vWlVrU2mS2V_vzKHspj9Ffkh6VDLFFWLSTgs53iAc');">spellsx</label>
+                
+            </div>
         </div>
 
         <h3>Design</h3>
