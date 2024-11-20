@@ -61,12 +61,12 @@
     </script>
 
     <style>
-        body { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-family: sans-serif; }
+        body { display: grid; grid-template-columns: 2fr 1fr; gap: 1em; font-family: sans-serif; }
         h3 { border-bottom: 1px solid grey; }
         
         input[type="checkbox"] { display: none; }
         
-        label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; aspect-ratio: 1; background-position: center; background-size: cover; border-radius: 1em; overflow: hidden; }
+        label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; aspect-ratio: 1; background-position: center; background-size: cover; border-radius: 1em; overflow: hidden; }
         input[type="checkbox"]:checked + label { filter: brightness(1); }
     </style>
 </head>
@@ -81,7 +81,7 @@
         angle, 1girl/2girl
         
         <h3>Artists</h3>
-        <div id="artists" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1em;">
+        <div id="artists" style="display: grid; grid-template-columns: repeat(auto-fill, 180px); gap: 1em;">
             
             <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
             <label for="blushyspicy" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgK8Lx11D2D8azuT1eM_l4GytBvz3OaDgcZg&s');">blushyspicy</label>
