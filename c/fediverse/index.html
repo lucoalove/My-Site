@@ -11,8 +11,7 @@
         body { margin: 0; font-family: "Hind", sans-serif; color: var(--text); background: var(--background); }
 
         .centerizer { display: flex; align-items: flex-start; justify-content: center; gap: 2em; }
-        .width-center { width: 72ex; }
-        .width-sidebar { width: 36ex; }
+        .width-center { width: 90ex; }
 
         header { position: sticky; top: 0; background: var(--background); margin-bottom: 1em; }
 
@@ -112,6 +111,7 @@
     <header class="centerizer">
 
         <nav class="width-center">
+            <button id="button-account">Log In With Mastodon</button>
             <button id="button-load-statuses-public">Global</button>
             <button id="button-load-statuses-following">Following</button>
             <input id="input-load-from-search" type="text" placeholder="Search @accounts or #hashtags">
@@ -121,37 +121,7 @@
 
     <main class="centerizer">
 
-        <div class="width-sidebar">
-            
-            <div style="position: fixed;">
-                
-                <div id="menu-logged-out">
-                    <button type="button" id="button-log-in" class="width-sidebar">Log In With Mastodon</button>
-                </div>
-                
-                <div id="menu-logged-in">
-                    
-                    <div class="width-sidebar shaded-box">
-                        <div id="header" style="padding: 1em; aspect-ratio: 4; position: relative; background-size: cover; background-position: center;">
-                            <img id="avatar" style="border-radius: 0.5em; height: 100px; top: 2em; position: absolute;">
-                        </div>
-                        <div style="padding: 1em;">
-                            <h3 id="display-name" style="margin: 0; margin-top: 2em;"></h3>
-                            <a id="account" style="color: var(--text-off);"></a>
-    
-                            <br>Make post coming soon :)
-                        </div>
-                    </div>
-                    
-                </div>
-                
-            </div>
-            
-        </div>
-
         <div class="width-center" id="content-insert"></div>
-
-        <div class="width-sidebar"></div>
 
     </main>
     
