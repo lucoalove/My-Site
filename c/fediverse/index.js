@@ -317,37 +317,44 @@ async function refreshContext() {
     buttonLoadStatusesFollowing.disabled = false;
     buttonAccount.disabled = false;
     
-    inputLoadFromSearch.value = "";
-    
     contentInsert.innerHTML = "Loading...";
 
     // decode what they're trying to search (account or hashtag)
     if (term.charAt(0) === '@') {
 
-        if (term === `@${ account.acct }`) {
-            buttonAccount.disabled = true;
-        }
-
-        // account search
-        const lookupResponse = await get(`/api/v1/accounts/lookup?acct=${ term }`);
-        contentInsert.innerHTML = "";
+        setContextToAccount(term);
         
-        if (lookupResponse) {
+    } else {
 
-            const lookupJson = await lookupResponse.json();
+        // hashtag search
+        setContextToTimeline(false, false, `/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
 
-            const acctResponse         = await get(`/api/v1/accounts/${ lookupJson.id }`);
-            const acctStatusesResponse = await get(`/api/v1/accounts/${ lookupJson.id }/statuses`);
-            
-            if (acctResponse && acctStatusesResponse) {
+        contentInsert.innerHTML = `<p><strong>Statuses with #${ term }</strong></p>` + contentInsert.innerHTML;
 
-                await insertAccount(await acctResponse.json());
-                await insertStatuses(await acctStatusesResponse.json());
-                
-            } else {
-                
-                contentInsert.innerHTML = "There was an error.";
-            }
+    }
+}
+
+async function setContextToAccount(handle) {
+
+    if (handle === `@${ account.acct }`) {
+        buttonAccount.disabled = true;
+    }
+
+    // account search
+    const lookupResponse = await get(`/api/v1/accounts/lookup?acct=${ handle }`);
+    contentInsert.innerHTML = "";
+    
+    if (lookupResponse) {
+
+        const lookupJson = await lookupResponse.json();
+
+        const acctResponse         = await get(`/api/v1/accounts/${ lookupJson.id }`);
+        const acctStatusesResponse = await get(`/api/v1/accounts/${ lookupJson.id }/statuses`);
+        
+        if (acctResponse && acctStatusesResponse) {
+
+            await insertAccount(await acctResponse.json());
+            await insertStatuses(await acctStatusesResponse.json());
             
         } else {
             
@@ -355,19 +362,8 @@ async function refreshContext() {
         }
         
     } else {
-    
-        // hashtag search
-        const response = await get(`/api/v1/timelines/tag/${ term.replace("#", "") }?limit=40`);
-    
-        if (response) {
-
-            contentInsert.innerHTML = `<p><strong>Statuses with #${ term }</strong></p>`;
-            await insertStatuses(await response.json());
-            
-        } else {
-            
-            contentInsert.innerHTML = "There was an error.";
-        }
+        
+        contentInsert.innerHTML = "There was an error.";
     }
 }
 
@@ -393,7 +389,7 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
         
     } else {
         
-        contentInsert.innerHTML = "There was an error.";
+        contentInsert.innerHTML = "There was an error retrieving the timeline.";
     }
 }
 
