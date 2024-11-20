@@ -114,6 +114,17 @@
             return extra + getSize(value) + " hips";
         }
 
+        function constructLegsPrompt(value) {
+
+            let extra = "";
+
+            if (value > 50) {
+                extra += "(fat legs, fat knees, fat calves:1." + parseInt(value / 10 - 5) + "), ";
+            }
+            
+            return extra + getSize(value) + " calves";
+        }
+        
         
         
         function craft() {
@@ -155,7 +166,8 @@
                 output.value += "\n\n/* figure */\n";
             output.value += "(" + constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
             output.value +=       constructBellyPrompt(document.getElementById("belly-thickness").value)     + ", ";
-            output.value +=       constructHipsPrompt(document.getElementById("hips-thickness").value)       + ":1.3)";
+            output.value +=       constructHipsPrompt(document.getElementById("hips-thickness").value)       + ", ";
+            output.value +=       constructLegsPrompt(document.getElementById("legs-thickness").value)       + ":1.3)";
         }
     </script>
 
@@ -221,7 +233,7 @@
         </div>
     
         <h3>Figure</h3>
-        checkboxes: cellulite, stretch marks, deep cleavage
+        checkboxes: cellulite, stretch marks, deep cleavage, shortstack
         <table>
             <tr>
                 <td>Breasts:</td>
@@ -241,7 +253,12 @@
                     <input id="hips-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
-            fat legs/knees/calves slider?
+            <tr>
+                <td>Legs:</td>
+                <td>
+                    <input id="legs-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
+                </td>
+            </tr>
         </table>
     </div>
     
