@@ -35,15 +35,21 @@
         function craft() {
 
             const output = document.getElementById("output");
-            output.innerText = "";
+            output.value = "";
             
-            output.innerText += `
+            output.value += `
                 /* quality */
                 best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,
-                
-                /* artists */
-                blushyspicy(artist), c.cu(artist), betterwithsalt(artist), lazorchef(artist), kipteitei(artist), spellsx(artist),
+            `;
 
+            output.value += "\n/* artists */";
+            for (const checkbox of document.getElementById("artists").children) {
+
+                if (checkbox.checked)
+                    output.value += "\n${ checkbox.value }";
+            }
+                
+            output.value += `
                 /* character design */
                 ${ document.getElementById("character-design").value }
 
