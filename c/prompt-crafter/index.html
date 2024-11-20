@@ -50,8 +50,8 @@
                     output.value += "\n" + checkbox.value + ",";
             }
             
-            output.value += "\n\n/* character design */\n";
-            output.value += document.getElementById("character-design").value + ",";
+            output.value += "\n\n/* design */\n";
+            output.value += document.getElementById("design").value + ",";
 
             output.value += "\n\n/* thickness */\n(";
             output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
@@ -69,6 +69,9 @@
 
     <div style="overflow: hidden;">
 
+        <h3>Meta</h3>
+        include comments
+        
         <h3>Composition</h3>
         angle, 1girl/2girl
         
@@ -82,8 +85,8 @@
             <input type="checkbox" oninput="craft()" value="spellsx(artist)"> spellsx<br>
         </div>
 
-        <h3>Character Design</h3>
-        <textarea id="character-design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, blue eyes, pink shirt..." oninput="craft()"></textarea>
+        <h3>Design</h3>
+        <textarea id="design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, pink shirt, on the beach..." oninput="craft()"></textarea>
 
         <h3>Thickness</h3>
         <table>
