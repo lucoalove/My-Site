@@ -94,7 +94,9 @@
                 extra += "chubby, ";
             }
 
-            // belly sticking out, round belly
+            if (value > 80) {
+                extra += "belly sticking out, round belly, ";
+            }
             
             return getSize(value) + " belly";
         }
@@ -115,6 +117,10 @@
         }
 
         function constructLegsPrompt(value) {
+
+            if (value == 1) {
+                return "slender legs";
+            }
 
             let extra = "";
 
