@@ -84,7 +84,17 @@
 
         function constructBellyPrompt(value) {
 
-            // belly sticking out, round belly, hourglass, narrow waist
+            if (value == 1) {
+                return "no belly, hourglass, narrow waist, slim";
+            }
+
+            let extra = "";
+
+            if (value < 20) {
+                extra += "chubby, ";
+            }
+
+            // belly sticking out, round belly
             
             return getSize(value) + " belly";
         }
@@ -103,6 +113,8 @@
             
             return extra + getSize(value) + " hips";
         }
+
+        
         
         function craft() {
 
