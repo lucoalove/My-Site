@@ -53,10 +53,10 @@
             output.value += "\n\n/* character design */\n";
             output.value += document.getElementById("character-design").value + ",";
 
-            output.value += "\n\n/* thickness */\n";
-            output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ",";
-            output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ",";
-            output.value += constructHipsPrompt(document.getElementById("hips-thickness").value);
+            output.value += "\n\n/* thickness */\n(";
+            output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
+            output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ", ";
+            output.value += constructHipsPrompt(document.getElementById("hips-thickness").value) + ":1.3)";
         }
     </script>
 
@@ -70,7 +70,7 @@
     <div style="overflow: hidden;">
 
         <h3>Composition</h3>
-        angle
+        angle, 1girl/2girl
         
         <h3>Artists</h3>
         <div id="artists">
