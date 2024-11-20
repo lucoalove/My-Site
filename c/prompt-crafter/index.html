@@ -58,7 +58,6 @@
     <style>
         body { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-family: sans-serif; }
         h3 { border-bottom: 1px solid grey; }
-        textarea { max-width: 99%; min-width: 99%; }
     </style>
 </head>
 <body>
@@ -79,7 +78,7 @@
         </div>
 
         <h3>Character Design</h3>
-        <textarea id="character-design" rows="8" placeholder="red hair, blue eyes, pink shirt..." onchange="craft()"></textarea>
+        <textarea id="character-design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, blue eyes, pink shirt..." onchange="craft()"></textarea>
 
         <h3>Thickness</h3>
         <table>
@@ -105,7 +104,7 @@
         
     </div>
 
-    <div id="output" style="padding: 1em; font-size: smaller; border: 1px solid black;"></div>
+    <textarea readonly id="output" style="padding: 1em; resize: none; font-size: smaller; border: 1px solid black;"></textarea>
     
 </body>
 </html>
