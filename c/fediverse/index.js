@@ -346,7 +346,7 @@ async function loadFromSearchTerm(term) {
     }
 }
 
-async function loadStatusesFollowing() {
+async function loadStatusesFollowing() { // set context timeline (home)?
     
     // reset context
     buttonLoadStatusesPublic.disabled = false;
@@ -359,11 +359,20 @@ async function loadStatusesFollowing() {
     
     // fetch
     contentInsert.innerHTML = "Loading...";
+    const response = await get("/api/v1/timelines/home?limit=40");
     
-    contentInsert.innerHTML = "Accounts don't exist yet. Why are you here?";
+    if (response) {
+
+        contentInsert.innerHTML = "";
+        await insertStatuses(await response.json());
+        
+    } else {
+        
+        contentInsert.innerHTML = "There was an error.";
+    }
 }
 
-async function loadStatusesPublic() { // set context public?
+async function loadStatusesPublic() {
 
     // reset context
     buttonLoadStatusesPublic.disabled = true;
