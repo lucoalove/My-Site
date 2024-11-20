@@ -5,22 +5,31 @@
     <title>Prompt Crafter</title>
 
     <script>
-        const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly giant", "giant", "hyper" ];
-
-        // thickness: (deep cleavage:1.5), (massive boobs:1.2), (thick thighs:1.5), (big ass), (hyper hips:1.5), (cellulite), (stretch marks), (fat knees), (fat calves), hands on hips, belly sticking out, from above, hourglass, narrow waist
+        const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly massive", "massive", "hyper" ];
+        
+        // giant?
+        // (cellulite), (stretch marks), (fat knees), (fat calves)
+        
+        // value is in range [1, 100]
         function constructBreastsPrompt(value) {
 
-            return sizeHeirarchy[value] + " breasts";
+            // (deep cleavage:1.5), (massive boobs:1.2)
+
+            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " breasts";
         }
 
         function constructBellyPrompt(value) {
 
-            return sizeHeirarchy[value] + " belly";
+            // belly sticking out, round belly, hourglass, narrow waist
+            
+            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " belly";
         }
         
         function constructHipsPrompt(value) {
 
-            return sizeHeirarchy[value] + " hips";
+            // (thick thighs:1.5), (big ass), (hyper hips:1.5),
+            
+            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " hips";
         }
         
         function craft() {
@@ -60,7 +69,14 @@
         angle
         
         <h3>Artists</h3>
-        multi choice
+        <div id="artists">
+            <input type="checkbox" value="blushyspicy(artist)">
+            <input type="checkbox" value="c.cu(artist)">
+            <input type="checkbox" value="betterwithsalt(artist)">
+            <input type="checkbox" value="lazorchef(artist)">
+            <input type="checkbox" value="kipteitei(artist)">
+            <input type="checkbox" value="spellsx(artist)">
+        </div>
 
         <h3>Character Design</h3>
         <textarea id="character-design" rows="8" placeholder="red hair, blue eyes, pink shirt..." onchange="craft()"></textarea>
@@ -70,19 +86,19 @@
             <tr>
                 <td>Breasts:</td>
                 <td>
-                    <input id="breasts-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
+                    <input id="breasts-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Belly:</td>
                 <td>
-                    <input id="belly-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
+                    <input id="belly-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Hips:</td>
                 <td>
-                    <input id="hips-thickness" type="range" min="0" max="7" value="2" onchange="craft()">
+                    <input id="hips-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
                 </td>
             </tr>
         </table>
