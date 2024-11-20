@@ -351,6 +351,7 @@ async function loadStatusesFollowing() {
     // reset context
     buttonLoadStatusesPublic.disabled = false;
     buttonLoadStatusesFollowing.disabled = true;
+    buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
     if (paramSearch)
@@ -367,6 +368,7 @@ async function loadStatusesPublic() { // set context public?
     // reset context
     buttonLoadStatusesPublic.disabled = true;
     buttonLoadStatusesFollowing.disabled = false;
+    buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
     if (paramSearch)
