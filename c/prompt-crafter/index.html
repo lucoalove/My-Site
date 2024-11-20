@@ -79,7 +79,7 @@
             
             output.value += "/* quality */\nbest quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
 
-            output.value += `\n\n/* composition */\n${ document.querySelector('input[name="girl-count"]:checked').value },`;
+            output.value += `\n\n/* composition */\n${ document.getElementById("girl-count").checked ? "2girls" : "1girl" },`;
             
             output.value += "\n\n/* artists */";
             for (const checkbox of document.getElementById("artists").children) {
@@ -92,6 +92,8 @@
             output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
             output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ", ";
             output.value += constructHipsPrompt(document.getElementById("hips-thickness").value) + ":1.3)";
+
+            // document.querySelector('input[name="radio-buttons"]:checked').value
         }
     </script>
 
@@ -102,6 +104,14 @@
         input.boxy { display: none; }
         input.boxy         + label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; flex: 0 0 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
         input.boxy:checked + label { filter: brightness(1); }
+
+        /* stole this from w3schools */
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; vertical-align: middle; }
+        .switch input { display: none; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: 0.2s; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: 0.2s; }
+        input:checked + .slider { background-color: #2196F3; }
+        input:checked + .slider:before { transform: translateX(26px); }
     </style>
 </head>
 <body onload="init();">
@@ -110,15 +120,17 @@
 
     <div>
         <h3>Meta</h3>
-        include comments/linebreaks
+        include comments/linebreaks switch
         
         <h3>Composition</h3>
 
-        <!-- maybe a switch instead idk -->
-        <input type="radio" id="1girl" name="girl-count" value="1girl" oninput="craft()" checked>
-        <label for="1girl">1girl</label><br>
-        <input type="radio" id="2girl" name="girl-count" value="2girl" oninput="craft()">
-        <label for="2girl">2girl</label><br>
+        1girl
+        <label class="switch">
+            <input type="checkbox" id="girl-count" oninput="craft()">
+            <span class="slider"></span>
+        </label>
+        2girls
+        <br><br>
         
         angle (from above, from front, from side, from behind, from below; + dutch angle), mood, pose/action
     
