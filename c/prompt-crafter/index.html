@@ -86,9 +86,16 @@
         
         function constructHipsPrompt(value) {
 
-            // (thick thighs:1.5), (big ass), (hyper hips:1.5)
+            let extra = "";
+
+            if (value > 50) {
+                
+                extra += "big ass, ";
+
+                extra += "thick thighs:1." + parseInt(value / 10 - 5) + ", ";
+            }
             
-            return getSize(value) + " hips";
+            return extra + getSize(value) + " hips";
         }
         
         function craft() {
