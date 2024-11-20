@@ -76,22 +76,34 @@
 
             const output = document.getElementById("output");
             output.value = "";
-            
-            output.value += "/* quality */\nbest quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
 
-            output.value += `\n\n/* composition */\n${ document.getElementById("girl-count").checked ? "2girls" : "1girl" },`;
-            
-            output.value += "\n\n/* artists */";
+            const comments = document.getElementById("comments").checked;
+
+            if (comments)
+                output.value += "/* quality */\n";
+            output.value += "best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
+
+            if (comments)
+                output.value += "\n\n/* composition */\n";
+            output.value += document.getElementById("girl-count").checked ? "2girls, 2women," : "1girl, 1woman,";
+
+            if (comments)
+                output.value += "\n\n/* artists */";
             for (const checkbox of document.getElementById("artists").children) {
 
-                if (checkbox.checked)
-                    output.value += "\n" + checkbox.value + ",";
+                if (checkbox.checked) {
+
+                    if (comments)
+                        output.value += "\n";
+                    output.value += checkbox.value + ", ";
+                }
             }
 
-            output.value += "\n\n/* figure */\n(";
-            output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
-            output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ", ";
-            output.value += constructHipsPrompt(document.getElementById("hips-thickness").value) + ":1.3)";
+            if (comments)
+                output.value += "\n\n/* figure */\n";
+            output.value += "(" + constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
+            output.value +=       constructBellyPrompt(document.getElementById("belly-thickness").value)     + ", ";
+            output.value +=       constructHipsPrompt(document.getElementById("hips-thickness").value)       + ":1.3)";
 
             // document.querySelector('input[name="radio-buttons"]:checked').value
         }
@@ -120,7 +132,11 @@
 
     <div>
         <h3>Meta</h3>
-        include comments/linebreaks switch
+        <label class="switch">
+            <input type="checkbox" id="comments" oninput="craft()">
+            <span class="slider"></span>
+        </label>
+        Include comments/linebreaks
         
         <h3>Composition</h3>
 
