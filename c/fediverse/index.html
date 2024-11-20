@@ -27,7 +27,8 @@
         
         /* might add border to header idk */
         .account-box #header { position: relative; overflow: hidden; border-radius: 1em; background-color: var(--status-background); background-position: center; background-size: cover; aspect-ratio: 2; z-index: -1; box-shadow: 0 2px 8px -4px black; }
-        .account-box #avatar { width: 140px; position: absolute; bottom: 8px; left: 8px; border-radius: 1em; box-shadow: 0 2px 8px -4px black; }
+        .account-box #avatar { width: 140px; position: absolute; bottom: -60px; left: 8px; border-radius: 1em; box-shadow: 0 2px 8px -4px black; }
+        .account-box #name-box { margin-left: 160px; }
         .account-box #display-name { margin-bottom: 0; }
         .account-box #account { color: var(--text-off); }
         .account-box #follow-box { margin: 1em 0; font-weight: 700; display: flex; gap: 2em; }
@@ -98,8 +99,10 @@
             <div id="header">
                 <img id="avatar">
             </div>
-            <h2 id="display-name"></h2>
-            <a id="account"></a>
+            <div id="name-box">
+                <h2 id="display-name"></h2>
+                <a id="account"></a>
+            </div>
             <div id="note"></div>
             <div id="follow-box">
                 <div>Followers: <span id="followers-count"></span></div>
