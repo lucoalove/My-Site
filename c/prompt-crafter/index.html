@@ -63,8 +63,11 @@
     <style>
         body { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-family: sans-serif; }
         h3 { border-bottom: 1px solid grey; }
+        
         input[type="checkbox"] { display: none; }
-        label { background: #eee; border-radius: 1em; padding: 1em; }
+        
+        label { filter: brightness(0.8); transition-duration: 0.2s; background-color: #eee; aspect-ratio: 1; background-position: center; background-size: cover; border-radius: 1em; padding: 1em; }
+        input[type="checkbox"]:checked + label { filter: brightness(1); }
     </style>
 </head>
 <body>
@@ -79,19 +82,25 @@
         
         <h3>Artists</h3>
         <div id="artists" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1em;">
-            <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
-            <input type="checkbox" oninput="craft()" id="ccu" value="c.cu(artist)">
-            <input type="checkbox" oninput="craft()" id="betterwithsalt" value="betterwithsalt(artist)">
-            <input type="checkbox" oninput="craft()" id="lazorchef" value="lazorchef(artist)">
-            <input type="checkbox" oninput="craft()" id="kipteitei" value="kipteitei(artist)">
-            <input type="checkbox" oninput="craft()" id="spellsx" value="spellsx(artist)">
-
+            
+            <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgK8Lx11D2D8azuT1eM_l4GytBvz3OaDgcZg&s');">
             <label for="blushyspicy">blushyspicy</label>
+            
+            <input type="checkbox" oninput="craft()" id="ccu" value="c.cu(artist)">
             <label for="ccu">c.cu</label>
+            
+            <input type="checkbox" oninput="craft()" id="betterwithsalt" value="betterwithsalt(artist)">
             <label for="betterwithsalt">betterwithsalt</label>
+            
+            <input type="checkbox" oninput="craft()" id="lazorchef" value="lazorchef(artist)">
             <label for="lazorchef">lazorchef</label>
+            
+            <input type="checkbox" oninput="craft()" id="kipteitei" value="kipteitei(artist)">
             <label for="kipteitei">kipteitei</label>
+            
+            <input type="checkbox" oninput="craft()" id="spellsx" value="spellsx(artist)">
             <label for="spellsx">spellsx</label>
+            
         </div>
 
         <h3>Design</h3>
