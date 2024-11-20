@@ -101,85 +101,6 @@ async function get(endpoint) {
     }
 }
 
-
-
-/*
- * yea
- */
-
-async function getLoggedInAccount() {
-
-    if (accessToken) {
-
-        // get account with accessToken (and make sure the accessToken is still valid)
-        const credentialsResponse = await get("/api/v1/accounts/verify_credentials");
-        
-        if (credentialsResponse.status == 200) {
-
-            // return the account
-            return await credentialsResponse.json();
-            
-        } else {
-
-            // if accessToken is not valid, clear its cookie (effectively automatically logging out)
-            accessToken = null;
-            setCookie("access_token", "", -100);
-
-            return null;
-
-        }
-        
-    } else {
-
-        // not logged in
-        return null;
-    }
-}
-
-async function requestAuthentication() {
-
-    // https://docs.joinmastodon.org/client/token/#creating-our-application
-
-    // register a client application (for client_id and client_secret)
-    const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
-        {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                "client_name":   "Test Application",
-                "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/auth.html" ],
-                "scopes":        "read write push",
-                "website":       "https://www.fatchicks.cc/c/fediverse/"
-            })
-        }
-    );
-
-    if (applicationRequestResponse.status != 200) {
-        
-        alert("Error authenticating: " + applicationRequestResponse.status);
-        return;
-    }
-
-    const credentialApplication = await applicationRequestResponse.json();
-    const clientID              = credentialApplication.client_id;
-    const clientSecret          = credentialApplication.client_secret;
-
-    // cache client_id and client_secret for auth.html to use
-    setCookie("client_id", clientID, 1);
-    setCookie("client_secret", clientSecret, 1);
-    
-    /*
-     * Tell the user to authorize themselves under that client.
-     * 
-     * They will then be redirected to the auth page where the
-     * resulting code will be used to get an access token, which
-     * is stored in cookies and used to log them in.
-     */
-    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code&state=${ targetURL }`;
-}
-
 async function insertAccount(account) {
 
     console.log("DEBUG_ACCT:");
@@ -299,6 +220,12 @@ async function insertStatuses(statuses) {
     }
 }
 
+
+
+/*
+ * Context control
+ */
+
 async function refreshContext() {
 
     const term = inputLoadFromSearch.value.trim().replace("#", "");
@@ -374,7 +301,7 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
     buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
-    if (new URLSearchParams(window.location.search).get("search"))
+    if (!(isPublic || isHome) && new URLSearchParams(window.location.search).get("search"))
         window.history.pushState({}, "", "?");
     
     // fetch
@@ -390,6 +317,82 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
         
         contentInsert.innerHTML = "There was an error retrieving the timeline.";
     }
+}
+
+/*
+ * Account stuff
+ */
+async function getLoggedInAccount() {
+
+    if (accessToken) {
+
+        // get account with accessToken (and make sure the accessToken is still valid)
+        const credentialsResponse = await get("/api/v1/accounts/verify_credentials");
+        
+        if (credentialsResponse.status == 200) {
+
+            // return the account
+            return await credentialsResponse.json();
+            
+        } else {
+
+            // if accessToken is not valid, clear its cookie (effectively automatically logging out)
+            accessToken = null;
+            setCookie("access_token", "", -100);
+
+            return null;
+
+        }
+        
+    } else {
+
+        // not logged in
+        return null;
+    }
+}
+
+async function requestAuthentication() {
+
+    // https://docs.joinmastodon.org/client/token/#creating-our-application
+
+    // register a client application (for client_id and client_secret)
+    const applicationRequestResponse = await fetch(targetURL + "/api/v1/apps",
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "client_name":   "Test Application",
+                "redirect_uris": [ "https://www.fatchicks.cc/c/fediverse/auth.html" ],
+                "scopes":        "read write push",
+                "website":       "https://www.fatchicks.cc/c/fediverse/"
+            })
+        }
+    );
+
+    if (applicationRequestResponse.status != 200) {
+        
+        alert("Error authenticating: " + applicationRequestResponse.status);
+        return;
+    }
+
+    const credentialApplication = await applicationRequestResponse.json();
+    const clientID              = credentialApplication.client_id;
+    const clientSecret          = credentialApplication.client_secret;
+
+    // cache client_id and client_secret for auth.html to use
+    setCookie("client_id", clientID, 1);
+    setCookie("client_secret", clientSecret, 1);
+    
+    /*
+     * Tell the user to authorize themselves under that client.
+     * 
+     * They will then be redirected to the auth page where the
+     * resulting code will be used to get an access token, which
+     * is stored in cookies and used to log them in.
+     */
+    window.location.href = `${ targetURL }/oauth/authorize/?client_id=${ clientID }&scope=read+write+push&redirect_uri=https://www.fatchicks.cc/c/fediverse/auth.html&response_type=code&state=${ targetURL }`;
 }
 
 inputLoadFromSearch.value = new URLSearchParams(window.location.search).get("search");
