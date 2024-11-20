@@ -37,27 +37,22 @@
             const output = document.getElementById("output");
             output.value = "";
             
-            output.value += `
-                /* quality */
-                best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,
-            `;
+            output.value += "/* quality */\nbest quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
 
-            output.value += "\n/* artists */";
+            output.value += "\n\n/* artists */";
             for (const checkbox of document.getElementById("artists").children) {
 
                 if (checkbox.checked)
-                    output.value += "\n${ checkbox.value }";
+                    output.value += "\n" + ${ checkbox.value };
             }
                 
-            output.value += `
-                /* character design */
-                ${ document.getElementById("character-design").value }
+            output.value += "\n\n/* character design */\n";
+            output.value += "document.getElementById("character-design").value";
 
-                /* thickness */
-                ${ constructBreastsPrompt(document.getElementById("breasts-thickness").value) },
-                ${ constructBellyPrompt(document.getElementById("belly-thickness").value) },
-                ${ constructHipsPrompt(document.getElementById("hips-thickness").value) }
-            `;
+            output.value += "\n\n/* thickness */\n";
+            output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ",";
+            output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ",";
+            output.value += constructHipsPrompt(document.getElementById("hips-thickness").value);
         }
     </script>
 
@@ -75,12 +70,12 @@
         
         <h3>Artists</h3>
         <div id="artists">
-            <input type="checkbox" value="blushyspicy(artist)">
-            <input type="checkbox" value="c.cu(artist)">
-            <input type="checkbox" value="betterwithsalt(artist)">
-            <input type="checkbox" value="lazorchef(artist)">
-            <input type="checkbox" value="kipteitei(artist)">
-            <input type="checkbox" value="spellsx(artist)">
+            <input type="checkbox" value="blushyspicy(artist)"> blushyspicy<br>
+            <input type="checkbox" value="c.cu(artist)"> c.cu<br>
+            <input type="checkbox" value="betterwithsalt(artist)"> betterwithsalt<br>
+            <input type="checkbox" value="lazorchef(artist)"> lazorchef<br>
+            <input type="checkbox" value="kipteitei(artist)"> kipteitei<br>
+            <input type="checkbox" value="spellsx(artist)"> spellsx<br>
         </div>
 
         <h3>Character Design</h3>
