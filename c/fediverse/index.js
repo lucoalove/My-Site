@@ -8,8 +8,6 @@ const targetURL = "https://mastodon.social";
 
 const accessToken = getCookie("access_token");
 
-const paramSearch = new URLSearchParams(window.location.search).get("search");
-
 const contentInsert = document.getElementById("content-insert");
 
 const templateStatus  = document.getElementById("template-status");
@@ -22,7 +20,25 @@ const buttonAccount               = document.getElementById("button-account");
 
 buttonLoadStatusesPublic.onclick    = function() { setContextToTimeline(true, false, "/api/v1/timelines/public?limit=40"); };
 buttonLoadStatusesFollowing.onclick = function() { setContextToTimeline(false, true, "/api/v1/timelines/home?limit=40"); };
-inputLoadFromSearch.onchange        = loadFromSearch;
+inputLoadFromSearch.onchange        = refreshContext;
+
+const account = await getLoggedInAccount();
+const buttonAccount = document.getElementById("button-account");
+
+if (account) {
+
+    // set account button to go to user profile
+    buttonAccount.innerText = account.username;
+    
+    buttonAccount.onclick = function() { 
+        window.location.href = `?search=@${ account.acct }`;
+    };
+    
+} else {
+
+    // set account button to log in
+    buttonAccount.onclick = requestAuthentication;
+}
 
 
 
@@ -284,18 +300,33 @@ async function insertStatuses(statuses) {
     }
 }
 
-async function loadFromSearch() {
+async function refreshContext() {
 
-    window.location.href = "?search=" + inputLoadFromSearch.value.trim().replace("#", "");
-}
+    const term = inputLoadFromSearch.value.trim().replace("#", "");
 
-async function loadFromSearchTerm(term) {
+    if (isBlank(term)) {
 
-    // reset context (except this function only runs on page load so uh)
+        setContextToTimeline(true, false, "/api/v1/timelines/public?limit=40");
+        return;
+    }
+
+    window.history.pushState({}, "", "?search=" + term);
+
+    // reset context
+    buttonLoadStatusesPublic.disabled = false;
+    buttonLoadStatusesFollowing.disabled = false;
+    buttonAccount.disabled = false;
+    
+    inputLoadFromSearch.value = "";
+    
     contentInsert.innerHTML = "Loading...";
 
     // decode what they're trying to search (account or hashtag)
     if (term.charAt(0) === '@') {
+
+        if (term === `@${ account.acct }`) {
+            buttonAccount.disabled = true;
+        }
 
         // account search
         const lookupResponse = await get(`/api/v1/accounts/lookup?acct=${ term }`);
@@ -348,7 +379,7 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
     buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
-    if (paramSearch)
+    if (new URLSearchParams(window.location.search).get("search"))
         window.history.pushState({}, "", "?");
     
     // fetch
@@ -366,39 +397,5 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
     }
 }
 
-async function init() {
-
-    const account = await getLoggedInAccount();
-    const buttonAccount = document.getElementById("button-account");
-
-    if (account) {
-
-        // set account button to go to user profile
-        buttonAccount.innerText = account.username;
-        
-        buttonAccount.onclick = function() { 
-            window.location.href = `?search=@${ account.acct }`;
-        };
-        
-    } else {
-
-        // set account button to log in
-        buttonAccount.onclick = requestAuthentication;
-    }
-
-    // load content information
-    if (paramSearch && !isBlank(term)) {
-
-        if (paramSearch.trim() === `@${ account.acct }`) {
-            buttonAccount.disabled = true;
-        }
-        
-        loadFromSearchTerm(paramSearch);
-        
-    } else {
-        
-        setContextToTimeline(true, false, "/api/v1/timelines/public?limit=40");
-    }
-}
-
-init();
+inputLoadFromSearch.value = new URLSearchParams(window.location.search).get("search");
+refreshContext();
