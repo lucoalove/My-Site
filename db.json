@@ -82,7 +82,7 @@
         {
             "date": "Nov 20, 2024",
             "imgs": [],
-            "body": "<video preload='auto' tabindex='-1' playsinline='' aria-label='埋め込み動画' style='width: 100%; height: 100%; position: absolute; background-color: black; top: 0%; left: 0%; transform: rotate(0deg) scale(1.005);' poster='https://pbs.twimg.com/tweet_video_thumb/Gcr48ilX0AAIO-h.jpg' src='https://video.twimg.com/tweet_video/Gcr48ilX0AAIO-h.mp4' type='video/mp4'></video>"
+            "body": "<video aria-label='埋め込み動画' loop autoplay poster='https://pbs.twimg.com/tweet_video_thumb/Gcr48ilX0AAIO-h.jpg' src='https://video.twimg.com/tweet_video/Gcr48ilX0AAIO-h.mp4' type='video/mp4' style='width: 100%; background-color: black;'></video>"
         },
         {
             "date": "Nov 19, 2024",
