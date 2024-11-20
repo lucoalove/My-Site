@@ -5,19 +5,14 @@
     <title>Prompt Crafter</title>
 
     <script>
-        const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly massive", "massive", "hyper" ];
+        const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly massive", "massive", "hyper" ]; // giant?
 
         function getSize(value) {
             return sizeHeirarchy[parseInt((value * 8 - 1) / 100.0)];
         }
         
-        // giant?
-        // (cellulite), (stretch marks), (fat knees), (fat calves)
-        
         // value is in range [1, 100]
         function constructBreastsPrompt(value) {
-
-            // (deep cleavage:1.5), (massive boobs:1.2)
 
             return getSize(value) + " breasts";
         }
@@ -31,7 +26,7 @@
         
         function constructHipsPrompt(value) {
 
-            // (thick thighs:1.5), (big ass), (hyper hips:1.5),
+            // (thick thighs:1.5), (big ass), (hyper hips:1.5)
             
             return getSize(value) + " hips";
         }
@@ -53,7 +48,7 @@
             output.value += "\n\n/* design */\n";
             output.value += document.getElementById("design").value + ",";
 
-            output.value += "\n\n/* thickness */\n(";
+            output.value += "\n\n/* figure */\n(";
             output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
             output.value += constructBellyPrompt(document.getElementById("belly-thickness").value) + ", ";
             output.value += constructHipsPrompt(document.getElementById("hips-thickness").value) + ":1.3)";
@@ -107,7 +102,8 @@
         <p>Plan: swap out this section for a preset "scene" choice and a "character" choice (and a mood choice? action choice? ah!) (and maybe a "clothing" choice, with "Default for character," "Nude," and some presets like "Maid")</p>
         <textarea id="design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, pink shirt, on the beach..." oninput="craft()"></textarea>
 
-        <h3>Thickness</h3>
+        <h3>Figure</h3>
+        checkboxes: cellulite, stretch marks, deep cleavage
         <table>
             <tr>
                 <td>Breasts:</td>
@@ -127,6 +123,7 @@
                     <input id="hips-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
+            fat legs/knees/calves slider?
         </table>
         
     </div>
