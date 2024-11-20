@@ -24,6 +24,8 @@ inputLoadFromSearch.onchange        = refreshContext;
 
 const account = await getLoggedInAccount();
 
+
+
 if (account) {
 
     // set account button to go to user profile
@@ -41,6 +43,7 @@ if (account) {
 
 inputLoadFromSearch.value = new URLSearchParams(window.location.search).get("search");
 refreshContext();
+
 
 
 /*
@@ -307,7 +310,7 @@ async function setContextToTimeline(isPublic, isHome, endpoint) {
     buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
-    if (!(isPublic || isHome) && new URLSearchParams(window.location.search).get("search"))
+    if ((isPublic || isHome) && new URLSearchParams(window.location.search).get("search"))
         window.history.pushState({}, "", "?");
     
     // fetch
