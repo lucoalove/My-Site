@@ -15,8 +15,8 @@
         ];
 
         const characters = [
-            { display_name: "Hatsune Miku" },
-            { display_name: "Lucoa", value: "lucoa (dragon maid)" }
+            { display_name: "Hatsune Miku", value: "hatsune miku", image: "https://i.pinimg.com/736x/41/1b/df/411bdf6e6b3d5864f8194513a6e5bbf1.jpg" },
+            { display_name: "Lucoa", value: "lucoa (dragon maid)", image: "https://static.wikia.nocookie.net/2d-girls/images/8/86/Opinion-on-lucoa-v0-60597493tq9a1.webp/revision/latest?cb=20230511042851" }
         ];
 
         const clothing = [
@@ -40,6 +40,15 @@
             }
 
             // load characters
+            const charactersArea = document.getElementById("characters");
+            
+            for (const i in characters) {
+                
+                charactersArea.innerHTML += `
+                    <input class="boxy" type="radio" oninput="craft()" id="characters${ i }" name="characters" value="${ characters[i].value }"${ i == 0 ? " checked" : "" }>
+                    <label for="characters${ i }" style="background-image: url('${ characters[i].image }');">${ characters[i].display_name }</label>
+                `;
+            }
 
             // load clothing
         }
@@ -81,11 +90,11 @@
 
             if (comments)
                 output.value += "/* quality */\n";
-            output.value += "best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
+            output.value += "best quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands, ";
 
             if (comments)
                 output.value += "\n\n/* composition */\n";
-            output.value += document.getElementById("girl-count").checked ? "2girls, 2women," : "1girl, 1woman,";
+            output.value += document.getElementById("girl-count").checked ? "2girls, 2women, " : "1girl, 1woman, ";
 
             if (comments)
                 output.value += "\n\n/* artists */";
@@ -100,12 +109,14 @@
             }
 
             if (comments)
+                output.value += "\n\n/* character */\n";
+            output.value += document.querySelector('input[name="characters"]:checked').value + ", ";
+            
+            if (comments)
                 output.value += "\n\n/* figure */\n";
             output.value += "(" + constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
             output.value +=       constructBellyPrompt(document.getElementById("belly-thickness").value)     + ", ";
             output.value +=       constructHipsPrompt(document.getElementById("hips-thickness").value)       + ":1.3)";
-
-            // document.querySelector('input[name="radio-buttons"]:checked').value
         }
     </script>
 
@@ -159,6 +170,9 @@
         </div>
     
         <h3>Character</h3>
+        <div style="overflow-x: scroll;">
+            <div id="characters" style="display: flex; gap: 1em;"></div>
+        </div>
     
         <h3>Clothing</h3>
     
