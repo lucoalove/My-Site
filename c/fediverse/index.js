@@ -2,8 +2,7 @@
 
 // For account actions: https://docs.joinmastodon.org/client/authorized/#actions
 
-// this code is Mostly Kinda front-end design agnostic
-// it avoids styling stuff and just modifies HTML elements via their id, but it's... inflexible rn lol
+// semi-frontend agnostic, catering to the content I choose to display but agnostic to the way they are displayed
 
 const targetURL = "https://mastodon.social";
 
@@ -19,12 +18,11 @@ const templateAccount = document.getElementById("template-account");
 const buttonLoadStatusesPublic    = document.getElementById("button-load-statuses-public");
 const buttonLoadStatusesFollowing = document.getElementById("button-load-statuses-following");
 const inputLoadFromSearch         = document.getElementById("input-load-from-search");
-const buttonLogIn                 = document.getElementById("button-log-in");
+const buttonAccount               = document.getElementById("button-account");
 
 buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
 buttonLoadStatusesFollowing.onclick = loadStatusesFollowing;
 inputLoadFromSearch.onchange        = loadFromSearch;
-buttonLogIn.onclick                 = requestAuthentication;
 
 
 
@@ -395,30 +393,16 @@ async function init() {
 
     const account = await getLoggedInAccount();
 
-    // load account information
     if (account) {
-        
-        document.getElementById("menu-logged-out").style.display = "none";
 
-        const menu = document.getElementById("menu-logged-in");
-        
-        menu.querySelector("#avatar").src                   = account.avatar;
-        menu.querySelector("#header").style.backgroundImage = `url("${ account.header }")`;
-    
-        menu.querySelector("#display-name").innerHTML = embedEmojis(
-            isBlank(account.display_name)
-                ? account.username
-                : account.display_name,
-            account.emojis
-        );
-    
-        let accountPart = menu.querySelector("#account");
-        accountPart.innerText = "@" + account.acct;
-        accountPart.href      = "?search=@" + account.acct;
+        // set account button to go to user profile
+        document.getElementById("button-account").innerText = account.username;
+        buttonAccount.onclick = `window.location.href = "?search=@${ account.acct }"`;
         
     } else {
-        
-        document.getElementById("menu-logged-in").style.display = "none";
+
+        // set account button to log in
+        buttonAccount.onclick = requestAuthentication;
     }
 
     // load content information
