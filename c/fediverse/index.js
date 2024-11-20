@@ -297,9 +297,7 @@ async function loadFromSearchTerm(term) {
         return;
     }
 
-    // reset context
-    buttonLoadStatusesPublic.disabled = false;
-
+    // reset context (except this function only runs on page load so uh)
     contentInsert.innerHTML = "Loading...";
 
     // decode what they're trying to search (account or hashtag)
@@ -392,12 +390,16 @@ async function loadStatusesPublic() { // set context public?
 async function init() {
 
     const account = await getLoggedInAccount();
+    const buttonAccount = document.getElementById("button-account");
 
     if (account) {
 
         // set account button to go to user profile
-        document.getElementById("button-account").innerText = account.username;
-        buttonAccount.onclick = `window.location.href = "?search=@${ account.acct }"`;
+        buttonAccount.innerText = account.username;
+        
+        buttonAccount.onclick = function() { 
+            window.location.href = `?search=@${ account.acct }`;
+        };
         
     } else {
 
@@ -407,6 +409,11 @@ async function init() {
 
     // load content information
     if (paramSearch) {
+
+        if (paramSearch.trim() === account.acct) {
+            buttonAccount.disabled = true;
+        }
+        
         loadFromSearchTerm(paramSearch);
     } else {
         loadStatusesPublic();
