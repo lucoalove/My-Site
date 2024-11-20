@@ -47,11 +47,11 @@
             for (const checkbox of document.getElementById("artists").children) {
 
                 if (checkbox.checked)
-                    output.value += "\n" + ${ checkbox.value };
+                    output.value += "\n" + checkbox.value + ",";
             }
-                
+            
             output.value += "\n\n/* character design */\n";
-            output.value += "document.getElementById("character-design").value";
+            output.value += document.getElementById("character-design").value + ",";
 
             output.value += "\n\n/* thickness */\n";
             output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ",";
@@ -74,35 +74,35 @@
         
         <h3>Artists</h3>
         <div id="artists">
-            <input type="checkbox" value="blushyspicy(artist)"> blushyspicy<br>
-            <input type="checkbox" value="c.cu(artist)"> c.cu<br>
-            <input type="checkbox" value="betterwithsalt(artist)"> betterwithsalt<br>
-            <input type="checkbox" value="lazorchef(artist)"> lazorchef<br>
-            <input type="checkbox" value="kipteitei(artist)"> kipteitei<br>
-            <input type="checkbox" value="spellsx(artist)"> spellsx<br>
+            <input type="checkbox" oninput="craft()" value="blushyspicy(artist)"> blushyspicy<br>
+            <input type="checkbox" oninput="craft()" value="c.cu(artist)"> c.cu<br>
+            <input type="checkbox" oninput="craft()" value="betterwithsalt(artist)"> betterwithsalt<br>
+            <input type="checkbox" oninput="craft()" value="lazorchef(artist)"> lazorchef<br>
+            <input type="checkbox" oninput="craft()" value="kipteitei(artist)"> kipteitei<br>
+            <input type="checkbox" oninput="craft()" value="spellsx(artist)"> spellsx<br>
         </div>
 
         <h3>Character Design</h3>
-        <textarea id="character-design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, blue eyes, pink shirt..." onchange="craft()"></textarea>
+        <textarea id="character-design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, blue eyes, pink shirt..." oninput="craft()"></textarea>
 
         <h3>Thickness</h3>
         <table>
             <tr>
                 <td>Breasts:</td>
                 <td>
-                    <input id="breasts-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
+                    <input id="breasts-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Belly:</td>
                 <td>
-                    <input id="belly-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
+                    <input id="belly-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
             <tr>
                 <td>Hips:</td>
                 <td>
-                    <input id="hips-thickness" type="range" min="1" max="100" value="20" onchange="craft()">
+                    <input id="hips-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
         </table>
