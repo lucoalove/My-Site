@@ -63,6 +63,8 @@
     <style>
         body { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-family: sans-serif; }
         h3 { border-bottom: 1px solid grey; }
+        input[type="checkbox"] { display: none; }
+        label { background: #eee; border-radius: 1em; padding: 1em; }
     </style>
 </head>
 <body>
@@ -76,13 +78,20 @@
         angle, 1girl/2girl
         
         <h3>Artists</h3>
-        <div id="artists">
-            <input type="checkbox" oninput="craft()" value="blushyspicy(artist)"> blushyspicy<br>
-            <input type="checkbox" oninput="craft()" value="c.cu(artist)"> c.cu<br>
-            <input type="checkbox" oninput="craft()" value="betterwithsalt(artist)"> betterwithsalt<br>
-            <input type="checkbox" oninput="craft()" value="lazorchef(artist)"> lazorchef<br>
-            <input type="checkbox" oninput="craft()" value="kipteitei(artist)"> kipteitei<br>
-            <input type="checkbox" oninput="craft()" value="spellsx(artist)"> spellsx<br>
+        <div id="artists" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1em;">
+            <input type="checkbox" oninput="craft()" id="blushyspicy" value="blushyspicy(artist)">
+            <input type="checkbox" oninput="craft()" id="ccu" value="c.cu(artist)">
+            <input type="checkbox" oninput="craft()" id="betterwithsalt" value="betterwithsalt(artist)">
+            <input type="checkbox" oninput="craft()" id="lazorchef" value="lazorchef(artist)">
+            <input type="checkbox" oninput="craft()" id="kipteitei" value="kipteitei(artist)">
+            <input type="checkbox" oninput="craft()" id="spellsx" value="spellsx(artist)">
+
+            <label for="blushyspicy">blushyspicy</label>
+            <label for="ccu">c.cu</label>
+            <label for="betterwithsalt">betterwithsalt</label>
+            <label for="lazorchef">lazorchef</label>
+            <label for="kipteitei">kipteitei</label>
+            <label for="spellsx">spellsx</label>
         </div>
 
         <h3>Design</h3>
