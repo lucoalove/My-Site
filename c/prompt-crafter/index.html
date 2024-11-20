@@ -15,13 +15,14 @@
         ];
 
         const characters = [
-            { display_name: "Hatsune Miku" }
+            { display_name: "Hatsune Miku" },
+            { display_name: "Lucoa", value: "lucoa (dragon maid)" }
         ];
 
         const clothing = [
             { display_name: "Default for character" },
             { display_name: "Nude" },
-            { display_name: "Maid" },
+            { display_name: "Cat Maid", value: "cat_lingerie, cat_cutout, cat_ear_panties, maid outfit, cat maid cutout dress" },
             { display_name: "Pajamas" }
         ];
 
@@ -78,6 +79,8 @@
             
             output.value += "/* quality */\nbest quality, high rating, (high rating), absurd res, high res, detailed, masterpiece, detailed face, intricate detail, sophisticated detail, exquisite detail, absurd resolution, correct anatomy, 8k, (highly detailed face), highly detailed skin texture, gorgeous, perfect hands,";
 
+            output.value += `\n\n/* composition */\n${ document.querySelector('input[name="girl-count"]:checked').value },`;
+            
             output.value += "\n\n/* artists */";
             for (const checkbox of document.getElementById("artists").children) {
 
@@ -114,7 +117,14 @@
         include comments/linebreaks
         
         <h3>Composition</h3>
-        angle, 1girl/2girl, mood, pose/action
+
+        <!-- maybe a switch instead idk -->
+        <input type="radio" id="1girl" name="girl-count" value="1girl" checked>
+        <label for="1girl">1girl</label><br>
+        <input type="radio" id="2girl" name="girl-count" value="2girl">
+        <label for="2girl">2girl</label><br>
+        
+        angle, mood, pose/action
     
         <h3>Scene</h3>
         Bedroom, beach, etc
