@@ -336,7 +336,7 @@ async function loadFromSearchTerm(term) {
     
         if (response) {
 
-            contentInsert.innerHTML = `<p><strong>Statuses with ${ term }</strong></p>`;
+            contentInsert.innerHTML = `<p><strong>Statuses with #${ term }</strong></p>`;
             await insertStatuses(await response.json());
             
         } else {
@@ -410,12 +410,14 @@ async function init() {
     // load content information
     if (paramSearch) {
 
-        if (paramSearch.trim() === account.acct) {
+        if (paramSearch.trim() === `@${ account.acct }`) {
             buttonAccount.disabled = true;
         }
         
         loadFromSearchTerm(paramSearch);
+        
     } else {
+        
         loadStatusesPublic();
     }
 }
