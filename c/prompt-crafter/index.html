@@ -6,6 +6,10 @@
 
     <script>
         const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly massive", "massive", "hyper" ];
+
+        function getSize(value) {
+            return sizeHeirarchy[parseInt((value * 8 - 1) / 100.0)];
+        }
         
         // giant?
         // (cellulite), (stretch marks), (fat knees), (fat calves)
@@ -15,21 +19,21 @@
 
             // (deep cleavage:1.5), (massive boobs:1.2)
 
-            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " breasts";
+            return getSize(value) + " breasts";
         }
 
         function constructBellyPrompt(value) {
 
             // belly sticking out, round belly, hourglass, narrow waist
             
-            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " belly";
+            return getSize(value) + " belly";
         }
         
         function constructHipsPrompt(value) {
 
             // (thick thighs:1.5), (big ass), (hyper hips:1.5),
             
-            return sizeHeirarchy[(value * 8 - 1) / 100.0] + " hips";
+            return getSize(value) + " hips";
         }
         
         function craft() {
