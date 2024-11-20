@@ -87,9 +87,6 @@
                 if (checkbox.checked)
                     output.value += "\n" + checkbox.value + ",";
             }
-            
-            output.value += "\n\n/* design */\n";
-            output.value += document.getElementById("design").value + ",";
 
             output.value += "\n\n/* figure */\n(";
             output.value += constructBreastsPrompt(document.getElementById("breasts-thickness").value) + ", ";
@@ -102,8 +99,7 @@
         body { font-family: sans-serif; display: grid; grid-template-columns: 1fr 2fr; gap: 1em; }
         h3 { border-bottom: 1px solid grey; }
         
-        input[type="checkbox"] { display: none; }
-        
+        input.boxy { display: none; }
         input.boxy         + label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; flex: 0 0 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
         input.boxy:checked + label { filter: brightness(1); }
     </style>
@@ -119,12 +115,12 @@
         <h3>Composition</h3>
 
         <!-- maybe a switch instead idk -->
-        <input type="radio" id="1girl" name="girl-count" value="1girl" checked>
+        <input type="radio" id="1girl" name="girl-count" value="1girl" oninput="craft()" checked>
         <label for="1girl">1girl</label><br>
-        <input type="radio" id="2girl" name="girl-count" value="2girl">
+        <input type="radio" id="2girl" name="girl-count" value="2girl" oninput="craft()">
         <label for="2girl">2girl</label><br>
         
-        angle, mood, pose/action
+        angle (from above, from front, from side, from behind, from below; + dutch angle), mood, pose/action
     
         <h3>Scene</h3>
         Bedroom, beach, etc
@@ -137,9 +133,6 @@
         <h3>Character</h3>
     
         <h3>Clothing</h3>
-        
-        <h3>temp</h3>
-        <textarea id="design" rows="8" style="max-width: 99%; min-width: 99%;" placeholder="red hair, pink shirt, on the beach..." oninput="craft()"></textarea>
     
         <h3>Figure</h3>
         checkboxes: cellulite, stretch marks, deep cleavage
