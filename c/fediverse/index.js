@@ -20,8 +20,8 @@ const buttonLoadStatusesFollowing = document.getElementById("button-load-statuse
 const inputLoadFromSearch         = document.getElementById("input-load-from-search");
 const buttonAccount               = document.getElementById("button-account");
 
-buttonLoadStatusesPublic.onclick    = loadStatusesPublic;
-buttonLoadStatusesFollowing.onclick = loadStatusesFollowing;
+buttonLoadStatusesPublic.onclick    = function() { setContextToTimeline(true, false, "/api/v1/timelines/public?limit=40"); };
+buttonLoadStatusesFollowing.onclick = function() { setContextToTimeline(false, true, "/api/v1/timelines/home?limit=40"); };
 inputLoadFromSearch.onchange        = loadFromSearch;
 
 
@@ -291,12 +291,6 @@ async function loadFromSearch() {
 
 async function loadFromSearchTerm(term) {
 
-    if (term.trim() === "") {
-        
-        loadStatusesPublic();
-        return;
-    }
-
     // reset context (except this function only runs on page load so uh)
     contentInsert.innerHTML = "Loading...";
 
@@ -346,11 +340,11 @@ async function loadFromSearchTerm(term) {
     }
 }
 
-async function loadStatusesFollowing() { // set context timeline (home)?
+async function setContextToTimeline(isPublic, isHome, endpoint) {
     
     // reset context
-    buttonLoadStatusesPublic.disabled = false;
-    buttonLoadStatusesFollowing.disabled = true;
+    buttonLoadStatusesPublic.disabled = isPublic;
+    buttonLoadStatusesFollowing.disabled = isHome;
     buttonAccount.disabled = false;
     inputLoadFromSearch.value = "";
 
@@ -359,33 +353,7 @@ async function loadStatusesFollowing() { // set context timeline (home)?
     
     // fetch
     contentInsert.innerHTML = "Loading...";
-    const response = await get("/api/v1/timelines/home?limit=40");
-    
-    if (response) {
-
-        contentInsert.innerHTML = "";
-        await insertStatuses(await response.json());
-        
-    } else {
-        
-        contentInsert.innerHTML = "There was an error.";
-    }
-}
-
-async function loadStatusesPublic() {
-
-    // reset context
-    buttonLoadStatusesPublic.disabled = true;
-    buttonLoadStatusesFollowing.disabled = false;
-    buttonAccount.disabled = false;
-    inputLoadFromSearch.value = "";
-
-    if (paramSearch)
-        window.history.pushState({}, "", "?");
-
-    // fetch
-    contentInsert.innerHTML = "Loading...";
-    const response = await get("/api/v1/timelines/public?limit=40");
+    const response = await get(endpoint);
     
     if (response) {
 
@@ -419,7 +387,7 @@ async function init() {
     }
 
     // load content information
-    if (paramSearch) {
+    if (paramSearch && !isBlank(term)) {
 
         if (paramSearch.trim() === `@${ account.acct }`) {
             buttonAccount.disabled = true;
@@ -429,7 +397,7 @@ async function init() {
         
     } else {
         
-        loadStatusesPublic();
+        setContextToTimeline(true, false, "/api/v1/timelines/public?limit=40");
     }
 }
 
