@@ -86,15 +86,13 @@
 
         function constructBellyPrompt(value) {
 
-            if (value == 1) {
+            if (value == 1)
                 return "no belly, hourglass, narrow waist, slim";
-            }
+            
+            if (value < 16)
+                return "chubby";
 
             let extra = "";
-
-            if (value < 20) {
-                extra += "chubby, ";
-            }
 
             if (value > 80) {
                 extra += "belly sticking out, round belly, ";
