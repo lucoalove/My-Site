@@ -25,7 +25,7 @@
             { display_name: "Nude", value: "naked, exposed nipples" },
             { display_name: "Cat Maid", value: "cat_lingerie, cat_cutout, cat_ear_panties, maid outfit, cat maid cutout dress" },
             { display_name: "Pajamas", value: "loose pajamas" },
-            { display_name: "Suit", value: "black suit, red tie, business suit, formal suit, stockings" },
+            { display_name: "Suit", value: "black suit, red tie, business suit, formal suit, pencil skirt, stockings" },
             { display_name: "American Flag Bikini", value: "american flag bikini, skindentation" },
             { display_name: "Cow Girl", value: "cowprint bikini, jean shorts, thigh highs, cow bell choker, skindentation" },
             { display_name: "Black Lingerie", value: "black lingerie, frilly lingerie, underwear, skindentation" },
@@ -100,7 +100,7 @@
                 extra += "belly sticking out, round belly, ";
             }
             
-            return getSize(value) + " belly";
+            return extra + getSize(value) + " belly";
         }
         
         function constructHipsPrompt(value) {
@@ -149,6 +149,8 @@
             if (comments)
                 output.value += "\n\n/* composition */\n";
             output.value += document.getElementById("girl-count").checked ? "2girls, 2women, " : "1girl, 1woman, ";
+
+            output.value += "smile, happy, bedroom eyes, ";
 
             if (comments)
                 output.value += "\n\n/* artists */";
