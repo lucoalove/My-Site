@@ -33,7 +33,12 @@
             { display_name: "Creeper-chan",
               value: "creeper chan, green creeper hood, lime green hair",
               default_clothing: "unzipped green creeper jacket, black crop top, black knee socks",
-              image: "https://static.wikia.nocookie.net/mudae/images/1/12/Creeper-chan10.png/revision/latest/scale-to-width/360?cb=20240330232310"
+              image: "https://static.wikia.nocookie.net/mudae/images/1/12/Creeper-chan10.png"
+            },
+            { display_name: "Yakumo Ran",
+              value: "yakumo ran (touhou), golden fox tails",
+              default_clothing: "blue and white robes",
+              image: "https://cdn.donmai.us/original/99/d5/99d5a18eefcfb5740a6f6f64eca460aa.jpg"
             }
         ];
 
@@ -168,13 +173,11 @@
             output.value += "big smile, blush, happy, bedroom eyes, ";
 
             if (comments)
-                output.value += "\n\n/* artists */";
+                output.value += "\n\n/* artists */\n";
             for (const checkbox of document.getElementById("artists").children) {
 
                 if (checkbox.checked) {
 
-                    if (comments)
-                        output.value += "\n";
                     output.value += checkbox.value + ", ";
                 }
             }
