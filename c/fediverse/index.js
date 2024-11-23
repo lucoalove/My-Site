@@ -271,7 +271,7 @@ async function refreshContext() {
 
 async function setContextToAccount(handle) {
 
-    if (handle === `@${ account.acct }`) {
+    if (account && handle === `@${ account.acct }`) {
         buttonAccount.disabled = true;
     }
 
