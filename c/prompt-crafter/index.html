@@ -15,13 +15,30 @@
         ];
 
         const characters = [
-            { display_name: "Hatsune Miku", value: "hatsune miku", image: "https://i.pinimg.com/736x/41/1b/df/411bdf6e6b3d5864f8194513a6e5bbf1.jpg" },
-            { display_name: "Lucoa", value: "lucoa (dragon maid)", image: "https://static.wikia.nocookie.net/2d-girls/images/8/86/Opinion-on-lucoa-v0-60597493tq9a1.webp" },
-            { display_name: "Akeno Himejima", value: "akeno himejima (dxd), black hair, orange ribbon in hair, ponytail, pink eyes", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWl74-QbT2v1oP36VyAeSlw1KXBCztW6U8xw&s" }
+            { display_name: "Hatsune Miku",
+              value: "hatsune miku",
+              default_clothing: "",
+              image: "https://i.pinimg.com/736x/41/1b/df/411bdf6e6b3d5864f8194513a6e5bbf1.jpg"
+            },
+            { display_name: "Lucoa",
+              value: "lucoa (dragon maid)",
+              default_clothing: "",
+              image: "https://static.wikia.nocookie.net/2d-girls/images/8/86/Opinion-on-lucoa-v0-60597493tq9a1.webp"
+            },
+            { display_name: "Akeno Himejima",
+              value: "akeno himejima (dxd), black hair, orange ribbon in hair, ponytail, pink eyes",
+              default_clothing: "",
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWl74-QbT2v1oP36VyAeSlw1KXBCztW6U8xw&s"
+            },
+            { display_name: "Creeper-chan",
+              value: "creeper chan, green creeper hood, lime green hair",
+              default_clothing: "unzipped green creeper jacket, black crop top, black knee socks",
+              image: "https://static.wikia.nocookie.net/mudae/images/1/12/Creeper-chan10.png/revision/latest/scale-to-width/360?cb=20240330232310"
+            }
         ];
 
         const clothing = [
-            { display_name: "Default for character", value: "" },
+            { display_name: "Default for character", value: "[CHARACTER_CLOTHING]" },
             { display_name: "Nude", value: "naked, exposed nipples" },
             { display_name: "Cat Maid", value: "cat_lingerie, cat_cutout, cat_ear_panties, maid outfit, cat maid cutout dress" },
             { display_name: "Pajamas", value: "loose pajamas" },
@@ -50,7 +67,7 @@
             for (const i in characters) {
                 
                 charactersArea.innerHTML += `
-                    <input class="boxy" type="radio" oninput="craft()" id="characters${ i }" name="characters" value="${ characters[i].value }"${ i == 0 ? " checked" : "" }>
+                    <input class="boxy" type="radio" oninput="craft()" id="characters${ i }" name="characters" value="${ i }"${ i == 0 ? " checked" : "" }>
                     <label for="characters${ i }" style="background-image: url('${ characters[i].image }');">${ characters[i].display_name }</label>
                 `;
             }
@@ -148,7 +165,7 @@
                 output.value += "\n\n/* composition */\n";
             output.value += document.getElementById("girl-count").checked ? "2girls, 2women, " : "1girl, 1woman, ";
 
-            output.value += "smile, happy, bedroom eyes, ";
+            output.value += "big smile, blush, happy, bedroom eyes, ";
 
             if (comments)
                 output.value += "\n\n/* artists */";
@@ -162,13 +179,15 @@
                 }
             }
 
+            const character = characters[document.querySelector('input[name="characters"]:checked').value];
+
             if (comments)
                 output.value += "\n\n/* character */\n";
-            output.value += document.querySelector('input[name="characters"]:checked').value + ", ";
+            output.value += character.value + ", ";
 
             if (comments)
                 output.value += "\n\n/* clothing */\n";
-            output.value += document.querySelector('input[name="clothing"]:checked').value + ", ";
+            output.value += document.querySelector('input[name="clothing"]:checked').value.replace("[CHARACTER_CLOTHING]", character.default_clothing) + ", ";
             
             if (comments)
                 output.value += "\n\n/* figure */\n";
