@@ -75,6 +75,11 @@
     ],
     "posts": [
         {
+            "date": "Nov 25, 2024",
+            "imgs": [],
+            "body": "<p>Arachoglory - A spider strategy game</p><p>You are a man-eating spider, with the goal of ravaging a town and devouring its entire population (5 babies, 5 defenseless maidens, 10 farmers, 5 knights, 1 lord). Whenever you eat a person, you can either spawn a spider minion or regrow one of your legs. Both your minions and legs have 5 hp. Damage is determined by coinflip (heads = 1dmg, tails = 0dmg), with each weapon having a different number of coinflips (hand = 1, sword = 5, etc). \"Hands\" can hold weapons which you can scavenge from the environment or from bodies. You have as many hands as you have legs / 2. Your spider minions have in practice 1 hand. Your spider minions don't have to accompany you; They can go out to hunt and bring the food back for you.</p>"
+        },
+        {
             "date": "Nov 24, 2024",
             "imgs": [],
             "body": "<iframe width='384' height='60' style='border: none;' src='https://www.beepbox.co/player/#song=9n31sbk0l00e03t2-a7g03j07r1i0o432T0v1u00f0qo032d04w2h0E0T1v4u01f0q802d23A5F4B0Q0202PeebbE0T0v2u00f10t3q00d03w5h1E0T2v3u02f10w2qw02d03w0E0b4zgh8Q4z4h4p23SAqqf1wap4LjnWu0kO5dtRIzHKGIbQOUqqD0Q2CGCSSDE8n8HFGbZIn8FFHbX-N5O82C2wbrASLYhFEZ2gH2nKqf5iGyqdtPq_lmhKrbVGFuVE-G4FGznsR_lmpuPli_sKW9ELSGLwpg4zUPuB_4ll4QnYlnstT4v6rMkSnyAQvhvkhU5y17knYFB5Zh7Bph7knQR_zcIbWOfks08V8LS86-YLL8YP42eEL2COPyqcy18WjbjnApeO0'></iframe>"
