@@ -75,6 +75,11 @@
     ],
     "posts": [
         {
+            "date": "Nov 26, 2024",
+            "imgs": [ "/img/parsee_plush.webp" ],
+            "body": "<p>stole this pic from some guy on Discord; I wonder if I should get into plushie making? yea yea I know I have a billion hobbies I could do instead - and which I will probably do instead, leaving this as merely an unpursued streak on my canvas, so to speak - but I mean, c'mon, it'd be neat lol</p>"
+        },
+        {
             "date": "Nov 25, 2024",
             "imgs": [],
             "body": "<p><strong>Arachnoglory</strong> - A spider strategy tabletop game</p><p>You are a man-eating spider, with the goal of ravaging a town and devouring its entire population (5 babies, 5 nuns, 5 farmers, 5 knights, 1 lord). Whenever you eat a person, you can either spawn a spider minion or regrow one of your legs. Both your minions and legs have 5 hp. Damage is determined by coinflip (heads = 1dmg, tails = 0dmg), with each weapon having a different number of coinflips (hand = 1, sword = 5, etc). \"Hands\" can hold weapons which you can scavenge from the environment or from bodies. You have as many hands as you have legs / 2. Your spider minions have in practice 1 hand. Your spider minions don't have to accompany you; They can go out to hunt and bring the food back for you.</p>"
