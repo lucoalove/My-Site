@@ -9,8 +9,12 @@ body {
     align-items: start; gap: 1em;
 }
 
+main { flex: 0 0 35em; }
+aside { flex: 1; }
+
 @media (orientation: portrait) {
-    body { flex-direction: column-reverse; margin: 1em; }
+    body { flex-direction: column-reverse; margin: 1em; width: 100%; }
+    main { flex: 1; }
 }
 
 .box {
