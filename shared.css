@@ -13,7 +13,7 @@ main { flex: 0 0 35em; }
 aside { flex: 1; }
 
 @media (orientation: portrait) {
-    body { flex-direction: column-reverse; margin: 1em; width: 100%; }
+    body { flex-direction: column-reverse; margin: 1em; align-items: center; }
     main { flex: 1; }
 }
 
