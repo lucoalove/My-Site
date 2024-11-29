@@ -46,11 +46,6 @@
             "href": "/c/uniform",
             "backgroundUrl": "/c/uniform/uniform_boobs_ref.png",
             "title": "Uniform Project"
-        },
-        {
-            "href": "/c/conworld",
-            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Sapporo_Underground_Under_Construction.jpg",
-            "title": "The UNDERCIV"
         }
     ],
     "portalLinks": [
@@ -84,6 +79,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Nov 28, 2024",
+            "imgs": [],
+            "body": "<p>this is aesthetic, I oughta learn trumpet just to then learn this (yea ik that's a sax)</p><iframe width='400' height='200' src='https://www.youtube.com/embed/_AIh9DRZyqY'></iframe>"
+        },
         {
             "date": "Nov 28, 2024",
             "imgs": [ "https://images-ng.pixai.art/images/orig/5ada61f0-c1bb-4160-bd0c-b7a15346e77c", "/img/neko_fighter.webp" ],
