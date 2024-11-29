@@ -7,31 +7,38 @@
         body { font-family: sans-serif; color: #222; width: 45em; margin: auto; }
         img { height: 200px; }
     </style>
-    <script>
-        const page = new URLSearchParams(window.location.search).get("page");
+    <script type="module">
 
-        console.log(page);
+        function parseID(value) {
+
+            return value == null ? 1 : parseInt(value);
+        }
+        
+        const pageID = parseID(new URLSearchParams(window.location.search).get("page"));
+        const nav    = document.getElementById("nav");
+
+        nav.innerHTML += `<a href="?page=${ pageID - 1 }">&lt;-</a>`;
+        nav.innerHTML += ` ${ pageID } `;
+        nav.innerHTML += `<a href="?page=${ pageID + 1 }">-&gt;</a>`;
+
+        nav.innerHTML += "<br><br>";
+
+        for (let i = 1; i <= 20; i++) {
+            
+            if (i == pageID) {
+                nav.innerHTML += `[<strong>${ i }</strong>]`;
+            } else {
+                nav.innerHTML += `[<a href="?page=${ i }">${ i }</a>]`;
+            }
+        } 
     </script>
 </head>
 <body>
 
     <div style="text-align: center; padding: 1em;">
         <img style="height: 800px;" src="https://pbs.twimg.com/media/FMmnaQVXwAQLXX6?format=png&name=large">
-
-        <nav>
-            <br>
-            <a href="#p6">&lt;-</a>
-            2
-            <a href="#p7">-&gt;</a>
-            <br><br>
-            [<a href="#p1">1</a>]
-            [<strong>2</strong>]
-            [<a href="#p3">3</a>]
-            [<a href="#p4">4</a>]
-            [<a href="#p5">5</a>]
-            [<a href="#p6">6</a>]
-            [<a href="#p7">7</a>]
-        </nav>
+        <br>
+        <nav id="nav"></nav>
     </div>
 
     <br><br><hr><br><br>
