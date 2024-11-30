@@ -81,6 +81,11 @@
     "posts": [
         {
             "date": "Nov 29, 2024",
+            "imgs": [ "/img/hobbe_novelty_mechanics.png" ],
+            "body": ""
+        },
+        {
+            "date": "Nov 29, 2024",
             "imgs": [],
             "body": "<p>this is aesthetic</p><iframe width='400' height='200' src='https://www.youtube.com/embed/_AIh9DRZyqY'></iframe>"
         },
