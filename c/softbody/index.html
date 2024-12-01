@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         
-        body { font-family: "Roboto", sans-serif; font-size: 18px; color: #333; background: #ddd; margin: 0; min-height: 100vh; display: flex; }
+        body { font-family: "Roboto", sans-serif; font-size: 18px; color: #333; background: #ddd; margin: 0; }
         
         h1, h2, h3 { font-family: "Roboto Condensed", sans-serif; }
         h1 { font-size: 2.5em; }
@@ -46,88 +46,94 @@
 </head>
 <body>
 
-    <aside>
-        <nav>
-            <a current>Introduction</a>
-            <a>Simulating a soft-body</a>
-            <a>Animating</a>
-        </nav>
-    </aside>
-
-    <main>
+    <header style="background: black; color: white; padding-left: 17em;">
         <h1>Softbody BBW Simulation in Blender</h1>
+    </header>
 
-        <div>
-            <h2>Introduction</h2>
+    <div style="display: flex;">
 
-            <p>https://x.com/scrag_boy/status/1804261058384629776</p>
+        <aside>
+            <nav>
+                <a current>Introduction</a>
+                <a>Simulating a soft-body</a>
+                <a>Animating</a>
+            </nav>
+        </aside>
+    
+        <main>
+            <div>
+                <h2>Introduction</h2>
+    
+                <p>https://x.com/scrag_boy/status/1804261058384629776</p>
+    
+                <p>I have placed a base model into /base. I... need to clean it up, the texture is broken and it has no back (ideally it would be an entire closed-shape torso). maybe I'll add a shirt to "fuse the boobs"</p>
+        
+                <p>I will be cleaning this page up, and cutting the fat :3</p>
+                
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08cc0d7f-6c8c-4298-a9af-e7902213713f/dei0bo6-f88e4f38-fd0d-4070-ba77-9232a1d0f011.jpg/v1/fill/w_1192,h_670,q_70,strp/3d_immobile_ssbbw_roroko_room_filling_by_jellnill_dei0bo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcLzA4Y2MwZDdmLTZjOGMtNDI5OC1hOWFmLWU3OTAyMjEzNzEzZlwvZGVpMGJvNi1mODhlNGYzOC1mZDBkLTQwNzAtYmE3Ny05MjMyYTFkMGYwMTEuanBnIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.3z3KR44pLNL7Ss0t6razjx5FqpcvJ-_qp-BgCBzF8-A">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8c27f51c-2ecd-421a-a4f7-59add6cbbccd/deb1zg0-5696a7f7-547a-4cc1-a5ee-a3b1ae3c67d9.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhjMjdmNTFjLTJlY2QtNDIxYS1hNGY3LTU5YWRkNmNiYmNjZFwvZGViMXpnMC01Njk2YTdmNy01NDdhLTRjYzEtYTVlZS1hM2IxYWUzYzY3ZDkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Xw5QBsLh_P27qIheC4Y7qPOgb41yWcDfBHFhZd3qoms">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3d0e8d8f-ee8b-4307-bacd-50bf2c3f8c70/dhhu90e-ba3c46b7-feee-4ea5-ab34-d7f44b878161.png/v1/fill/w_1192,h_670/rei_suzukawa_hourglass_inflation_via_soda__release_by_imbapovi_dhhu90e-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvM2QwZThkOGYtZWU4Yi00MzA3LWJhY2QtNTBiZjJjM2Y4YzcwXC9kaGh1OTBlLWJhM2M0NmI3LWZlZWUtNGVhNS1hYjM0LWQ3ZjQ0Yjg3ODE2MS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.2VWPbqGkARbK7uIGORuj-Iad-kkvYehUdVtbAnJZauo">
+                
+                <br>
+                <small>
+                    1. <a href="https://www.deviantart.com/jellnill/art/3d-immobile-ssbbw-Roroko-room-filling-876774678">source</a>
+                    2. <a href="https://www.deviantart.com/owrehl/art/explosive-expansion-865094832">source</a>
+                </small>
+        
+                <p>The "Add soft-body" button in Blender is dogshit. Here's a tutorial covering everything I've learned about making GOOD softbodies in Blender.</p>
+                <p>I am going to assume you already have Blender and have a jist of how it works. I won't cover modeling/texturing (though note that shaders can help increase the softness of your model), just adding soft-body physics.</p>
+            </div>
+    
+            <div style="display: none;">
+                <h2>Simulating a soft-body</h2>
+    
+                  <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
+                  
+                  <iframe src="https://www.youtube.com/embed/EdIGfANAF7M"></iframe>
+        
+                  <p>To create the most basic softbody, all you need to do is:</p>
+        
+                  <p><strong>1. Add a mesh for the floor with a collision modifier.</strong></p>
+        
+                  <p><strong>2. Add a model with a cloth modifier.</strong> Place this above your "floor." This modifier contains all the parameters you will use to refine your soft-body simulation.</p>
+        
+                  <p><strong>3. Press space, or press the play button in the timeline.</strong> Your model should fall onto the floor and squish into it.</p>
+        
+                  <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
+                  
+                  <h3>Refining the simulation</h3>
+                  <ul>
+                      <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
+                      <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
+                      <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
+                  </ul>
+            </div>
+    
+            <div style="display: none;">
+                <h2>Animating</h2>
+                <p>If you're not satisfied with simulating BBWs flopping onto the floor, you can animate your model.</p>
+    
+                <h3>Movement (Shapekeys)</h3>
+                
+                <h3>Growth/expansion sequences (Blendshapes)</h3>
+        
+                <h3>Making some parts of the model fixed in place (Cloth pinning)</h3>
+                <p><strong>If you want some vertices to be fixed in place, you can pin them.</strong> They will stay locked in place while the non-pinned parts will behave like a soft-body.</p>
+                <ol>
+                    <li>Select your object.</li>
+                    <li>Create a new vertex group under <var>Data > Vertex Groups</var> and clicking the + symbol. Rename it to "Pin", or anything else you'd like.</li>
+                    <li>Go into edit mode (by pressing tab), select the vertices you want to be pinned, and assign them to the vertex group you made by clicking <var>Assign</var> while the vertices are selected.</li>
+                    <li>Go to <var>Physics > Shape</var> (under cloth properties) and assign your new vertex group to <var>Pin Group</var>.</li>
+                </ol>
+                <p><strong>If you want to move/animate the pinned vertices,</strong> you can attach them to a <strong>hook</strong>.</p>
+                https://www.youtube.com/watch?v=y_fysD5B9xs
+                <p>Moving/animating the hook will move the pinned vertices.</p>
+                
+                <h3>Bones and rigging</h3>
+            </div>
+        </main>
 
-            <p>I have placed a base model into /base. I... need to clean it up, the texture is broken and it has no back (ideally it would be an entire closed-shape torso). maybe I'll add a shirt to "fuse the boobs"</p>
-    
-            <p>I will be cleaning this page up, and cutting the fat :3</p>
-            
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08cc0d7f-6c8c-4298-a9af-e7902213713f/dei0bo6-f88e4f38-fd0d-4070-ba77-9232a1d0f011.jpg/v1/fill/w_1192,h_670,q_70,strp/3d_immobile_ssbbw_roroko_room_filling_by_jellnill_dei0bo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcLzA4Y2MwZDdmLTZjOGMtNDI5OC1hOWFmLWU3OTAyMjEzNzEzZlwvZGVpMGJvNi1mODhlNGYzOC1mZDBkLTQwNzAtYmE3Ny05MjMyYTFkMGYwMTEuanBnIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.3z3KR44pLNL7Ss0t6razjx5FqpcvJ-_qp-BgCBzF8-A">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8c27f51c-2ecd-421a-a4f7-59add6cbbccd/deb1zg0-5696a7f7-547a-4cc1-a5ee-a3b1ae3c67d9.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhjMjdmNTFjLTJlY2QtNDIxYS1hNGY3LTU5YWRkNmNiYmNjZFwvZGViMXpnMC01Njk2YTdmNy01NDdhLTRjYzEtYTVlZS1hM2IxYWUzYzY3ZDkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Xw5QBsLh_P27qIheC4Y7qPOgb41yWcDfBHFhZd3qoms">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3d0e8d8f-ee8b-4307-bacd-50bf2c3f8c70/dhhu90e-ba3c46b7-feee-4ea5-ab34-d7f44b878161.png/v1/fill/w_1192,h_670/rei_suzukawa_hourglass_inflation_via_soda__release_by_imbapovi_dhhu90e-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvM2QwZThkOGYtZWU4Yi00MzA3LWJhY2QtNTBiZjJjM2Y4YzcwXC9kaGh1OTBlLWJhM2M0NmI3LWZlZWUtNGVhNS1hYjM0LWQ3ZjQ0Yjg3ODE2MS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.2VWPbqGkARbK7uIGORuj-Iad-kkvYehUdVtbAnJZauo">
-            
-            <br>
-            <small>
-                1. <a href="https://www.deviantart.com/jellnill/art/3d-immobile-ssbbw-Roroko-room-filling-876774678">source</a>
-                2. <a href="https://www.deviantart.com/owrehl/art/explosive-expansion-865094832">source</a>
-            </small>
-    
-            <p>The "Add soft-body" button in Blender is dogshit. Here's a tutorial covering everything I've learned about making GOOD softbodies in Blender.</p>
-            <p>I am going to assume you already have Blender and have a jist of how it works. I won't cover modeling/texturing (though note that shaders can help increase the softness of your model), just adding soft-body physics.</p>
-        </div>
-
-        <div style="display: none;">
-            <h2>Simulating a soft-body</h2>
-
-              <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
-              
-              <iframe src="https://www.youtube.com/embed/EdIGfANAF7M"></iframe>
-    
-              <p>To create the most basic softbody, all you need to do is:</p>
-    
-              <p><strong>1. Add a mesh for the floor with a collision modifier.</strong></p>
-    
-              <p><strong>2. Add a model with a cloth modifier.</strong> Place this above your "floor." This modifier contains all the parameters you will use to refine your soft-body simulation.</p>
-    
-              <p><strong>3. Press space, or press the play button in the timeline.</strong> Your model should fall onto the floor and squish into it.</p>
-    
-              <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
-              
-              <h3>Refining the simulation</h3>
-              <ul>
-                  <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
-                  <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
-                  <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
-              </ul>
-        </div>
-
-        <div style="display: none;">
-            <h2>Animating</h2>
-            <p>If you're not satisfied with simulating BBWs flopping onto the floor, you can animate your model.</p>
-
-            <h3>Movement (Shapekeys)</h3>
-            
-            <h3>Growth/expansion sequences (Blendshapes)</h3>
-    
-            <h3>Making some parts of the model fixed in place (Cloth pinning)</h3>
-            <p><strong>If you want some vertices to be fixed in place, you can pin them.</strong> They will stay locked in place while the non-pinned parts will behave like a soft-body.</p>
-            <ol>
-                <li>Select your object.</li>
-                <li>Create a new vertex group under <var>Data > Vertex Groups</var> and clicking the + symbol. Rename it to "Pin", or anything else you'd like.</li>
-                <li>Go into edit mode (by pressing tab), select the vertices you want to be pinned, and assign them to the vertex group you made by clicking <var>Assign</var> while the vertices are selected.</li>
-                <li>Go to <var>Physics > Shape</var> (under cloth properties) and assign your new vertex group to <var>Pin Group</var>.</li>
-            </ol>
-            <p><strong>If you want to move/animate the pinned vertices,</strong> you can attach them to a <strong>hook</strong>.</p>
-            https://www.youtube.com/watch?v=y_fysD5B9xs
-            <p>Moving/animating the hook will move the pinned vertices.</p>
-            
-            <h3>Bones and rigging</h3>
-        </div>
-    </main>
+    </div>
 
 </body>
 </html>
