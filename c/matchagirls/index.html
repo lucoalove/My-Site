@@ -14,14 +14,18 @@
     </style>
     <script>
 
-        const properties = { hair: { item: 1, hue: 0 }, mouth: { item: 1, hue: 0 }, eyes: { item: 1, hue: 0 } };
+        const properties = {
+            hair: { item: 1, item_max: 7, hue: 0 },
+            mouth: { item: 1, item_max: 4, hue: 0 },
+            eyes: { item: 1, item_max: 4, hue: 0 }
+        };
 
         function changePropertyItem(id, offset) {
 
             properties[id].item += offset;
 
-            if (properties[id].item > 4) { properties[id].item = 1; }
-            if (properties[id].item < 1) { properties[id].item = 4; }
+            if (properties[id].item > properties[id].item_max) { properties[id].item = 1; }
+            if (properties[id].item < 1) { properties[id].item = properties[id].item_max; }
 
             document.getElementById(id).src                 = id + "_" + properties[id].item + ".png";
             document.getElementById(id + "_item").innerText = properties[id].item;
