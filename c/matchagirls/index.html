@@ -15,17 +15,18 @@
 
         function changePropertyItem(id, offset) {
 
-            properties[id] += offset;
+            properties[id].item += offset;
 
-            if (properties[id] > 4) { properties[id] = 1; }
-            if (properties[id] < 1) { properties[id] = 4; }
+            if (properties[id].item > 4) { properties[id].item = 1; }
+            if (properties[id].item < 1) { properties[id].item = 4; }
 
-            document.getElementById(id).src = id + "_" + properties[id] + ".png";
+            document.getElementById(id).src = id + "_" + properties[id].item + ".png";
         }
 
         function setPropertyHue(id, hue) {
 
-            // filter: hue-rotate(150deg);
+            document.getElementById(id).style.filter = "hue-rotate(" + hue + "deg)";
+            
             console.log(hue);
         }
 
