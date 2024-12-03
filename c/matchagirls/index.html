@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-        body { text-align: center; }
+        body { text-align: center; font-family: sans-serif; }
 
         #frame { position: relative; width: 256px; height: 300px; margin: auto; }
         #frame img { position: absolute; left: 0; }
@@ -24,13 +24,15 @@
 
         function changePropertyItem(id, offset) {
 
-            properties[id].item += offset;
+            const property = properties[id];
 
-            if (properties[id].item > properties[id].item_max) { properties[id].item = 1; }
-            if (properties[id].item < 1) { properties[id].item = properties[id].item_max; }
+            property.item += offset;
 
-            document.getElementById(id).src                 = id + "_" + properties[id].item + ".png";
-            document.getElementById(id + "_item").innerText = properties[id].item;
+            if (property.item > property.item_max) { property.item = 1; }
+            if (property.item < 1) { property.item = property.item_max; }
+
+            document.getElementById(id).src                 = id + "_" + property.item + ".png";
+            document.getElementById(id + "_item").innerText = property.item + "/" + property.item_max;
         }
 
         function setPropertyHue(id, hue) {
