@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blender Softbodies</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        
+        body { font-family: "Roboto", sans-serif; font-size: 18px; color: #ddd; background: #111; margin: 0; }
+        
+        h1, h2, h3 { font-family: "Roboto Condensed", sans-serif; }
+        h1 { font-size: 2.5em; margin: 0; }
+        h2 { margin-top: 1em; color: #18e; font-size: 1.8em; }
+        h3 { margin-top: 2em; border-bottom: 1px solid #bbb; padding-bottom: 4px; }
+        
+        img { height: 200px; }
+        
+        p { line-height: 1.5em; }
+        li { margin-bottom: 1em; }
+        
+        aside { flex: 0 0 15em; background: #125; padding: 1em; }
+        aside, aside a { color: #ddd; }
+        nav { display: flex; flex-direction: column; gap: 0.5em; }
+        nav a { margin-left: 4px; padding-left: 8px; display: block; }
+        nav a[current] { margin-left: 0; border-left: 4px solid white; }
+        
+        main { flex: 0 1 60em; padding: 1em; }
+        main a { color: #29f; }
+        
+        var { display: inline-block; background: linear-gradient(to bottom, #eee, #ddd); font-style: normal; font-family: monospace; padding: 2px 4px; border: 1px solid grey; border-radius: 4px; font-size: 14px; margin-top: 4px; }
+    </style>
+
+    <script>
+        const page = new URLSearchParams(document.location.search).get("page");
+
+        if (page != null) {
+
+            alert("you are on the page: " + page);
+        }
+    </script>
+</head>
+<body>
+
+    <header style="background: black; color: #ccc; padding-top: 16em; padding-left: 18em; padding-bottom: 1em; border-bottom: 1px solid #666;">
+        <h1>3D Cuties</h1>
+    </header>
+
+    <div style="display: flex;">
+
+        <aside>
+            <nav>
+                <a href="?page=introduction" current>Introduction</a>
+                <a href="?page=sculpting">Sculpting</a>
+                <a href="?page=softbodies">Softbodies</a>
+            </nav>
+        </aside>
+    
+        <main>
+            <div> <!-- style="display: none;" -->
+                <h2>Introduction</h2>
+
+                <img src="https://d.furaffinity.net/art/chunkerbuns/1718118586/1718118586.chunkerbuns_01.png">
+                <!-- https://www.furaffinity.net/view/56971909/ -->
+                <img src="https://d.furaffinity.net/art/chunkerbuns/1633356596/1633356596.chunkerbuns_final3_notext.jpg">
+                <!-- https://www.furaffinity.net/view/44002159/ -->
+    
+                <p>https://x.com/scrag_boy/status/1804261058384629776</p>
+    
+                <p>mission: clean up 'base model', including 0. add back/close the shape 1. fuse boobs 2. add shirt 3. redo texture (remember, you're developing your know-how, NOT making a forever mesh!!)</p>
+        
+                <p>I'm just documenting stuff I've learned about making stuff in Blender here.</p>
+            </div>
+    
+            <div>
+                <h2>Softbodies</h2>
+                
+                <h3>Simulation</h3>
+    
+                <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
+                
+                <iframe src="https://www.youtube.com/embed/EdIGfANAF7M"></iframe>
+                
+                <p>To create the most basic softbody, all you need to do is:</p>
+                
+                <p><strong>1. Add a mesh for the floor with a collision modifier.</strong></p>
+                
+                <p><strong>2. Add a model with a cloth modifier.</strong> Place this above your "floor." This modifier contains all the parameters you will use to refine your soft-body simulation.</p>
+                
+                <p><strong>3. Press space, or press the play button in the timeline.</strong> Your model should fall onto the floor and squish into it.</p>
+                
+                <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
+                
+                <h3>Refining the simulation</h3>
+                <ul>
+                    <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
+                    <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
+                    <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
+                </ul>
+        
+                <h3>Making some parts of the model fixed in place (Cloth pinning)</h3>
+                <p><strong>If you want some vertices to be fixed in place, you can pin them.</strong> They will stay locked in place while the non-pinned parts will behave like a soft-body.</p>
+                <ol>
+                    <li>Select your object.</li>
+                    <li>Create a new vertex group under <var>Data > Vertex Groups</var> and clicking the + symbol. Rename it to "Pin", or anything else you'd like.</li>
+                    <li>Go into edit mode (by pressing tab), select the vertices you want to be pinned, and assign them to the vertex group you made by clicking <var>Assign</var> while the vertices are selected.</li>
+                    <li>Go to <var>Physics > Shape</var> (under cloth properties) and assign your new vertex group to <var>Pin Group</var>.</li>
+                </ol>
+                <p><strong>If you want to move/animate the pinned vertices,</strong> you can attach them to a <strong>hook</strong>.</p>
+                https://www.youtube.com/watch?v=y_fysD5B9xs
+                <p>Moving/animating the hook will move the pinned vertices.</p>
+
+                <h3>Growth/expansion sequences (Blendshapes)</h3>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
