@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Blender Softbodies</title>
+    <title>3D</title>
 
     <style>
 
@@ -11,10 +11,9 @@
         
         body { font-family: "Roboto", sans-serif; font-size: 18px; color: #ddd; background: #111; margin: 0; }
         
-        h1, h2, h3 { font-family: "Roboto Condensed", sans-serif; }
+        h1, h2 { font-family: "Roboto Condensed", sans-serif; }
         h1 { font-size: 2.5em; margin: 0; }
-        h2 { margin-top: 1em; color: #18e; font-size: 1.8em; }
-        h3 { margin-top: 2em; border-bottom: 1px solid #bbb; padding-bottom: 4px; }
+        h2 { margin-top: 2em; border-bottom: 1px solid #bbb; padding-bottom: 4px; }
         
         img { height: 200px; }
         
@@ -24,7 +23,7 @@
         aside { flex: 0 0 15em; background: #125; padding: 1em; }
         aside, aside a { color: #ddd; }
         nav { display: flex; flex-direction: column; gap: 0.5em; }
-        nav a { margin-left: 4px; padding-left: 8px; display: block; }
+        nav a { margin-left: 4px; padding-left: 8px; display: block; text-decoration: none; }
         nav a[current] { margin-left: 0; border-left: 4px solid white; }
         
         main { flex: 0 1 60em; padding: 1em; }
@@ -34,34 +33,48 @@
     </style>
 
     <script>
-        const page = new URLSearchParams(document.location.search).get("page");
+        const pages = [
+            { title: "Introduction", sectionID: "intro" },
+            { title: "Sculpting", sectionID: "sculpt" },
+            { title: "Softbodies", sectionID: "softbody" }
+        ];
+        
+        var page = new URLSearchParams(document.location.search).get("page");
 
-        if (page != null) {
+        if (page == null) {
+            page = 0;
+        } else {
+            page = parseInt(page);
+        }
 
-            alert("you are on the page: " + page);
+        for (let i=0; i<pages.length; i++) {
+
+            if (i == page) {
+                document.getElementById("title").innerText = pages[i].title;
+            } else {
+                document.getElementById(pages[i].sectionID).style.display = "none";
+            }
         }
     </script>
 </head>
 <body>
 
     <header style="background: black; color: #ccc; padding-top: 16em; padding-left: 18em; padding-bottom: 1em; border-bottom: 1px solid #666;">
-        <h1>3D Cuties</h1>
+        <h1>3D Cuties » <span style="color: #18e;" id="title"></span></h1>
     </header>
 
     <div style="display: flex;">
 
         <aside>
             <nav>
-                <a href="?page=introduction" current>Introduction</a>
-                <a href="?page=sculpting">Sculpting</a>
-                <a href="?page=softbodies">Softbodies</a>
+                <a href="?page=0" current>Introduction</a>
+                <a href="?page=1">Sculpting</a>
+                <a href="?page=2">Softbodies</a>
             </nav>
         </aside>
     
         <main>
-            <div> <!-- style="display: none;" -->
-                <h2>Introduction</h2>
-
+            <div id="intro">
                 <img src="https://d.furaffinity.net/art/chunkerbuns/1718118586/1718118586.chunkerbuns_01.png">
                 <!-- https://www.furaffinity.net/view/56971909/ -->
                 <img src="https://d.furaffinity.net/art/chunkerbuns/1633356596/1633356596.chunkerbuns_final3_notext.jpg">
@@ -73,11 +86,13 @@
         
                 <p>I'm just documenting stuff I've learned about making stuff in Blender here.</p>
             </div>
-    
-            <div>
-                <h2>Softbodies</h2>
-                
-                <h3>Simulation</h3>
+
+            <div id="sculpt">
+                sclupt
+            </div>
+            
+            <div id="softbody">
+                <h2>Making the simulation</h2>
     
                 <p>I highly recommend <strong>watching the entire video below for comprehensive explanations</strong> of the settings you'll be using.</p>
                 
@@ -93,14 +108,14 @@
                 
                 <p>While this is a good place to start, you will need to tweak these settings to get better results on a case-by-case basis. Experiment with what looks good!</p>
                 
-                <h3>Refining the simulation</h3>
+                <h2>Refining the simulation</h2>
                 <ul>
                     <li>If the mesh doesn't look very squishy, you might not have enough geometry for it to simulate with. Add a subdivision surface modifier, and place it before the cloth modifier.</li>
                     <li>If the simulation looks too floaty, increase gravity in world settings (15~25).</li>
                     <li>To change how much the model "sinks into" the ground once at rest, change the pressure. Higher values will "rest" on top of the floor without sinking into it.</li>
                 </ul>
         
-                <h3>Making some parts of the model fixed in place (Cloth pinning)</h3>
+                <h2>Making some parts of the model fixed in place (Cloth pinning)</h2>
                 <p><strong>If you want some vertices to be fixed in place, you can pin them.</strong> They will stay locked in place while the non-pinned parts will behave like a soft-body.</p>
                 <ol>
                     <li>Select your object.</li>
@@ -112,7 +127,7 @@
                 https://www.youtube.com/watch?v=y_fysD5B9xs
                 <p>Moving/animating the hook will move the pinned vertices.</p>
 
-                <h3>Growth/expansion sequences (Blendshapes)</h3>
+                <h2>Growth/expansion sequences (Blendshapes)</h2>
             </div>
         </main>
 
