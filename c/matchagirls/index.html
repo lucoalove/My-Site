@@ -16,9 +16,9 @@
 
         const properties = {
             hair: { item: 1, item_max: 7, hue: 0 },
-            mouth: { item: 1, item_max: 4, hue: 0 },
+            mouth: { item: 1, item_max: 4 },
             eyes: { item: 1, item_max: 4, hue: 0 },
-            clothing: { item: 1, item_max: 3, hue: 0 },
+            clothing: { item: 1, item_max: 5, hue: 0 },
         };
 
         function changePropertyItem(id, offset) {
@@ -41,7 +41,21 @@
 
         function init() {
 
+            const controls = document.getElementById("controls");
+
             for (const property in properties) {
+
+                controls.innerHTML += `
+                    <fieldset>
+                        <legend>${ property.toUpperCase() }</legend>
+                        <br>
+                        <button type="button" onclick="changePropertyItem('${ property }', -1);">&lt;</button>
+                        <span id="${ property }_item"></span>
+                        <button type="button" onclick="changePropertyItem('${ property }', 1);">&gt;</button>
+                        <br>
+                        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('${ property }', this.value)">
+                    </fieldset>
+                `;
 
                 changePropertyItem(property, 0);
             }
@@ -58,43 +72,9 @@
         <img id="eyes">
     </div>
 
-    <fieldset>
-        <legend>Eyes</legend>
-        <br>
-        <button type="button" onclick="changePropertyItem('eyes', -1);">&lt;</button>
-        <span id="eyes_item"></span>
-        <button type="button" onclick="changePropertyItem('eyes', 1);">&gt;</button>
-        <br>
-        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('eyes', this.value)">
-    </fieldset>
+    <div id="controls">
 
-    <fieldset>
-        <legend>Mouth</legend>
-        <br>
-        <button type="button" onclick="changePropertyItem('mouth', -1);">&lt;</button>
-        <span id="mouth_item"></span>
-        <button type="button" onclick="changePropertyItem('mouth', 1);">&gt;</button>
-    </fieldset>
-
-    <fieldset>
-        <legend>Hair</legend>
-        <br>
-        <button type="button" onclick="changePropertyItem('hair', -1);">&lt;</button>
-        <span id="hair_item"></span>
-        <button type="button" onclick="changePropertyItem('hair', 1);">&gt;</button>
-        <br>
-        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('hair', this.value)">
-    </fieldset>
-
-    <fieldset>
-        <legend>Clothing</legend>
-        <br>
-        <button type="button" onclick="changePropertyItem('clothing', -1);">&lt;</button>
-        <span id="clothing_item"></span>
-        <button type="button" onclick="changePropertyItem('clothing', 1);">&gt;</button>
-        <br>
-        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('clothing', this.value)">
-    </fieldset>
+    </div>
     
 </body>
 </html>
