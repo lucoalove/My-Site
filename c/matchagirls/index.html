@@ -17,7 +17,8 @@
         const properties = {
             hair: { item: 1, item_max: 7, hue: 0 },
             mouth: { item: 1, item_max: 4, hue: 0 },
-            eyes: { item: 1, item_max: 4, hue: 0 }
+            eyes: { item: 1, item_max: 4, hue: 0 },
+            clothing: { item: 1, item_max: 3, hue: 0 },
         };
 
         function changePropertyItem(id, offset) {
@@ -50,7 +51,8 @@
 <body onload="init()">
 
     <div id="frame">
-        <img src="base.png">
+        <img src="body.png">
+        <img id="clothing">
         <img id="hair">
         <img id="mouth">
         <img id="eyes">
@@ -82,6 +84,16 @@
         <button type="button" onclick="changePropertyItem('hair', 1);">&gt;</button>
         <br>
         <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('hair', this.value)">
+    </fieldset>
+
+    <fieldset>
+        <legend>Clothing</legend>
+        <br>
+        <button type="button" onclick="changePropertyItem('clothing', -1);">&lt;</button>
+        <span id="clothing_item"></span>
+        <button type="button" onclick="changePropertyItem('clothing', 1);">&gt;</button>
+        <br>
+        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('clothing', this.value)">
     </fieldset>
     
 </body>
