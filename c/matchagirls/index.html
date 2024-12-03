@@ -5,6 +5,9 @@
     <title>Matchagirls</title>
     <style>
         body { text-align: center; }
+
+        #frame { position: relative; width: 256px; height: 300px; margin: auto; }
+        #frame img { position: absolute; left: 0; }
     </style>
     <script>
 
@@ -19,15 +22,23 @@
 
             document.getElementById(id).src = id + "_" + properties[id] + ".png";
         }
+
+        function init() {
+
+            for (const property in properties) {
+
+                changeProperty(property, 0);
+            }
+        }
     </script>
 </head>
-<body>
+<body onload="init()">
 
-    <div style="position: relative; height: 256px;">
-        <img style="position: absolute;" src="base.png">
-        <img style="position: absolute;" id="hair">
-        <img style="position: absolute;" id="mouth">
-        <img style="position: absolute;" id="eyes">
+    <div id="frame">
+        <img src="base.png">
+        <img id="hair">
+        <img id="mouth">
+        <img id="eyes">
     </div>
 
     <div>
