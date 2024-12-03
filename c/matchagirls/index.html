@@ -10,12 +10,12 @@
 
         #frame { position: relative; width: 256px; height: 300px; margin: auto; }
         #frame img { position: absolute; left: 0; }
-        fieldset { margin: auto; width: 200px; }
+        #controls { width: 400px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; }
     </style>
     <script>
 
         const properties = {
-            hair:      { item: 1, item_max: 7 },
+            hair:      { item: 1, item_max: 10 },
             mouth:     { item: 1, item_max: 4, no_color: true },
             eyes:      { item: 1, item_max: 4 },
             clothing:  { item: 1, item_max: 5 },
