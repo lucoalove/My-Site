@@ -37,16 +37,15 @@
         const pages = [
             { title: "Introduction", sectionID: "intro" },
             { title: "Sculpting", sectionID: "sculpt" },
-            { title: "Softbodies", sectionID: "softbody" }
+            { title: "Softbodies", sectionID: "softbody" },
+            { title: "Rigging", sectionID: "rig" },
         ];
         const nav = document.getElementById("nav");
         
         var page = new URLSearchParams(document.location.search).get("page");
 
-        if (page == null) {
+        if (page == null || isNaN(page = parseInt(page)) || page >= pages.length || page < 0) {
             page = 0;
-        } else {
-            page = parseInt(page);
         }
 
         for (let i=0; i<pages.length; i++) {
@@ -91,7 +90,11 @@
             </div>
 
             <div id="sculpt">
-                sclupt
+                <img src="https://d.furaffinity.net/art/chunkerbuns/1544669157/1544669157.chunkerbuns_57-allieb.png">
+                <!-- https://www.furaffinity.net/view/29719998/ -->
+                <p>Block out general shape, refine in stages, retopo (optional if want to animate/rig), yea</p>
+                <p>when to use dynotopo...</p>
+                <p>Join meshes together, then in the top right of sculpt mode select <var>Remesh</var> and set the distance to 0.01m.</p>
             </div>
             
             <div id="softbody">
@@ -131,6 +134,10 @@
                 <p>Moving/animating the hook will move the pinned vertices.</p>
 
                 <h2>Growth/expansion sequences (Blendshapes)</h2>
+            </div>
+
+            <div id="rig">
+                rig burger
             </div>
         </main>
 
