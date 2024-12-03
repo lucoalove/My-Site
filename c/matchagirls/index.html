@@ -53,7 +53,7 @@
                         <span id="${ property }_item"></span>
                         <button type="button" onclick="changePropertyItem('${ property }', 1);">&gt;</button>
                 `
-                + (properties[property][no_color] == true ? "" : `
+                + (properties[property]["no_color"] == true ? "" : `
                         <br>
                         <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('${ property }', this.value)">
                 `)
