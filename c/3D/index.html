@@ -13,9 +13,8 @@
 
         header { background: black; color: #ccc; padding-top: 16em; padding-left: 18em; padding-bottom: 1em; border-bottom: 1px solid #666; }
         
-        h1, h2 { font-family: "Roboto Condensed", sans-serif; }
-        h1 { font-size: 2.5em; margin: 0; }
-        h2 { margin-top: 2em; border-bottom: 1px solid #bbb; padding-bottom: 4px; }
+        h1 { font-size: 2.5em; margin: 0; font-family: "Roboto Condensed", sans-serif; }
+        h2 { margin-top: 2em; border-bottom: 1px solid #666; padding-bottom: 4px; }
         
         img { height: 200px; }
         
@@ -31,7 +30,7 @@
         main { flex: 0 1 60em; padding: 1em; }
         main a { color: #29f; }
         
-        var { display: inline-block; background: linear-gradient(to bottom, #eee, #ddd); font-style: normal; font-family: monospace; padding: 2px 4px; border: 1px solid grey; border-radius: 4px; font-size: 14px; margin-top: 4px; }
+        var { display: inline-block; background: linear-gradient(to bottom, #222, #111); font-style: normal; font-family: monospace; padding: 2px 4px; border: 1px solid grey; border-radius: 4px; font-size: 14px; margin-top: 4px; }
     </style>
 
     <script type="module">
@@ -40,6 +39,7 @@
             { title: "Sculpting", sectionID: "sculpt" },
             { title: "Softbodies", sectionID: "softbody" }
         ];
+        const nav = document.getElementById("nav");
         
         var page = new URLSearchParams(document.location.search).get("page");
 
@@ -52,9 +52,14 @@
         for (let i=0; i<pages.length; i++) {
 
             if (i == page) {
+                
                 document.getElementById("title").innerText = pages[i].title;
+                nav.innerHTML += `<a href="?page=${ i }" current>${ pages[i].title }</a>`;
+                
             } else {
+                
                 document.getElementById(pages[i].sectionID).style.display = "none";
+                nav.innerHTML += `<a href="?page=${ i }">${ pages[i].title }</a>`;
             }
         }
     </script>
@@ -68,11 +73,7 @@
     <div style="display: flex;">
 
         <aside>
-            <nav>
-                <a href="?page=0" current>Introduction</a>
-                <a href="?page=1">Sculpting</a>
-                <a href="?page=2">Softbodies</a>
-            </nav>
+            <nav id="nav"></nav>
         </aside>
     
         <main>
