@@ -7,22 +7,45 @@
         body { text-align: center; }
     </style>
     <script>
-        
+
+        const properties = { hair: 1, mouth: 1, eyes: 1 };
+
+        function changeProperty(id, offset) {
+
+            properties[id] += offset;
+
+            if (properties[id] > 4) { properties[id] = 1; }
+            if (properties[id] < 1) { properties[id] = 4; }
+
+            document.getElementById(id).src = id + "_" + properties[id] + ".png";
+        }
     </script>
 </head>
 <body>
 
-    <div style="position: relative;">
-        <img style="position: absolute;" src="eyes_1.png">
-        <img style="position: absolute;" src="mouth_1.png">
-        <img style="position: absolute;" src="hair_1.png">
+    <div style="position: relative; height: 256px;">
         <img style="position: absolute;" src="base.png">
+        <img style="position: absolute;" id="hair">
+        <img style="position: absolute;" id="mouth">
+        <img style="position: absolute;" id="eyes">
     </div>
 
     <div>
-        <button type="button" onclick="changeEyes(-1);">&lt;</button>
+        <button type="button" onclick="changeProperty('eyes', -1);">&lt;</button>
         Eyes
-        <button type="button" onclick="changeEyes(1);">&gt;</button>
+        <button type="button" onclick="changeProperty('eyes', 1);">&gt;</button>
+    </div>
+
+    <div>
+        <button type="button" onclick="changeProperty('mouth', -1);">&lt;</button>
+        Mouth
+        <button type="button" onclick="changeProperty('mouth', 1);">&gt;</button>
+    </div>
+
+    <div>
+        <button type="button" onclick="changeProperty('hair', -1);">&lt;</button>
+        Hair
+        <button type="button" onclick="changeProperty('hair', 1);">&gt;</button>
     </div>
     
 </body>
