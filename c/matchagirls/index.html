@@ -15,10 +15,11 @@
     <script>
 
         const properties = {
-            hair:     { item: 1, item_max: 7 },
-            mouth:    { item: 1, item_max: 4, no_color: true },
-            eyes:     { item: 1, item_max: 4 },
-            clothing: { item: 1, item_max: 5 },
+            hair:      { item: 1, item_max: 7 },
+            mouth:     { item: 1, item_max: 4, no_color: true },
+            eyes:      { item: 1, item_max: 4 },
+            clothing:  { item: 1, item_max: 5 },
+            accessory: { item: 1, item_max: 3 },
         };
 
         function changePropertyItem(id, offset) {
@@ -43,7 +44,8 @@
 
             for (const property in properties) {
 
-                controls.innerHTML += `
+                controls.innerHTML +=
+                `
                     <fieldset>
                         <legend>${ property.toUpperCase() }</legend>
                         <br>
@@ -51,15 +53,11 @@
                         <span id="${ property }_item"></span>
                         <button type="button" onclick="changePropertyItem('${ property }', 1);">&gt;</button>
                 `
-                +
-                (properties[property][no_color] == true ? `
+                + (properties[property][no_color] == true ? "" : `
                         <br>
                         <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('${ property }', this.value)">
-                ` : "")
-                +
-                `
-                    </fieldset>
-                `;
+                `)
+                + "</fieldset>";
 
                 changePropertyItem(property, 0);
             }
