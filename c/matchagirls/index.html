@@ -10,6 +10,7 @@
 
         #frame { position: relative; width: 256px; height: 300px; margin: auto; }
         #frame img { position: absolute; left: 0; }
+        fieldset { margin: auto; width: 200px; }
     </style>
     <script>
 
@@ -23,7 +24,7 @@
             if (properties[id].item < 1) { properties[id].item = 4; }
 
             document.getElementById(id).src                 = id + "_" + properties[id].item + ".png";
-            document.getElementById(id + "_item").innerText = id;
+            document.getElementById(id + "_item").innerText = properties[id].item;
         }
 
         function setPropertyHue(id, hue) {
