@@ -16,15 +16,18 @@
 
         const properties = {
             hair:      { item: 1, item_max: 10 },
-            mouth:     { item: 1, item_max: 4, no_color: true },
+            mouth:     { item: 1, item_max: 12, no_color: true },
             eyes:      { item: 1, item_max: 4 },
             clothing:  { item: 1, item_max: 5 },
             accessory: { item: 1, item_max: 3 },
+            ears:      { item: 1, item_max: 2 }
         };
 
         function changePropertyItem(id, offset) {
 
             const property = properties[id];
+
+            console.log(property["john"]);
 
             property.item += offset;
 
@@ -72,6 +75,7 @@
         <img src="body.png">
         <img id="clothing">
         <img id="hair">
+        <img id="ears">
         <img id="accessory">
         <img id="mouth">
         <img id="eyes">
