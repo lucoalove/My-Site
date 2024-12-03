@@ -11,9 +11,9 @@
     </style>
     <script>
 
-        const properties = { hair: 1, mouth: 1, eyes: 1 };
+        const properties = { hair: { item: 1, hue: 0 }, mouth: { item: 1, hue: 0 }, eyes: { item: 1, hue: 0 } };
 
-        function changeProperty(id, offset) {
+        function changePropertyItem(id, offset) {
 
             properties[id] += offset;
 
@@ -21,6 +21,12 @@
             if (properties[id] < 1) { properties[id] = 4; }
 
             document.getElementById(id).src = id + "_" + properties[id] + ".png";
+        }
+
+        function setPropertyHue(id, hue) {
+
+            // filter: hue-rotate(150deg);
+            console.log(hue);
         }
 
         function init() {
@@ -42,21 +48,28 @@
     </div>
 
     <div>
-        <button type="button" onclick="changeProperty('eyes', -1);">&lt;</button>
-        Eyes
-        <button type="button" onclick="changeProperty('eyes', 1);">&gt;</button>
+        <strong>Eyes</strong>
+        <br>
+        <button type="button" onclick="changePropertyItem('eyes', -1);">&lt;</button>
+        <button type="button" onclick="changePropertyItem('eyes', 1);">&gt;</button>
+        <br>
+        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('eyes', this.value)">
     </div>
 
     <div>
-        <button type="button" onclick="changeProperty('mouth', -1);">&lt;</button>
-        Mouth
-        <button type="button" onclick="changeProperty('mouth', 1);">&gt;</button>
+        <strong>Mouth</strong>
+        <br>
+        <button type="button" onclick="changePropertyItem('mouth', -1);">&lt;</button>
+        <button type="button" onclick="changePropertyItem('mouth', 1);">&gt;</button>
     </div>
 
     <div>
-        <button type="button" onclick="changeProperty('hair', -1);">&lt;</button>
-        Hair
-        <button type="button" onclick="changeProperty('hair', 1);">&gt;</button>
+        <strong>Hair</strong>
+        <br>
+        <button type="button" onclick="changePropertyItem('hair', -1);">&lt;</button>
+        <button type="button" onclick="changePropertyItem('hair', 1);">&gt;</button>
+        <br>
+        <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('hair', this.value)">
     </div>
     
 </body>
