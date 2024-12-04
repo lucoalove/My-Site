@@ -57,7 +57,11 @@
 
             document.getElementById(id).style.filter = `hue-rotate(${ hue }deg) brightness(${ brightness }%)`;
 
+            // make the ears match the hair color
             if (id == "hair") {
+                
+                properties.ears.hue = hue;
+                properties.ears.brightness = brightness;
                 updatePropertyFilter("ears");
             }
         }
