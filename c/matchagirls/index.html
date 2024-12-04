@@ -20,7 +20,7 @@
             eyes:      { item_max: 4,  display: "め" },
             clothing:  { item_max: 5,  display: "おふく" },
             accessory: { item_max: 5,  display: " アクセサリー" },
-            ears:      { item_max: 5,  display: "けものみみ" }
+            ears:      { item_max: 5,  display: "けものみみ", no_color: true }
         };
 
         function changePropertyItem(id, offset) {
@@ -56,6 +56,10 @@
             const brightness = properties[id].brightness;
 
             document.getElementById(id).style.filter = `hue-rotate(${ hue }deg) brightness(${ brightness }%)`;
+
+            if (id == "hair") {
+                updatePropertyFilter("ears");
+            }
         }
 
         function init() {
