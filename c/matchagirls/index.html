@@ -17,8 +17,8 @@
         const properties = {
             hair:      { item_max: 10, display: "かみ" },
             mouth:     { item_max: 12, display: "くち", no_color: true },
-            eyes:      { item_max: 4,  display: "め" },
-            clothing:  { item_max: 5,  display: "おふく" },
+            eyes:      { item_max: 7,  display: "め" },
+            clothing:  { item_max: 6,  display: "おふく" },
             accessory: { item_max: 5,  display: " アクセサリー" },
             ears:      { item_max: 5,  display: "けものみみ", no_color: true }
         };
@@ -89,7 +89,7 @@
                         <br>
                         <input type="range" min="0" max="360" value="0" oninput="setPropertyHue('${ id }', this.value)">
                         <br>
-                        <input type="range" min="20" max="200" value="100" oninput="setPropertyBrightness('${ id }', this.value)">
+                        <input type="range" min="100" max="200" value="100" oninput="setPropertyBrightness('${ id }', this.value)">
                 `)
                 + "</fieldset>";
 
