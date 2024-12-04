@@ -15,19 +15,22 @@
     <script>
 
         const properties = {
-            hair:      { item: 1, item_max: 10 },
-            mouth:     { item: 1, item_max: 12, no_color: true },
-            eyes:      { item: 1, item_max: 4 },
-            clothing:  { item: 1, item_max: 5 },
-            accessory: { item: 1, item_max: 3 },
-            ears:      { item: 1, item_max: 5 }
+            hair:      { display: "かみ",         item_max: 10 },
+            mouth:     { display: "くち",         item_max: 12, no_color: true },
+            eyes:      { display: "め",          item_max: 4 },
+            clothing:  { display: "おふく",       item_max: 5 },
+            accessory: { display: " アクセサリー", item_max: 3 },
+            ears:      { display: "みみ",         item_max: 5 }
         };
 
         function changePropertyItem(id, offset) {
 
             const property = properties[id];
 
-            console.log(property["john"]);
+            if (property.item === undefined) {
+
+                property.item = 1;
+            }
 
             property.item += offset;
 
@@ -52,7 +55,7 @@
                 controls.innerHTML +=
                 `
                     <fieldset>
-                        <legend>${ property.toUpperCase() }</legend>
+                        <legend>${ properties[property]["display"] }</legend>
                         <br>
                         <button type="button" onclick="changePropertyItem('${ property }', -1);">&lt;</button>
                         <span id="${ property }_item"></span>
