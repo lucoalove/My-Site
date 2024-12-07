@@ -80,6 +80,11 @@
     ],
     "posts": [
         {
+            "date": "Dec 7, 2024",
+            "imgs": [ "/img/speedsculpt1.png" ],
+            "body": "<p>I tried sculpting, literally no tutorial just went at it with what limited knowledge I had from watching speedsculpt montages. it was fun I think??</p><p>I really ought to clean up my blender folder</p>"
+        },
+        {
             "date": "Dec 6, 2024",
             "imgs": [ "/img/cod.png", "/img/pike.png", "/img/pink_shrimp.png", "/img/white_shrimp.png" ],
             "body": "fisch"
