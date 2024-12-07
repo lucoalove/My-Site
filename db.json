@@ -86,13 +86,13 @@
         },
         {
             "date": "Dec 6, 2024",
-            "imgs": [ "/img/cod.png", "/img/pike.png", "/img/pink_shrimp.png", "/img/white_shrimp.png" ],
-            "body": "fisch"
+            "imgs": [],
+            "body": "<p>fisch</p><img src='/img/cod.png'><img src='/img/pike.png'><img src='/img/pink_shrimp.png'><img src='/img/white_shrimp.png'>"
         },
         {
             "date": "Dec 6, 2024",
             "imgs": [],
-            "body": "<p>what if I learned sword crafting and made my own sword and practiced slashing and cutting suspended pieces of paper and got pretty good at it and felt accomplished both physically and mentally by having the discipline to take on a physical hobby</p><iframe width='480' height='320' src='https://www.youtube.com/embed/rx86Twtdb6M'></iframe>"
+            "body": "<p>what if I learned sword crafting and made my own sword and practiced slashing and cutting suspended pieces of paper and got pretty good at it and felt accomplished both physically and mentally by having the discipline to take on a physical hobby</p><iframe width='480' height='320' src='https://www.youtube.com/embed/rx86Twtdb6M'></iframe><p>this was archived from the idea playground I don't actually want to do this anymore</p>"
         },
         {
             "date": "Dec 6, 2024",
