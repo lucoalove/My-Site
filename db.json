@@ -38,11 +38,6 @@
             "title": "Prompt Crafter"
         },
         {
-            "href": "/c/uniform",
-            "backgroundUrl": "/c/uniform/uniform_boobs_ref.png",
-            "title": "Uniform Project"
-        },
-        {
             "href": "/c/matchagirls",
             "backgroundUrl": "https://m.media-amazon.com/images/I/71mrAJEAxSL._AC_UY1000_.jpg",
             "title": "Make-a-girl"
@@ -79,6 +74,21 @@
         }
     ],
     "posts": [
+        {
+            "date": "Dec 8, 2024",
+            "imgs": [ "/img/green_uniform.png" ],
+            "body": "<p>The uniform II:</p><ul><li>White short-sleeve dress shirt (button down!)</li><li>Green plaid skirt (cactus green? jade green?)</li><li>White socks</li></ul>"
+        },
+        {
+            "date": "Dec 8, 2024",
+            "imgs": [ "/img/uniform_boobs_ref.png", "/img/koosher.png", "/img/sakuya.png" ],
+            "body": "<p>The uniform I:</p><ul><li>White short-sleeve dress shirt</li><li>Navy blue tie</li><li>Navy blue knee-length skirt</li><li>Black knee socks</li></ul>"
+        },
+        {
+            "date": "Dec 8, 2024",
+            "imgs": [],
+            "body": "<p>the uniform project has CONCLUDED with TWO contributions (one more than expected)</p>"
+        },
         {
             "date": "Dec 8, 2024",
             "imgs": [],
