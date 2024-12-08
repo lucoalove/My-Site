@@ -19,10 +19,15 @@
         const pageID = parseID(new URLSearchParams(window.location.search).get("page"));
         const nav    = document.getElementById("nav");
 
-        // gotta clamp
-        nav.innerHTML += `<a href="?page=${ pageID - 1 }">&lt;-</a>`;
+        document.getElementById("image").src = pages[i - 1];
+
+        if (i > 1)
+            nav.innerHTML += `<a href="?page=${ pageID - 1 }">&lt;-</a>`;
+        
         nav.innerHTML += ` ${ pageID } `;
-        nav.innerHTML += `<a href="?page=${ pageID + 1 }">-&gt;</a>`;
+        
+        if (i < pages.length)
+            nav.innerHTML += `<a href="?page=${ pageID + 1 }">-&gt;</a>`;
 
         nav.innerHTML += "<br><br>";
 
@@ -34,8 +39,6 @@
                 nav.innerHTML += ` [<a href="?page=${ i }">${ i }</a>] `;
             }
         }
-
-        getElementById("image").src = pages[i - 1];
     </script>
 </head>
 <body>
@@ -49,7 +52,7 @@
     <br><br><hr><br><br>
 
     boring stuff
-    (1200x1600px, Font: Chalkboard 28pt)
+    (1200x1600px, Font: Chalkboard 28pt, Border thickness: 15px)
     <p>Synophsis: A small comic series following Sára, a baker who likes to eat cake (at the expense of her coworkers).</p>
 
     <p>Csokalom Márta, megint lesz egy csokis szeletet? Tudsz jól, Sára. Ez lesz neki... ... és ez nekem...</p>
