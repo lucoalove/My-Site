@@ -9,18 +9,19 @@
     </style>
     <script type="module">
 
-        const pages = [ "baker1.png", "baker2.png" ];
-
         function parseID(value) {
 
             return value == null ? 1 : parseInt(value);
         }
         
+        const pages  = [ "baker1.png", "baker2.png" ];
         const pageID = parseID(new URLSearchParams(window.location.search).get("page"));
         const nav    = document.getElementById("nav");
 
-        document.getElementById("image").src = pages[i - 1];
+        // load image
+        document.getElementById("image").src = pages[pageID - 1];
 
+        // load nav
         if (i > 1)
             nav.innerHTML += `<a href="?page=${ pageID - 1 }">&lt;-</a>`;
         
