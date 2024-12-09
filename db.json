@@ -76,6 +76,11 @@
     "posts": [
         {
             "date": "Dec 8, 2024",
+            "imgs": [],
+            "body": "<p>I have a lot of public github repos that should probably not be public lol, I should work on that</p>"
+        },
+        {
+            "date": "Dec 8, 2024",
             "imgs": [ "/img/green_uniform.png" ],
             "body": "<p>The uniform II:</p><ul><li>White short-sleeve dress shirt (button down!)</li><li>Green plaid skirt (cactus green? jade green?)</li><li>White socks</li></ul>"
         },
