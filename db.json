@@ -79,6 +79,7 @@
         }
     ],
     "posts": [
+        {
             "date": "Dec 10, 2024",
             "imgs": [],
             "body": "<p>I've made synths in Java before, but maybe by actually using the <a href='{https://docs.oracle.com/javase/tutorial/sound/MIDI-synth.html'>Java MIDI/synth package</a> for once I can finally make a decent one lol. like, have some UI that gets turned into MIDI that gets sent off to a sequencer that conducts some synthesizers. that way the audio is generated in real-time rather than whatever in the word I was doing before with RAW audio generation...</p>"
