@@ -41,11 +41,6 @@
             "href": "/c/matchagirls",
             "backgroundUrl": "https://m.media-amazon.com/images/I/71mrAJEAxSL._AC_UY1000_.jpg",
             "title": "Make-a-girl"
-        },
-        {
-            "href": "/c/mc",
-            "backgroundUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Vanilla-PMP_Collection-Carousel-0_Buzzy-Bees_1280x768.jpg",
-            "title": "Minecraft Stuff"
         }
     ],
     "portalLinks": [
@@ -67,10 +62,15 @@
         },
         {
             "href": "https://github.com/BlueBunnex/Fatchicks-Bulletin",
-            "title": "⚙️ Github Repo"
+            "title": "⚙️ Site Source Code"
         }
     ],
     "posts": [
+        {
+            "date": "Dec 10, 2024",
+            "imgs": [ "https://pbs.twimg.com/media/FSoWnVbUUAIJ-32?format=jpg&name=large" ],
+            "body": "<p><a href='https://x.com/shuz_'>good artist</a></p>"
+        },
         {
             "date": "Dec 10, 2024",
             "imgs": [],
