@@ -67,9 +67,14 @@
     ],
     "posts": [
         {
+            "date": "Dec 11, 2024",
+            "imgs": [],
+            "body": "<p>mini anime intro :D</p><iframe width='384' height='60' style='border: none;' src='https://www.beepbox.co/player/#song=9n31sbk0l00e09t2Qa7g09j07r1i0o432T0v1u00f21002i9qo1311d04w5h0E0T0v2u00f10r7q800d14w4h2E0T0v2u00f10o5q00d03w5h1E112T2v3u15f10w4qw02d03w0E0b0id5pU218QlDi04zhmt80i8A8ycp274D7FE-p6CCCCCCCCCLV4tp7yJunn0Mel4tF7DkVRROqDUnAd0OILbOYLbR0mAnEpcL8L498_JAnocJ5NfwJdvM8Widd7Gg6pnp0Xx7ihRAuhj09GuNqxuMSIPcPbaQSLTjhZ92gA2ZXnUfoAhRPtArVHNvRlTsTE-xqzgCaKrF_cNk2FpJv01eq_3CDcLlkqbyU_1SLnOEKrbWh4i8nerL_ggqqf6i4x84s5ppjjpohSM5kUdd7MCLN2ewzjq_7pkkklQQkkkkkkQQkpdhhh45d555555dd560kkkgZd55l555td56gkkkgZd1BF8W2f88W938aaa8uCyyyyyyCCyzqEEwaa86yyyyy8qqad2gHAbqqGXaqGU8zE8VHFEO4ODkp97jihQQAt56AhQQAt5dd17jihQkQW1vihQ4t97ghQkAt56AhQQAt596ARM8zjhBlkw'></iframe>"
+        },
+        {
             "date": "Dec 10, 2024",
             "imgs": [],
-            "body": "<p>by the lord's decree, all details tags must look like this</p><details style='background: #111; margin: 1em 0;'><summary style='background: #181818; padding: 1em; border-left: 2px solid #f44;'><strong>Latest release</strong><br><span style='color: #aaa;'>From Dec 9, 2024</span></summary><div style='padding: 1em; color: #ccc; border-left: 2px solid #a22;'><p>Added new blocks.</p><ul><li>Syrup block</li><li>Burger block</li></ul></div></details>"
+            "body": "<p>by the lord's decree, all details tags must look like this</p><details style='color: white; background: #111; margin: 1em 0;'><summary style='background: #181818; padding: 1em; border-left: 2px solid #f44;'><strong>Latest release</strong><br><span style='color: #aaa;'>From Dec 9, 2024</span></summary><div style='padding: 1em; color: #ccc; border-left: 2px solid #a22;'><p>Added new blocks.</p><ul><li>Syrup block</li><li>Burger block</li></ul></div></details>"
         },
         {
             "date": "Dec 10, 2024",
