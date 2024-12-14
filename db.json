@@ -1,6 +1,20 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
     "feeling": "in my HAPPY era",
+    "langs": [
+        {
+            "href": "/lang/japanese",
+            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"
+        },
+        {
+            "href": "/lang/hebrew",
+            "backgroundUrl": "https://dinahoverlien.com/wp-content/uploads/2020/04/aleph-e1586030752224.png"
+        },
+        {
+            "href": "/lang/russian",
+            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+        }
+    ],
     "pages": [
         {
             "href": "/c/terminal",
