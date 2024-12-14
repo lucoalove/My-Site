@@ -58,6 +58,7 @@
         .body + .images:has(img) { margin-top: 1em; }
         .images > img { max-width: 100%; max-height: 500px; }
 
+        #langs { display: flex; gap: 4px; }
         #langs .box { height: 64px; aspect-ratio: 1; background-size: cover; background-position: center; }
     </style>
 
@@ -181,6 +182,10 @@
                 document.getElementById("portal").innerHTML += `<hr><a href="${ link.href }">${ link.title }</a>`;
             }
 
+            for (const lang of json.langs) {
+                document.getElementById("langs").innerHTML += `<a href="${ lang.href }" class="box" style="background-image: url('${ lang.backgroundUrl }');"></a>`;
+            }
+
             for (const pfp of document.getElementsByClassName("pfp")) {
                 pfp.src = json.pfpUrl;
             }
@@ -195,11 +200,7 @@
 
         <div id="pages" class="box"></div>
 
-        <div id="langs" style="display: flex; gap: 4px;">
-            <a href="/c/japanese" class="box" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png');"></a>
-            <a href="/c/hebrew" class="box" style="background-image: url('https://dinahoverlien.com/wp-content/uploads/2020/04/aleph-e1586030752224.png');"></a>
-            <a href="/c/russian" class="box" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png');"></a>
-        </div>
+        <div id="langs"></div>
 
         <div class="box">
             <div id="postheader">
