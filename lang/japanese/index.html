@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>日本語</title>
+    <style>
+        body { font-family: sans-serif; width: 50em; margin: auto; }
+        a { color: #8c6; font-weight: 700; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .word { border-bottom: 1px solid lightgrey; padding: 4px 0; }
+        .word span { color: grey; font-size: 0.9em; }
+    </style>
+    <script type="module">
+        
+        const insert = document.getElementById("insert");
+        const vocab  = [
+            "とか",
+            "居る",
+            "有る",
+            "知る",
+            "正ただしい",
+            "可愛い",
+            "勉強",
+            "書く",
+            "読む",
+            "食べる",
+            "飲む",
+            "分かる",
+            "分らない",
+            "止める",
+            "気にしないでください",
+            "大丈夫",
+        ];
+
+        for (const element of vocab) {
+
+            insert.innerHTML += `<div class="word"><a href="https://jisho.org/search/${ element }">${ element }</a></div>`;
+        }
+        
+    </script>
+</head>
+<body>
+    <a href="https://my.wasabi-jpn.com/magazine/japanese-grammar/wasabis-online-japanese-grammar-reference/">Lessons</a>
+    <a href="https://jisho.org/">Dictionary</a>
+
+    <h3>essential vocabulary</h3>
+    <div id="insert"></div>
+
+    <h3>verb conjugation</h3>
+
+</body>
+</html>
