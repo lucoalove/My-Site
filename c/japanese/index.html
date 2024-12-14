@@ -17,29 +17,31 @@
             "<ruby>書<rt>か</rt></ruby>く",
             "<ruby>読<rt>よ</rt></ruby>む",
             "<ruby>食<rt>た</rt></ruby>べる",
-            "<ruby>飲<rt>の</rt></ruby>む"
+            "<ruby>飲<rt>の</rt></ruby>む",
+            "<ruby>分<rt>わ</rt></ruby>かる",
+            "<ruby>分<rt>わか</rt></ruby>らない",
+            "<ruby>止<rt>や</rt></ruby>める",
+            "<ruby>気<rt>き</rt></ruby>にしないでください",
+            "<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>",
         ];
 
         for (const element of vocab) {
 
-            insert.innerHTML += `<div style='border-bottom: 1px solid lightgrey;'>${vocab}</div>`;
+            insert.innerHTML += `<div style='border-bottom: 1px solid lightgrey; padding: 4px 0;'>${ element }</div>`;
         }
     </script>
 </head>
 <body>
-    <p>I will note the essential vocabulary that I learn here.</p>
-
     <a href="https://my.wasabi-jpn.com/magazine/japanese-grammar/wasabis-online-japanese-grammar-reference/">Lessons</a>
     <a href="https://jisho.org/">Dictionary</a>
 
+    しる・知る / 
+    ある・有る
+
+    <h3>essential vocabulary</h3>
     <div id="insert"></div>
 
-    <br><br><br><br><br><br><br><br><br>
-    
-    分かる 分らない
-    止める　やめる
+    <h3>verb conjugation</h3>
 
-    気にしないでください
-    大丈夫　だいじょうぶ
 </body>
 </html>
