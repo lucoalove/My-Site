@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <title>日本語</title>
     <style>
-        body { font-family: sans-serif; }
+        body { font-family: sans-serif; width: 50em; margin: auto; }
         a { color: #8c6; }
     </style>
+    <script type="module">
+        const insert = document.getElementById("insert");
+        const vocab  = [
+            "...とか...とか",
+            "<ruby>正<rt>ただ</rt></ruby>しい",
+            "<ruby>可愛<rt>かわい</rt></ruby>い",
+            "<ruby>勉強<rt>べんきょう</rt></ruby>",
+            "<ruby>書<rt>か</rt></ruby>く",
+            "<ruby>読<rt>よ</rt></ruby>む",
+            "<ruby>食<rt>た</rt></ruby>べる",
+            "<ruby>飲<rt>の</rt></ruby>む"
+        ];
+
+        for (const element of vocab) {
+
+            insert.innerHTML += `<div style='border-bottom: 1px solid lightgrey;'>${vocab}</div>`;
+        }
+    </script>
 </head>
 <body>
     <p>I will note the essential vocabulary that I learn here.</p>
@@ -14,28 +32,14 @@
     <a href="https://my.wasabi-jpn.com/magazine/japanese-grammar/wasabis-online-japanese-grammar-reference/">Lessons</a>
     <a href="https://jisho.org/">Dictionary</a>
 
-    <br>
+    <div id="insert"></div>
+
+    <br><br><br><br><br><br><br><br><br>
     
-    <ruby>
-         正しい　<rt>ただしい</rt>
-    </ruby>
-    <ruby>
-         可愛い　<rt>かわいい</rt>
-    </ruby>
-    <ruby>
-         勉強　<rt>べんきょう</rt>
-    </ruby>
-    <ruby>
-         書く　<rt>かく</rt>
-    </ruby>
-    <ruby>
-         読む　<rt>よむ</rt>
-    </ruby>
-    <ruby>
-         食べる　<rt>たべる</rt>
-    </ruby>
-    <ruby>
-         飲む　<rt>のむ</rt>
-    </ruby>
+    分かる 分らない
+    止める　やめる
+
+    気にしないでください
+    大丈夫　だいじょうぶ
 </body>
 </html>
