@@ -5,71 +5,82 @@
     <title>日本語</title>
     <style>
         body { font-family: sans-serif; width: 50em; margin: auto; }
-        a { color: #8c6; font-weight: 700; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #5a4; font-weight: 700; text-decoration: none; }
+        a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
 
-        table { column-collapse: collapse; width: 100%; }
-        td { padding: 4px; border-bottom: 1px solid lightgrey; }
+        table { border-collapse: collapse; width: 100%; }
+        td { padding: 8px; border-bottom: 1px solid lightgrey; }
     </style>
     <script type="module">
         
         const insert = document.getElementById("insert");
-        const vocab  = [
-            "とか",
-            "いる",
-            "ある",
-            "知る",
-            "なぜ",
-            "何",
-            "これ",
-            "それ",
-            "あれ",
-            "どれ",
-            "この",
-            "その",
-            "あの",
-            "どの",
-            "同じ",
-            "胸",
-            "お腹",
-            "お尻",
-            "正ただしい",
-            "可愛い",
-            "勉強",
-            "書く",
-            "読む",
-            "食べる",
-            "飲む",
-            "分かる",
-            "分らない",
-            "止める",
-            "気にしないでください",
-            "びっくりした",
-            "大丈夫",
-            "行く",
-            "まだ",
-            "最近",
-            "今",
-            "今日",
-            "昨日",
-            "明日",
-            "こと",
-        ];
+        const vocab  = {
+            "Misc": [
+                "とか",
+                "いる",
+                "ある",
+                "知る",
+                "なぜ",
+                "何",
+                "これ",
+                "それ",
+                "あれ",
+                "どれ",
+                "この",
+                "その",
+                "あの",
+                "どの",
+                "同じ",
+                "胸",
+                "お腹",
+                "お尻",
+                "正ただしい",
+                "可愛い",
+                "勉強",
+                "書く",
+                "読む",
+                "食べる",
+                "飲む",
+                "分かる",
+                "分らない",
+                "止める",
+                "気にしないでください",
+                "びっくりした",
+                "大丈夫",
+                "行く",
+                "まだ",
+                "最近",
+                "今",
+                "今日",
+                "昨日",
+                "明日",
+                "こと"
+            ]
+        };
 
-        for (let i = 0; i < vocab.length; i += 4) {
+        for (const sectionName in vocab) {
 
-            let construct = "<tr>";
+            let construct = `<h3>${ sectionName }</h3><table>`;
 
-            for (let j = 0; j < 4; j++) {
+            for (let i = 0; i < vocab[sectionName].length; i += 4) {
+    
+                construct += "<tr>";
+    
+                for (let j = 0; j < 4; j++) {
 
-                if (vocab[i + j] == undefined) {
-                    construct += `<td></td>`;
-                } else {
-                    construct += `<td><a href="https://jisho.org/search/${ vocab[i + j] }">${ vocab[i + j] }</a></td>`;
+                    let value = vocab[sectionName][i + j];
+    
+                    if (value == undefined) {
+                        construct += `<td></td>`;
+                    } else {
+                        construct += `<td><a href="https://jisho.org/search/${ value }">${ value }</a></td>`;
+                    }
                 }
+    
+                construct += "</tr>";
             }
 
-            construct += "</tr>";
+            construct += "</table>";
 
             insert.innerHTML += construct;
         }
@@ -80,10 +91,10 @@
     <a href="https://my.wasabi-jpn.com/magazine/japanese-grammar/wasabis-online-japanese-grammar-reference/">Lessons</a>
     <a href="https://jisho.org/">Dictionary</a>
 
-    <h3>essential vocabulary</h3>
+    <h2>essential vocabulary</h2>
     <table id="insert"></table>
 
-    <h3>verb conjugation</h3>
+    <h2>verb conjugation</h2>
 
 </body>
 </html>
