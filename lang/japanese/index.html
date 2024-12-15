@@ -8,10 +8,8 @@
         a { color: #8c6; font-weight: 700; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        tr { border-bottom: 1px solid lightgrey; }
-        
-        td { padding: 4px; }
-        td span { color: grey; font-size: 0.9em; }
+        table { column-collapse: collapse; width: 100%; }
+        td { padding: 4px; border-bottom: 1px solid lightgrey; }
     </style>
     <script type="module">
         
@@ -60,14 +58,20 @@
 
         for (let i = 0; i < vocab.length; i += 4) {
 
-            insert.innerHTML += `
-            <tr>
-                <td><a href="https://jisho.org/search/${ vocab[i] }">${ vocab[i] }</a></td>
-                <td><a href="https://jisho.org/search/${ vocab[i+1] }">${ vocab[i+1] }</a></td>
-                <td><a href="https://jisho.org/search/${ vocab[i+2] }">${ vocab[i+2] }</a></td>
-                <td><a href="https://jisho.org/search/${ vocab[i+3] }">${ vocab[i+3] }</a></td>
-            </tr>
-            `;
+            let construct = "<tr>";
+
+            for (let j = 0; j < 4; j++) {
+
+                if (vocab[i + j] == undefined) {
+                    construct += `<td></td>`;
+                } else {
+                    construct += `<td><a href="https://jisho.org/search/${ vocab[i + j] }">${ vocab[i + j] }</a></td>`;
+                }
+            }
+
+            construct += "</tr>";
+
+            insert.innerHTML += construct;
         }
         
     </script>
