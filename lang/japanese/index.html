@@ -7,7 +7,8 @@
         body { font-family: sans-serif; width: 50em; margin: auto; }
         a { color: #5a4; font-weight: 700; text-decoration: none; }
         a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-        h3 { font-size: 1em; margin-bottom: 0.5em; }
+        h2 { border-bottom: 1px solid grey; font-size: 1.35em; padding-bottom: 4px; margin-bottom: 0; }
+        h3 { font-size: 1em; margin-bottom: 0.5em; font-weight: 400; }
 
         table { border-collapse: collapse; width: 100%; }
         td { padding: 8px; border-bottom: 1px solid lightgrey; }
@@ -16,6 +17,7 @@
         
         const insert = document.getElementById("insert");
         const vocab  = {
+            "Wh- words": [ "何", "なぜ", "どうして" ],
             "Deixis": [ "これ", "それ", "あれ", "どれ", "この", "その", "あの", "どの", ],
             "Body parts": [ "胸", "お腹", "お尻" ],
             "Expressions": [ "気にしないでください", "びっくりした", "大丈夫" ],
@@ -26,8 +28,6 @@
                 "いる",
                 "ある",
                 "知る",
-                "なぜ",
-                "何",
                 "同じ",
                 "勉強",
                 "書く",
@@ -82,10 +82,10 @@
     | <a href="https://jisho.org/">Dictionary</a>
     | <a href="https://en.wikipedia.org/wiki/Japanese_particles#List_of_particles">Particles</a>
 
-    <h2>essential vocabulary</h2>
-    <table id="insert"></table>
+    <h2>Essential Vocabulary</h2>
+    <div id="insert"></div>
 
-    <h2>verb conjugation</h2>
+    <h2>Verb Conjugation</h2>
 
 </body>
 </html>
