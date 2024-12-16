@@ -87,7 +87,7 @@
         {
             "date": "Dec 15, 2024",
             "imgs": [ "/img/perfect_gyaru.png" ],
-            "body": "<p>/draw prompt:masterpiece, best quality, amazing quality, absurdres, 8k, 1girl, solo, blond hair, blue eyes, long hair, black eyelash, heavy breathing, sweaty, cropped top, jean shorts, jewelry, gyaru, outdoors, (gigantic belly:1.2), obese <lora:SyMix_NoobAI_epred_v1_v01a01:1> data_model:Silly Coral</p>"
+            "body": "<p style='background: #eee; border: 1px solid lightgrey; padding: 0.5em; font-family: monospace;'>/draw prompt: masterpiece, best quality, amazing quality, perfect hands, absurdres, 8k, 1girl, solo, blond hair, blue eyes, long hair, black eyelash, heavy breathing, sweaty, cropped top, jean shorts, scrunchie, bangles, gyaru, outdoors, (gigantic belly:1.2), obese, large breasts data_model: Silly Coral<lora:symix_noobai_epred_v1_v01a01:1> data_model:Silly Coral</lora:symix_noobai_epred_v1_v01a01:1></p>"
         },
         {
             "date": "Dec 15, 2024",
