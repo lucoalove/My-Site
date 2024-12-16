@@ -86,6 +86,11 @@
     "posts": [
         {
             "date": "Dec 15, 2024",
+            "imgs": [ "/img/perfect_gyaru.png" ],
+            "body": "<p>/draw prompt:masterpiece, best quality, amazing quality, absurdres, 8k, 1girl, solo, blond hair, blue eyes, long hair, black eyelash, heavy breathing, sweaty, cropped top, jean shorts, jewelry, gyaru, outdoors, (gigantic belly:1.2), obese <lora:SyMix_NoobAI_epred_v1_v01a01:1> data_model:Silly Coral</p>"
+        },
+        {
+            "date": "Dec 15, 2024",
             "imgs": [],
             "body": "<p>it'd be kinda fun to make a StationAPI mod that changes the gameplay of Minecraft better-than-wolves style, maybe with some magic for some spice, some new biomes, and a final boss... probably spawned like the wither since dimensions are hard (but still making it have a resource \"key\" so that speedrunners can't just find and cheese it)</p>"
         },
