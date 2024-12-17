@@ -62,7 +62,7 @@
         },
         {
             "href": "/c/big-mod",
-            "backgroundUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTxwvrXAQNpGqDbiQEskyRjGFOlf-Qj-DOfg&s",
+            "backgroundUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvULA2jNGVF15u4xy83qkb5b93pMweSXTNA&s",
             "title": "Big Mod Project"
         }
     ],
@@ -89,6 +89,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Dec 17, 2024",
+            "imgs": [],
+            "body": "<p>I should make a Chinese (Mandarin? Taiwanese?) lang page. no idea what to put on it besides mdbg tho</p>"
+        },
         {
             "date": "Dec 17, 2024",
             "imgs": [],
