@@ -1,6 +1,6 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
-    "feeling": "in my HAPPY era",
+    "feeling": "restin up for what's to come",
     "langs": [
         {
             "href": "/lang/hungarian",
@@ -84,6 +84,11 @@
         }
     ],
     "posts": [
+        {
+            "date": "Dec 17, 2024",
+            "imgs": [],
+            "body": "<p>I really should not pressure myself to be creative right now. im EXHAUSTED from the end of the semester, I deserve a break. for now</p>"
+        },
         {
             "date": "Dec 17, 2024",
             "imgs": [],
