@@ -31,7 +31,7 @@
         }
 
         /* pages area */
-        #pages { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 4px; }
+        #pages { display: flex; flex-direction: column; gap: 4px; }
         #pages a {
             border-radius: 8px;
             aspect-ratio: 4;
@@ -43,9 +43,8 @@
             background-size: cover;
             background-position: center;
 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
         }
-        #pages a div { color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; backdrop-filter: blur(1px); }
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
@@ -202,7 +201,7 @@
             document.getElementById("feeling").innerText = json.feeling;
 
             for (const page of json.pages) {
-                document.getElementById("pages").innerHTML += `<a href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');"><div>${ page.title }</div></a>`;
+                document.getElementById("pages").innerHTML += `<a href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');">${ page.title }</a>`;
             }
 
             for (const link of json.portalLinks) {
@@ -223,36 +222,10 @@
 </head>
 <body>
 
-    <header style="height: 25em; background-size: cover; background-position: center; background-image: url('https://i.redd.it/rqzbouw8osgc1.jpeg');">
-
-        <div style="max-width: 55em; margin: auto; display: flex; flex-direction: column; gap: 4px; padding-top: 4px;">
-            <div id="pages"></div>
-            <div id="langs"></div>
-        </div>
-        
-    </header>
+    <header style="height: 25em; background-size: cover; background-position: center; background-image: url('https://i.redd.it/rqzbouw8osgc1.jpeg');"></header>
 
     <div id="main-and-aside">
 
-        <main class="stack">
-    
-            <div class="box">
-                <div id="postheader">
-                    <img class="pfp">
-                    <strong>redderblanket</strong>
-                </div>
-                
-                <hr>
-                
-                <div id="posts-insert"></div>
-        
-                <div style="padding: 1em;">
-                    <button id="loadmore">Load more</button>
-                </div>
-            </div>
-    
-        </main>
-    
         <aside class="stack">
     
             <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
@@ -284,6 +257,30 @@
             </div>
             
         </aside>
+
+        <main class="stack">
+    
+            <div class="box">
+                <div id="postheader">
+                    <img class="pfp">
+                    <strong>redderblanket</strong>
+                </div>
+                
+                <hr>
+                
+                <div id="posts-insert"></div>
+        
+                <div style="padding: 1em;">
+                    <button id="loadmore">Load more</button>
+                </div>
+            </div>
+    
+        </main>
+
+        <nav class="stack" style="gap: 4px;">
+            <div id="pages"></div>
+            <div id="langs"></div>
+        </nav>
         
     </div>
 
