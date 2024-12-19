@@ -60,6 +60,27 @@
 
         #langs { display: flex; gap: 4px; }
         #langs a { border-radius: 8px; height: 64px; aspect-ratio: 1; background-size: cover; background-position: center; }
+
+        #main-and-aside {
+            max-width: 55em;
+            margin: 2em auto;
+            display: flex;
+            align-items: start;
+            gap: 1em;
+        }
+        
+        main {
+            flex: 0 0 35em;
+        }
+        
+        aside {
+            flex: 1;
+        }
+        
+        @media (orientation: portrait) {
+            #main-and-aside { flex-direction: column-reverse; margin: 1em; align-items: center; }
+            main { flex: 1; }
+        }
     </style>
 
     <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
@@ -200,59 +221,63 @@
         
     </header>
 
-    <main class="stack" style="overflow: hidden; word-wrap: break-word; gap: 0.5em;">
+    <div id="main-and-aside">
 
-        <div id="pages"></div>
-        <div id="langs"></div>
+        <main class="stack" style="overflow: hidden; word-wrap: break-word; gap: 0.5em;">
 
-        <div class="box">
-            <div id="postheader">
-                <img class="pfp">
-                <strong>redderblanket</strong>
-            </div>
-            
-            <hr>
-            
-            <div id="posts-insert"></div>
+            <div id="pages"></div>
+            <div id="langs"></div>
     
-            <div style="padding: 1em;">
-                <button id="loadmore">Load more</button>
-            </div>
-        </div>
-
-    </main>
-
-    <aside class="stack">
-
-        <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
-            <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
-            <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
-        </div>
-
-        <div class="box" id="feeling"></div>
-
-        <div class="box">
-            <table style="padding: 1em;">
-                <tr>
-                    <th>Pronouns</th>
-                    <td>he/him/cutie</td>
-                </tr>
-                <tr>
-                    <th>About me</th>
-                    <td>I rant about emotions or things that interest me (boobs!)</td>
-                </tr>
-                <tr>
-                    <th>Prefers</th>
-                    <td>
-                        Ass to tits
-                    </td>
-                </tr>
-            </table>
-
-            <div id="portal"></div>
-        </div>
+            <div class="box">
+                <div id="postheader">
+                    <img class="pfp">
+                    <strong>redderblanket</strong>
+                </div>
+                
+                <hr>
+                
+                <div id="posts-insert"></div>
         
-    </aside>
+                <div style="padding: 1em;">
+                    <button id="loadmore">Load more</button>
+                </div>
+            </div>
+    
+        </main>
+    
+        <aside class="stack" style="transform: translateY(-50px);">
+    
+            <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
+                <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
+                <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
+            </div>
+    
+            <div class="box" id="feeling"></div>
+    
+            <div class="box">
+                <table style="padding: 1em;">
+                    <tr>
+                        <th>Pronouns</th>
+                        <td>he/him/cutie</td>
+                    </tr>
+                    <tr>
+                        <th>About me</th>
+                        <td>I rant about emotions or things that interest me (boobs!)</td>
+                    </tr>
+                    <tr>
+                        <th>Prefers</th>
+                        <td>
+                            Ass to tits
+                        </td>
+                    </tr>
+                </table>
+    
+                <div id="portal"></div>
+            </div>
+            
+        </aside>
+        
+    </div>
 
 </body>
 </html>
