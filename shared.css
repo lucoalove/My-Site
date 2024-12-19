@@ -20,6 +20,8 @@ a {
     background-color: white;
     background-size: cover;
     background-position: center;
+
+    box-shadow: 0 4px 8px #000d;
     
     border-radius: 8px;
     box-sizing: border-box;
