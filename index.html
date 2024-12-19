@@ -33,11 +33,7 @@
         /* pages area */
         #pages { display: flex; flex-direction: column; gap: 4px; }
         #pages a {
-            border-radius: 8px;
             padding: 0.5em;
-
-            background-size: cover;
-            background-position: center;
 
             color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
         }
@@ -57,7 +53,7 @@
         .images > img { max-width: 100%; max-height: 500px; }
 
         #langs { display: flex; flex-wrap: wrap; gap: 4px; }
-        #langs a { border-radius: 8px; height: 64px; aspect-ratio: 1; background-size: cover; background-position: center; }
+        #langs a { height: 64px; aspect-ratio: 1; }
 
         #container {
             max-width: 70em;
@@ -198,7 +194,7 @@
             document.getElementById("feeling").innerText = json.feeling;
 
             for (const page of json.pages) {
-                document.getElementById("pages").innerHTML += `<a href="${ page.href }" style="background-image: linear-gradient(to right, black, transparent), url('${ page.backgroundUrl }');">${ page.title }</a>`;
+                document.getElementById("pages").innerHTML += `<a class="box" href="${ page.href }" style="background-image: linear-gradient(to right, black, transparent), url('${ page.backgroundUrl }');">${ page.title }</a>`;
             }
 
             for (const link of json.portalLinks) {
@@ -206,7 +202,7 @@
             }
 
             for (const lang of json.langs) {
-                document.getElementById("langs").innerHTML += `<a href="${ lang.href }" style="background-image: url('${ lang.backgroundUrl }');"></a>`;
+                document.getElementById("langs").innerHTML += `<a class="box" href="${ lang.href }" style="background-image: url('${ lang.backgroundUrl }');"></a>`;
             }
 
             for (const pfp of document.getElementsByClassName("pfp")) {
@@ -221,13 +217,13 @@
 
     <header style="height: 25em;"></header>
 
-    <div style="display: flex; justify-content: center; backdrop-filter: blur(4px) brightness(60%);">
+    <div style="display: flex; justify-content: center; backdrop-filter: blur(4px) brightness(60%); border-top: 1px solid black;">
     
         <div id="container">
     
             <aside class="stack">
         
-                <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
+                <div class="box" style="aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
                     <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
                     <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
                 </div>
@@ -259,13 +255,6 @@
             <main class="stack">
         
                 <div class="box">
-                    <div id="postheader">
-                        <img class="pfp">
-                        <strong>redderblanket</strong>
-                    </div>
-                    
-                    <hr>
-                    
                     <div id="posts-insert"></div>
             
                     <div style="padding: 1em;">
