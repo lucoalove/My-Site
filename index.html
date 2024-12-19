@@ -72,15 +72,18 @@
         
         main {
             flex: 0 0 35em;
+            overflow: hidden; word-wrap: break-word; gap: 0.5em;
         }
         
         aside {
             flex: 1;
+            transform: translateY(-150px);
         }
         
         @media (orientation: portrait) {
             #main-and-aside { flex-direction: column-reverse; margin: 1em; align-items: center; }
             main { flex: 1; }
+            aside { transform: none; }
         }
     </style>
 
@@ -220,7 +223,7 @@
 
     <header style="background: #050308; height: 25em;">
 
-        <div style="max-width: 55em; margin: auto;">
+        <div style="max-width: 55em; margin: auto; display: flex; flex-direction: column; gap: 4px; padding-top: 4px;">
             <div id="pages"></div>
             <div id="langs"></div>
         </div>
@@ -229,7 +232,7 @@
 
     <div id="main-and-aside">
 
-        <main class="stack" style="overflow: hidden; word-wrap: break-word; gap: 0.5em;">
+        <main class="stack">
     
             <div class="box">
                 <div id="postheader">
@@ -248,7 +251,7 @@
     
         </main>
     
-        <aside class="stack" style="transform: translateY(-150px);">
+        <aside class="stack">
     
             <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
                 <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
