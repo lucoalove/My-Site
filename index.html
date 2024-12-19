@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/shared.css">
     <style>
         /* I really need to clean up this css */
-        body { margin: 0; }
+        body { margin: 0; background-size: cover; background-position: center; background-attachment: fixed; background-image: url('https://i.redd.it/rqzbouw8osgc1.jpeg'); }
         
         a { color: #48f; text-decoration-style: dotted; }
         th { text-align: left; padding-right: 1em; white-space: nowrap; vertical-align: top; font-weight: 400; color: #aaa; }
@@ -61,7 +61,7 @@
 
         #container {
             max-width: 70em;
-            margin: 1em auto;
+            margin: 1em;
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
             align-items: start;
@@ -79,7 +79,7 @@
         }
         
         @media (orientation: portrait) {
-            #container { grid-template-columns: auto; grid-template-rows: auto auto auto; margin: 1em; align-items: center; }
+            #container { grid-template-columns: auto; grid-template-rows: auto auto auto; align-items: center; }
             main { flex: 1; }
             aside { transform: none; }
         }
@@ -219,65 +219,69 @@
 </head>
 <body>
 
-    <header style="height: 25em; background-size: cover; background-position: center; background-image: url('https://i.redd.it/rqzbouw8osgc1.jpeg');"></header>
+    <header style="height: 25em;"></header>
 
-    <div id="container">
-
-        <aside class="stack">
+    <div style="display: flex; justify-content: center; backdrop-filter: blur(4px) brightness(60%);">
     
-            <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
-                <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
-                <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
-            </div>
+        <div id="container">
     
-            <div class="box" id="feeling"></div>
+            <aside class="stack">
+        
+                <div style="border-radius: 8px; aspect-ratio: 1; position: relative; border-color: #999; overflow: hidden;">
+                    <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
+                    <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
+                </div>
+        
+                <div class="box" id="feeling"></div>
+        
+                <div class="box">
+                    <table style="padding: 1em;">
+                        <tr>
+                            <td colspan="2">I rant about emotions or things that interest me (boobs!)</td>
+                        </tr>
+                        <tr>
+                            <th>Pronouns</th>
+                            <td>he/him/cutie</td>
+                        </tr>
+                        <tr>
+                            <th>Prefers</th>
+                            <td>
+                                Ass to tits
+                            </td>
+                        </tr>
+                    </table>
+        
+                    <div id="portal"></div>
+                </div>
+                
+            </aside>
     
-            <div class="box">
-                <table style="padding: 1em;">
-                    <tr>
-                        <td colspan="2">I rant about emotions or things that interest me (boobs!)</td>
-                    </tr>
-                    <tr>
-                        <th>Pronouns</th>
-                        <td>he/him/cutie</td>
-                    </tr>
-                    <tr>
-                        <th>Prefers</th>
-                        <td>
-                            Ass to tits
-                        </td>
-                    </tr>
-                </table>
-    
-                <div id="portal"></div>
-            </div>
+            <main class="stack">
+        
+                <div class="box">
+                    <div id="postheader">
+                        <img class="pfp">
+                        <strong>redderblanket</strong>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div id="posts-insert"></div>
             
-        </aside>
-
-        <main class="stack">
-    
-            <div class="box">
-                <div id="postheader">
-                    <img class="pfp">
-                    <strong>redderblanket</strong>
+                    <div style="padding: 1em;">
+                        <button id="loadmore">Load more</button>
+                    </div>
                 </div>
-                
-                <hr>
-                
-                <div id="posts-insert"></div>
         
-                <div style="padding: 1em;">
-                    <button id="loadmore">Load more</button>
-                </div>
-            </div>
+            </main>
     
-        </main>
+            <nav class="stack" style="gap: 4px;">
+                <div id="pages"></div>
+                <div id="langs"></div>
+            </nav>
+            
+        </div>
 
-        <nav class="stack" style="gap: 4px;">
-            <div id="pages"></div>
-            <div id="langs"></div>
-        </nav>
-        
     </div>
 
 </body>
