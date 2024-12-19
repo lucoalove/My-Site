@@ -90,6 +90,11 @@
     ],
     "posts": [
         {
+            "date": "Dec 19, 2024",
+            "imgs": [ "/img/cute_deer.png" ],
+            "body": "<p>man furries are cute. also im lonely. but productive!</p>"
+        },
+        {
             "date": "Dec 18, 2024",
             "imgs": [],
             "body": "<p>PARALLAX SHADERS. that's what the effect for those lights in Portal is called</p>"
