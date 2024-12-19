@@ -198,7 +198,7 @@
             document.getElementById("feeling").innerText = json.feeling;
 
             for (const page of json.pages) {
-                document.getElementById("pages").innerHTML += `<a href="${ page.href }" style="background-image: url('${ page.backgroundUrl }');">${ page.title }</a>`;
+                document.getElementById("pages").innerHTML += `<a href="${ page.href }" style="background-image: linear-gradient(to right, black, transparent), url('${ page.backgroundUrl }');">${ page.title }</a>`;
             }
 
             for (const link of json.portalLinks) {
