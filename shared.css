@@ -2,11 +2,25 @@
 
 body {
     font-family: "PT Sans", sans-serif;
-    background: #DAE0E6;
+    margin: 0;
+
+    /* background-color: #DAE0E6; */
+    background-image: url('https://i.redd.it/rqzbouw8osgc1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a {
+    color: #48f;
+    text-decoration-style: dotted;
 }
 
 .box {
-    background: white;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    
     border: 1px solid #bbb;
     border-radius: 8px;
     box-sizing: border-box;
