@@ -26,13 +26,11 @@
             background: #48f;
         }
 
-        /* pages area */
         #pages { display: flex; flex-direction: column; gap: 4px; }
-        #pages a {
-            padding: 0.5em;
+        #pages a { padding: 0.5em; color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; }
 
-            color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
-        }
+        #langs { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; }
+        #langs a { height: 64px; aspect-ratio: 1; }
         
         #posts-insert { display: flex; flex-direction: column; gap: 1em; }
 
@@ -47,9 +45,6 @@
         .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
         .body + .images:has(img) { margin-top: 1em; }
         .images > img { max-width: 100%; max-height: 500px; }
-
-        #langs { display: flex; flex-wrap: wrap; gap: 4px; }
-        #langs a { height: 64px; aspect-ratio: 1; }
 
         #container {
             max-width: 70em;
