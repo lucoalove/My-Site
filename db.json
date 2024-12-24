@@ -28,27 +28,12 @@
         {
             "href": "/c/3D",
             "backgroundUrl": "https://i.redd.it/qpyti2rey3481.jpg",
-            "title": "Blender Learnin"
-        },
-        {
-            "href": "/c/ai-generator",
-            "backgroundUrl": "https://cdn.zbaseglobal.com/saasbox/resources/webp/1-1__678ac3ef9a1fabb7903beb0923465f86.webp",
-            "title": "AI Generator"
+            "title": "3D Art Studies"
         },
         {
             "href": "/c/waifu",
             "backgroundUrl": "https://www.animeherald.com/wp-content/uploads/2024/06/VTuber-header-001-20240629.jpg",
             "title": "Waifu Ranking"
-        },
-        {
-            "href": "/c/fediverse",
-            "backgroundUrl": "https://res.cloudinary.com/momentum-media-group-pty-ltd/image/upload/c_fill,q_auto:best,f_auto,e_unsharp_mask:80,w_830,h_478/Space%20Connect%2Fspace-exploration-sc_fm1ysf",
-            "title": "Fediverse"
-        },
-        {
-            "href": "/c/my-comic",
-            "backgroundUrl": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ab3fa0c2-2ea8-4969-bf94-3b56db618839/di8ag4j-0e61964d-02a9-47be-af39-eecc95a13d06.png/v1/fill/w_984,h_768,q_80,strp/bbw_figurine_by_um11111_di8ag4j-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzY4IiwicGF0aCI6IlwvZlwvYWIzZmEwYzItMmVhOC00OTY5LWJmOTQtM2I1NmRiNjE4ODM5XC9kaThhZzRqLTBlNjE5NjRkLTAyYTktNDdiZS1hZjM5LWVlY2M5NWExM2QwNi5wbmciLCJ3aWR0aCI6Ijw9OTg0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Gu_Dmxhon8rtHSDFonMlNJ5Vi7pSwNxPYliKtpl8ELg",
-            "title": "My Comic"
         },
         {
             "href": "/c/prompt-crafter",
