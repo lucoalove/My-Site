@@ -104,7 +104,7 @@
                 output.value += document.getElementById("char-count").checked ? "2girls, " : "1girl, ";
             }
             
-            output.value += document.querySelector('input[name="view"]:checked').value + ", ";
+            output.value += "(" + document.querySelector('input[name="view"]:checked').value + ":1.2), ";
             output.value += shot + ", ";
             if (document.getElementById("dutch-angle").checked)
                 output.value += "dutch angle, ";
@@ -269,7 +269,7 @@
                 </td>
             </tr>
             <tr id="belly-section">
-                <td>Belly:</td>
+                <td style="min-width: 4em;">Belly:</td>
                 <td>
                     <input id="belly-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
