@@ -143,9 +143,10 @@
     <div>
         <h3>Describe your character/scene</h3>
 
-        <textarea id="description" style="padding: 1em; resize: vertical; border: 1px solid black; width: 100%;" oninput="craft()"></textarea>
+        <textarea id="description" style="padding: 1em; resize: vertical; border: 1px solid black; width: 50%; min-width: 30em; box-sizing: border-box;" oninput="craft()"></textarea>
         
         <h3>Meta</h3>
+        
         <label class="switch">
             <input type="checkbox" id="comments" oninput="craft()" checked>
             <span class="slider"></span>
@@ -174,7 +175,7 @@
         <input type="radio" id="view5" name="view" oninput="craft()" value="view from below">
         <label for="view5">view from below</label>
         
-        <br><small>(need a selector for dutch angle)</small>
+        <small style="padding-left: 2em;">(need a selector for dutch angle)</small>
         
         <br><br>
 
@@ -188,6 +189,7 @@
         <label for="shot4">full body shot</label>
     
         <h3>Figure</h3>
+        
         <table>
             <tr>
                 <td>Breasts:</td>
@@ -214,6 +216,8 @@
                 </td>
             </tr>
         </table>
+
+        <small>Lower body parts are disabled when "shot" does not include them.</small>
     </div>
     
 </body>
