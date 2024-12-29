@@ -23,6 +23,9 @@
         // value is in range [1, 100]
         function constructBreastsPrompt(value) {
 
+            if (value == 1)
+                return "flat chest";
+
             return getSize(value) + " breasts";
         }
 
@@ -133,7 +136,8 @@
                 document.getElementById("legs-section").style.display = "none";
             }
 
-            output.value += ":1.3)";
+            if (showBreastsAndBelly)
+                output.value += ":1.3)";
         }
     </script>
 
