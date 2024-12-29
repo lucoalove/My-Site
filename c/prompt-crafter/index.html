@@ -173,7 +173,7 @@
     </script>
 
     <style>
-        body { font-family: sans-serif; display: grid; grid-template-columns: 1fr 2fr; gap: 1em; }
+        body { font-family: sans-serif; display: grid; grid-template-columns: 1fr 2fr; gap: 1em; min-height: calc(100vh - 2em); box-sizing: border-box; }
         h3 { border-bottom: 1px solid grey; }
         svg { vertical-align: middle; }
 
@@ -198,7 +198,7 @@
 </head>
 <body onload="craft();">
 
-    <textarea readonly id="output" style="padding: 1em; resize: none; font-size: smaller; border: 1px solid black; min-height: calc(100vh - 2em); box-sizing: border-box;"></textarea>
+    <textarea readonly id="output" style="padding: 1em; resize: none; font-size: smaller; border: 1px solid black;"></textarea>
 
     <div>
         <h3>Describe your character/scene</h3>
@@ -213,17 +213,17 @@
         </label>
         Format as Aiyabot command
 
-        <span id="comments-section">
-            <br><br>
+        <div id="comments-section">
+            <br>
             
             <label class="switch">
                 <input type="checkbox" id="comments" oninput="craft()" checked>
                 <span class="slider"></span>
             </label>
             Include comments/linebreaks
-        </span>
+        </div>
 
-        <br><br>
+        <br>
 
         <label class="switch">
             <input type="checkbox" id="quality" oninput="craft()">
