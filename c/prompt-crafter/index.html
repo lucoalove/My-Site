@@ -14,14 +14,6 @@
         //     { display_name: "spellsx",        value: "spellsx(artist)", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f36db054-75cc-4adf-be52-8b8e930ce06a/dfsa3l6-c79e5776-2d3a-47a3-b814-5379f05d57d1.jpg/v1/fill/w_861,h_928,q_70,strp/_as4_7__the_hot_neighbor_by_spellsx_dfsa3l6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE1NyIsInBhdGgiOiJcL2ZcL2YzNmRiMDU0LTc1Y2MtNGFkZi1iZTUyLThiOGU5MzBjZTA2YVwvZGZzYTNsNi1jNzllNTc3Ni0yZDNhLTQ3YTMtYjgxNC01Mzc5ZjA1ZDU3ZDEuanBnIiwid2lkdGgiOiI8PTIwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.T_vWlVrU2mS2V_vzKHspj9Ffkh6VDLFFWLSTgs53iAc" },
         // ];
 
-        function init() {
-
-            // craft on load
-            craft();
-        }
-        
-
-        
         const sizeHeirarchy = [ "small", "slightly big", "big", "slightly huge", "huge", "slightly massive", "massive", "hyper" ]; // giant?
 
         function getSize(value) {
@@ -81,8 +73,6 @@
             return extra + getSize(value) + " calves";
         }
         
-        
-        
         function craft() {
 
             const output = document.getElementById("output");
@@ -98,16 +88,17 @@
             
             if (comments)
                 output.value += "\n\n/* Composition */\n";
+
+            const shot = document.querySelector('input[name="shot"]:checked').value;
             
             output.value += document.getElementById("girl-count").checked ? "2girls, " : "1girl, ";
+            output.value += document.querySelector('input[name="view"]:checked').value + ", ";
+            output.value += shot + ", ";
 
             if (comments)
                 output.value += "\n\n/* Your stuff */\n";
 
-            const shot = document.querySelector('input[name="shot"]:checked').value;
-            
-            output.value += document.querySelector('input[name="view"]:checked').value + ", ";
-            output.value += shot + ", ";
+            output.value += document.getElementById("description").value + ", ";
             
             if (comments)
                 output.value += "\n\n/* Figure */\n";
@@ -145,12 +136,14 @@
         input:checked + .slider:before { transform: translateX(26px); }
     </style>
 </head>
-<body onload="init();">
+<body onload="craft();">
 
     <textarea readonly id="output" style="padding: 1em; resize: none; font-size: smaller; border: 1px solid black;"></textarea>
 
     <div>
         <h3>Describe your character/scene</h3>
+
+        <textarea id="description" style="padding: 1em; resize: vertical; border: 1px solid black;"></textarea>
         
         <h3>Meta</h3>
         <label class="switch">
@@ -170,28 +163,28 @@
 
         <br><br>
 
-        <input type="radio" id="view1" name="view" value="front view" checked>
+        <input type="radio" id="view1" name="view" oninput="craft()" value="front view" checked>
         <label for="view1">front view</label>
-        <input type="radio" id="view2" name="view" value="side view">
+        <input type="radio" id="view2" name="view" oninput="craft()" value="side view">
         <label for="view2">side view</label>
-        <input type="radio" id="view3" name="view" value="view from behind">
+        <input type="radio" id="view3" name="view" oninput="craft()" value="view from behind">
         <label for="view3">view from behind</label>
-        <input type="radio" id="view4" name="view" value="view from above">
+        <input type="radio" id="view4" name="view" oninput="craft()" value="view from above">
         <label for="view4">view from above</label>
-        <input type="radio" id="view5" name="view" value="view from below">
+        <input type="radio" id="view5" name="view" oninput="craft()" value="view from below">
         <label for="view5">view from below</label>
         
         <br><small>(need a selector for dutch angle)</small>
         
         <br><br>
 
-        <input type="radio" id="shot1" name="shot" value="head shot">
+        <input type="radio" id="shot1" name="shot" oninput="craft()" value="head shot">
         <label for="shot1">head shot</label>
-        <input type="radio" id="shot2" name="shot" value="bust shot">
+        <input type="radio" id="shot2" name="shot" oninput="craft()" value="bust shot">
         <label for="shot2">bust shot</label>
-        <input type="radio" id="shot3" name="shot" value="medium shot" checked>
+        <input type="radio" id="shot3" name="shot" oninput="craft()" value="medium shot" checked>
         <label for="shot3">medium shot</label>
-        <input type="radio" id="shot4" name="shot" value="full body shot">
+        <input type="radio" id="shot4" name="shot" oninput="craft()" value="full body shot">
         <label for="shot4">full body shot</label>
     
         <h3>Figure</h3>
