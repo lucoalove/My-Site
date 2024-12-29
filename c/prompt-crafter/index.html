@@ -181,16 +181,14 @@
         h3 { border-bottom: 1px solid grey; }
         svg { vertical-align: middle; }
 
-        input, label { cursor: pointer; }
-
         input[type="radio"] { display: none; }
-        input[type="radio"]         + label { border-bottom: 4px solid lightgrey; padding: calc(0.5em + 4px) 1em 0.5em; display: inline-block; }
+        input[type="radio"]         + label { border-bottom: 4px solid lightgrey; cursor: pointer; padding: calc(0.5em + 4px) 1em 0.5em; display: inline-block; }
         input[type="radio"]:checked + label { border-bottom: 4px solid #2196F3; background: #def; }
 
         input[type="text"] { width: 3em; }
         
         /* stole this from w3schools */
-        .switch { position: relative; display: inline-block; width: 40px; height: 20px; vertical-align: middle; }
+        .switch { cursor: pointer; position: relative; display: inline-block; width: 40px; height: 20px; vertical-align: middle; }
         .switch input { display: none; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: 0.2s; border-radius: 100px; }
         .slider:before { position: absolute; content: ""; border-radius: 100px; height: 12px; width: 12px; left: 4px; bottom: 4px; background-color: white; transition: 0.2s; }
