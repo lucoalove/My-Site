@@ -132,8 +132,8 @@
         input, label { cursor: pointer; }
 
         input[type="radio"] { display: none; }
-        input[type="radio"]         + label { background: lightgrey; padding: 0.5em 1em; display: inline-block; }
-        input[type="radio"]:checked + label { background: #2196F3; }
+        input[type="radio"]         + label { border-bottom: 4px solid lightgrey; padding: calc(0.5em + 4px) 1em 0.5em; display: inline-block; }
+        input[type="radio"]:checked + label { border-bottom: 4px solid #2196F3; background: #def; }
         
         /* stole this from w3schools */
         .switch { position: relative; display: inline-block; width: 40px; height: 20px; vertical-align: middle; }
