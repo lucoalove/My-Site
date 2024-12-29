@@ -218,7 +218,12 @@
                 <input type="checkbox" id="aiyabot" oninput="craft()">
                 <span class="slider"></span>
             </label>
-            Format as Aiyabot command with <label for="width">width:</label> <input type="text" id="width"> and <label for="height">height:</label> <input type="text" id="height">
+            Format as Aiyabot command with
+            <label for="width">width:</label>
+            <input type="text" oninput="craft()" value="640" id="width">
+            and
+            <label for="height">height:</label>
+            <input type="text" oninput="craft()" value="800" id="height">
         </p>
         
         <p id="comments-section">
