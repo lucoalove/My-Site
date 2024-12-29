@@ -108,17 +108,22 @@
             output.value += "("  + constructBreastsPrompt(document.getElementById("breasts-thickness").value);
             output.value += ", " + constructBellyPrompt(document.getElementById("belly-thickness").value);
 
-            if (shot === "full body shot" || shot === "medium shot") {
-                
+            const showHips = shot === "full body shot" || shot === "medium shot";
+            const showLegs = shot === "full body shot";
+            
+            if (showHips) {
                 output.value += ", " + constructHipsPrompt(document.getElementById("hips-thickness").value);
-
-                if (shot === "full body shot") {
-                    output.value += ", " + constructLegsPrompt(document.getElementById("legs-thickness").value);
-                }
+                document.getElementById("hips-section").style.display = "table-row";
+            } else {
+                document.getElementById("hips-section").style.display = "none";
             }
 
-            document.getElementById("hips-section").style.display = (shot === "full body shot" || shot === "medium shot") ? "block" : "none";
-            document.getElementById("legs-section").style.display = (shot === "full body shot") ? "block" : "none";
+            if (showLegs) {
+                output.value += ", " + constructLegsPrompt(document.getElementById("legs-thickness").value);
+                document.getElementById("legs-section").style.display = "table-row";
+            } else {
+                document.getElementById("legs-section").style.display = "none";
+            }
 
             output.value += ":1.3)";
         }
