@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Prompt Crafter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script>
         // const artists = [
@@ -81,10 +82,18 @@
             const output = document.getElementById("output");
             output.value = "";
 
-            const comments = document.getElementById("comments").checked;
+            const aiyabot = document.getElementById("aiyabot").checked;
+            const comments = !aiyabot && document.getElementById("comments").checked;
             const quality = document.getElementById("quality").checked;
             const isMale = document.getElementById("gender").checked;
             const shot = document.querySelector('input[name="shot"]:checked').value;
+
+            if (aiyabot) {
+                output.value += "/draw prompt:";
+                document.getElementById("comments-section").display = "none";
+            } else {
+                document.getElementById("comments-section").display = "block";
+            }
 
             if (comments)
                 output.value += "/* Quality */\n";
@@ -193,12 +202,22 @@
         <textarea id="description" style="padding: 1em; resize: vertical; border: 1px solid black; width: 50%; min-width: 30em; box-sizing: border-box;" oninput="craft()"></textarea>
         
         <h3>Meta</h3>
-        
+
         <label class="switch">
-            <input type="checkbox" id="comments" oninput="craft()" checked>
+            <input type="checkbox" id="aiyabot" oninput="craft()">
             <span class="slider"></span>
         </label>
-        Include comments/linebreaks
+        Format as Aiyabot command
+
+        <div id="comments-section">
+            <br><br>
+            
+            <label class="switch">
+                <input type="checkbox" id="comments" oninput="craft()" checked>
+                <span class="slider"></span>
+            </label>
+            Include comments/linebreaks
+        </div>
 
         <br><br>
 
