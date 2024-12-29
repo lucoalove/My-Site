@@ -129,6 +129,8 @@
         input.boxy         + label { cursor: pointer; filter: brightness(0.5); transition-duration: 0.2s; border: 1px solid black; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: 700; text-shadow: 0 0 10px white; background-color: #eee; flex: 0 0 180px; aspect-ratio: 1; background-position: center; background-size: cover; overflow: hidden; }
         input.boxy:checked + label { filter: brightness(1); }
 
+        input, label { cursor: pointer; }
+        
         /* stole this from w3schools */
         .switch { position: relative; display: inline-block; width: 60px; height: 34px; vertical-align: middle; }
         .switch input { display: none; }
@@ -164,6 +166,8 @@
         </label>
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M15-122v-121q0-42.3 21.7-76.1Q58.39-352.9 97-371q75-32 136.47-47 61.48-15 126.55-15 66.98 0 127.48 14.5T623-371q38.34 16.83 60.67 50.7Q706-286.43 706-243.05V-122H15Zm762 0v-119q0-65-31.5-109.5T660-431q61 9 115.5 23.5T866-375q36 19 57.5 54.81t21.5 82.24V-122H777ZM360.25-494Q288-494 243-539t-45-117.5q0-72.5 45.04-117.5 45.05-45 117-45 71.96 0 117.46 45.03T523-657q0 73-45.25 118t-117.5 45ZM757-657.01q0 72.01-45.45 117.51-45.44 45.5-117.8 45.5-12.06 0-24.4-2-12.35-2-26.35-7 26-27 38.5-65.85 12.5-38.85 12.5-87.5t-12.65-86.13q-12.66-37.49-38.35-67.65 12-3.87 25.24-6.37 13.24-2.5 25.51-2.5 71.99 0 117.62 45.52Q757-727.96 757-657.01ZM109-216h502v-23q0-15.35-9.5-29.82T578-289q-68-29-114-39t-104-10q-56 0-104 10t-115 39q-13 5.56-22.5 20.08Q109-254.41 109-239v23Zm250.84-361q34.81 0 57.49-22.38 22.67-22.38 22.67-57 0-34.62-22.38-57.12t-57-22.5q-34.62 0-57.12 22.22T281-657.16q0 34.81 22.22 57.49Q325.44-577 359.84-577Zm.16 361Zm0-441Z"/></svg>
 
+        <br><br>
+        
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M479.43-258Q556-258 608-309.76q52-51.77 52-128Q660-514 608.24-566q-51.77-52-128-52Q404-618 352-566.29q-52 51.71-52 127.72Q300-362 351.71-310t127.72 52Zm.24-88.67q-39.34 0-65.17-26.16-25.83-26.17-25.83-65.5 0-39.34 25.83-65.5Q440.33-530 479.67-530q39.33 0 65.83 26.17 26.5 26.16 26.5 65.5 0 39.33-26.5 65.5-26.5 26.16-65.83 26.16ZM156.67-92q-43.7 0-74.19-30.48Q52-152.97 52-196.67v-482q0-43.31 30.48-74.32Q112.97-784 156.67-784H272l84.67-84.67h246.66L688.67-784h114.66q43.31 0 74.32 31.01 31.02 31.01 31.02 74.32v482q0 43.7-31.02 74.19Q846.64-92 803.33-92H156.67Zm0-104.67h646.66v-482H645l-82-84.66H399.33l-86.66 84.66h-156v482ZM480-438Z"/></svg>
         <label class="switch">
             <input type="checkbox" id="dutch-angle" oninput="craft()">
