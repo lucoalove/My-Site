@@ -112,9 +112,13 @@
                 
                 output.value += ", " + constructHipsPrompt(document.getElementById("hips-thickness").value);
 
-                if (shot === "full body shot")
+                if (shot === "full body shot") {
                     output.value += ", " + constructLegsPrompt(document.getElementById("legs-thickness").value);
+                }
             }
+
+            document.getElementById("hips-section").style.display = (shot === "full body shot" || shot === "medium shot") ? "block" : "none";
+            document.getElementById("legs-section").style.display = (shot === "full body shot") ? "block" : "none";
 
             output.value += ":1.3)";
         }
@@ -218,21 +222,19 @@
                     <input id="belly-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
-            <tr>
+            <tr id="hips-section">
                 <td>Hips:</td>
                 <td>
                     <input id="hips-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
-            <tr>
+            <tr id="legs-section">
                 <td>Legs:</td>
                 <td>
                     <input id="legs-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
         </table>
-
-        <small><i>Lower body parts are disabled when "shot" does not include them.</i></small>
     </div>
     
 </body>
