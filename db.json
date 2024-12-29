@@ -21,6 +21,11 @@
     ],
     "pages": [
         {
+            "href": "https://ai.fatchicks.cc/",
+            "backgroundUrl": "https://i.redd.it/trying-to-make-images-similar-to-this-style-have-some-v0-3mcok5ozoc5a1.jpg?width=3072&format=pjpg&auto=webp&s=6d52eb4decae6e25567953337916beae9aae74e9",
+            "title": "AI Stuff"
+        },
+        {
             "href": "/c/terminal",
             "backgroundUrl": "https://www.freecodecamp.org/news/content/images/2022/03/pexels-pixabay-207580.jpg",
             "title": "Shell Commands"
@@ -34,11 +39,6 @@
             "href": "/c/waifu",
             "backgroundUrl": "https://www.animeherald.com/wp-content/uploads/2024/06/VTuber-header-001-20240629.jpg",
             "title": "Waifu Ranking"
-        },
-        {
-            "href": "/c/prompt-crafter",
-            "backgroundUrl": "https://i.redd.it/trying-to-make-images-similar-to-this-style-have-some-v0-3mcok5ozoc5a1.jpg?width=3072&format=pjpg&auto=webp&s=6d52eb4decae6e25567953337916beae9aae74e9",
-            "title": "Prompt Crafter"
         },
         {
             "href": "/c/matchagirls",
