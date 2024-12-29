@@ -47,17 +47,15 @@
             return extra + getSize(value) + " belly";
         }
         
-        function constructHipsPrompt(value) {
+        function constructHipsPrompt(value, includeAss) {
 
             let extra = "";
 
-            if (value > 50) {
+            if (value > 50)
                 extra += "(thick thighs:1." + parseInt(value / 10 - 5) + "), ";
-            }
 
-            if (value > 80) {
-                extra += "big ass, ";
-            }
+            if (includeAss)
+                extra += getSize(value) + " ass, ";
             
             return extra + getSize(value) + " hips";
         }
@@ -86,6 +84,7 @@
             const comments = !aiyabot && document.getElementById("comments").checked;
             const quality = document.getElementById("quality").checked;
             const isMale = document.getElementById("gender").checked;
+            const view = document.querySelector('input[name="view"]:checked').value;
             const shot = document.querySelector('input[name="shot"]:checked').value;
 
             if (aiyabot) {
@@ -113,7 +112,7 @@
                 output.value += document.getElementById("char-count").checked ? "2girls, " : "1girl, ";
             }
             
-            output.value += "(" + document.querySelector('input[name="view"]:checked').value + ":1.2), ";
+            output.value += "(" + view + ":1.2), ";
             output.value += shot + ", ";
             if (document.getElementById("dutch-angle").checked)
                 output.value += "dutch angle, ";
@@ -129,6 +128,7 @@
             const showBreasts = shot !== "head shot" && !isMale;
             const showBelly = shot !== "head shot";
             const showHips = shot === "full body shot" || shot === "medium shot";
+            const includeAss = view === "side view" || view === "view from behind";
             const showLegs = shot === "full body shot";
             const showAnything = showBreasts || showBelly || showHips || showLegs;
             
@@ -154,7 +154,7 @@
             }
             
             if (showHips) {
-                output.value += ", " + constructHipsPrompt(document.getElementById("hips-thickness").value);
+                output.value += ", " + constructHipsPrompt(document.getElementById("hips-thickness").value, includeAss);
                 document.getElementById("hips-section").style.display = "table-row";
             } else {
                 document.getElementById("hips-section").style.display = "none";
