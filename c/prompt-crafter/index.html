@@ -90,9 +90,9 @@
 
             if (aiyabot) {
                 output.value += "/draw prompt:";
-                document.getElementById("comments-section").display = "none";
+                document.getElementById("comments-section").style.display = "none";
             } else {
-                document.getElementById("comments-section").display = "block";
+                document.getElementById("comments-section").style.display = "block";
             }
 
             if (comments)
@@ -190,6 +190,10 @@
         .slider:before { position: absolute; content: ""; border-radius: 100px; height: 12px; width: 12px; left: 4px; bottom: 4px; background-color: white; transition: 0.2s; }
         input:checked + .slider { background-color: #2196F3; }
         input:checked + .slider:before { transform: translateX(20px); }
+
+        @media (orientation: portrait) {
+            #container { grid-template-columns: auto; grid-template-rows: auto auto; align-items: center; }
+        }
     </style>
 </head>
 <body onload="craft();">
@@ -209,7 +213,7 @@
         </label>
         Format as Aiyabot command
 
-        <div id="comments-section">
+        <span id="comments-section">
             <br><br>
             
             <label class="switch">
@@ -217,7 +221,7 @@
                 <span class="slider"></span>
             </label>
             Include comments/linebreaks
-        </div>
+        </span>
 
         <br><br>
 
