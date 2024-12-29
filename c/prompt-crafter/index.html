@@ -170,9 +170,24 @@
             if (showAnything)
                 output.value += ":1.3)";
 
-            if (aiyabot) {
+            if (aiyabot)
                 output.value += ` width:${ document.getElementById("width").value } height:${ document.getElementById("height").value }`;
-            }
+        }
+
+        function copy() {
+
+            var output = document.getElementById("output");
+            
+            output.select();
+            output.setSelectionRange(0, 99999); // For mobile devices
+            
+            navigator.clipboard.writeText(output.value);
+
+            document.getElementById("copy-button").innerHTML = "Copied!";
+
+            setTimeout(function() {
+                document.getElementById("copy-button").innerHTML = "Copy Prompt";
+            }, 2000);
         }
     </script>
 
@@ -199,7 +214,7 @@
         input:checked + .slider:before { transform: translateX(20px); }
 
         @media (orientation: portrait) {
-            body { grid-template-columns: auto; grid-template-rows: auto auto; align-items: center; min-height: auto; }
+            body { grid-template-columns: auto; grid-template-rows: auto auto; align-items: center; min-height: auto; padding-bottom: 10em; }
         }
     </style>
 </head>
@@ -208,6 +223,8 @@
     <textarea readonly id="output" style="padding: 1em; resize: none; font-size: smaller; border: 1px solid black;"></textarea>
 
     <div>
+        <button onclick="copy();" id="copy-button" style="width: 100%; padding: 1em;">Copy Prompt</button>
+        
         <h3>Describe your character/scene</h3>
 
         <textarea id="description" style="padding: 1em; resize: vertical; border: 1px solid black; width: 50%; min-width: 30em; box-sizing: border-box;" oninput="craft()"></textarea>
