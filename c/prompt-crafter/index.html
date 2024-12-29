@@ -104,12 +104,20 @@
             
             if (comments)
                 output.value += "\n\n/* Figure */\n";
-            
-            output.value += "("  + constructBreastsPrompt(document.getElementById("breasts-thickness").value);
-            output.value += ", " + constructBellyPrompt(document.getElementById("belly-thickness").value);
 
+            const showBreastsAndBelly = shot !== "head shot";
             const showHips = shot === "full body shot" || shot === "medium shot";
             const showLegs = shot === "full body shot";
+
+            if (showBreastsAndBelly) {
+                output.value += "("  + constructBreastsPrompt(document.getElementById("breasts-thickness").value);
+                output.value += ", " + constructBellyPrompt(document.getElementById("belly-thickness").value);
+                document.getElementById("breasts-section").style.display = "table-row";
+                document.getElementById("belly-section").style.display = "table-row";
+            } else {
+                document.getElementById("breasts-section").style.display = "none";
+                document.getElementById("belly-section").style.display = "none";
+            }
             
             if (showHips) {
                 output.value += ", " + constructHipsPrompt(document.getElementById("hips-thickness").value);
@@ -211,13 +219,13 @@
         <h3>Figure</h3>
         
         <table>
-            <tr>
+            <tr id="breasts-section">
                 <td>Breasts:</td>
                 <td>
                     <input id="breasts-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
                 </td>
             </tr>
-            <tr>
+            <tr id="belly-section">
                 <td>Belly:</td>
                 <td>
                     <input id="belly-thickness" type="range" min="1" max="100" value="20" oninput="craft()">
