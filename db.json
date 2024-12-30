@@ -80,6 +80,11 @@
     "posts": [
         {
             "date": "Dec 29, 2024",
+            "imgs": [ "/img/random_zombie_house.png", "https://cdn.modrinth.com/data/cached_images/7771f9eca513a5a94ac009b0c454bd76a7a71191.png" ],
+            "body": "<p>a zombie survival mod for StationAPI with random abandoned buildings scattered about, guns, new blocks like metal girders and grates, and crates with inventories like <a href='https://modrinth.com/mod/crate'>this suspiciously relevant mod</a></p>"
+        },
+        {
+            "date": "Dec 29, 2024",
             "imgs": [],
             "body": "<p>do you know what a bbw is</p>"
         },
