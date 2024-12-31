@@ -1,6 +1,6 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
-    "feeling": "restin up for what's to come",
+    "feeling": "it hurts... NOT!",
     "langs": [
         {
             "href": "/lang/hungarian",
@@ -49,6 +49,11 @@
             "href": "/c/fetish",
             "backgroundUrl": "https://pics.walgreens.com/prodimg/39626/450.jpg",
             "title": "Le Epic Fetishism"
+        },
+        {
+            "href": "/c/snakeworld",
+            "backgroundUrl": "https://www.treehugger.com/thmb/gixRho7WTVnHhcMLNZBkZt_hgjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2017__02__blue-snake-cropped-tease-64a0a10840c64e7c8ac5560852cb57b4.jpg",
+            "title": "Snake World"
         }
     ],
     "portalLinks": [
