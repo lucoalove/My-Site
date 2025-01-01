@@ -48,27 +48,19 @@
                     element.classList.add("item");
     
                     images.appendChild(element);
-    
-                    // wait for image to load, because loaded
-                    // image is needed for updating masonry
-                    // await new Promise(res => {
-                    //     if (element.complete) { return res(); }
-                    //     element.onload = () => res();
-                    //     element.onerror = () => res();
-                    // });
                 }
     
-                updateMasonryId("images", 500);
+                updateMasonryId("images", 400);
             });
         }
         
     </script>
 </head>
-<body style="position: relative;">
+<body style="position: relative; min-height: 100vh;">
 
-    <a href="/" style="position: absolute; transform: translate(-120%);">Go back!!</a>
+    <a href="/" style="position: absolute; color: black;">Go back!!</a>
     
-    <div class="box" style="width: 100%; word-wrap: break-word;">
+    <div class="box" style="word-wrap: break-word; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <div id="postheader"></div>
         <hr>
         <div id="body" style="padding: 1em;"></div>
