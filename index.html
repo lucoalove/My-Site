@@ -116,17 +116,6 @@
                     element.classList.add("item");
     
                     images.appendChild(element);
-
-                    /*
-                     * Wait for image to load (or fail to) before continuing.
-                     * Otherwise, their sizes won't load and we cannot update
-                     * the masonry properly.
-                     */
-                    await new Promise(res => {
-                        if (element.complete) { return res(); }
-                        element.onload = () => res();
-                        element.onerror = () => res();
-                    });
                 }
 
                 /*
@@ -134,7 +123,7 @@
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
-                    updateMasonryElement(images, 300, true);
+                    initMasonryContainerById(images);
                 }
             }
             
