@@ -103,8 +103,6 @@
                 
                 images.classList.add("images");
 
-                post.appendChild(images);
-
                 /*
                  * Add images to image area.
                  */
@@ -118,12 +116,14 @@
                     images.appendChild(element);
                 }
 
+                post.appendChild(images);
+
                 /*
                  * Update masonry if necessary (single images
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
-                    initMasonryContainerElement(images, 200);
+                    initMasonryContainerElement(images, 200, true);
                 }
             }
             
