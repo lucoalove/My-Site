@@ -41,7 +41,7 @@
         #loadmore:disabled { filter: brightness(50%); }
         
         /* post styling */
-        .post { padding: 1em; word-wrap: break-word; }
+        .post { padding: 1em; }
         .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
         .body + .images:has(img) { margin-top: 1em; }
         .images > img { max-width: 100%; max-height: 500px; }
@@ -56,7 +56,7 @@
         }
         
         main {
-            /* overflow: hidden; */
+            overflow: hidden;
             word-wrap: break-word;
             gap: 0.5em;
         }
@@ -123,7 +123,7 @@
                  * aren't updated, keeping them bigger).
                  */
                 if (imgs.length > 1) {
-                    await initMasonryContainerElement(images, 200, true);
+                    await initMasonryContainerElement(images, 100, true);
                 }
             }
             
