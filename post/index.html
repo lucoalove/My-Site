@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/shared.css">
+    <style>
+        #postheader { display: flex; align-items: center; gap: 0.5em; padding: 1em; }
+        #postheader > img { aspect-ratio: 1; border-radius: 2px; width: 32px; }
+    </style>
 
     <script src="https://bluebunnex.github.io/EasyMasonryJS/masonry.js"></script>
     <script type="module">
@@ -60,11 +64,11 @@
 
     <a href="/" style="position: absolute; color: black;">Go back!!</a>
     
-    <div class="box" style="word-wrap: break-word;">
+    <div class="box" style="word-wrap: break-word; max-width: 50em;">
         <div id="postheader"></div>
         <hr>
         <div id="body" style="padding: 1em;"></div>
-        <div id="images" style="padding: 1em; padding-top: 0;"></div>
+        <div id="images" class="images" style="padding: 1em; padding-top: 0;"></div>
     </div>
 
 </body>
