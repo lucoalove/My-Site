@@ -35,6 +35,3 @@ hr {
 
 /* image masonry display */
 .images { display: flex; flex-wrap: wrap; }
-
-#postheader { display: flex; align-items: center; gap: 0.5em; padding: 1em; }
-#postheader > img { aspect-ratio: 1; border-radius: 2px; width: 32px; }
