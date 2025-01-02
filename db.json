@@ -1,6 +1,6 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
-    "feeling": "it hurts... NOT!",
+    "feeling": "IT HURTS A LOT, ACTUALLY",
     "langs": [
         {
             "href": "/lang/hungarian",
@@ -54,7 +54,12 @@
             "href": "/c/snakeworld",
             "backgroundUrl": "https://www.treehugger.com/thmb/gixRho7WTVnHhcMLNZBkZt_hgjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2017__02__blue-snake-cropped-tease-64a0a10840c64e7c8ac5560852cb57b4.jpg",
             "title": "Snake World"
-        }
+        },
+        {
+            "href": "/c/adopt",
+            "backgroundUrl": "https://i.ebayimg.com/images/g/JygAAOSwVuNgrhA0/s-l1200.png",
+            "title": "Character Adopts"
+        },
     ],
     "portalLinks": [
         {
