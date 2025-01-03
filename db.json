@@ -85,6 +85,11 @@
     "posts": [
         {
             "date": "Jan 2, 2025",
+            "imgs": [ "/img/sweater_stretchers.png" ],
+            "body": "<p>the miside girl is kinda bad</p>"
+        },
+        {
+            "date": "Jan 2, 2025",
             "imgs": [],
             "body": "<p>I should try out Godot (Unity is kinda overkill for like. most small projects)</p>"
         },
