@@ -84,6 +84,11 @@
     ],
     "posts": [
         {
+            "date": "Jan 3, 2025",
+            "imgs": [ "https://dotesports.com/wp-content/uploads/2024/12/MiSide-Hetoor-game.jpg?w=640", "https://dotesports.com/wp-content/uploads/2024/12/MiSide-no-damage.jpg?w=640", "/img/boomer_shooter.png" ],
+            "body": "<p>I kinda wanna make a small doomgirl game in Godot for Godot practice</p>"
+        },
+        {
             "date": "Jan 2, 2025",
             "imgs": [ "/img/sweater_stretchers.png" ],
             "body": "<p>the miside girl is kinda bad</p>"
