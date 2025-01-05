@@ -54,6 +54,11 @@
             "href": "/c/world",
             "backgroundUrl": "https://www.treehugger.com/thmb/gixRho7WTVnHhcMLNZBkZt_hgjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2017__02__blue-snake-cropped-tease-64a0a10840c64e7c8ac5560852cb57b4.jpg",
             "title": "Other Worlds"
+        },
+        {
+            "href": "/c/coolmoji",
+            "backgroundUrl": "https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3ea6b437be789ded213fd_45.png",
+            "title": "Coolmoji"
         }
     ],
     "portalLinks": [
