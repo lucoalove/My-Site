@@ -44,7 +44,6 @@
         .post { padding: 1em; }
         .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
         .body + .images:has(img) { margin-top: 1em; }
-        .images > img { max-width: 100%; max-height: 500px; }
 
         #container {
             max-width: 70em;
@@ -104,7 +103,7 @@
                 images.classList.add("images");
 
                 /*
-                 * Add images to image area.
+                 * Add images to image area and init masonry.
                  */
                 for (const src of imgs) {
     
@@ -118,13 +117,7 @@
 
                 post.appendChild(images);
 
-                /*
-                 * Update masonry if necessary (single images
-                 * aren't updated, keeping them bigger).
-                 */
-                if (imgs.length > 1) {
-                    await initMasonryContainerElement(images, 200);
-                }
+                await initMasonryContainerElement(images, 200);
             }
             
             postsInsert.innerHTML += "<hr>";
