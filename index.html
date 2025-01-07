@@ -117,7 +117,7 @@
 
                 post.appendChild(images);
 
-                await initMasonryContainerElement(images, 400); // maybe 500? idk
+                await initMasonryContainerElement(images, imgs.length > 1 ? 250 : 350);
             }
             
             postsInsert.innerHTML += "<hr>";
