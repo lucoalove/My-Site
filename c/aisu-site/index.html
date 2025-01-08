@@ -34,11 +34,15 @@
         .subbutton img { height: 100px; }
         .subbutton div { text-decoration: inherit; text-decoration-thickness: 2px; position: absolute; right: 3px; bottom: 0px; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; }
         .subbutton.selected { filter: grayscale(100%); }
+
+        header { top: 0; position: sticky; background: #000c; z-index: 100; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 2em; }
+        main { padding: 1em; padding-bottom: 8em; flex: 1; display: flex; gap: 1em; }
+        footer { text-align: center; padding: 1em 0; font-size: smaller; }
     </style>
 </head>
 <body>
 
-    <header style="top: 0; position: sticky; background: #000a; z-index: 100; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 2em;">
+    <header>
 
         <img style="border-radius: 0;" height="75" src="https://aiprompts.rd-creations.com/pics/small/char560.png">
         
@@ -55,7 +59,7 @@
         
     </header>
 
-    <main style="padding: 1em; padding-bottom: 8em; flex: 1; display: flex; gap: 1em;">
+    <main>
 
         <div style="flex: 1;">
 
@@ -113,8 +117,8 @@
 
     </main>
 
-    <footer style="text-align: center; padding: 1em 0; font-size: smaller;">
-        All rights reserved - 2024
+    <footer>
+        All Rights Reserved - 2024
     </footer>
 
 </body>
