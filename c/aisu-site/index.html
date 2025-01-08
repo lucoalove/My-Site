@@ -31,7 +31,7 @@
         .subbutton { position: relative; }
         .subbutton img { height: 100px; }
         .subbutton div { position: absolute; right: 3px; bottom: 0px; text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black; }
-        .subbutton.selected div { text-decoration: underline; }
+        .subbutton.selected { filter: grayscale(100%); }
     </style>
 </head>
 <body>
@@ -71,7 +71,7 @@
 
         <div style="flex: 2;">
 
-            <div style="background: #10111b; padding: 0.5em; border-radius: 4px; margin-bottom: 1.5em; color: grey; display: flex; gap: 0.5em;">
+            <div style="margin-bottom: 1.5em; color: grey; display: flex; gap: 0.5em;">
                 <div class="subbutton">
                     <img src="https://aiprompts.rd-creations.com/pics/small/char548.png">
                     <div style="color: #FFFF01;">Master</div>
