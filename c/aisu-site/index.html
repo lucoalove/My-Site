@@ -19,7 +19,7 @@
         }
 
         body { font-family: font; color: #f2f2f2; background: #06070c; font-size: 20px; margin-top: 4em; }
-        img { border-radius: 4px; }
+        img { border-radius: 4px; display: block; }
         th { text-align: left; padding-right: 1em; }
         td, a { font-weight: bold; }
         h1 { font-size: 1.5em; }
@@ -30,7 +30,8 @@
 
         .subbutton { position: relative; }
         .subbutton img { height: 100px; }
-        .subbutton div { position: absolute; right: 2px; bottom: 2px; }
+        .subbutton div { position: absolute; right: 3px; bottom: 0px; text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black; }
+        .subbutton.selected div { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -40,7 +41,7 @@
         <div style="flex: 1;">
 
             <div style="position: relative;">
-                <img style="width: 100%; display: block;" src="https://aiprompts.rd-creations.com/pics/big/char526.png">
+                <img style="width: 100%;" src="https://aiprompts.rd-creations.com/pics/big/char526.png">
 
                 <img style="position: absolute; left: 8px; bottom: 8px; width: 30%; box-shadow: 0 2px 6px black;" src="https://aiprompts.rd-creations.com/pics/small/char526.png">
 
@@ -75,7 +76,7 @@
                     <img src="https://aiprompts.rd-creations.com/pics/small/char548.png">
                     <div style="color: #FFFF01;">Master</div>
                 </div>
-                <div class="subbutton"> <!-- indicate this is selected -->
+                <div class="subbutton selected">
                     <img src="https://aiprompts.rd-creations.com/pics/small/char526.png">
                     <div style="color: #FFFF01;">Seikairu</div>
                 </div>
