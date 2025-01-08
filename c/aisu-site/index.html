@@ -36,9 +36,14 @@
         .subbutton div { text-decoration: inherit; text-decoration-thickness: 2px; position: absolute; right: 3px; bottom: 0px; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; }
         .subbutton.selected { filter: grayscale(100%); }
 
-        header { top: 0; position: sticky; background: #000c; z-index: 100; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 2em; }
+        header { top: 0; position: sticky; background: #000c; z-index: 100; backdrop-filter: blur(5px); display: flex; flex-wrap: wrap; align-items: center; gap: 2em; }
         main { padding: 1em; padding-bottom: 8em; flex: 1; display: flex; gap: 1em; }
         footer { text-align: center; padding: 1em 0; font-size: smaller; }
+
+        @media screen and (max-width: 720px) {
+
+            main { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
