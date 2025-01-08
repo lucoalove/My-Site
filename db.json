@@ -17,6 +17,10 @@
         {
             "href": "/lang/russian",
             "backgroundUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+        },
+        {
+            "href": "/lang/french",
+            "backgroundUrl": "https://cdn4.iconfinder.com/data/icons/square-world-flags/180/flag_france_square-512.png"
         }
     ],
     "pages": [
