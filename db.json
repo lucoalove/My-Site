@@ -97,6 +97,11 @@
     ],
     "posts": [
         {
+            "date": "Jan 10, 2025",
+            "imgs": [],
+            "body": "<p>gamedev challenge where you have 24 hours to make a game (in godot) and then that's the only game you're allowed to play for the next month (better make it replayable!)</p>"
+        },
+        {
             "date": "Jan 8, 2025",
             "imgs": [ "/img/gwen_batson.png" ],
             "body": "<p>comic where she starts a boardgame club and is so distraught that no one shows up, but then you show up and she's like 'I can work with this, I guess...' and you two become friends. you chat, and when you tell her she's quite nice to talk to she says 'oh, thanks...' in the smallest voice because she's never received a compliment before</p>"
