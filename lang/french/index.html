@@ -7,14 +7,13 @@
         :root { background: #eee; }
         body { max-width: 50em; margin: auto; padding: 1em; background: white; box-shadow: 0 0 6px lightgrey; }
         
-        .tag { margin-left: 0.5em; padding-left: 0.5em; margin-top: -1em; padding-top: 1em; border-left: 2px solid lightgrey; color: grey; }
-        
         h2 { border-top: 2px solid grey; margin: 1em -0.5em; padding-top: 0.5em; text-align: center; font-size: 2em; }
         h3 { border-bottom: 1px solid lightgrey; margin-top: 2em; }
         h3 div { float: right; font-size: 0.8em; color: grey; }
 
-        table td { padding: 0.5em; background: #eee; }
-        table th { padding: 0.5em; background: #ddd; }
+        table { border-collapse: collapse; margin: 1em 0; }
+        table td { padding: 0.5em; background: #eee; border: 1px solid #bbb; }
+        table th { padding: 0.5em; background: #ddd; border: 1px solid #bbb; }
         table.translation td:first-of-type { font-style: italic; }
     </style>
 </head>
@@ -27,7 +26,7 @@
     
     <h2>Unsorted Stuff</h2>
 
-    <table class="lexicon">
+    <table class="translation">
         <tr>
             <td>quoi</td>
             <td>[kwa]</td>
@@ -150,7 +149,7 @@
     <p>There are two auxiliary verbs to indicate the compound past — which auxiliary verb is used for which verb must be memorized.</p>
     
     <p>Some verbs use <i>avoir</i> (infinitive, to have).</p>
-    <table class="translation tag">
+    <table class="translation">
         <tr>
             <td>J'<u>ai</u> envoyé</td>
             <td>I was sending</td>
@@ -170,7 +169,7 @@
     </table>
 
     <p>Other verbs use <i>être</i> (infinitive, to be).</p>
-    <table class="translation tag">
+    <table class="translation">
         <tr>
             <td>Je <u>suis</u> parti/partie</td>
             <td>I was leaving</td>
@@ -203,7 +202,7 @@
     </h3>
     
     <p>The only difference from the compound past is the tense of the auxiliary verb, which changed from present to imperfect. This is why the pluperfect "happens earlier" than the compound past.</p>
-    <p class="tag"><i>J'<u>avais</u> envoyé</i> -- To my past self, I was sending</p>
+    <p><i>J'<u>avais</u> envoyé</i> -- To my past self, I was sending</p>
 
     <h3>Future</h3>
 
@@ -251,14 +250,15 @@
     </ul>
 
     <h2>en tant que</h2>
+    
     <p><i>en tant que</i> is similar to <i>comme</i>, and often both are translated as "as". However, there's a difference:</p>
     
     <p><i>en tant que /ɑ̃ tɑ̃ kə/</i> -- (literally) being, in the position that (of)</p>
-    <p class="tag"><strong>En tant que</strong> chat j'aime le poisson. -- <strong>Being</strong> a cat, I love fish.</p>
-    <p class="tag">Seems to come historically from "in the capacity that (of), inasmuch that (of), insofar that (of)"</p>
+    <p><strong>En tant que</strong> chat j'aime le poisson. -- <strong>Being</strong> a cat, I love fish.</p>
+    <p>Seems to come historically from "in the capacity that (of), inasmuch that (of), insofar that (of)"</p>
     
     <p><i>autant que</i> -- as much as [quantity]</p>
-    <p class="tag"><strong>Autant que</strong> chat j'aime le poisson. -- <strong>As much as</strong> a cat, I love fish.</p>
+    <p><strong>Autant que</strong> chat j'aime le poisson. -- <strong>As much as</strong> a cat, I love fish.</p>
 
 </body>
 </html>
