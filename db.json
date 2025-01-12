@@ -98,8 +98,8 @@
     "posts": [
         {
             "date": "Jan 11, 2025",
-            "imgs": [],
-            "body": "<p>dfisunfisudbfsiofybs prompt base <a href='https://civitai.com/models/185015/anime-screencap-style'>model</a></p><p>best quality, high rating, masterpiece, detailed face, 1girl, anime screencap, anime coloring,<br>(looking at viewer, front view, leaning forward), smile, standing, school uniform, tight thigh highs,<br>big breasts, cleavage, thick thighs,<br>inside, bedroom, detailed background</p><p>note you still need a decent negative, and that this model is <i>kinda</i> spotty</p>"
+            "imgs": [ "/img/anime_screencap_gal.png" ],
+            "body": "<p>dfisunfisudbfsiofybs prompt base</p><p>best quality, high rating, masterpiece, detailed face, 1girl, anime screencap, anime coloring,<br>(looking at viewer, front view, leaning forward), smile, standing, school uniform, tight thigh highs,<br>big breasts, cleavage, thick thighs,<br>inside, bedroom, detailed background</p><p>note you still need a decent negative, and that <a href='https://civitai.com/models/185015/anime-screencap-style'>the model I used</a> is <i>kinda</i> spotty</p>"
         },
         {
             "date": "Jan 10, 2025",
