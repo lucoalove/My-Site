@@ -99,7 +99,7 @@
         {
             "date": "Jan 11, 2025",
             "imgs": [],
-            "body": "<p>simple prompting :D <a href='https://civitai.com/models/185015/anime-screencap-style'>model</a></p><p>best quality, high rating, masterpiece, detailed face, 1girl, anime screencap, anime coloring, ((front view)), smile, happy, pink hair, walking, twintails, long hair, school uniform, outside, park, detailed background, big breasts, cleavage</p><p>do keep in mind this needs a decent negative, and that this model is kinda spotty</p>"
+            "body": "<p>simple prompting :D <a href='https://civitai.com/models/185015/anime-screencap-style'>model</a></p><p>best quality, high rating, masterpiece, detailed face,<br>1girl, anime screencap, anime coloring, (looking at viewer, front view, leaning forward),<br>smile, happy, brown hair, ponytail, standing, coat, miniskirt, tight thigh highs, snow,<br>big breasts, cleavage, thick thighs,<br>outside, park, detailed background</p><p>do keep in mind this needs a decent negative, and that this model is kinda spotty</p>"
         },
         {
             "date": "Jan 10, 2025",
