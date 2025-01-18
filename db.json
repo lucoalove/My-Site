@@ -1,6 +1,6 @@
 {
     "pfpUrl": "/img/sonico_pfp.png",
-    "feeling": "glamburger",
+    "feeling": "GLORY! GLORY! GLORY!!!",
     "langs": [
         {
             "href": "/lang/hungarian",
@@ -63,6 +63,11 @@
             "href": "/c/coolmoji",
             "backgroundUrl": "https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3ea6b437be789ded213fd_45.png",
             "title": "Coolmoji"
+        },
+        {
+            "href": "/c/comm",
+            "backgroundUrl": "https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/4:3/w_1716,h_1287,c_limit/supermarket-shelves.jpg",
+            "title": "Commissions"
         }
     ],
     "portalLinks": [
