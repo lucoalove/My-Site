@@ -7,6 +7,8 @@
         body { font-family: sans-serif; width: 40em; background: #112; color: #dde; }
 
         h4 { border-bottom: 1px solid #556; }
+
+        input[type="text"] { background: none; border: 1px solid #556; font: inherit; color: inherit; padding: 4px; }
         
         input[type="submit"] { cursor: pointer; background: #5bf; border: none; padding: 0.5em 1em; border-radius: 4px; width: 100%; }
         input[type="checkbox"] { display: none; }
@@ -18,11 +20,25 @@
 <body>
     <form>
         <h4>Image details</h4>
-        
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" style="width: 100%;">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="file" placeholder="I'll replace this with file upload later but it's hard sob" style="width: 100%;">
+
+        <table>
+            <tr>
+                <td>
+                    <label for="title">Title</label>
+                </td>
+                <td>
+                    <input type="text" id="title" name="title">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="file" placeholder="I'll replace this with file upload later but it's hard sob">
+                </td>
+            </tr>
+        </table>
         
         <h4>Tags</h4>
         
