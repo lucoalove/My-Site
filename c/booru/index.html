@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <title>Booru Planning</title>
     <style>
-        body { font-family: sans-serif; width: 40em; }
+        body { font-family: sans-serif; width: 40em; background: #112; color: #dde; }
         
+        input[type="submit"] { cursor: pointer; background: #5bf; border: none; padding: 0.5em 1em; border-radius: 4px; width: 100%; }
         input[type="checkbox"] { display: none; }
         input[type="checkbox"] + label { cursor: pointer; }
-        input[type="checkbox"] + label:before { content: ""; display: inline-block; width: 18px; height: 18px; background: #eee; border-radius: 4px; margin-right: 5px; transform: translateY(3px); }
+        input[type="checkbox"] + label:before { content: ""; display: inline-block; width: 18px; height: 18px; background: #223; border-radius: 4px; margin-right: 0.5em; transform: translateY(3px); }
         input[type="checkbox"]:checked + label:before { background: #5bf; }
     </style>
 </head>
 <body>
     <form>
-        <h4 style="border-bottom: 1px solid lightgrey;">Tags</h4>
-        <div style="display: grid; grid-template-columns: repeat(4, 24px 1fr);">
+        <h4 style="border-bottom: 1px solid #556;">Tags</h4>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr);">
             <input type="checkbox" id="tag1" name="tag">
             <label for="tag1">Slim</label>
             <input type="checkbox" id="tag2" name="tag">
