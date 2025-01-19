@@ -5,8 +5,11 @@
     <title>Booru Planning</title>
     <style>
         body { font-family: sans-serif; width: 40em; }
-        input { cursor: pointer; transform: translateY(-3px); }
-        label { cursor: pointer; }
+        
+        input[type="checkbox"] { display: none; }
+        input[type="checkbox"] + label { cursor: pointer; }
+        input[type="checkbox"] + label:before { content: ""; display: inline-block; width: 18px; height: 18px; background: #eee; border-radius: 4px; margin-right: 5px; transform: translateY(3px); }
+        input[type="checkbox"]:checked + label:before { background: #5bf; }
     </style>
 </head>
 <body>
