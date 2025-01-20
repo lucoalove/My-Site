@@ -6,239 +6,140 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/shared.css">
     <style>
-        /* I really need to clean up this css */
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-        th { text-align: left; padding-right: 1em; white-space: nowrap; vertical-align: top; font-weight: 400; color: #aaa; }
-        p:last-child { margin-bottom: 0; }
-        
-        .stack { display: flex; flex-direction: column; gap: 1em; }
-
-        #feeling { background: #48f; color: white; padding: 1em; font-weight: 700; position: relative; }
-        #feeling::before {
-        	content: '';
-        	position: absolute;
-        	width: 1em;
-        	height: 1em; transform: rotate(45deg);
-        	top: -8px;
-        	left: 1em;
-            background: #48f;
-        }
-
-        #pages { display: flex; flex-direction: column; gap: 4px; }
-        #pages a { padding: 0.5em; color: white; font-weight: 700; text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; }
-
-        #langs { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; }
-        #langs a { height: 64px; aspect-ratio: 1; }
-        
-        #posts-insert { display: flex; flex-direction: column; gap: 1em; }
-
-        #portal { display: flex; flex-direction: column; }
-        #portal > a { padding: 12px; }
-
-        #loadmore { border: 2px solid #48f; width: 100%; display: block; border-radius: 6px; font: inherit; font-weight: 700; background: transparent; color: #48f; margin-top: 1em; cursor: pointer; }
-        #loadmore:disabled { filter: brightness(50%); }
-        
-        /* post styling */
-        .post { padding: 1em; }
-        .meta { color: grey; font-size: smaller; font-family: monospace; display: block; }
-        .body + .images:has(img) { margin-top: 1em; }
-
-        #container {
-            max-width: 70em;
-            margin: 1em;
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            align-items: start;
-            gap: 1em;
-        }
-        
-        main {
-            overflow: hidden;
-            word-wrap: break-word;
-            gap: 0.5em;
-        }
-        
-        aside {
-            transform: translateY(-150px);
-        }
-        
-        @media (orientation: portrait) {
-            #container { grid-template-columns: auto; grid-template-rows: auto auto auto; align-items: center; }
-            main { flex: 1; }
-            aside { transform: none; }
+        body {
+            font-family: "PT Sans", sans-serif;
         }
     </style>
-
-    <script src="https://NatsuPotato.github.io/EasyMasonryJS/masonry.js"></script>
-    <script type="module">
-        var posts;
-        var post_i = 0;
-        const post_len = 20;
-
-        var loadingMorePosts = false;
-        
-        async function addPost(postsInsert, id, date, imgs, body) {
-
-            /*
-             * Create post and add post to postInsert.
-             */
-            const post = document.createElement("div");
-
-            post.classList.add("post");
-            
-            post.innerHTML = `<a class="meta" href="post/?id=${ id }">${ date }</a>
-                              <div class="body">${ body }</div>`;
-
-            postsInsert.appendChild(post);
-
-            if (imgs) {
-                
-                /*
-                 * Create images area and add it to post.
-                 */
-                const images = document.createElement("div");
-                
-                images.classList.add("images");
-
-                /*
-                 * Add images to image area and init masonry.
-                 */
-                for (const src of imgs) {
-    
-                    let element = document.createElement("img");
-    
-                    element.src = src;
-                    element.classList.add("item");
-    
-                    images.appendChild(element);
-                }
-
-                post.appendChild(images);
-
-                await initMasonryContainerElement(images, imgs.length > 1 ? 200 : 350);
-            }
-            
-            postsInsert.innerHTML += "<hr>";
-        }
-
-        async function loadMore() {
-
-            if (loadingMorePosts) {
-                return;
-            }
-
-            // disable button while loading
-            loadingMorePosts = true;
-            document.getElementById("loadmore").disabled = true;
-
-            // load post_len more posts
-            const postsInsert = document.getElementById('posts-insert');
-            
-            let i = post_i;
-            post_i += post_len;
-            
-            for (; i < post_i; i++) { 
-
-                // once we reach the end of all posts, we don't have to reenable
-                if (i == posts.length) { return; }
-                
-                let p = posts[i];
-                await addPost(postsInsert, posts.length - 1 - i, p.date, p.imgs, p.body);
-            }
-
-            // reenable button once done loading
-            loadingMorePosts = false;
-            document.getElementById("loadmore").disabled = false;
-        }
-
-        // Initialize.
-        fetch("db.json")
-        .then(response => {
-            if (!response.ok)
-                throw new Error("HTTP error " + response.status);
-            return response.json();
-        })
-        .then(json => {
-            posts = json.posts;
-            loadMore();
-
-            document.getElementById("feeling").innerText = json.feeling;
-
-            for (const page of json.pages) {
-                document.getElementById("pages").innerHTML += `<a class="box" href="${ page.href }" style="background-image: linear-gradient(to right, black, transparent), url('${ page.backgroundUrl }');">${ page.title }</a>`;
-            }
-
-            for (const link of json.portalLinks) {
-                document.getElementById("portal").innerHTML += `<hr><a href="${ link.href }">${ link.title }</a>`;
-            }
-
-            for (const lang of json.langs) {
-                document.getElementById("langs").innerHTML += `<a class="box" href="${ lang.href }" style="background-image: url('${ lang.backgroundUrl }');"></a>`;
-            }
-
-            for (const pfp of document.getElementsByClassName("pfp")) {
-                pfp.src = json.pfpUrl;
-            }
-
-            document.getElementById("loadmore").addEventListener("click", loadMore);
-        });
-    </script>
 </head>
 <body>
 
-    <header style="height: 25em;"></header>
-
-    <div style="display: flex; justify-content: center; backdrop-filter: blur(4px) brightness(60%); border-top: 1px solid black;">
-    
-        <div id="container">
-    
-            <aside class="stack">
-        
-                <div class="box" style="aspect-ratio: 1; position: relative; overflow: hidden;">
-                    <img class="pfp" style="image-rendering: crisp-edges; width: 100%; display: block;">
-                    <h1 style="position: absolute; bottom: 0; background: linear-gradient(to right, #000a, #0000); color: white; width: 100%;">redderblanket</h1>
-                </div>
-        
-                <div class="box" id="feeling"></div>
-        
-                <div class="box">
-                    <div style="margin: 1em;">I rant about emotions or things that interest me (boobs!)</div>
-                    <table style="margin: 1em;">
-                        <tr>
-                            <th>Pronouns</th>
-                            <td>he/him/cutie</td>
-                        </tr>
-                        <tr>
-                            <th>Prefers</th>
-                            <td>
-                                Ass to tits
-                            </td>
-                        </tr>
-                    </table>
-        
-                    <div id="portal"></div>
-                </div>
-                
-            </aside>
-    
-            <main class="stack box">
-                <div id="posts-insert"></div>
-        
-                <div style="padding: 1em;">
-                    <button id="loadmore">Load more</button>
-                </div>
-            </main>
-    
-            <nav class="stack" style="gap: 4px;">
-                <div id="pages"></div>
-                <div id="langs"></div>
-            </nav>
-            
-        </div>
-
+    <div style="aspect-ratio: 1; width: 200px; position: relative; overflow: hidden; border-radius: 12px;">
+        <img style="width: 100%; display: block;" src="natsu_potato.png">
+        <h1 style="position: absolute; left: 8px; bottom: 8px; background: #000a; padding: 4px 8px; color: white; border-radius: 4px;">NatsuPotato ☕✨</h1>
     </div>
 
+    <p>Description or bio or something</p>
+    <table style="margin: 1em 0;">
+        <tr>
+            <th>Pronouns</th>
+            <td>he/him</td>
+        </tr>
+    </table>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 50px; gap: 1em;">
+        <div style="background: red;"></div>
+        <div style="background: red;"></div>
+        <div style="background: red;"></div>
+        <div style="background: red;"></div>
+        <div style="background: red;"></div>
+    </div>
+
+
+<!--     "langs": [
+        {
+            "href": "/lang/hungarian",
+            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/2880px-Flag_of_Hungary.svg.png"
+        },
+        {
+            "href": "/lang/japanese",
+            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"
+        },
+        {
+            "href": "/lang/hebrew",
+            "backgroundUrl": "https://dinahoverlien.com/wp-content/uploads/2020/04/aleph-e1586030752224.png"
+        },
+        {
+            "href": "/lang/russian",
+            "backgroundUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+        },
+        {
+            "href": "/lang/french",
+            "backgroundUrl": "https://cdn4.iconfinder.com/data/icons/square-world-flags/180/flag_france_square-512.png"
+        }
+    ],
+    "pages": [
+        {
+            "href": "https://ai.fatchicks.cc/",
+            "backgroundUrl": "https://i.redd.it/trying-to-make-images-similar-to-this-style-have-some-v0-3mcok5ozoc5a1.jpg?width=3072&format=pjpg&auto=webp&s=6d52eb4decae6e25567953337916beae9aae74e9",
+            "title": "AI Stuff"
+        },
+        {
+            "href": "/c/terminal",
+            "backgroundUrl": "https://www.freecodecamp.org/news/content/images/2022/03/pexels-pixabay-207580.jpg",
+            "title": "Shell Commands"
+        },
+        {
+            "href": "/c/3D",
+            "backgroundUrl": "https://i.redd.it/qpyti2rey3481.jpg",
+            "title": "3D Art Studies"
+        },
+        {
+            "href": "/c/waifu",
+            "backgroundUrl": "https://www.animeherald.com/wp-content/uploads/2024/06/VTuber-header-001-20240629.jpg",
+            "title": "Waifu Ranking"
+        },
+        {
+            "href": "/c/matchagirls",
+            "backgroundUrl": "https://m.media-amazon.com/images/I/71mrAJEAxSL._AC_UY1000_.jpg",
+            "title": "Make-a-girl"
+        },
+        {
+            "href": "/c/fetish",
+            "backgroundUrl": "https://pics.walgreens.com/prodimg/39626/450.jpg",
+            "title": "Le Epic Fetishism"
+        },
+        {
+            "href": "/c/world",
+            "backgroundUrl": "https://www.treehugger.com/thmb/gixRho7WTVnHhcMLNZBkZt_hgjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2017__02__blue-snake-cropped-tease-64a0a10840c64e7c8ac5560852cb57b4.jpg",
+            "title": "Other Worlds"
+        },
+        {
+            "href": "/c/coolmoji",
+            "backgroundUrl": "https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3ea6b437be789ded213fd_45.png",
+            "title": "Coolmoji"
+        },
+        {
+            "href": "/c/comm",
+            "backgroundUrl": "https://assets.epicurious.com/photos/57eebe2eb382c3c017d3fff0/4:3/w_1716,h_1287,c_limit/supermarket-shelves.jpg",
+            "title": "Commissions"
+        }
+    ],
+    "portalLinks": [
+        {
+            "href": "https://www.deviantart.com/redderblanket",
+            "title": "🖌️ DeviantArt (RedderBlanket)"
+        },
+        {
+            "href": "https://x.com/fatnekotid",
+            "title": "🦜 Twitter (@fatnekotid)"
+        },
+        {
+            "href": "https://aiprompts.rd-creations.com/index.php?p=profile&id=38",
+            "title": "🤖 Aisu's Prompts (hyperspritz)"
+        },
+        {
+            "href": "https://www.furaffinity.net/user/hyperspritz",
+            "title": "🐺 FurAffinity (hyperspritz)"
+        },
+        {
+            "href": "https://mlpforums.com/profile/50681-hyperspritz/",
+            "title": "🐴 MLP Forums (hyperspritz)"
+        },
+        {
+            "href": "https://modrinth.com/user/NatsuPotato",
+            "title": "🎮 Modrinth (NatsuPotato)"
+        },
+        {
+            "href": "https://github.com/NatsuPotato",
+            "title": "🦑 Github (NatsuPotato)"
+        },
+        {
+            "href": "https://github.com/NatsuPotato/Fatchicks-Bulletin",
+            "title": "⚙️ Site Source Code"
+        }
+    ], -->
 </body>
 </html>
