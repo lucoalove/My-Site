@@ -5,12 +5,14 @@
     <title>World</title>
     <script src="https://NatsuPotato.github.io/EasyMasonryJS/masonry.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&display=swap'); body { font-family: "EB Garamond", serif; }
         img { border: 4px ridge lightgrey; }
         h2 { border-bottom: 1px solid lightgrey; }
         .gallery { display: flex; flex-wrap: wrap; }
 
         details { padding: 1em; border: 1px solid grey; margin: 1em 0; }
-        details summary { font-weight: 700; cursor: pointer; }
+        summary { font-weight: 700; cursor: pointer; padding: 1rem; margin: -1rem; background: #114; color: white; font-size: 1.5em; }
+        details[open] summary { margin-bottom: 1em; }
     </style>
     <script>
         function init() {
