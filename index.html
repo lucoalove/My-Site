@@ -12,8 +12,10 @@
         body {
             font-family: "PT Sans", sans-serif;
             display: flex;
-            width: 1200px;
+            max-width: 1200px;
+            width: calc(100% - 2em);
             margin: 1em auto;
+            gap: 1em;
         }
 
         th {
@@ -24,6 +26,18 @@
 
         td {
             text-align: right;
+        }
+
+        #gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 100px;
+            gap: 1em;
+        }
+
+        #gallery > div {
+            border: 1px solid lightgrey;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -46,12 +60,12 @@
         
     </div>
 
-    <div style="flex: 7; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 50px; gap: 1em;">
-        <div style="background: red;"></div>
-        <div style="background: red;"></div>
-        <div style="background: red;"></div>
-        <div style="background: red;"></div>
-        <div style="background: red;"></div>
+    <div id="gallery" style="flex: 7;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
 
