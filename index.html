@@ -53,11 +53,13 @@
             border-radius: 6px;
             padding: 1em;
             min-height: 100px;
+            box-sizing: border-box;
         }
 
         #gallery > a > p {
             color: grey;
             font-size: smaller;
+            margin-bottom: 0;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -69,9 +71,8 @@
 </head>
 <body>
 
-    <div style="flex: 3;">
-
-        <div style="border: 1px solid black; aspect-ratio: 1; width: 100%; position: relative; overflow: hidden; border-radius: 12px;">
+    <aside style="flex: 3;">
+        <div style="border: 1px solid black; aspect-ratio: 1; position: relative; overflow: hidden; border-radius: 12px;">
             <img style="width: 100%; display: block;" src="natsu_potato.png">
             <h1 style="position: absolute; left: 8px; bottom: 8px; background: #000a; padding: 4px 8px; color: white; border-radius: 4px; margin: 0;">NatsuPotato ☕✨</h1>
         </div>
@@ -124,10 +125,9 @@
                 </td>
             </tr>
         </table>
-        
-    </div>
+    </aside>
 
-    <div style="flex: 7;">
+    <main style="flex: 7;">
         <div id="bio">
             Bio and stuff
         </div>
@@ -179,7 +179,7 @@
                 <strong>Commissions</strong>
             </a>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
