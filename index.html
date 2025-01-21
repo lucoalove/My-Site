@@ -23,6 +23,15 @@
             gap: 1em;
         }
 
+        a {
+            color: #854;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
         th {
             text-align: left;
             font-weight: 400;
@@ -40,8 +49,8 @@
             gap: 1em;
         }
 
-        #gallery > div {
-            border: 1px solid lightgrey;
+        #bio, #gallery > div {
+            border: 1px solid grey;
             border-radius: 12px;
         }
     </style>
@@ -107,7 +116,9 @@
     </div>
 
     <div style="flex: 7;">
-        <h2>Test</h2>
+        <div id="bio">
+
+        </div>
         <div id="gallery">
             <div></div>
             <div></div>
