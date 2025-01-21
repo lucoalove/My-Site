@@ -53,11 +53,17 @@
             border-radius: 6px;
             padding: 1em;
             box-sizing: border-box;
+            min-height: 100px;
         }
 
-        #gallery > a {
-            min-height: 100px;
-            border-left: 4px solid #08c;
+        .lang {
+            border-left: 4px solid #854;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .other {
+            border-left: 4px solid #c80;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
@@ -138,50 +144,57 @@
             Bio and stuff
         </div>
 
-        <h4 style="margin-bottom: 0.5em;">Pages</h4>
+        <h4 style="margin-bottom: 0.5em;">
+            Pages
+            <div style="float: right; font-weight: 400;">
+              <span style="transform: translateY(-3px); display: inline-block; height: 4px; width: 1em; background: #854; border-radius: 2px;"></span> Linguistics
+                <span style="transform: translateY(-3px); display: inline-block; height: 4px; width: 1em; background: #c80; border-radius: 2px;"></span> Other
+            </div>
+        </h4>
+        
         <div id="gallery">
-            <a href="/lang/hungarian">
+            <a href="/lang/hungarian" class="lang">
                 <strong>🇭🇺 Hungarian</strong>
             </a>
-            <a href="/lang/japanese">
+            <a href="/lang/japanese" class="lang">
                 <strong>🍣 Japanese</strong>
             </a>
-            <a href="/lang/hebrew">
+            <a href="/lang/hebrew" class="lang">
                 <strong>🥯 Hebrew</strong>
             </a>
-            <a href="/lang/russian">
+            <a href="/lang/russian" class="lang">
                 <strong>🍻 Russian</strong>
             </a>
-            <a href="/lang/french">
+            <a href="/lang/french" class="lang">
                 <strong>🥖 French</strong>
             </a>
             
-            <a href="https://ai.fatchicks.cc/">
+            <a href="https://ai.fatchicks.cc/" class="other">
                 <strong>AI Stuff</strong>
                 <p>A subdomain of this site where I put stuff related to AI image generation.</p>
             </a>
-            <a href="/c/terminal">
+            <a href="/c/terminal" class="other">
                 <strong>Shell Commands</strong>
             </a>
-            <a href="/c/3D">
+            <a href="/c/3D" class="other">
                 <strong>3D Art Studies</strong>
             </a>
-            <a href="/c/waifu">
+            <a href="/c/waifu" class="other">
                 <strong>Waifu Ranking</strong>
             </a>
-            <a href="/c/matchagirls">
+            <a href="/c/matchagirls" class="other">
                 <strong>Make-a-girl</strong>
             </a>
-            <a href="/c/fetish">
+            <a href="/c/fetish" class="other">
                 <strong>Le Epic Fetishism</strong>
             </a>
-            <a href="/c/world">
+            <a href="/c/world" class="other">
                 <strong>Other Worlds</strong>
             </a>
-            <a href="/c/coolmoji">
+            <a href="/c/coolmoji" class="other">
                 <strong>Coolmoji</strong>
             </a>
-            <a href="/c/comm">
+            <a href="/c/comm" class="other">
                 <strong>Commissions</strong>
             </a>
         </div>
