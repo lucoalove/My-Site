@@ -4,100 +4,40 @@
     <meta charset="UTF-8">
     <title>Booru Planning</title>
     <style>
-        body { font-family: sans-serif; width: 40em; margin: auto; background: #112; color: #dde; }
-
-        h4 { border-bottom: 1px solid #556; }
-        
-        table { border-collapse: collapse; }
-        td { padding-bottom: 16px; padding-top: 4px; vertical-align: top; border-top: 1px solid #334; }
-        
-        input[type="text"], textarea { background: none; border: none; background: #223; font: inherit; color: inherit; padding: 4px; width: 100%; resize: none; }
-        input[type="submit"] { cursor: pointer; background: #5bf; border: none; padding: 0.5em 1em; border-radius: 4px; width: 100%; }
-        input[type="checkbox"] { display: none; }
-        input[type="checkbox"] + label { cursor: pointer; }
-        input[type="checkbox"] + label:before { content: ""; display: inline-block; width: 18px; height: 18px; background: #223; border-radius: 4px; margin-right: 0.5em; transform: translateY(3px); }
-        input[type="checkbox"]:checked + label:before { background: #5bf; }
-
-        span.req:before { content: "*"; color: red; }
+        body { font-family: sans-serif; width: 40em; margin: auto; }
     </style>
 </head>
 <body>
-    <h3 style="text-align: center; color: #679; font-size: 1.5em;">Upload image</h3>
     
     <form>
-        <h4>Image details</h4>
+        <h4>Post image</h4>
 
-        <table style="width: 100%;">
-            <tr>
-                <td>
-                    <label for="image">Image file<span class="req"></span></label>
-                </td>
-                <td>
-                    <input type="file" id="image" name="image">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="title">Title<span class="req"></span></label>
-                </td>
-                <td>
-                    <input type="text" id="title" name="title">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="desc">Description</label>
-                </td>
-                <td>
-                    <textarea id="desc" name="desc" rows="4"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="gen-info">AI generation info</label>
-                </td>
-                <td>
-                    <textarea id="gen-info" name="gen-info" rows="4"></textarea>
-                </td>
-            </tr>
-        </table>
+        <label for="image">Image file:</label>
+        <input type="file" id="image" name="image">
+
+        <br>
+
+        <label for="nips">Visible areolas/nipples (note visible privates is not allowed):</label>
+        <input type="checkbox" id="nips" name="nips">
         
-        <h4>Tags</h4>
+        <br>
         
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr);">
-            <input type="checkbox" id="tag1" name="tag">
-            <label for="tag1">Slim</label>
-            <input type="checkbox" id="tag2" name="tag">
-            <label for="tag2">Chubby</label>
-            <input type="checkbox" id="tag3" name="tag">
-            <label for="tag3">Fat</label>
-            <input type="checkbox" id="tag4" name="tag">
-            <label for="tag4">Blob</label>
-            <input type="checkbox" id="tag5" name="tag">
-            <label for="tag5">Fat ass</label>
-            <input type="checkbox" id="tag6" name="tag">
-            <label for="tag6">hyper ass</label>
-            <input type="checkbox" id="tag7" name="tag">
-            <label for="tag7">Big boobs</label>
-            <input type="checkbox" id="tag8" name="tag">
-            <label for="tag8">Hyper boobs</label>
-            <input type="checkbox" id="tag9" name="tag">
-            <label for="tag9">Thick thighs</label>
-            <input type="checkbox" id="tag10" name="tag">
-            <label for="tag10">Thunder thighs</label>
-            <input type="checkbox" id="tag11" name="tag">
-            <label for="tag11">Human</label>
-            <input type="checkbox" id="tag12" name="tag">
-            <label for="tag12">Furry</label>
-        </div>
+        <label for="char">Character:</label>
+        <select name="char" id="char">
+            <option value="volvo">Other</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+        <small>Don't see your character? Put 'Other' for now, and ask NatsuPotato to add them.</small>
         
-        <h4>Sensitive</h4>
+        <br>
         
-        <input type="checkbox" id="sensitive" name="sensitive">
-        <label for="sensitive">Check if image contains nudity, grossness, gore, etc</label>
+        <label for="desc">Description/credits/AI generation info:</label>
+        <br>
+        <textarea id="desc" name="desc" rows="4" style="width: 100%;"></textarea>
         
-        <br><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Post">
     </form>
 </body>
 </html>
