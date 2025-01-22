@@ -5,53 +5,57 @@
     <title>Booru Planning</title>
     <style>
         body { font-family: sans-serif; width: 40em; margin: auto; }
-        p { border: 1px solid black; padding: 1em; }
         input[type="radio"] + label { cursor: pointer; }
     </style>
 </head>
 <body>
 
     <h1>BoobaBooru</h1>
-    <p>The booru where all images must include a woman whose boobs exceed a certain minimum size!</p>
+    <p>The booru where all images must include a woman whose boobs exceed a certain minimum size (see below)!</p>
+    <img src="minimum.png">
     
     <form>
         <h4>Post image</h4>
 
-        <p>
-            <label for="image">Image file:</label>
-            <input type="file" id="image" name="image">
-        </p>
+        <label for="image">Image file:</label>
+        <input type="file" id="image" name="image">
 
-        <p>
-            <label for="char">Character:</label>
+        <fieldset>
+            <legend>Character</legend>
+            
+            <label for="char">Select character in image:</label>
             <select name="char" id="char">
-                <option value="other">Other</option>
+                <option value="notlisted">Not listed</option>
                 <option value="miku">Hatsune Miku</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
             </select>
             <br>
-            <small>Don't see your character? Put 'Other' for now, and ask NatsuPotato to add them.</small>
-        </p>
+            <small>Don't see your character? Put 'Not listed' for now, and ask NatsuPotato to add them.</small>
+        </fieldset>
 
-        <p>
-            Size:
+        <fieldset>
+            <legend>Size</legend>
+            
             [<input type="radio" name="size" id="large" value="large"><label for="large">Large</label>]
             [<input type="radio" name="size" id="massive" value="massive"><label for="massive">Massive</label>]
             [<input type="radio" name="size" id="immobilizing" value="immobilizing"><label for="immobilizing">Immobilizing</label>]
-        </p>
+        </fieldset>
 
-        <p>
-            <label for="nips">Visible areolas/nipples?:</label>
+        <fieldset>
+            <legend>Sensitive</legend>
+            
             <input type="checkbox" id="nips" name="nips">
+            <label for="nips">Check if areolas/nipples are directly visible (not under clothes)</label>
             <br>
-            <small>Note visible privates are not allowed.</small>
-        </p>
+            <small>Note that visible privates/other NSFW content is not allowed.</small>
+        </fieldset>
 
         <p>
-            <label for="desc">Description/credits/AI generation info:</label>
-            <br>
+            <legend>Description</legend>
+            
             <textarea id="desc" name="desc" rows="4" style="width: 100%;"></textarea>
+            <small>Include a description of the image, credits, AI generation info, etc.</small>
         </p>
         
         <input type="submit" value="Post">
