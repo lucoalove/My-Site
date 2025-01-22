@@ -6,6 +6,7 @@
     <style>
         body { font-family: sans-serif; width: 40em; margin: auto; }
         input[type="radio"] + label { cursor: pointer; }
+        fieldset { margin: 1em 0; }
     </style>
 </head>
 <body>
@@ -17,8 +18,10 @@
     <form>
         <h4>Post image</h4>
 
-        <label for="image">Image file:</label>
-        <input type="file" id="image" name="image">
+        <p>
+            <label for="image">Image file:</label>
+            <input type="file" id="image" name="image">
+        </p>
 
         <fieldset>
             <legend>Character</legend>
@@ -30,7 +33,7 @@
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
             </select>
-            <br>
+            <br><br>
             <small>Don't see your character? Put 'Not listed' for now, and ask NatsuPotato to add them.</small>
         </fieldset>
 
@@ -47,16 +50,16 @@
             
             <input type="checkbox" id="nips" name="nips">
             <label for="nips">Check if areolas/nipples are directly visible (not under clothes)</label>
-            <br>
+            <br><br>
             <small>Note that visible privates/other NSFW content is not allowed.</small>
         </fieldset>
 
-        <p>
+        <fieldset>
             <legend>Description</legend>
             
             <textarea id="desc" name="desc" rows="4" style="width: 100%;"></textarea>
             <small>Include a description of the image, credits, AI generation info, etc.</small>
-        </p>
+        </fieldset>
         
         <input type="submit" value="Post">
     </form>
