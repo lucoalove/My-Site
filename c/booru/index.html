@@ -14,6 +14,8 @@
         input[type="checkbox"] + label { cursor: pointer; }
         input[type="checkbox"] + label:before { content: ""; display: inline-block; width: 18px; height: 18px; background: #223; border-radius: 4px; margin-right: 0.5em; transform: translateY(3px); }
         input[type="checkbox"]:checked + label:before { background: #5bf; }
+
+        span.req:before { content: "*"; color: red; }
     </style>
 </head>
 <body>
@@ -25,7 +27,7 @@
         <table style="width: 100%;">
             <tr>
                 <td>
-                    <label for="title">Title</label>
+                    <label for="title">Title<span class="req"></span></label>
                 </td>
                 <td>
                     <input type="text" id="title" name="title">
@@ -33,15 +35,31 @@
             </tr>
             <tr>
                 <td>
-                    <label for="image">Image URL</label>
+                    <label for="image">Image URL<span class="req"></span></label>
                 </td>
                 <td>
                     <input type="text" id="image" name="image">
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <label for="desc">Description</label>
+                </td>
+                <td>
+                    <textarea id="desc" name="desc" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="gen-info">AI Generation Info</label>
+                </td>
+                <td>
+                    <textarea id="gen-info" name="gen-info" rows="4"></textarea>
+                </td>
+            </tr>
         </table>
         <div style="text-align: right;">
-            <small style="color: #679;">I'll replace this with file upload later but it's hard sob</small>
+            <small style="color: #679;">I'll replace Image URL with file upload later but it's hard sob</small>
         </div>
         
         <h4>Tags</h4>
