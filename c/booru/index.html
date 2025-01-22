@@ -5,12 +5,14 @@
     <title>Booru Planning</title>
     <style>
         body { font-family: sans-serif; width: 40em; margin: auto; }
+        p { border: 1px solid black; padding: 1em; }
+        input[type="radio"] + label { cursor: pointer; }
     </style>
 </head>
 <body>
 
     <h1>BoobaBooru</h1>
-    <p>The booru where all images must include women whose boobs exceed a certain minimum size!</p>
+    <p>The booru where all images must include a woman whose boobs exceed a certain minimum size!</p>
     
     <form>
         <h4>Post image</h4>
@@ -34,12 +36,9 @@
 
         <p>
             Size:
-            [<input type="radio" id="large" name="size" value="large">
-            <label for="large">Large</label>]
-            [<input type="radio" id="massive" name="size" value="massive">
-            <label for="massive">Massive</label>]
-            [<input type="radio" id="immobilizing" name="size" value="immobilizing">
-            <label for="immobilizing">Immobilizing</label>]
+            [<input type="radio" name="size" id="large" value="large"><label for="large">Large</label>]
+            [<input type="radio" name="size" id="massive" value="massive"><label for="massive">Massive</label>]
+            [<input type="radio" name="size" id="immobilizing" value="immobilizing"><label for="immobilizing">Immobilizing</label>]
         </p>
 
         <p>
