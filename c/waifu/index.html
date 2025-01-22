@@ -27,27 +27,14 @@
     <script type="module">
         
         const waifus = [
-            { name: "Loona", series: "Helluva Boss", image: "/img/loona_yandere.png" },
-            { name: "Senko-san", series: "Sewayaki Kitsune no Senko-san", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f27901f-e545-40ea-beaf-1800fa3a05e0/ddbr12x-88cf5497-d193-4bdb-8c8a-d16dcfdc7b25.png/v1/fill/w_1280,h_1423/senko_san_the_helpful_fox_by_doggoyt_ddbr12x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQyMyIsInBhdGgiOiJcL2ZcLzBmMjc5MDFmLWU1NDUtNDBlYS1iZWFmLTE4MDBmYTNhMDVlMFwvZGRicjEyeC04OGNmNTQ5Ny1kMTkzLTRiZGItOGM4YS1kMTZkY2ZkYzdiMjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.UTW_TxgdLhR2PU9u_QM7_rNEsO1BtOdMdsKM1p2tMHI" },
-            { name: "Yuzuno", series: "Twitter (@futon7979)", image: "https://pbs.twimg.com/media/FOIoA9yaUAYgL84?format=jpg&name=large" },
+            { name: "Nene Fujinoki", series: "My First Girlfriend Is a Gal", image: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/bea70f0d-3bbe-4c18-a7f6-faea431c9f57/anim=false,width=450/00447-82162064.jpeg" },
+            { name: "Senko-san", series: "Sewayaki Kitsune no Senko-san", image: "https://cdn.donmai.us/original/23/70/2370ac8fc8c8f0ca843e1c0940df492d.jpg" },
             { name: "Cool Mita (Cappie)", series: "MiSide", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe717v3AEnWdk9nz9BDI9OMvBouzUtVmwyiQ&s" },
-            { name: "Crazy Mita", series: "MiSide", image: "/img/sweater_stretchers.png" },
+            { name: "Crazy Mita", series: "MiSide", image: "https://images-ng.pixai.art/images/orig/efbfae17-6082-4f69-ba74-16a913a8bba2" },
             { name: "Sleepy Mita", series: "MiSide", image: "https://static.wikia.nocookie.net/miside/images/0/08/SleepyMita.png" },
-            { name: "Hex Maniac", series: "Pokémon", image: "https://pbs.twimg.com/media/GY--TA7WUAAQqc9?format=jpg&name=4096x4096" },
-            { name: "Yakumo Ran", series: "Touhou Project", image: "https://cdn.donmai.us/original/23/6d/__yakumo_ran_touhou_drawn_by_wildcat_kusonemi__236da9e4fd950b65c37f51e3275658a6.png" },
-            { name: "Remilia Scarlet", series: "Touhou", image: "https://images.chounyuu.com/src/fdVfsVH0u.jpg" },
-            { name: "Yuri", series: "Doki Doki Literature Club", image: "https://preview.redd.it/chubby-yuri-i-dont-remember-who-made-this-v0-qe0qsyz57efc1.jpeg?auto=webp&s=8fea492cf382faad41ea6e5cb957b6d818062a8d" },
-            { name: "Creeper Chan", series: "Minecraft", image: "https://static.wikia.nocookie.net/mudae/images/a/a0/Creeper-chan4.png" },
             { name: "Rosa", series: "Pokémon Black II and White II", image: "rosa.jpg" },
-            { name: "Monika", series: "Doki Doki Literature Club", image: "https://curveybooru.com/images/1/6b1e9b3cf118e85f83db11b3e0c9b24979caeab2.jpeg" },
-            { name: "Imaizumi Kagerou", series: "Touhou Project", image: "https://curveybooru.com/images/17/b37fecfe10452fce6704e8236e23d32d2396e757.png" },
-            { name: "Inugami Korone", series: "Vtuba", image: "https://i.pinimg.com/736x/1e/f3/87/1ef387322eecc3cab70b5547cac75474.jpg" },
             { name: "Ilulu", series: "Miss Kobayashi's Dragon Maid", image: "https://images-ng.pixai.art/images/stillThumb/1fa44c71-14a6-4416-ba87-3ff1461d8e25" },
-            { name: "Jenny Belle", series: "Minecraft Mod", image: "https://image.1111down.com/xG1nkqKTMzGDvpLrqFT7WA/6b22debe-8dda-49c9-8858-d333fafcd8b2/width=450/2000473.jpeg" },
-            { name: "Usada Pekora", series: "Vtuba", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7173f6a4-2df6-4589-b330-abbdd60794ee/dekph98-965ae44c-e8df-4ae6-b325-746bc84d6344.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxNzNmNmE0LTJkZjYtNDU4OS1iMzMwLWFiYmRkNjA3OTRlZVwvZGVrcGg5OC05NjVhZTQ0Yy1lOGRmLTRhZTYtYjMyNS03NDZiYzg0ZDYzNDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0UM7ezj-DJrdlzj-shjrc5ofedeQ5S1oKTlPxVcwZ04" },
-            { name: "Nene Fujinoki", series: "My First Girlfriend Is a Gal", image: "https://image.tensorartassets.com/cdn-cgi/image/w=600/model_showcase/0/8a38c289-d67e-2d96-cece-f3fa19593c0b.jpeg" },
-            { name: "Lucoa", series: "Miss Kobayashi's Dragon Maid", image: "https://static.wikia.nocookie.net/2d-girls/images/8/86/Opinion-on-lucoa-v0-60597493tq9a1.webp" },
-            { name: "Inubashiri Momiji", series: "Touhou Project", image: "https://cdn.donmai.us/sample/f6/bb/__inubashiri_momiji_touhou_drawn_by_shishi_juuroku__sample-f6bbd1fa9372ce2406b5e60303a9e412.jpg" }
+            { name: "Yakumo Ran", series: "Touhou Project", image: "https://cdn.donmai.us/original/23/6d/__yakumo_ran_touhou_drawn_by_wildcat_kusonemi__236da9e4fd950b65c37f51e3275658a6.png" }
         ];
 
         // podium
