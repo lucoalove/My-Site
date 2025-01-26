@@ -42,12 +42,6 @@
             text-align: right;
         }
 
-        #gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1em;
-        }
-
         #bio {
             border: 1px solid black;
             border-radius: 6px;
@@ -59,18 +53,25 @@
         #gallery > a {
             display: flex;
             gap: 0.5em;
+            text-decoration: none;
         }
 
-        #gallery > a > img {
+        #gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+        }
+
+        #gallery img {
             height: 100px;
             aspect-ratio: 1;
         }
 
-        #gallery > a:hover {
+        #gallery a:hover {
             background: #eee;
         }
 
-        #gallery > a > p {
+        #gallery p {
             color: grey;
             font-size: smaller;
             margin-bottom: 0;
