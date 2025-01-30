@@ -50,28 +50,22 @@
             background: white;
         }
 
-        #gallery > a {
+        .page-button {
             display: flex;
             gap: 0.5em;
             text-decoration: none;
         }
 
-        #gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1em;
+        .page-button:hover {
+            background: #eee;
         }
 
-        #gallery img {
+        .page-button img {
             height: 100px;
             aspect-ratio: 1;
         }
 
-        #gallery a:hover {
-            background: #eee;
-        }
-
-        #gallery p {
+        .page-button p {
             color: grey;
             font-size: smaller;
             margin-bottom: 0;
@@ -142,12 +136,38 @@
                 </td>
             </tr>
         </table>
+
+        <h3>Pages</h3>
+
+        <a class="page-button" href="/c/minecraft">
+            <img src="https://m.media-amazon.com/images/I/61m1MnO2j1L.png">
+            <div>
+                <strong>Linguistics</strong>
+                <p>I theorize.</p>
+            </div>
+        </a>
+
+        <a class="page-button" href="/c/minecraft">
+            <img src="https://m.media-amazon.com/images/I/61m1MnO2j1L.png">
+            <div>
+                <strong>My Art</strong>
+                <p>I draw.</p>
+            </div>
+        </a>
+
+        <a class="page-button" href="https://ai.fatchicks.cc/">
+            <img src="https://ih1.redbubble.net/image.5355993922.3328/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.webp">
+            <div>
+                <strong>AI Resources</strong>
+                <p>A subdomain of this site where I put stuff related to AI image generation.</p>
+            </div>
+        </a>
+        
     </aside>
 
     <main style="flex: 7;">
 
         <div style="aspect-ratio: 2; background-size: 100% auto; background-image: linear-gradient(to bottom, transparent, transparent 70%, white), url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/03/zenless-zone-zero_genshin-impact.jpg');">
-
         </div>
             
         <div id="bio" style="margin: 1em; margin-top: -20%;">
@@ -165,87 +185,46 @@
             <p>Also, I really like big boobs. No character design is complete without them XD</p>
         </div>
 
-        <h3>Blog pages</h3>
+        <h3>Threads</h3>
         
-        <div id="gallery">
-            <a href="https://ai.fatchicks.cc/">
-                <img src="https://ih1.redbubble.net/image.5355993922.3328/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.webp">
-                <div>
-                    <strong>AI Stuff</strong>
-                    <p>A subdomain of this site where I put stuff related to AI image generation.</p>
-                </div>
-            </a>
-            <a href="https://store.fatchicks.cc/">
-                <img src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/5/3/f/53fc27eeac4d86825e90fa08590eb29266262318.png">
-                <div>
-                    <strong>Store</strong>
-                    <p>My store page (I don't know how to sell).</p>
-                </div>
-            </a>
-            <a href="/c/terminal">
-                <img src="https://ih1.redbubble.net/image.4259038878.3584/fposter,small,wall_texture,square_product,600x600.jpg">
-                <div>
-                    <strong>Shell Commands</strong>
-                </div>
-            </a>
-            <a href="/c/3D">
-                <img src="https://ih1.redbubble.net/image.5578186001.3057/st,small,507x507-pad,600x600,f8f8f8.u6.jpg">
-                <div>
-                    <strong>3D Art Studies</strong>
-                </div>
-            </a>
-            <a href="/c/pochaco">
-                <img src="https://i.pinimg.com/474x/12/78/04/127804bee8364a0e08f0aa73a5096856.jpg">
-                <div>
-                    <strong>My waifu, Super Pochaco</strong>
-                    <p>I want a character to <i>obsess</i> over. Someone to draw every day and make self-insert fanfiction of. Can Super Pochaco rise to the challenge?!</p>
-                </div>
-            </a>
-            <a href="/c/matchagirls">
-                <img src="https://cdn.picrew.me/app/image_maker/1553437/icon_kXsrNX3G9iJuCcto.jpg">
-                <div>
-                    <strong>Make-a-girl</strong>
-                    <p>Picrew but worse.</p>
-                </div>
-            </a>
-            <a href="/c/boob">
-                <img src="https://www.fatchicks.cc/c/boob/beach.png">
-                <div>
-                    <strong>Boobs</strong>
-                    <p>A page dedicated to my worship of breasts.</p>
-                </div>
-            </a>
-            <a href="/c/world">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg/290px-Jupiter_and_its_shrunken_Great_Red_Spot.jpg">
-                <div>
-                    <strong>Other Worlds</strong>
-                    <p>A collection of little worldbuilding projects that, should I ever feel the inclination, I can write a little bit of web-fiction about.</p>
-                </div>
-            </a>
-            <a href="/c/coolmoji">
-                <img src="https://ih1.redbubble.net/image.565175175.7289/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg">
-                <div>
-                    <strong>Coolmoji</strong>
-                    <p>The creator of Minecraft once said that the standardization of emojis via unicode stifles expression and linguistic creativity. Interesting to think about, but I'm more focused on the thought of making my own pretty pictures.</p>
-                </div>
-            </a>
-            <a href="/c/forum">
-                <img src="https://cdn.britannica.com/78/237978-050-468C102C/4chan-website.jpg">
-                <div>
-                    <strong>Forum Moodboard</strong>
-                    <p>I have an, uh, interest in the concept and implementation of forums.</p>
-                </div>
-            </a>
-            <a href="/c/minecraft">
-                <img src="https://m.media-amazon.com/images/I/61m1MnO2j1L.png">
-                <div>
-                    <strong>Minecraft</strong>
-                    <p>Emphasis on 1.12.2. It may not be the best version, but it's highly modded and doesn't have turtles, so...</p>
-                </div>
-            </a>
-        </div>
-
-        <br><br><br><br>
+        <a href="https://store.fatchicks.cc/">
+            <strong>Store</strong>
+            My store page (I don't know how to sell).
+        </a>
+        <a href="/c/terminal">
+            <strong>Shell Commands</strong>
+        </a>
+        <a href="/c/3D">
+            <strong>3D Art Studies</strong>
+        </a>
+        <a href="/c/pochaco">
+            <strong>My waifu, Super Pochaco</strong>
+            I want a character to <i>obsess</i> over. Someone to draw every day and make self-insert fanfiction of. Can Super Pochaco rise to the challenge?!
+        </a>
+        <a href="/c/matchagirls">
+            <strong>Make-a-girl</strong>
+            Picrew but worse.
+        </a>
+        <a href="/c/boob">
+            <strong>Boobs</strong>
+            A page dedicated to my worship of breasts.
+        </a>
+        <a href="/c/world">
+            <strong>Other Worlds</strong>
+            A collection of little worldbuilding projects that, should I ever feel the inclination, I can write a little bit of web-fiction about.
+        </a>
+        <a href="/c/coolmoji">
+            <strong>Coolmoji</strong>
+            The creator of Minecraft once said that the standardization of emojis via unicode stifles expression and linguistic creativity. Interesting to think about, but I'm more focused on the thought of making my own pretty pictures.
+        </a>
+        <a href="/c/forum">
+            <strong>Forum Moodboard</strong>
+            I have an, uh, interest in the concept and implementation of forums.
+        </a>
+        <a href="/c/minecraft">
+            <strong>Minecraft</strong>
+            Emphasis on 1.12.2. It may not be the best version, but it's highly modded and doesn't have turtles, so...
+        </a>
         
     </main>
 
