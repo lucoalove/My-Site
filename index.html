@@ -72,6 +72,15 @@
             margin-bottom: 0;
         }
 
+        #threads {
+            display: flex; flex-direction: column; gap: 0.5em;
+        }
+
+        #threads p {
+            font-size: smaller;
+            color: grey;
+        }
+
         @media only screen and (max-width: 1000px) {
             body {
                 flex-direction: column;
@@ -163,13 +172,14 @@
             
         <div id="bio" style="margin: 1em; margin-top: -20%;">
             <p>Hi, I'm <strong>Natsu</strong>! I'm a linguist, programmer, web dev, and bbw artist.</p>
-            <p>Below are some <strong>threads</strong> I've made to display information either for later reference, or just because it's neat. My major projects are instead listed under <strong>pages</strong>.</p>
+            <p>Below are some <strong>threads</strong> I've made to display vaguely neat stuff. Whenever I have an idea I want to expand upon or just make note of, I'll usually make a thread about it.</p>
+            <p>To the left are <strong>pages</strong>, which hold my major projects and interests.</p>
             <p>Also, I really like big boobs. No character design is complete without them XD</p>
         </div>
 
         <h3>Threads</h3>
 
-        <div style="display: flex; flex-direction: column; gap: 0.5em;">
+        <div id="threads">
             <a href="https://store.fatchicks.cc/">
                 <strong>Store</strong>
                 My store page (I don't know how to sell).
