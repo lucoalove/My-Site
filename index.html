@@ -73,8 +73,13 @@
         }
 
         #threads {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #threads a {
+            font-weight: 700;
+            color: black;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -187,34 +192,28 @@
 
         <div id="threads">
             <a href="/c/terminal">
-                <strong>Shell Commands</strong>
+                Shell Commands
             </a>
             <a href="/c/3D">
-                <strong>3D Art Studies</strong>
+                3D Art Studies
             </a>
             <a href="/c/pochaco">
-                <strong>My waifu, Super Pochaco</strong>
-                I want a character to <i>obsess</i> over. Someone to draw every day and make self-insert fanfiction of. Can Super Pochaco rise to the challenge?!
+                My waifu, Super Pochaco
             </a>
             <a href="/c/matchagirls">
-                <strong>Make-a-girl</strong>
-                Picrew but worse.
+                Make-a-girl
             </a>
             <a href="/c/boob">
-                <strong>Boobs</strong>
-                A page dedicated to my worship of breasts.
+                Boobs
             </a>
             <a href="/c/world">
-                <strong>Other Worlds</strong>
-                A collection of little worldbuilding projects that, should I ever feel the inclination, I can write a little bit of web-fiction about.
+                Other Worlds
             </a>
             <a href="/c/coolmoji">
-                <strong>Coolmoji</strong>
-                The creator of Minecraft once said that the standardization of emojis via unicode stifles expression and linguistic creativity. Interesting to think about, but I'm more focused on the thought of making my own pretty pictures.
+                Coolmoji
             </a>
             <a href="/c/forum">
-                <strong>Forum Moodboard</strong>
-                I have an, uh, interest in the concept and implementation of forums.
+                Forum Moodboard
             </a>
         </div>
         
