@@ -9,11 +9,20 @@
 </head>
 <body>
     <p>My custom programming lang specification</p>
+    
     <code>
-        (int:foo, int[]:bar => int):function_name = {
-            return foo + bar[0];
-        }
+(int:foo, int[]:bar => int):example_function = {
+    return foo + bar[0];
+}
     </code>
-    <p>also only 1D arrays exist, do dimension control yourself</p>
+    
+    <p>Only 1D arrays exist, do dimension control yourself</p>
+
+    <code>
+struct:example_struct = {
+    int:foo   = 1,
+    int[]:bar = [10, 20, 30]
+}
+    </code>
 </body>
 </html>
