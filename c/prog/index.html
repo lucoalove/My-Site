@@ -18,16 +18,23 @@
 (int:foo, int[]:bar -> int):example_function = {
     return foo + bar[0];
 }
+
+print (example_function 10 [10, 20, 30]);
     </code>
 
+    <p>Example of a struct factory.</p>
     <code>
-struct:example_struct = [
-    int:foo               = 1,
-    int[]:bar             = [10, 20, 30]
-    (int:in -> int):gizmo = { return in + 10; }
-]
+(-> struct):make_point = {
+    return [
+        int:x = 0,
+        int:y = 0,
+        (int:dx, int:dy ->):move = { x += dx; y += dy; }
+    ];
+}
 
-example_struct[foo] = 10;
+struct:point = make_point;
+
+point[move] 10 20;
     </code>
 </body>
 </html>
