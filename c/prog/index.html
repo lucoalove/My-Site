@@ -12,6 +12,7 @@
 
     <ul>
         <li>Only 1D arrays exist, do dimension control yourself</li>
+        <li>Structs, conceptually, are just arrays with keys</li>
     </ul>
     
     <code>
@@ -33,8 +34,16 @@ print (example_function 10 [10, 20, 30]);
 }
 
 struct:point = make_point;
-
+        
 point[move] 10 20;
+
+(*
+ * this, in effect, changes nothing. It is here to show that
+ * x and y in the initial declaration refer to specific points
+ * in memory rather than "the value labeled x/y within the
+ * struct I'm contained in"
+ *)
+point[move] = { point[x] += dx; point[y] += dy; }
     </code>
 </body>
 </html>
