@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <title>NightingaleProtocol's page</title>
     <style>
-        body { width: 40em; margin: auto; }
+        body { width: 50em; margin: auto; font-family: sans-serif; }
         i { text-align: center; font-size: smaller; color: grey; margin: 1em 0; display: block; }
+        .gallery { display: grid; gap: 4px; grid-template-columns: 1fr 1fr 1fr; margin: 1em 0; }
     </style>
 </head>
 <body>
     
     <img width="100%" src="mexico.png">
     
-    <h1>NightingaleProtocol</h1>
+    <h1 style="text-align: center; margin-bottom: 0;">NightingaleProtocol</h1>
     <i>Me encantan las chicas pachoncitas y peluditas!</i>
 
     <h2>Carolina Santos</h2>
-    <strong>Carolina Santos</strong> is a cute goth mouse. She is reserved, modest, shy, and motherly.
-    <div style="display: flex; gap: 1em;">
-        <img style="flex: 1;" src="carolina1.png">
-        <img style="flex: 1;" src="carolina2.png">
-        <img style="flex: 1;" src="carolina3.png">
+    
+    <p><strong>Carolina Santos</strong> is a cute goth mouse. She is reserved, modest, shy, and motherly.</p>
+    
+    <div class="gallery">
+        <img src="carolina1.png">
+        <img src="carolina2.png">
+        <img src="carolina3.png">
     </div>
 
     <h2>Combat Vehicles</h2>
 
-    <img width="100%" src="Hailstorm_class_AAV.png">
-    <i>This is the hailstorm class Artillery Assault Vehicle, the guns it has are to kill infantry, destroy artillery, and go toe to toe against enemy main battle tanks</i>
+    <div class="gallery">
+        <div>
+            <img width="100%" src="Hailstorm_class_AAV.png">
+            <i>This is the hailstorm class Artillery Assault Vehicle, the guns it has are to kill infantry, destroy artillery, and go toe to toe against enemy main battle tanks</i>
+        </div>
+    </div>
     
 </body>
 </html>
