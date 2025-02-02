@@ -40,8 +40,16 @@
             document.getElementById("home").style.display = "none";
         }
 
-        fetch("https://newsapi.org/v2/everything?q=Apple&from=2025-02-02&sortBy=popularity&apiKey=75ae3d542dae4aa4baea4b3e699f5814") // don't steal my api key pls
-        .then(res => console.log(res));
+        // don't steal my api key pls
+        fetch(`https://newsapi.org/v2/everything
+            ?q=Apple
+            &from=2025-01-02
+            &sortBy=popularity
+            &pageSize=5
+            &apiKey=75ae3d542dae4aa4baea4b3e699f5814
+        `)
+        .then(res => res.json())
+        .then(json => console.log(json));
     </script>
 </head>
 <body>
