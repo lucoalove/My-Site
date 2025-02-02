@@ -47,8 +47,10 @@
 
                 for (const news of json.news) {
 
+                    // TODO make a function for inserting articles
                     let authors;
                     let summary;
+                    let category;
                     
                     if (news.authors == null) {
                         authors = "Anonymous";
@@ -66,9 +68,15 @@
                         summary = summary.substring(0, summary.indexOf("\n"));
                     }
 
+                    category = news.category;
+
+                    if (category == undefined) {
+                        category = "Miscellaneous";
+                    }
+
                     insert.innerHTML += `
                         <hr>
-                        <div class="category">${ news.category }</div>
+                        <div class="category">${ category }</div>
                         <h1>
                             <a href="?id=${ news.id }">${ news.title }</a>
                         </h1>
@@ -96,6 +104,7 @@
                 
                 let authors;
                 let summary;
+                let category;
                     
                 if (news.authors == null) {
                     authors = "Anonymous";
@@ -112,9 +121,15 @@
                 if (summary.indexOf("\n") != -1) {
                     summary = summary.substring(0, summary.indexOf("\n"));
                 }
+
+                category = news.category;
+
+                if (category == undefined) {
+                    category = "Miscellaneous";
+                }
     
                 insert.innerHTML = `
-                    <div class="category">${ news.category }</div>
+                    <div class="category">${ category }</div>
                     <h1>${ news.title }</h1>
                     <div>${ summary }</div>
                     <div class="meta">${ authors } | ${ news.publish_date }</div>
