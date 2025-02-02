@@ -30,6 +30,8 @@
     </style>
 
     <script type="module">
+        // https://newsapi.org/docs/get-started
+        
         const article = new URLSearchParams(window.location.search).get('article');
 
         if (article == null) {
@@ -37,6 +39,9 @@
         } else {
             document.getElementById("home").style.display = "none";
         }
+
+        fetch("https://newsapi.org/v2/everything?q=Apple&from=2025-02-02&sortBy=popularity&apiKey=75ae3d542dae4aa4baea4b3e699f5814") // don't steal my api key pls
+        .then(res => console.log(res));
     </script>
 </head>
 <body>
