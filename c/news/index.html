@@ -43,7 +43,7 @@
 
                 for (const news of json.news) {
 
-                    home.innerHTML += `
+                    insert.innerHTML += `
                         <div class="category">${ news.category }</div>
                         <h1>
                             <a href="?id=${ news.id }">${ news.title }</a>
@@ -91,7 +91,7 @@
 <body>
     
     <header style="background: #e32; color: white; padding: 0.5em; font-weight: 700; margin-top: 0;">
-        Smolkat Press - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API</a>
+        <a href="?">Smolkat Press</a> - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API</a>
     </header>
     
     <br>
