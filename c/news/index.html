@@ -9,25 +9,16 @@
         body { font-family: sans-serif; margin: 0; line-height: 1.5em; }
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin: 0.2em 0; line-height: 1em; }
         h3 { margin-top: 0; border-top: 4px solid #e32; padding-top: 0.5em; margin-bottom: 0.5em; }
-        
-        #meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
 
+        h1 a { color: black; text-decoration: none; }
+        h1 a:hover { text-decoration: underline; }
+        
+        .meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
+        .category { color: #e32; font-weight: 700; text-transform: uppercase; }
+
+        /* maybe have the cat say the summary */
         .opinion { flex: 1; padding: 1em; background: #ddd; position: relative; }
         .opinion:before { content: ""; position: absolute; width: 0; height: 0; border: 4px solid #ddd; border-bottom-color: transparent; border-left-color: transparent; top: 0; left: -8px; }
-
-        /* cards */
-        .card-small, .card-big { display: block; color: black; text-decoration: none; }
-        .card-small strong, .card-big strong { font-family: "Sofia Sans Extra Condensed", serif; font-size: 1.5em; }
-        .card-small:hover strong, .card-big:hover strong { text-decoration: underline; }
-
-        .card-small { border-top: 1px solid grey; padding-top: 1em; padding-right: 1em; }
-        .card-small p { font-size: smaller; }
-        .card-small div { display: flex; gap: 0.5em; align-items: flex-start; }
-        .card-small strong { flex: 1; }
-        .card-small img { width: 100%; flex: 1; }
-
-        .card-big strong { font-size: 2em; }
-        .card-big img { width: 100%; }
     </style>
 
     <script type="module">
@@ -35,18 +26,9 @@
         const apikey = "3b484cf0be92471090629e8156c0d3a1"; // don't steal my api key pls
 
         const id = new URLSearchParams(window.location.search).get('id');
-        const article = document.getElementById("article");
-        const home = document.getElementById("home");
+        const insert = document.getElementById("insert");
 
         if (id == null) { // populate home
-            
-            article.style.display = "none";
-
-            // <a class="card-big" href="?id=0">
-            //     <img src="https://img.ehowcdn.com/640/clsd/getty/bf956a7a7a944897afc97b5dcb149be9.jpg">
-            //     <strong>Lemons are now being sold as oranges</strong>
-            //     <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
-            // </a>
 
             fetch(`https://api.worldnewsapi.com/search-news?text=obesity&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
             .then(res => {
@@ -62,20 +44,19 @@
                 for (const news of json.news) {
 
                     home.innerHTML += `
-                        <a class="card-small" href="?id=${ news.id }">
-                            <div>
-                                <img src="${ news.image }">
-                                <strong>${ news.title }</strong>
-                            </div>
-                            <p>${ news.summary }</p>
-                        </a>
+                        <div class="category">${ news.category }</div>
+                        <h1>
+                            <a href="?id=${ news.id }">${ news.title }</a>
+                        </h1>
+                        <div>${ news.summary }</div>
+                        <div class="meta">${ authors } | ${ news.publish_date }</div>
+                        <img width="100%" src="${ news.image }">
+                        <hr>
                     `;
                 }
             });
             
         } else {
-
-            home.style.display = "none";
             
             fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
             .then(res => {
@@ -85,23 +66,23 @@
                 
              })
             .then(json => {
-    
+
                 console.log(json);
 
-                let news = json.news[0];
-
-                article.querySelector("#category").innerText = news.category;
-                article.querySelector("#title").innerText = news.title;
-                article.querySelector("#image").src = news.image;
-                article.querySelector("#text").innerText = news.text;
-    
+                const news = json.news[0];
                 let authors = news.authors[0];
     
                 for (let i=1; i<news.authors.length; i++) {
                     authors += `, ${ news.authors[i] }`;
                 }
     
-                article.querySelector("#meta").innerText = `${ authors } | ${ news.publish_date }`;
+                insert.innerHTML = `
+                    <div class="category">${ news.category }</div>
+                    <h1>${ news.title }</h1>
+                    <div class="meta">${ authors } | ${ news.publish_date }</div>
+                    <img width="100%" src="${ news.image }">
+                    <div>${ news.text }</div>
+                `;
             });
         }
         
@@ -115,22 +96,7 @@
     
     <br>
 
-    <main style="max-width: 40em; margin: auto; padding: 0 1em;">
-
-        <div id="article">
-
-            <div id="category" style="color: #e32; font-weight: 700; text-transform: uppercase;"></div>
-            <h1 id="title"></h1>
-            <div id="meta"></div>
-            <img width="100%" id="image">
-            
-            <div id="text"></div>
-            
-        </div>
-
-        <div id="home" style="display: grid; grid-template-columns: 1fr 1fr;"></div>
-        
-    </main>
+    <main id="insert" style="max-width: 40em; margin: auto; padding: 0 1em;"></main>
 
     <br><br><br><br><br><br><br><br>
 
