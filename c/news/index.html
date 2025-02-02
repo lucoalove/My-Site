@@ -9,7 +9,7 @@
         body { font-family: sans-serif; margin: 0; }
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin-bottom: 0.2em; line-height: 1em; }
         
-        .meta { color: grey; border: 1px solid lightgrey; border-left: none; border-right: none; margin: 0.6em 0; }
+        .meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
 
         .opinion { flex: 1; padding: 1em; background: #ddd; position: relative; }
         .opinion:before { content: ""; position: absolute; width: 0; height: 0; border: 4px solid #ddd; border-bottom-color: transparent; border-left-color: transparent; top: 0; left: -8px; }
@@ -21,22 +21,30 @@
         Smolkat Press - news and opinions
     </header>
 
-    <main style="width: 35em; margin: auto;">
+    <div style="width: 50em; margin: auto; gap: 1em;">
 
-        <h1>BREAKING - Lemons are now being sold as oranges</h1>
-        <div class="meta">Nyabitha Mewsom - 1/01/25</div>
-        <img width="100%" src="https://img.ehowcdn.com/640/clsd/getty/bf956a7a7a944897afc97b5dcb149be9.jpg">
+        <main style="flex: 7">
+
+            <h1>BREAKING - Lemons are now being sold as oranges</h1>
+            <div class="meta">Nyabitha Mewsom - 1/01/25</div>
+            <img width="100%" src="https://img.ehowcdn.com/640/clsd/getty/bf956a7a7a944897afc97b5dcb149be9.jpg">
+            
+            <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
         
-        <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
-    
-        <div style="display: flex; align-items: flex-start; gap: 1em;">
-            <img style="width: 100px; aspect-ratio: 1;" src="https://i.pinimg.com/736x/ac/e5/2a/ace52a46e80d01955373b2c61faeae17.jpg">
-            <div class="opinion">
-                dis will not b good for da economy.
+            <div style="display: flex; align-items: flex-start; gap: 1em;">
+                <img style="width: 100px; aspect-ratio: 1;" src="https://i.pinimg.com/736x/ac/e5/2a/ace52a46e80d01955373b2c61faeae17.jpg">
+                <div class="opinion">
+                    dis will not b good for da economy.
+                </div>
             </div>
-        </div>
+            
+        </main>
+    
+        <aside style="flex: 3;">
+            
+        </aside>
         
-    </main>
+    </div>
 
 </body>
 </html>
