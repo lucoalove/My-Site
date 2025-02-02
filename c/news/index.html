@@ -86,19 +86,16 @@
 
             fetch(`https://api.worldnewsapi.com/search-news?text=america&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
             .then(res => {
-    
                 console.log(res);
                 return res.json();
-                
              })
             .then(json => {
     
                 console.log(json);
-
                 insert.innerHTML += "<h2>Search results for \"America\"</h2>";
 
                 for (const article of json.news) {
-                    insert(insert, article, false);
+                    insert(insertArticle, article, false);
                 }
             });
             
@@ -106,16 +103,13 @@
             
             fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
             .then(res => {
-    
                 console.log(res);
                 return res.json();
-                
              })
             .then(json => {
 
                 console.log(json);
-                
-                insert(insert, json.news[0], true);
+                insert(insertArticle, json.news[0], true);
             });
         }
         
