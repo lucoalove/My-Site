@@ -32,7 +32,7 @@
 
         if (id == null) { // populate home
 
-            fetch(`https://api.worldnewsapi.com/search-news?text=obesity&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
+            fetch(`https://api.worldnewsapi.com/search-news?text=america&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
             .then(res => {
     
                 console.log(res);
@@ -42,6 +42,8 @@
             .then(json => {
     
                 console.log(json);
+
+                insert.innerHTML += "<h2>Search results for \"America\"</h2>";
 
                 for (const news of json.news) {
 
@@ -58,14 +60,14 @@
                     }
 
                     insert.innerHTML += `
+                        <hr>
                         <div class="category">${ news.category }</div>
                         <h1>
                             <a href="?id=${ news.id }">${ news.title }</a>
                         </h1>
-                        <div>${ news.summary.replace("\n", "<br>") }</div>
+                        <div>${ news.summary.replaceAll("\n", "<br>") }</div>
                         <div class="meta">${ authors } | ${ news.publish_date }</div>
                         <img width="100%" src="${ news.image }">
-                        <hr>
                     `;
                 }
             });
@@ -100,10 +102,10 @@
                 insert.innerHTML = `
                     <div class="category">${ news.category }</div>
                     <h1>${ news.title }</h1>
-                    <div>${ news.summary.replace("\n", "<br>") }</div>
+                    <div>${ news.summary.replaceAll("\n", "<br>") }</div>
                     <div class="meta">${ authors } | ${ news.publish_date }</div>
                     <img width="100%" src="${ news.image }">
-                    <div>${ news.text.replace("\n", "<br>") }</div>
+                    <div>${ news.text.replaceAll("\n", "<br>") }</div>
                 `;
             });
         }
