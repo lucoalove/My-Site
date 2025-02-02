@@ -5,11 +5,14 @@
     <title>Smolkat Press</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@600&display=swap');
-
-        h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin-bottom: 0.2em; line-height: 1em; }
         
         body { font-family: sans-serif; margin: 0; }
-        sub { color: grey; font-size: smaller; }
+        h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin-bottom: 0.2em; line-height: 1em; }
+        
+        .sub { color: grey; font-size: smaller; }
+
+        .opinion { flex: 1; padding: 1em; background: #ddd; position: relative; }
+        .opinion:before { content: ""; position: absolute; width: 0; height: 0; border: 4px solid #ddd; border-bottom-color: transparent; border-left-color: transparent; top: 0; left: -8px; }
     </style>
 </head>
 <body>
@@ -28,7 +31,7 @@
     
         <div style="display: flex; align-items: flex-start; gap: 1em;">
             <img style="width: 100px; aspect-ratio: 1;" src="https://i.pinimg.com/736x/ac/e5/2a/ace52a46e80d01955373b2c61faeae17.jpg">
-            <div style="flex: 1; padding: 1em; background: #ddd;">
+            <div class="opinion">
                 dis will not b good for da economy.
             </div>
         </div>
