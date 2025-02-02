@@ -10,23 +10,23 @@
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin: 0.2em 0; line-height: 1em; }
         h3 { margin-top: 0; border-top: 4px solid #e32; padding-top: 0.5em; margin-bottom: 0.5em; }
         
-        .meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
+        #meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
 
         .opinion { flex: 1; padding: 1em; background: #ddd; position: relative; }
         .opinion:before { content: ""; position: absolute; width: 0; height: 0; border: 4px solid #ddd; border-bottom-color: transparent; border-left-color: transparent; top: 0; left: -8px; }
 
         /* cards */
-        .card-small, .card-big, .card-side { display: block; color: black; text-decoration: none; }
-        .card-small strong, .card-big strong, .card-side strong { font-family: "Sofia Sans Extra Condensed", serif; font-size: 1.5em; }
-        .card-small:hover strong, .card-big:hover strong, .card-side:hover strong { text-decoration: underline; }
-        .card-small p, .card-side p { font-size: smaller; }
-        .card-big img, .card-side img { width: 100%; }
+        .card-small, .card-big { display: block; color: black; text-decoration: none; }
+        .card-small strong, .card-big strong { font-family: "Sofia Sans Extra Condensed", serif; font-size: 1.5em; }
+        .card-small:hover strong, .card-big:hover strong { text-decoration: underline; }
 
         .card-small { border-top: 1px solid grey; padding-top: 1em; padding-right: 1em; }
+        .card-small p { font-size: smaller; }
         .card-small div { display: flex; gap: 0.5em; align-items: flex-start; }
         .card-small img { width: 50%; }
 
         .card-big strong { font-size: 2em; }
+        .card-big img { width: 100%; }
     </style>
 
     <script type="module">
@@ -51,9 +51,10 @@ https://api.worldnewsapi.com/search-news
             .then(res => res.json())
             .then(json => {
 
-                article.getElementById("title").innerText = json.news[0].title;
-                article.getElementById("image").src = json.news[0].image;
-                article.getElementById("text").innerText = json.news[0].text;
+                article.querySelector("#title").innerText = json.news[0].title;
+                article.querySelector("#meta").innerText = `authors | ${ json.news[0].publish_date }`;
+                article.querySelector("#image").src = json.news[0].image;
+                article.querySelector("#text").innerText = json.news[0].text;
             });
         }
         
@@ -72,7 +73,7 @@ https://api.worldnewsapi.com/search-news
         <div id="article">
             
             <h1 id="title"></h1>
-            <div class="meta">Nyabitha Mewsom - 1/01/25</div>
+            <div id="meta"></div>
             <img width="100%" id="image">
             
             <div id="text"></div>
