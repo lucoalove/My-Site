@@ -62,7 +62,7 @@
                         <h1>
                             <a href="?id=${ news.id }">${ news.title }</a>
                         </h1>
-                        <div>${ news.summary }</div>
+                        <div>${ news.summary.replace("\n", "<br>") }</div>
                         <div class="meta">${ authors } | ${ news.publish_date }</div>
                         <img width="100%" src="${ news.image }">
                         <hr>
@@ -100,9 +100,10 @@
                 insert.innerHTML = `
                     <div class="category">${ news.category }</div>
                     <h1>${ news.title }</h1>
+                    <div>${ news.summary.replace("\n", "<br>") }</div>
                     <div class="meta">${ authors } | ${ news.publish_date }</div>
                     <img width="100%" src="${ news.image }">
-                    <div>${ news.text }</div>
+                    <div>${ news.text.replace("\n", "<br>") }</div>
                 `;
             });
         }
