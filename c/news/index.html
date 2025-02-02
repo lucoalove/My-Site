@@ -7,6 +7,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@600&display=swap');
         
         body { font-family: sans-serif; margin: 0; line-height: 1.5em; }
+        hr { border: none; border-top: 1px solid grey; margin: 1em 0; }
+        
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin: 0.2em 0; line-height: 1em; }
         h3 { margin-top: 0; border-top: 4px solid #e32; padding-top: 0.5em; margin-bottom: 0.5em; }
 
@@ -43,9 +45,16 @@
 
                 for (const news of json.news) {
 
-                    let authors = news.authors[0];
-                    for (let i=1; i<news.authors.length; i++) {
-                        authors += `, ${ news.authors[i] }`;
+                    let authors;
+                    
+                    if (news.authors == null) {
+                        authors = "Anonymous";
+                    } else {
+                        
+                        authors = news.authors[0];
+                        for (let i=1; i<news.authors.length; i++) {
+                            authors += `, ${ news.authors[i] }`;
+                        }
                     }
 
                     insert.innerHTML += `
@@ -76,9 +85,16 @@
 
                 const news = json.news[0];
                 
-                let authors = news.authors[0];
-                for (let i=1; i<news.authors.length; i++) {
-                    authors += `, ${ news.authors[i] }`;
+                let authors;
+                    
+                if (news.authors == null) {
+                    authors = "Anonymous";
+                } else {
+                    
+                    authors = news.authors[0];
+                    for (let i=1; i<news.authors.length; i++) {
+                        authors += `, ${ news.authors[i] }`;
+                    }
                 }
     
                 insert.innerHTML = `
