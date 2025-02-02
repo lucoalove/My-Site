@@ -43,6 +43,11 @@
 
                 for (const news of json.news) {
 
+                    let authors = news.authors[0];
+                    for (let i=1; i<news.authors.length; i++) {
+                        authors += `, ${ news.authors[i] }`;
+                    }
+
                     insert.innerHTML += `
                         <div class="category">${ news.category }</div>
                         <h1>
@@ -70,8 +75,8 @@
                 console.log(json);
 
                 const news = json.news[0];
+                
                 let authors = news.authors[0];
-    
                 for (let i=1; i<news.authors.length; i++) {
                     authors += `, ${ news.authors[i] }`;
                 }
