@@ -23,7 +23,8 @@
         .card-small { border-top: 1px solid grey; padding-top: 1em; padding-right: 1em; }
         .card-small p { font-size: smaller; }
         .card-small div { display: flex; gap: 0.5em; align-items: flex-start; }
-        .card-small img { width: 50%; }
+        .card-small strong { flex: 1; }
+        .card-small img { width: 100%; flex: 1; }
 
         .card-big strong { font-size: 2em; }
         .card-big img { width: 100%; }
@@ -31,44 +32,37 @@
 
     <script type="module">
 
-        // don't steal my api key pls
-        fetch(`
-https://api.worldnewsapi.com/search-news
-?text=obesity
-&language=en
-&earliest-publish-date=2025-01-20
-&api-key=3b484cf0be92471090629e8156c0d3a1
-        `)
-        .then(res => {
+        const apikey = "3b484cf0be92471090629e8156c0d3a1"; // don't steal my api key pls
 
-            console.log(res);
-            return res.json();
+        const id = new URLSearchParams(window.location.search).get('id');
+        const article = document.getElementById("article");
+        const home = document.getElementById("home");
+
+        if (id == null) { // populate home
             
-         })
-        .then(json => {
+            article.style.display = "none";
 
-            console.log(json);
+            // <a class="card-big" href="?id=0">
+            //     <img src="https://img.ehowcdn.com/640/clsd/getty/bf956a7a7a944897afc97b5dcb149be9.jpg">
+            //     <strong>Lemons are now being sold as oranges</strong>
+            //     <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
+            // </a>
 
-            const id = new URLSearchParams(window.location.search).get('id');
-            const article = document.getElementById("article");
-            const home = document.getElementById("home");
-
-            if (id == null) {
+            fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
+            .then(res => {
+    
+                console.log(res);
+                return res.json();
                 
-                article.style.display = "none";
-
-                // populate home
-
-                // <a class="card-big" href="?article=0">
-                //     <img src="https://img.ehowcdn.com/640/clsd/getty/bf956a7a7a944897afc97b5dcb149be9.jpg">
-                //     <strong>Lemons are now being sold as oranges</strong>
-                //     <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
-                // </a>
+             })
+            .then(json => {
+    
+                console.log(json);
 
                 for (const news of json.news) {
 
                     home.innerHTML += `
-                        <a class="card-small" href="?article=${ news.id }">
+                        <a class="card-small" href="?id=${ news.id }">
                             <div>
                                 <img src="${ news.image }">
                                 <strong>${ news.title }</strong>
@@ -77,10 +71,22 @@ https://api.worldnewsapi.com/search-news
                         </a>
                     `;
                 }
+            });
+            
+        } else {
+
+            home.style.display = "none";
+            
+            fetch(`https://api.worldnewsapi.com/search-news?text=obesity&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
+            .then(res => {
+    
+                console.log(res);
+                return res.json();
                 
-            } else {
-                
-                home.style.display = "none";
+             })
+            .then(json => {
+    
+                console.log(json);
 
                 let news = json.news[0];
 
@@ -96,8 +102,8 @@ https://api.worldnewsapi.com/search-news
                 }
     
                 article.querySelector("#meta").innerText = `${ authors } | ${ news.publish_date }`;
-            }
-        });
+            });
+        }
         
     </script>
 </head>
