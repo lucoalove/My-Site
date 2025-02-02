@@ -25,6 +25,58 @@
 
     <script type="module">
 
+        function insertArticle(insert, news, full) {
+
+            let authors;
+            let summary;
+            let category;
+            
+            if (news.authors == null) {
+                authors = "Anonymous";
+            } else {
+                
+                authors = news.authors[0];
+                for (let i=1; i<news.authors.length; i++) {
+                    authors += `, ${ news.authors[i] }`;
+                }
+            }
+
+            summary = news.summary;
+
+            if (summary.indexOf("\n") != -1) {
+                summary = summary.substring(0, summary.indexOf("\n"));
+            }
+
+            category = news.category;
+
+            if (category == undefined) {
+                category = "Miscellaneous";
+            }
+
+            if (full) {
+                insert.innerHTML += `
+                    <div class="category">${ category }</div>
+                    <h1>${ news.title }</h1>
+                    <div>${ summary }</div>
+                    <div class="meta">${ authors } | ${ news.publish_date }</div>
+                    <img width="100%" src="${ news.image }">
+                    <br>
+                    <div>${ news.text.replaceAll("\n", "<br>") }</div>
+                `;
+            } else {
+                insert.innerHTML += `
+                    <hr>
+                    <div class="category">${ category }</div>
+                    <h1>
+                        <a href="?id=${ news.id }">${ news.title }</a>
+                    </h1>
+                    <div>${ summary }</div>
+                    <div class="meta">${ authors } | ${ news.publish_date }</div>
+                    <img width="100%" src="${ news.image }">
+                `;
+            }
+        }
+
         const apikey = "3b484cf0be92471090629e8156c0d3a1"; // don't steal my api key pls
 
         const id = new URLSearchParams(window.location.search).get('id');
@@ -45,45 +97,8 @@
 
                 insert.innerHTML += "<h2>Search results for \"America\"</h2>";
 
-                for (const news of json.news) {
-
-                    // TODO make a function for inserting articles
-                    let authors;
-                    let summary;
-                    let category;
-                    
-                    if (news.authors == null) {
-                        authors = "Anonymous";
-                    } else {
-                        
-                        authors = news.authors[0];
-                        for (let i=1; i<news.authors.length; i++) {
-                            authors += `, ${ news.authors[i] }`;
-                        }
-                    }
-
-                    summary = news.summary;
-
-                    if (summary.indexOf("\n") != -1) {
-                        summary = summary.substring(0, summary.indexOf("\n"));
-                    }
-
-                    category = news.category;
-
-                    if (category == undefined) {
-                        category = "Miscellaneous";
-                    }
-
-                    insert.innerHTML += `
-                        <hr>
-                        <div class="category">${ category }</div>
-                        <h1>
-                            <a href="?id=${ news.id }">${ news.title }</a>
-                        </h1>
-                        <div>${ summary }</div>
-                        <div class="meta">${ authors } | ${ news.publish_date }</div>
-                        <img width="100%" src="${ news.image }">
-                    `;
+                for (const article of json.news) {
+                    insert(insert, article, false);
                 }
             });
             
@@ -99,44 +114,8 @@
             .then(json => {
 
                 console.log(json);
-
-                const news = json.news[0];
                 
-                let authors;
-                let summary;
-                let category;
-                    
-                if (news.authors == null) {
-                    authors = "Anonymous";
-                } else {
-                    
-                    authors = news.authors[0];
-                    for (let i=1; i<news.authors.length; i++) {
-                        authors += `, ${ news.authors[i] }`;
-                    }
-                }
-
-                summary = news.summary;
-
-                if (summary.indexOf("\n") != -1) {
-                    summary = summary.substring(0, summary.indexOf("\n"));
-                }
-
-                category = news.category;
-
-                if (category == undefined) {
-                    category = "Miscellaneous";
-                }
-    
-                insert.innerHTML = `
-                    <div class="category">${ category }</div>
-                    <h1>${ news.title }</h1>
-                    <div>${ summary }</div>
-                    <div class="meta">${ authors } | ${ news.publish_date }</div>
-                    <img width="100%" src="${ news.image }">
-                    <br>
-                    <div>${ news.text.replaceAll("\n", "<br>") }</div>
-                `;
+                insert(insert, json.news[0], true);
             });
         }
         
