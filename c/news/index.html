@@ -51,18 +51,20 @@ https://api.worldnewsapi.com/search-news
             .then(res => res.json())
             .then(json => {
 
-                article.querySelector("#category").innerText = json.news[0].category;
-                article.querySelector("#title").innerText = json.news[0].title;
-                article.querySelector("#image").src = json.news[0].image;
-                article.querySelector("#text").innerText = json.news[0].text;
+                let news = json.news[0];
 
-                let authors = json.news[0].authors[0];
+                article.querySelector("#category").innerText = news.category;
+                article.querySelector("#title").innerText = news.title;
+                article.querySelector("#image").src = news.image;
+                article.querySelector("#text").innerText = news.text;
 
-                for (let i=1; i<authors.length; i++) {
-                    authors += `, ${ json.news[0].authors[i] }`;
+                let authors = news.authors[0];
+
+                for (let i=1; i<news.authors.length; i++) {
+                    authors += `, ${ news.authors[i] }`;
                 }
 
-                article.querySelector("#meta").innerText = `${ authors } | ${ json.news[0].publish_date }`;
+                article.querySelector("#meta").innerText = `${ authors } | ${ news.publish_date }`;
             });
         }
         
