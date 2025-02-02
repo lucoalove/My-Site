@@ -6,7 +6,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@600&display=swap');
         
-        body { font-family: sans-serif; margin: 0; }
+        body { font-family: sans-serif; margin: 0; line-height: 1.5em; }
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin: 0.2em 0; line-height: 1em; }
         h3 { margin-top: 0; border-top: 4px solid #e32; padding-top: 0.5em; margin-bottom: 0.5em; }
         
@@ -43,7 +43,7 @@
             // don't steal my api key pls
             fetch(`
 https://api.worldnewsapi.com/search-news
-?text=earth+quake
+?text=america
 &language=en
 &earliest-publish-date=2025-01-20
 &api-key=3b484cf0be92471090629e8156c0d3a1
@@ -51,10 +51,18 @@ https://api.worldnewsapi.com/search-news
             .then(res => res.json())
             .then(json => {
 
+                article.querySelector("#category").innerText = json.news[0].category;
                 article.querySelector("#title").innerText = json.news[0].title;
-                article.querySelector("#meta").innerText = `authors | ${ json.news[0].publish_date }`;
                 article.querySelector("#image").src = json.news[0].image;
                 article.querySelector("#text").innerText = json.news[0].text;
+
+                let authors = json.news[0].authors[0];
+
+                for (let i=1; i<authors.length; i++) {
+                    authors += `, ${ json.news[0].authors[i] }`;
+                }
+
+                article.querySelector("#meta").innerText = `${ authors } | ${ json.news[0].publish_date }`;
             });
         }
         
@@ -63,7 +71,7 @@ https://api.worldnewsapi.com/search-news
 <body>
     
     <header style="background: #e32; color: white; padding: 0.5em; font-weight: 700; margin-top: 0;">
-        Smolkat Press - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API<a>
+        Smolkat Press - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API</a>
     </header>
     
     <br>
@@ -71,7 +79,8 @@ https://api.worldnewsapi.com/search-news
     <main style="max-width: 40em; margin: auto; padding: 0 1em;">
 
         <div id="article">
-            
+
+            <div id="category" style="color: #e32; font-weight: 700; text-transform: uppercase;"></div>
             <h1 id="title"></h1>
             <div id="meta"></div>
             <img width="100%" id="image">
@@ -125,6 +134,8 @@ https://api.worldnewsapi.com/search-news
         </div>
         
     </main>
+
+    <br><br><br><br><br><br><br><br>
 
 </body>
 </html>
