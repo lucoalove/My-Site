@@ -30,31 +30,38 @@
     </style>
 
     <script type="module">
-        
-        const id = new URLSearchParams(window.location.search).get('id');
 
-        const article = document.getElementById("article");
-
-        if (id == null) {
-            article.style.display = "none";
-        } else {
-            document.getElementById("home").style.display = "none";
-
-            // don't steal my api key pls
-            fetch(`
+        // don't steal my api key pls
+        fetch(`
 https://api.worldnewsapi.com/search-news
 ?text=obesity
 &language=en
 &earliest-publish-date=2025-01-20
 &api-key=3b484cf0be92471090629e8156c0d3a1
-            `)
-            .then(res => {
+        `)
+        .then(res => {
 
-                console.log(res);
-                return res.json();
+            console.log(res);
+            return res.json();
+            
+         })
+        .then(json => {
+
+            console.log(json);
+
+            const id = new URLSearchParams(window.location.search).get('id');
+            const article = document.getElementById("article");
+            const home = document.getElementById("home");
+
+            if (id == null) {
                 
-             })
-            .then(json => {
+                article.style.display = "none";
+
+                // populate home
+                
+            } else {
+                
+                home.style.display = "none";
 
                 let news = json.news[0];
 
@@ -62,16 +69,16 @@ https://api.worldnewsapi.com/search-news
                 article.querySelector("#title").innerText = news.title;
                 article.querySelector("#image").src = news.image;
                 article.querySelector("#text").innerText = news.text;
-
+    
                 let authors = news.authors[0];
-
+    
                 for (let i=1; i<news.authors.length; i++) {
                     authors += `, ${ news.authors[i] }`;
                 }
-
+    
                 article.querySelector("#meta").innerText = `${ authors } | ${ news.publish_date }`;
-            });
-        }
+            }
+        });
         
     </script>
 </head>
