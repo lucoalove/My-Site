@@ -48,7 +48,7 @@
             //     <p>The United Meow Emirates has declared lemons as the same as oranges.</p>
             // </a>
 
-            fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
+            fetch(`https://api.worldnewsapi.com/search-news?text=obesity&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
             .then(res => {
     
                 console.log(res);
@@ -77,7 +77,7 @@
 
             home.style.display = "none";
             
-            fetch(`https://api.worldnewsapi.com/search-news?text=obesity&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
+            fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
             .then(res => {
     
                 console.log(res);
