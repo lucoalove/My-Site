@@ -48,6 +48,7 @@
                 for (const news of json.news) {
 
                     let authors;
+                    let summary;
                     
                     if (news.authors == null) {
                         authors = "Anonymous";
@@ -59,13 +60,19 @@
                         }
                     }
 
+                    summary = news.summary;
+
+                    if (summary.indexOf("\n") != -1) {
+                        summary = summary.substring(0, summary.indexOf("\n"));
+                    }
+
                     insert.innerHTML += `
                         <hr>
                         <div class="category">${ news.category }</div>
                         <h1>
                             <a href="?id=${ news.id }">${ news.title }</a>
                         </h1>
-                        <div>${ news.summary.replaceAll("\n", "<br>") }</div>
+                        <div>${ summary }</div>
                         <div class="meta">${ authors } | ${ news.publish_date }</div>
                         <img width="100%" src="${ news.image }">
                     `;
@@ -88,6 +95,7 @@
                 const news = json.news[0];
                 
                 let authors;
+                let summary;
                     
                 if (news.authors == null) {
                     authors = "Anonymous";
@@ -98,13 +106,20 @@
                         authors += `, ${ news.authors[i] }`;
                     }
                 }
+
+                summary = news.summary;
+
+                if (summary.indexOf("\n") != -1) {
+                    summary = summary.substring(0, summary.indexOf("\n"));
+                }
     
                 insert.innerHTML = `
                     <div class="category">${ news.category }</div>
                     <h1>${ news.title }</h1>
-                    <div>${ news.summary.replaceAll("\n", "<br>") }</div>
+                    <div>${ summary }</div>
                     <div class="meta">${ authors } | ${ news.publish_date }</div>
                     <img width="100%" src="${ news.image }">
+                    <br>
                     <div>${ news.text.replaceAll("\n", "<br>") }</div>
                 `;
             });
