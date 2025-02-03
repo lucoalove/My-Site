@@ -84,7 +84,7 @@
 
         if (id == null) { // populate home
 
-            fetch(`https://api.worldnewsapi.com/search-news?text=america&language=en&earliest-publish-date=2025-01-20&api-key=${ apikey }`)
+            fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=PER:Trump&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
             .then(res => {
                 console.log(res);
                 return res.json();
