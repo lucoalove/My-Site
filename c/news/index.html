@@ -101,7 +101,13 @@
             .then(json => {
     
                 console.log(json);
-                insert.innerHTML += "<h2>Search results for \"Trump\"</h2>";
+
+                if (json.code != 200) {
+                    insert.innerHTML = `(${ json.code }) ${ json.message }`;
+                    return;
+                }
+                
+                insert.innerHTML = "<h2>Search results for \"Trump\"</h2>";
 
                 for (const article of json.news) {
                     insertArticle(insert, article, false);
@@ -118,6 +124,8 @@
             .then(json => {
 
                 console.log(json);
+
+                insert.innerHTML = "";
                 insertArticle(insert, json.news[0], true);
             });
         }
@@ -132,7 +140,9 @@
     
     <br>
 
-    <main id="insert" style="max-width: 40em; margin: auto; padding: 0 1em;"></main>
+    <main id="insert" style="max-width: 40em; margin: auto; padding: 0 1em;">
+        Loading...
+    </main>
 
     <br><br><br><br><br><br><br><br>
 
