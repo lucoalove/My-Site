@@ -95,7 +95,7 @@
                 insert.innerHTML += "<h2>Search results for \"America\"</h2>";
 
                 for (const article of json.news) {
-                    insert(insertArticle, article, false);
+                    insertArticle(insert, article, false);
                 }
             });
             
@@ -109,7 +109,7 @@
             .then(json => {
 
                 console.log(json);
-                insert(insertArticle, json.news[0], true);
+                insertArticle(insert, json.news[0], true);
             });
         }
         
