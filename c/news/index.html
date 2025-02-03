@@ -96,16 +96,20 @@
             fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=PER:Trump&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
             .then(res => {
                 console.log(res);
+
+                if (res.code != 200) {
+                    insert.innerHTML = `(${ res.code }) ${ res.message }`;
+                    return null;
+                }
+                
                 return res.json();
              })
             .then(json => {
+
+                if (json == null)
+                    return;
     
                 console.log(json);
-
-                if (json.code != 200) {
-                    insert.innerHTML = `(${ json.code }) ${ json.message }`;
-                    return;
-                }
                 
                 insert.innerHTML = "<h2>Search results for \"Trump\"</h2>";
 
