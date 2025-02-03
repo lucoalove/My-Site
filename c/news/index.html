@@ -34,6 +34,7 @@
             let authors;
             let summary;
             let category;
+            let source;
             
             if (news.authors == null) {
                 authors = "Anonymous";
@@ -57,12 +58,16 @@
                 category = "Miscellaneous";
             }
 
+            source = news.url;
+            source = source.substring(8);
+            source = source.substring(0, source.indexOf("/"));
+
             if (full) {
                 insert.innerHTML += `
                     <div class="category">${ category }</div>
                     <h1>${ news.title }</h1>
                     <div>${ summary }</div>
-                    <div class="meta">${ authors } | ${ news.publish_date }</div>
+                    <div class="meta">${ authors } | ${ news.publish_date } | from <i>${ source }</i></div>
                     <img width="100%" src="${ news.image }">
                     <br><br>
                     <div>${ news.text.replaceAll("\n", "<br>") }</div>
@@ -75,7 +80,7 @@
                         <a href="?id=${ news.id }">${ news.title }</a>
                     </h1>
                     <div>${ summary }</div>
-                    <div class="meta">${ authors } | ${ news.publish_date }</div>
+                    <div class="meta">${ authors } | ${ news.publish_date } | from <i>${ source }</i></div>
                     <img width="100%" src="${ news.image }">
                 `;
             }
