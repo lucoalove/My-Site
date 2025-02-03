@@ -97,8 +97,8 @@
             .then(res => {
                 console.log(res);
 
-                if (res.code != 200) {
-                    insert.innerHTML = `(${ res.code }) ${ res.message }`;
+                if (!res.ok) {
+                    insert.innerHTML = `(${ res.status }) ${ res.statusText }`;
                     return null;
                 }
                 
