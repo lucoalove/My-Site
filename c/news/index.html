@@ -12,8 +12,9 @@
         h1 { font-family: "Sofia Sans Extra Condensed", serif; font-size: 3em; margin: 0.2em 0; line-height: 1em; }
         h3 { margin-top: 0; border-top: 4px solid #e32; padding-top: 0.5em; margin-bottom: 0.5em; }
 
-        h1 a { color: black; text-decoration: none; }
-        h1 a:hover { text-decoration: underline; }
+        header { background: #e32; color: white; padding: 0.5em; font-weight: 700; margin-top: 0; }
+        header a { color: white; font-weight: 700; text-decoration: none; }
+        header a:hover { text-decoration: underline; }
         
         .meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
         .category { color: #e32; font-weight: 700; text-transform: uppercase; }
@@ -92,7 +93,7 @@
             .then(json => {
     
                 console.log(json);
-                insert.innerHTML += "<h2>Search results for \"America\"</h2>";
+                insert.innerHTML += "<h2>Search results for \"Trump\"</h2>";
 
                 for (const article of json.news) {
                     insertArticle(insert, article, false);
@@ -117,11 +118,11 @@
 </head>
 <body>
     
-    <header style="background: #e32; color: white; padding: 0.5em; font-weight: 700; margin-top: 0;">
+    <header>
         <a href="?">Smolkat Press</a> - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API</a>
     </header>
     
-    <br>
+    <br><br>
 
     <main id="insert" style="max-width: 40em; margin: auto; padding: 0 1em;"></main>
 
