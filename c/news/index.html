@@ -144,8 +144,21 @@
     
     <br>
 
-    <main id="insert" style="max-width: 40em; margin: auto; padding: 0 1em;">
-        Loading...
+    <main style="max-width: 40em; margin: auto; padding: 0 1em;">
+
+        <div style="display: flex;">
+            <select name="search-type">
+                <option value="text">Text</option>
+                <option value="LOC">Location</option>
+                <option value="PER">Person</option>
+                <option value="ORG">Organization</option>
+            </select>
+            <input type="text" id="search-value" name="search-value" style="flex: 1;">
+        </div>
+
+        <div id="insert">
+            Loading...
+        </div>
     </main>
 
     <br><br><br><br><br><br><br><br>
