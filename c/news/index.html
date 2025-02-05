@@ -22,18 +22,20 @@
         .meta { color: grey; border: 1px solid grey; border-left: none; border-right: none; margin: 0.6em 0; padding: 0.7em 0 0.5em; }
         .category { color: #e32; font-weight: 700; text-transform: uppercase; }
 
-        #search-type, #search-value, #search-button { border-radius: 0; padding: 4px; }
+        #search-type, #search-value, #search-button { border-radius: 0; padding: 0.5em; border: none; }
 
         /* maybe have the cat say the summary */
         .opinion { flex: 1; padding: 1em; background: #ddd; position: relative; }
         .opinion:before { content: ""; position: absolute; width: 0; height: 0; border: 4px solid #ddd; border-bottom-color: transparent; border-left-color: transparent; top: 0; left: -8px; }
     </style>
 
-    <script type="module">
-
+    <script>
         function search() {
             alert("search!");
         }
+    </script>
+
+    <script type="module">
 
         function insertArticle(insert, news, full) {
 
@@ -102,6 +104,9 @@
             const search_type  = new URLSearchParams(window.location.search).get('stype');
             const search_value = new URLSearchParams(window.location.search).get('svalue');
 
+            if (search_type == null || search_value == null)
+                return;
+
             fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=ORG:DeepSeek&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
             .then(res => {
                 console.log(res);
@@ -119,11 +124,18 @@
                     return;
     
                 console.log(json);
-                
-                insert.innerHTML = "<h2>Search results for \"Trump\"</h2>";
 
-                for (const article of json.news) {
-                    insertArticle(insert, article, false);
+                if (available == 0) {
+
+                    insert.innerHTML = `<h2>No results found for \"${ search_value }\"</h2>`;
+                    
+                } else {
+
+                    insert.innerHTML = `<h2>Search results for \"${ search_value }\"</h2>`;
+
+                    for (const article of json.news) {
+                        insertArticle(insert, article, false);
+                    }
                 }
             });
             
