@@ -30,12 +30,11 @@
     </style>
 
     <script>
+
         function search() {
             alert("search!");
+            window.location.href = "?stype=text&svalue=America"; 
         }
-    </script>
-
-    <script type="module">
 
         function insertArticle(insert, news, full) {
 
@@ -94,70 +93,73 @@
             }
         }
 
-        const apikey = "3b484cf0be92471090629e8156c0d3a1"; // don't steal my api key pls
-
-        const id = new URLSearchParams(window.location.search).get('id');
-        const insert = document.getElementById("insert");
-
-        if (id == null) { // populate home
-
-            const search_type  = new URLSearchParams(window.location.search).get('stype');
-            const search_value = new URLSearchParams(window.location.search).get('svalue');
-
-            if (search_type == null || search_value == null)
-                return;
-
-            fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=ORG:DeepSeek&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
-            .then(res => {
-                console.log(res);
-
-                if (!res.ok) {
-                    insert.innerHTML = `(${ res.status }) ${ res.statusText }`;
-                    return null;
-                }
-                
-                return res.json();
-             })
-            .then(json => {
-
-                if (json == null)
+        function load() {
+        
+            const apikey = "3b484cf0be92471090629e8156c0d3a1"; // don't steal my api key pls
+    
+            const id = new URLSearchParams(window.location.search).get('id');
+            const insert = document.getElementById("insert");
+    
+            if (id == null) { // populate home
+    
+                const search_type  = new URLSearchParams(window.location.search).get('stype');
+                const search_value = new URLSearchParams(window.location.search).get('svalue');
+    
+                if (search_type == null || search_value == null)
                     return;
     
-                console.log(json);
-
-                if (available == 0) {
-
-                    insert.innerHTML = `<h2>No results found for \"${ search_value }\"</h2>`;
-                    
-                } else {
-
-                    insert.innerHTML = `<h2>Search results for \"${ search_value }\"</h2>`;
-
-                    for (const article of json.news) {
-                        insertArticle(insert, article, false);
+                fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=ORG:DeepSeek&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
+                .then(res => {
+                    console.log(res);
+    
+                    if (!res.ok) {
+                        insert.innerHTML = `(${ res.status }) ${ res.statusText }`;
+                        return null;
                     }
-                }
-            });
-            
-        } else {
-            
-            fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
-            .then(res => {
-                console.log(res);
-                return res.json();
-             })
-            .then(json => {
-
-                console.log(json);
-
-                insert.innerHTML = "";
-                insertArticle(insert, json.news[0], true);
-            });
+                    
+                    return res.json();
+                 })
+                .then(json => {
+    
+                    if (json == null)
+                        return;
+        
+                    console.log(json);
+    
+                    if (available == 0) {
+    
+                        insert.innerHTML = `<h2>No results found for \"${ search_value }\"</h2>`;
+                        
+                    } else {
+    
+                        insert.innerHTML = `<h2>Search results for \"${ search_value }\"</h2>`;
+    
+                        for (const article of json.news) {
+                            insertArticle(insert, article, false);
+                        }
+                    }
+                });
+                
+            } else {
+                
+                fetch(`https://api.worldnewsapi.com/retrieve-news?ids=${ id }&api-key=${ apikey }`)
+                .then(res => {
+                    console.log(res);
+                    return res.json();
+                 })
+                .then(json => {
+    
+                    console.log(json);
+    
+                    insert.innerHTML = "";
+                    insertArticle(insert, json.news[0], true);
+                });
+            }
         }
         
     </script>
 </head>
-<body>
+<body onload="load();">
     
     <header>
         <a href="?">Smolkat Press</a> - news and opinions - powered by <a href="https://worldnewsapi.com/">World News API</a>
@@ -167,7 +169,8 @@
 
     <main style="max-width: 40em; margin: auto; padding: 0 1em;">
 
-        <div style="display: flex;">
+        <div style="display: flex; border: 1px solid grey;">
+            
             <select name="search-type" id="search-type">
                 <option value="text">Text</option>
                 <option value="LOC">Location</option>
@@ -176,11 +179,13 @@
             </select>
             <input type="text" id="search-value" name="search-value" style="flex: 1;">
             <button type="button" id="search-button" onclick="search();">Search</button> 
+            
         </div>
 
         <div id="insert">
             Loading...
         </div>
+        
     </main>
 
     <br><br><br><br><br><br><br><br>
