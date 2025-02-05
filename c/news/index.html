@@ -105,10 +105,20 @@
                 const search_type  = new URLSearchParams(window.location.search).get('stype');
                 const search_value = new URLSearchParams(window.location.search).get('svalue');
     
-                if (search_type == null || search_value == null)
+                if (search_type == null || search_value == null) {
+                    insert.innerHTML = `<h2>Search the news!</h2>`;
                     return;
+                }
+
+                let apicall = `https://api.worldnewsapi.com/search-news?language=en&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`;
+
+                if (search_type === "text") {
+                    apicall += `&text=${ search_value }`;
+                } else {
+                    apicall += `&entities=${ search_type }:${ search_value }`;
+                }
     
-                fetch(`https://api.worldnewsapi.com/search-news?language=en&entities=ORG:DeepSeek&news-sources=https://www.bbc.co.uk,https://elbcradio.com,https://www.nytimes.com,https://www.dailymail.co.uk&api-key=${ apikey }`)
+                fetch(apicall)
                 .then(res => {
                     console.log(res);
     
