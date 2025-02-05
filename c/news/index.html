@@ -32,8 +32,8 @@
     <script>
 
         function search() {
-            alert("search!");
-            window.location.href = "?stype=text&svalue=America"; 
+            
+            window.location.href = `?stype=${ document.getElementById("search-type").value }&svalue=${ document.getElementById("search-value").value }`;
         }
 
         function insertArticle(insert, news, full) {
@@ -181,19 +181,19 @@
 
         <div style="display: flex; border: 1px solid grey;">
             
-            <select name="search-type" id="search-type">
-                <option value="text">Text</option>
+            <select id="search-type">
+                <option value="text">Keyword</option>
                 <option value="LOC">Location</option>
                 <option value="PER">Person</option>
                 <option value="ORG">Organization</option>
             </select>
-            <input type="text" id="search-value" name="search-value" style="flex: 1;">
+            <input type="text" id="search-value" style="flex: 1;">
             <button type="button" id="search-button" onclick="search();">Search</button> 
             
         </div>
 
         <div id="insert">
-            Loading...
+            Loading... (this may take a while)
         </div>
         
     </main>
