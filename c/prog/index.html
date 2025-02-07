@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Prog</title>
     <style>
+        body { background: #F0FBFF; }
         code { display: block; white-space: pre; background: #eee; border: 1px solid black; border-radius: 4px; margin: 1em 0; padding: 0 1em; }
     </style>
 </head>
@@ -17,7 +18,7 @@
             <ul>
                 <li>You can't resize arrays or assign new keys to structs after they are initialized</li>
                 <li>Trying to access outside of the array's bounds, or access a struct's key that doesn't exist, will throw a runtime exception</li>
-                <li>Structs aren't typed, meaning you cannot guarantee an arbitrary struct as input will have a certain key</li>
+                <li>Structs aren't typed, meaning you cannot guarantee an arbitrary struct as input will have a certain key (similar to how arrays can be of arbitrary length)</li>
             </ul>
         </li>
     </ul>
@@ -47,14 +48,12 @@ struct:point = make_point;
         
 point[move] point 10 20;
 
-(*
- * Function variable names only matter for declaration. As long as the types
- * are the same and in the right order the code will execute normally.
- *)
 move = (struct:var1, int:var2, int:var3 ->):{
     var1[x] += var2 * 5;
     var1[y] += var3 * 2;
 }
+
+point[move] point 2 10;
     </code>
 </body>
 </html>
