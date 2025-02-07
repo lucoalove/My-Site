@@ -18,10 +18,10 @@
     <h2>Variables</h2>
     <p>Declaring a variable:</p>
     <code>
-type:variable_name = value; (* Assigning a value is optional. It will default to whatever is "empty" for that type, ex. 0 for ints *)
+type:variable_name = value;
 
 (* examples *)
-int:bank_balance = 100;
+int:bank_balance; (* if no value is provided, it will be set to the default for its type; here, 0 *)
 string:name = "Olivia";
 float:temperature = 80.65;
     </code>
@@ -46,7 +46,7 @@ print (example_function 10 [10, 20, 30]);
     <h2>Structs</h2>
     <p>Structs are like arrays in that they have a preset size. Unlike arrays, values in a struct can have different types, and are accessed by keys instead of indexes.</p>
 
-    <p>All structs have a type. You can either use preset types, or declare your own, before defining a struct.</p>
+    <p>All structs have a type. You can either use a preset type, or declare your own, before defining a struct.</p>
     <code>
 (* declare the struct type "point" *)
 STRUCT point(int:x, int:y, (point, int, int ->):move);
