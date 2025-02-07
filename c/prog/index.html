@@ -16,6 +16,18 @@
     </h1>
     <p>My custom programming language specification.</p>
 
+    <h2>Overview</h2>
+    <ul>
+        <li>Functions are variables</li>
+        <li>
+            Conventions
+            <ul>
+                <li>Keywords are CAPITALIZED</li>
+                <li>Types and variable names are camel_case</li>
+            </ul>
+        </li>
+    </ul>
+    
     <h2>Variables</h2>
     <p>Declaring a variable:</p>
     <code>
@@ -25,6 +37,17 @@ type:variable_name = value;
 int:bank_balance; (* if no value is provided, it will be set to the default for its type; here, 0 *)
 string:name = "Olivia";
 float:temperature = 80.65;
+    </code>
+
+    <h2>Conditionals</h2>
+    <p>Conditions are similar to other languages.</p>
+
+    <code>
+int:foo = 0;
+
+IF (foo > 5) {
+    foo *= 2;
+}
     </code>
 
     <h2>Functions</h2>
@@ -42,7 +65,7 @@ example_function = (int:biz, int[]:baz -> int):{ (* example without syntactic su
 
 print (example_function 10 [10, 20, 30]);
     </code>
-
+    
     <h2>Arrays</h2>
     <p>Arrays are homogenously typed and have a fixed length. Only 1D arrays exist, do dimension control yourself.</p>
 
