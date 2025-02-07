@@ -16,7 +16,7 @@
             Structs, conceptually, are just arrays with keys
             <ul>
                 <li>You can't resize arrays or assign new keys to structs after they are initialized</li>
-                <li>Structs aren't typed, you can try to access a variable that doesn't exist but it will return null</li>
+                <li>Trying to access outside of the array's bounds/access a struct's key that doesn't exist will throw a runtime exception</li>
             </ul>
         </li>
     </ul>
@@ -41,7 +41,7 @@ print (example_function 10 [10, 20, 30]);
 
 struct:point = make_point;
         
-point[move] 10 20;
+point[move] point 10 20;
     </code>
 </body>
 </html>
