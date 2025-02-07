@@ -13,16 +13,17 @@
     <ul>
         <li>Only 1D arrays exist, do dimension control yourself</li>
         <li>
-            Structs, conceptually, are just arrays with keys
+            Structs, conceptually, are just arrays with keys instead of indices
             <ul>
                 <li>You can't resize arrays or assign new keys to structs after they are initialized</li>
-                <li>Trying to access outside of the array's bounds/access a struct's key that doesn't exist will throw a runtime exception</li>
+                <li>Trying to access outside of the array's bounds, or access a struct's key that doesn't exist, will throw a runtime exception</li>
+                <li>Structs aren't typed, meaning you cannot guarantee an arbitrary struct as input will have a certain key</li>
             </ul>
         </li>
     </ul>
     
     <code>
-(int:foo, int[]:bar -> int):example_function = {
+(int, int[] -> int):example_function = (int:foo, int[]:bar -> int):{
     return foo + bar[0];
 }
 
@@ -35,13 +36,25 @@ print (example_function 10 [10, 20, 30]);
     return [
         int:x = 0,
         int:y = 0,
-        (struct:self, int:dx, int:dy ->):move = { self[x] += dx; self[y] += dy; }
+        (struct, int, int ->):move = (struct:self, int:dx, int:dy ->):{
+            self[x] += dx;
+            self[y] += dy;
+        }
     ];
 }
 
 struct:point = make_point;
         
 point[move] point 10 20;
+
+(*
+ * Function variable names only matter for declaration. As long as the types
+ * are the same and in the right order the code will execute normally.
+ *)
+move = (struct:var1, int:var2, int:var3 ->):{
+    var1[x] += var2 * 5;
+    var1[y] += var3 * 2;
+}
     </code>
 </body>
 </html>
