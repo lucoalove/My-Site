@@ -5,7 +5,7 @@
     <title>Prog</title>
     <style>
         body { background: #FFFBF0; font-family: sans-serif; margin: auto; width: 60em; line-height: 1.5em; }
-        code { display: block; white-space: pre; background: white; border: 1px solid black; border-radius: 4px; margin: 1em 0; padding: 0 1em; }
+        code { display: block; white-space: pre-wrap; background: white; border: 1px solid black; border-radius: 4px; margin: 1em 0; padding: 0 1em; }
     </style>
 </head>
 <body>
@@ -13,14 +13,6 @@
 
     <ul>
         <li>Only 1D arrays exist, do dimension control yourself</li>
-        <li>
-            Structs, conceptually, are just arrays with keys instead of indices
-            <ul>
-                <li>You can't resize arrays or assign new keys to structs after they are initialized</li>
-                <li>Trying to access outside of the array's bounds, or access a struct's key that doesn't exist, will throw a runtime exception</li>
-                <li>Structs aren't typed, meaning you cannot guarantee an arbitrary struct as input will have a certain key (similar to how arrays can be of arbitrary length)</li>
-            </ul>
-        </li>
     </ul>
 
     <h2>Variables</h2>
@@ -37,34 +29,45 @@ float:temperature = 80.65;
     <h2>Functions</h2>
     <p>Example of function declarations, definitions, and execution:</p>
     <code>
-(int, int[] -> int):example_function = (foo, bar):{ (* syntactic sugar for declaration *)
+(int, int[] -> int):example_function = (foo, bar):{ (* syntactic sugar for definition *)
     return foo + bar[0];
 }
 
-example_function = (int:biz, int[]:baz -> int):{ (* outside of declaration, cannot use syntactic sugar *)
+example_function = (int:biz, int[]:baz -> int):{ (* example without syntactic sugar *)
     return biz + baz[0];
 }
 
 print (example_function 10 [10, 20, 30]);
     </code>
 
+    <h2>Arrays</h2>
+    <p>Arrays are homogenously typed and have a fixed length.</p>
+
     <h2>Structs</h2>
-    <p>Example of a struct factory:</p>
+    <p>Structs are like arrays in that they have a preset size. Unlike arrays, values in a struct can have different types, and are accessed by keys instead of indexes.</p>
+
+    <p>All structs have a type. You can either use preset types, or declare your own, before defining a struct.</p>
     <code>
-(-> struct):make_point = {
-    return [
-        int:x = 0,
-        int:y = 0,
-        (struct, int, int ->):move = (self, dx, dy):{
-            self[x] += dx;
-            self[y] += dy;
-        }
-    ];
+(* declare the struct type "point" *)
+STRUCT point(int:x, int:y, (point, int, int ->):move);
+
+(* initializes a new struct of type point *)
+point:foo = point(0, 0, (self, dx, dy):{ self[x] += dx; self[y] += dy; });
+
+(* accessing values in the struct *)
+print foo[x];
+foo[move] bar 10 20;
+    </code>
+
+    <p>Instead of rewriting the same code over and over to initialize multiple structs, you can create a struct factory that returns a premade struct.</p>
+    
+    <p>Example of a struct factory (adds onto above code):</p>
+    <code>
+(-> point):make_point = ():{
+    return point(0, 0, (self, dx, dy):{ self[x] += dx; self[y] += dy; });
 }
 
-struct:point = make_point;
-
-point[move] point 10 20;
+foo = make_point;
     </code>
 </body>
 </html>
