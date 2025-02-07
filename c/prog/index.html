@@ -94,8 +94,13 @@ foo->move 10 20; (* same as above, syntactic sugar for when function has "self" 
     
     <p>Example of a struct factory (adds onto above code):</p>
     <code>
+(point, int, int ->):move_point = (self, dx, dy):{
+     self[x] += dx;
+    self[y] += dy;
+}
+        
 (-> point):make_point = ():{
-    RETURN point(0, 0, (self, dx, dy):{ self[x] += dx; self[y] += dy; });
+    RETURN point(0, 0, move_point);
 }
 
 foo = make_point;
