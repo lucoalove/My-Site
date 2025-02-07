@@ -86,7 +86,8 @@ point:foo = point(0, 0, (self, dx, dy):{ self[x] += dx; self[y] += dy; });
 
 (* accessing values in the struct *)
 print foo[x];
-foo[move] bar 10 20;
+foo[move] foo 10 20;
+foo->move 10 20; (* syntactic sugar for when function has "self" as the first parameter *)
     </code>
 
     <p>Instead of rewriting the same code over and over to initialize multiple structs, you can create a struct factory that returns a premade struct.</p>
