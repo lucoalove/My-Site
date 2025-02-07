@@ -22,7 +22,8 @@
             </ul>
         </li>
     </ul>
-    
+
+    <p>Example of function declarations, definitions, and execution:</p>
     <code>
 (int, int[] -> int):example_function = (foo, bar):{ (* syntactic sugar for declaration *)
     return foo + bar[0];
@@ -35,7 +36,7 @@ example_function = (int:biz, int[]:baz -> int):{ (* outside of declaration, cann
 print (example_function 10 [10, 20, 30]);
     </code>
 
-    <p>Example of a struct factory.</p>
+    <p>Example of a struct factory:</p>
     <code>
 (-> struct):make_point = {
     return [
@@ -49,15 +50,8 @@ print (example_function 10 [10, 20, 30]);
 }
 
 struct:point = make_point;
-        
+
 point[move] point 10 20;
-
-move = (struct:var1, int:var2, int:var3 ->):{
-    var1[x] += var2 * 5;
-    var1[y] += var3 * 2;
-}
-
-point[move] point 2 10;
     </code>
 </body>
 </html>
