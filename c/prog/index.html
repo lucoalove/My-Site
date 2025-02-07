@@ -23,7 +23,7 @@
             Conventions
             <ul>
                 <li>Keywords are CAPITALIZED</li>
-                <li>Types and variable names are camel_case</li>
+                <li>Types and variable names are snake_case</li>
             </ul>
         </li>
     </ul>
@@ -45,7 +45,9 @@ float:temperature = 80.65;
     <code>
 int:foo = 0;
 
-IF (foo > 5) {
+IF (foo == 0) {
+    foo = 1;
+} else {
     foo *= 2;
 }
     </code>
