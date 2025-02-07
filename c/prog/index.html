@@ -23,6 +23,18 @@
         </li>
     </ul>
 
+    <h2>Variables</h2>
+    <p>Declaring a variable:</p>
+    <code>
+type:variable_name = value; (* Assigning a value is optional. It will default to whatever is "empty" for that type, ex. 0 for ints *)
+
+(* examples *)
+int:bank_balance = 100;
+string:name = "Olivia";
+float:temperature = 80.65;
+    </code>
+
+    <h2>Functions</h2>
     <p>Example of function declarations, definitions, and execution:</p>
     <code>
 (int, int[] -> int):example_function = (foo, bar):{ (* syntactic sugar for declaration *)
@@ -36,6 +48,7 @@ example_function = (int:biz, int[]:baz -> int):{ (* outside of declaration, cann
 print (example_function 10 [10, 20, 30]);
     </code>
 
+    <h2>Structs</h2>
     <p>Example of a struct factory:</p>
     <code>
 (-> struct):make_point = {
