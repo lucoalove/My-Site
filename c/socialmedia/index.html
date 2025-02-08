@@ -5,14 +5,20 @@
     <title>Social Media</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-        body { font-family: "Inter", sans-serif; background: #151518; margin: auto; width: 40em; }
+
+        .root {
+            --black: #151518;
+            --accent: #A6F;
+        }
+        
+        body { font-family: "Inter", sans-serif; color: white; background: var(--black); margin: auto; width: 40em; }
     </style>
 </head>
 <body>
-    <div style="background: #A6F; padding: 1em; font-size: 2em; height: 10em; display: flex; flex-direction: column; justify-content: center;">
+    <div style="background: var(--accent); color: var(--black); padding: 1em; font-size: 2em; height: 10em; display: flex; flex-direction: column; justify-content: center;">
 
         <h1 style="margin: 0;">Twitter</h1>
-        A place for your little updates
+        A place for your little updates.
         
     </div>
 
