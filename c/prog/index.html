@@ -7,7 +7,7 @@
         body { background: #FFFBF0; font-family: sans-serif; margin: auto; width: 60em; line-height: 1.5em; }
         
         code { white-space: pre-wrap; background: white; border: 1px solid black; border-radius: 4px; padding: 2px 4px 0; }
-        code["block"] { display: block; margin: 1em 0; padding: 0 1em; }
+        code[block] { display: block; margin: 1em 0; padding: 0 1em; }
 
         h2 { border-bottom: 1px solid black; padding-bottom: 4px; margin-top: 2em; font-size: 1.2em; }
     </style>
@@ -118,7 +118,7 @@ helpers[x] = helpers[help];
     </code>
 
     <p>
-        The reference variable "helpers" is syntactic sugar; while it seems like helpers.gbl is being stored in a struct, all references to its variables will be converted to direct references at compilation.
+        The reference variable <code>referece:helpers</code> is syntactic sugar; while it seems like helpers.gbl is being stored in a struct, all references to its variables will be converted to direct references at compilation.
         This format was chosen simply to prevent name clashing.
     </p>
 
