@@ -5,7 +5,9 @@
     <title>Prog</title>
     <style>
         body { background: #FFFBF0; font-family: sans-serif; margin: auto; width: 60em; line-height: 1.5em; }
-        code { display: block; white-space: pre-wrap; background: white; border: 1px solid black; border-radius: 4px; margin: 1em 0; padding: 0 1em; }
+        
+        code { white-space: pre-wrap; background: white; border: 1px solid black; border-radius: 4px; padding: 2px 4px 0; }
+        code["block"] { display: block; margin: 1em 0; padding: 0 1em; }
 
         h2 { border-bottom: 1px solid black; padding-bottom: 4px; margin-top: 2em; font-size: 1.2em; }
     </style>
@@ -30,7 +32,7 @@
     
     <h2>Variables</h2>
     <p>Declaring a variable:</p>
-    <code>
+    <code block>
 type:variable_name = value;
 
 (* examples *)
@@ -42,7 +44,7 @@ float:temperature = 80.65;
     <h2>Conditionals</h2>
     <p>Conditions are similar to other languages.</p>
 
-    <code>
+    <code block>
 int:foo = 0;
 
 IF (foo == 0) {
@@ -56,7 +58,7 @@ IF (foo == 0) {
 
     <h2>Functions</h2>
     <p>Example of function declarations, definitions, and execution:</p>
-    <code>
+    <code block>
 (int, int[] -> int):example_function;
 
 example_function = (foo, bar):{ (* syntactic sugar for definition *)
@@ -77,7 +79,7 @@ print (example_function 10 [10, 20, 30]);
     <p>Structs are like arrays in that they have a preset size. Unlike arrays, values in a struct can have different types, and are accessed by keys instead of indexes.</p>
 
     <p>All structs have a type. You can either use a preset type, or declare your own, before defining a struct.</p>
-    <code>
+    <code block>
 (* declare the struct type "point" *)
 STRUCT point(int:x, int:y, (point, int, int ->):move);
 
@@ -93,7 +95,7 @@ foo->move 10 20; (* same as above, syntactic sugar for when function has "self" 
     <p>Instead of rewriting the same code over and over to initialize multiple structs, you can create a struct factory that returns a premade struct.</p>
     
     <p>Example of a struct factory (adds onto above code):</p>
-    <code>
+    <code block>
 (point, int, int ->):move_point = (p, dx, dy):{
     p[x] += dx;
     p[y] += dy;
@@ -108,15 +110,20 @@ foo = make_point;
 
     <h2>Linkage</h2>
     <p>You can connect code in multiple files.</p>
-    <p>The file "helpers.gbl" contains the variables "(-> int):help" and "int:x". To access these values inside another file:</p>
-    <code>
-reference:helpers = "helpers.gbl"; (* syntactic sugar; while it seems like helpers.gbl is being stored in a struct, all the code will be merged together at compilation *)
+    <p>The file "helpers.gbl" contains the variables <code>(-> int):help</code> and <code>int:x</code>. To access these values inside another file:</p>
+    <code block>
+reference:helpers = "helpers.gbl";
 
 helpers[x] = helpers[help];
     </code>
 
-    <p>You can also prevent other files from being able to access a variable with the keyword hidden at declaration:</p>
-    <code>
+    <p>
+        The reference variable "helpers" is syntactic sugar; while it seems like helpers.gbl is being stored in a struct, all references to its variables will be converted to direct references at compilation.
+        This format was chosen simply to prevent name clashing.
+    </p>
+
+    <p>You can also prevent other files from being able to access a variable with the keyword <code>hidden</code> at declaration:</p>
+    <code block>
 hidden int:cant_see_me = 10;
     </code>
 </body>
