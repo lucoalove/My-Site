@@ -62,11 +62,11 @@ IF (foo == 0) {
 (int, int[] -> int):example_function;
 
 example_function = (foo, bar):{ (* syntactic sugar for definition *)
-    return foo + bar[0];
+    RETURN foo + bar[0];
 }
 
 example_function = (int:biz, int[]:baz -> int):{ (* example without syntactic sugar *)
-    return biz + baz[0];
+    RETURN biz + baz[0];
 }
 
 print (example_function 10 [10, 20, 30]);
