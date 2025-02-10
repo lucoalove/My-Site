@@ -105,5 +105,19 @@ foo->move 10 20; (* same as above, syntactic sugar for when function has "self" 
 
 foo = make_point;
     </code>
+
+    <h2>Linkage</h2>
+    <p>You can connect code in multiple files.</p>
+    <p>The file "helpers.gbl" contains the variables "(-> int):help" and "int:x". To access these values inside another file:</p>
+    <code>
+reference:helpers = "helpers.gbl"; (* syntactic sugar; while it seems like helpers.gbl is being stored in a struct, all the code will be merged together at compilation *)
+
+helpers[x] = helpers[help];
+    </code>
+
+    <p>You can also prevent other files from being able to access a variable with the keyword hidden at declaration:</p>
+    <code>
+hidden int:cant_see_me = 10;
+    </code>
 </body>
 </html>
