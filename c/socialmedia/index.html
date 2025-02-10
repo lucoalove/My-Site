@@ -15,8 +15,9 @@
         
         body { font-family: "Inter", sans-serif; color: var(--white); background: var(--black); margin: auto; width: 40em; }
 
-        article { display: flex; gap: 0.5em; padding: 1em 0; align-items: flex-start; border-bottom: 1px solid var(--grey); line-height: 1.5; }
-        .profile-image { border-radius: 100%; width: 40px; transform: translateY(4px); }
+        article { display: flex; flex-direction: column; gap: 0.5em; padding: 1em 0; line-height: 1.5; border: 1px solid var(--grey); border-top: none; border-bottom-style: dotted; border-bottom-width: 2px; }
+        .post-meta { font-size: smaller; color: var(--grey); display: flex; flex-gap: 1em; }
+        .post-meta img { border-radius: 100%; width: 40px; transform: translateY(4px); }
     </style>
 </head>
 <body>
@@ -28,11 +29,12 @@
     </div>
 
     <article>
-        <img class="profile-image" src="https://photoshulk.com/wp-content/uploads/anime-pfp-creator.jpg">
-        <div>
-            <strong>Jane Wattkins</strong> <span style="color: var(--grey);">@carryingbirds · 4m</span>
-            <br>
-            Example text to show the aesthetic of the website.
+        Example text to show the aesthetic of the website.
+        <div class="post-meta">
+            <strong>Like</strong>
+            <div style="flex: 1;"></div>
+            <img src="https://photoshulk.com/wp-content/uploads/anime-pfp-creator.jpg">
+            <strong>Jane Wattkins</strong> @carryingbirds · 4m
         </div>
     </article>
 </body>
