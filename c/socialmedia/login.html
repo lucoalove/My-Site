@@ -13,11 +13,17 @@
             --accent: #A6F;
         }
         
-        body { font-family: "Inter", sans-serif; color: var(--white); background: var(--black); margin: 0; }
+        body { font-family: "Inter", sans-serif; color: var(--white); background: var(--black); margin: 0; display: flex; height: 100vh; }
     </style>
 </head>
 <body>
-    <div style="background: var(--accent); color: var(--black); padding: 1em; font-size: 2em; height: 10em; display: flex; flex-direction: column; justify-content: center;">
+    <div style="flex: 1; padding: 1em; display: flex; flex-direction: column; justify-content: center;">
+        <div style="border: 1px solid var(--grey); border-radius: 4px;">
+            Login box
+        </div>
+    </div>
+    
+    <div style="flex: 1; background: var(--accent); color: var(--black); padding: 1em; font-size: 2em; display: flex; flex-direction: column; justify-content: center;">
         <h1 style="margin: 0;">Twitter</h1>
         A place for your little updates.
     </div>
