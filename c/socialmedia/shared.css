@@ -8,3 +8,6 @@
 }
 
 body { font-family: "Inter", sans-serif; color: var(--white); background: var(--black); }
+
+input[type="text"], textarea { background: none; border: 1px solid var(--grey); color: inherit; }
+button { border-radius: 2px; color: var(--black); border: none; background: var(--accent); font: inherit; font-weight: 700; padding: 0.25em 0.5em; vertical-align: middle; cursor: pointer; }
