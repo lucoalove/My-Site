@@ -14,7 +14,10 @@
         }
         
         body { font-family: "Inter", sans-serif; color: var(--white); background: var(--black); margin: 0; display: flex; height: 100vh; }
-        input[type="text"] { background: none; border: 1px solid var(--grey); }
+        input[type="text"] { background: none; border: 1px solid var(--grey); color: inherit; }
+
+        /* this should defo be shared css */
+        button { border-radius: 4px; font-weight: 700; color: var(--black); border: none; background: var(--accent); font: inherit; padding: 0.25em 0.5em; vertical-align: middle; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -34,7 +37,8 @@
                 </tr>
             </table>
             <br>
-            <button type="button" style="font-weight: 700; color: var(--black); border: none; background: var(--accent); font: inherit; padding: 0.25em 0.5em; vertical-align: middle;">Log in</button>
+            <button type="button">Log in</button>
+            <span> </span>
             <a href style="color: var(--grey); text-decoration: none;">Register instead</a>
         </div>
         
