@@ -22,11 +22,13 @@
                 if (line.trim().length === 0)
                     continue;
 
-                // my code is good
-                if (line.indexOf("##") == 0) {
-                    out.innerHTML += `<h2>${ line }</h2>`;
-                } else if (line.indexOf("#") == 0) {
-                    out.innerHTML += `<h1>${ line }</h1>`;
+                // prefix:data pairs (can't do this for lists or embeds)
+                if (line.indexOf("### ") == 0) {
+                    out.innerHTML += `<h2>${ line.substring(4) }</h2>`;
+                else if (line.indexOf("## ") == 0) {
+                    out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
+                } else if (line.indexOf("# ") == 0) {
+                    out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
                 } else {
                     out.innerHTML += `<p>${ line }</p>`;
                 }
