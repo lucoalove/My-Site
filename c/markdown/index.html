@@ -10,11 +10,20 @@
     </style>
     <script>
         function parse() {
-            document.getElementById("output").innerHTML = document.getElementById("input").value;
+            
+            const out = document.getElementById("output");
+            out.innerHTML = "";
+            
+            const lines = document.getElementById("input").value.split("\n");
+
+            for (const line of lines) {
+
+                out.innerHTML += `<p>${ line }</p>`;
+            }
         }
     </script>
 </head>
-<body>
+<body onload="parse();">
     <textarea id="input" oninput="parse();">
 ## Lists
 
