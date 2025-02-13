@@ -7,6 +7,8 @@
         body { display: flex; height: 100vh; margin: 0; }
 
         #input, #output { padding: 1em; flex: 1; }
+
+        h1, h2 { border-bottom: 1px solid lightgrey; }
     </style>
     <script>
         function parse() {
@@ -24,7 +26,7 @@
 
                 // prefix:data pairs (can't do this for lists or embeds)
                 if (line.indexOf("### ") == 0) {
-                    out.innerHTML += `<h2>${ line.substring(4) }</h2>`;
+                    out.innerHTML += `<h3>${ line.substring(4) }</h3>`;
                 else if (line.indexOf("## ") == 0) {
                     out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
                 } else if (line.indexOf("# ") == 0) {
