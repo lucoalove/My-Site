@@ -27,7 +27,7 @@
                 // prefix:data pairs (can't do this for lists or embeds)
                 if (line.indexOf("### ") == 0) {
                     out.innerHTML += `<h3>${ line.substring(4) }</h3>`;
-                else if (line.indexOf("## ") == 0) {
+                } else if (line.indexOf("## ") == 0) {
                     out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
                 } else if (line.indexOf("# ") == 0) {
                     out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
@@ -44,9 +44,13 @@
         
 ## Lists
 
+### Unordered
+
 - Apples
 - Oranges
 - Pears
+
+### Checkbox
 
 [X] Mix flour and eggs.
 [ ] Pour into tray.
