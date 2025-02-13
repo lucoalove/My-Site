@@ -19,16 +19,25 @@
             for (const line of lines) {
 
                 // skip blank lines
-                if (str.trim().length === 0)
+                if (line.trim().length === 0)
                     continue;
 
-                out.innerHTML += `<p>${ line }</p>`;
+                // my code is good
+                if (line.indexOf("##") == 0) {
+                    out.innerHTML += `<h2>${ line }</h2>`;
+                } else if (line.indexOf("#") == 0) {
+                    out.innerHTML += `<h1>${ line }</h1>`;
+                } else {
+                    out.innerHTML += `<p>${ line }</p>`;
+                }
             }
         }
     </script>
 </head>
 <body onload="parse();">
     <textarea id="input" oninput="parse();">
+# Custom Markdown Parser
+        
 ## Lists
 
 - Apples
