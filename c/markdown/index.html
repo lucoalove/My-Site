@@ -6,7 +6,7 @@
     <style>
         body { display: flex; height: 100vh; margin: 0; }
 
-        #input, #output { padding: 1em; }
+        #input, #output { padding: 1em; flex: 1; }
     </style>
     <script>
         function parse() {
@@ -15,7 +15,7 @@
     </script>
 </head>
 <body>
-    <textarea id="input" onchange="parse();">
+    <textarea id="input" oninput="parse();">
 ## Lists
 
 - Apples
