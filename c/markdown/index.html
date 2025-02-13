@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Custom Markdown Parser</title>
+    <style>
+        body { display: flex; height: 100vh; margin: 0; }
+
+        #input, #output { padding: 1em; }
+    </style>
+    <script>
+        function parse() {
+            document.getElementById("output").innerHTML = document.getElementById("input").value;
+        }
+    </script>
 </head>
 <body>
-    <textarea id="w3review" style="width: 100%; height: 80vh;">
+    <textarea id="input" onchange="parse();">
 ## Lists
 
 - Apples
@@ -22,8 +32,9 @@ This line will not get merged.
 Hi im another line.
 
 This line will get merged
-+with this line.
-    </textarea>
++with this line.</textarea>
+
+    <div id="output"></div>
 </body>
 
 </html>
