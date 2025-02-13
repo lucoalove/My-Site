@@ -8,6 +8,9 @@
 
         #input, #output { padding: 1em; flex: 1; }
 
+        img { max-width: 300px; max-height: 300px; float: right; }
+
+        h1, h2, h3 { clear: right; }
         h1, h2 { border-bottom: 1px solid lightgrey; }
     </style>
     <script>
@@ -25,6 +28,8 @@
                     continue;
 
                 // prefix:data pairs (can't do this for lists or embeds)
+                if (line.indexOf("@ ") == 0) {
+                    out.innerHTML += `<img src="${ line.substring(2) }">`;
                 if (line.indexOf("### ") == 0) {
                     out.innerHTML += `<h3>${ line.substring(4) }</h3>`;
                 } else if (line.indexOf("## ") == 0) {
@@ -56,6 +61,13 @@
 [ ] Pour into tray.
 [ ] Bake for 30 minutes.
 
+## Images
+
+@ https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x4.jpg
+
+The cat (Felis catus), also referred to as the domestic cat, is a small domesticated carnivorous mammal. It is the only domesticated species of the family Felidae. Advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC. It is commonly kept as a pet and farm cat, but also ranges freely as a feral cat avoiding human contact. It is valued by humans for companionship and its ability to kill vermin. Its retractable claws are adapted to killing small prey species such as mice and rats. It has a strong, flexible body, quick reflexes, and sharp teeth, and its night vision and sense of smell are well developed. It is a social species, but a solitary hunter and a crepuscular predator. Cat communication includes vocalizations—including meowing, purring, trilling, hissing, growling, and grunting—as well as body language. It can hear sounds too faint or too high in frequency for human ears, such as those made by small mammals. It secretes and perceives pheromones.
+Female domestic cats can have kittens from spring to late autumn in temperate zones and throughout the year in equatorial regions, with litter sizes often ranging from two to five kittens. Domestic cats are bred and shown at events as registered pedigreed cats, a hobby known as cat fancy. Animal population control of cats may be achieved by spaying and neutering, but their proliferation and the abandonment of pets has resulted in large numbers of feral cats worldwide, contributing to the extinction of bird, mammal, and reptile species. 
+        
 ## Line merging
 
 This line will not get merged.
