@@ -18,6 +18,10 @@
 
             for (const line of lines) {
 
+                // skip blank lines
+                if (str.trim().length === 0)
+                    continue;
+
                 out.innerHTML += `<p>${ line }</p>`;
             }
         }
