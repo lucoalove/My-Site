@@ -13,6 +13,7 @@
         h1, h2, h3 { clear: right; }
         h1, h2 { border-bottom: 1px solid lightgrey; }
 
+        /* test */
         ol { list-style-image: url("checkbox.png"); }
     </style>
     <script>
@@ -56,8 +57,25 @@
 
                 else if (passageType === 2) {
 
-                    if (line.indexOf("[ ] ") == 0 || line.indexOf("[X] ") == 0) {
+                    if (line.indexOf("-. ") == 0) {
                         
+                        passage += `<li>${ line.substring(3) }</li>`;
+                        continue;
+                    }
+
+                    out.innerHTML += `<ol>${ passage }</ol>`;
+                }
+
+                else if (passageType === 3) {
+
+                    if (line.indexOf("[ ] ") == 0) {
+                        
+                        passage += `<li>${ line.substring(4) }</li>`;
+                        continue;
+                    }
+
+                    else if (line.indexOf("[X] ") == 0) {
+
                         passage += `<li>${ line.substring(4) }</li>`;
                         continue;
                     }
@@ -77,9 +95,15 @@
                     out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
                 } else if (line.indexOf("# ") == 0) {
                     out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
-                } else if (line.indexOf("[ ] ") == 0 || line.indexOf("[X] ") == 0) {
+                } else if (line.indexOf("[ ] ") == 0) {
                     passage += `<li>${ line.substring(4) }</li>`;
                     passageType = 3;
+                } else if (line.indexOf("[X] ") == 0) {
+                    passage += `<li>${ line.substring(4) }</li>`;
+                    passageType = 3;
+                } else if (line.indexOf("-. ") == 0) {
+                    passage += `<li>${ line.substring(3) }</li>`;
+                    passageType = 2;
                 } else if (line.indexOf("- ") == 0) {
                     passage += `<li>${ line.substring(2) }</li>`;
                     passageType = 1;
@@ -112,6 +136,12 @@
 - Oranges
 - Pears
 
+### Ordered
+
+-. Kings
+-. Queens
+-. Knights
+        
 ### Checkbox
 
 [X] Mix flour and eggs.
