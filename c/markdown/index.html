@@ -13,8 +13,8 @@
         h1, h2, h3 { clear: right; }
         h1, h2 { border-bottom: 1px solid lightgrey; }
 
-        /* test */
-        ol { list-style-image: url("checkbox.png"); }
+        li.unchecked { list-style-image: url("checkbox.png"); }
+        li.checked   { list-style-image: url("checkbox_checked.png"); }
     </style>
     <script>
         function parse() {
@@ -70,17 +70,17 @@
 
                     if (line.indexOf("[ ] ") == 0) {
                         
-                        passage += `<li>${ line.substring(4) }</li>`;
+                        passage += `<li class="unchecked">${ line.substring(4) }</li>`;
                         continue;
                     }
 
                     else if (line.indexOf("[X] ") == 0) {
 
-                        passage += `<li>${ line.substring(4) }</li>`;
+                        passage += `<li class="checked">${ line.substring(4) }</li>`;
                         continue;
                     }
 
-                    out.innerHTML += `<ol>${ passage }</ol>`;
+                    out.innerHTML += `<ul>${ passage }</ul>`;
                 }
                 
                 passage = "";
@@ -96,10 +96,10 @@
                 } else if (line.indexOf("# ") == 0) {
                     out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
                 } else if (line.indexOf("[ ] ") == 0) {
-                    passage += `<li>${ line.substring(4) }</li>`;
+                    passage += `<li class="unchecked">${ line.substring(4) }</li>`;
                     passageType = 3;
                 } else if (line.indexOf("[X] ") == 0) {
-                    passage += `<li>${ line.substring(4) }</li>`;
+                    passage += `<li class="checked">${ line.substring(4) }</li>`;
                     passageType = 3;
                 } else if (line.indexOf("-. ") == 0) {
                     passage += `<li>${ line.substring(3) }</li>`;
