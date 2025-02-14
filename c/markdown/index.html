@@ -8,6 +8,8 @@
 
         #input, #output { padding: 1em; resize: none; }
         #document { overflow-y: scroll; flex: 1; }
+
+        blockquote { border-left: 4px solid lightgrey; }
     </style>
     
     <!-- https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/ -->
@@ -39,7 +41,7 @@
             const lines = replaceLigatures(document.getElementById("input").value).split("\n");
 
             let passage = "";
-            let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox
+            let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox, 4 = blockquote
 
             for (const line of lines) {
 
@@ -96,6 +98,17 @@
 
                     out.innerHTML += `<ul>${ passage }</ul>`;
                 }
+
+                else if (passageType === 4) {
+
+                    if (line.indexOf("> ") == 0) {
+                        
+                        passage += `<p>${ line.substring(2) }</p>`;
+                        continue;
+                    }
+
+                    out.innerHTML += `<blockquote>${ passage }</blockquote>`;
+                }
                 
                 passage = "";
                 passageType = -1;
@@ -109,6 +122,10 @@
                     out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
                 } else if (line.indexOf("# ") == 0) {
                     out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
+
+                } else if (line.indexOf("> ") == 0) {
+                    passage += `<p>${ line.substring(2) }</p>`;
+                    passageType = 4;
                 } else if (line.indexOf("[ ] ") == 0) {
                     passage += `<li class="unchecked">${ line.substring(4) }</li>`;
                     passageType = 3;
@@ -170,6 +187,13 @@
 [X] Mix flour and eggs.
 [ ] Pour into tray.
 [ ] Bake for 30 minutes.
+
+## Blockquotes
+
+Here's a quote:
+
+> “Be yourself; everyone else is already taken.”
+> ― Oscar Wilde
         
 ## Line merging
 
