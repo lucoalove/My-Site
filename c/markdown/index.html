@@ -8,8 +8,6 @@
 
         #input, #output { padding: 1em; resize: none; }
         #document { overflow-y: scroll; flex: 1; }
-
-        blockquote { border-left: 4px solid lightgrey; margin-left: 1em; padding-left: 1em; }
     </style>
     
     <!-- https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/ -->
@@ -225,6 +223,8 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
 
             h1, h2, h3 { clear: right; }
             h1, h2 { border-bottom: 1px solid lightgrey; }
+
+            blockquote { border-left: 4px solid lightgrey; margin-left: 1em; padding-left: 1em; color: grey; }
     
             li.unchecked, li.checked { list-style: none; position: relative; }
             li.unchecked:before, li.checked:before { content: ""; border: 1.5px solid black; width: 10px; height: 10px; position: absolute; left: -18px; top: 2px; border-radius: 2px; }
