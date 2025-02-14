@@ -219,21 +219,23 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
 
     <div id="document">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+        
+            #output { font-family: "Hind", sans-serif; }
+            
             img { max-width: 300px; max-height: 300px; float: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
 
             h1, h2, h3 { clear: right; }
             h1, h2 { border-bottom: 1px solid lightgrey; }
 
-            blockquote { border-left: 4px solid lightgrey; margin-left: 1em; padding-left: 1em; color: grey; }
+            blockquote { background: #eee; padding: 1px 1em; border-radius: 0.5em; margin-left: 0; }
     
             li.unchecked, li.checked { list-style: none; position: relative; }
             li.unchecked:before, li.checked:before { content: ""; border: 1.5px solid black; width: 10px; height: 10px; position: absolute; left: -18px; top: 2px; border-radius: 2px; }
             li.checked:after { content: "✓"; color: #2af; position: absolute; left: -16px; top: -3px; text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white; }
         </style>
-        <div id="output">
-            
-        </div>
+        <div id="output"></div>
     </div>
+        
 </body>
-
 </html>
