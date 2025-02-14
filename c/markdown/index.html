@@ -18,12 +18,17 @@
         li.checked:after { content: "✓"; color: #2af; position: absolute; left: -16px; top: -3px; text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white; }
     </style>
     <script>
+        function replaceSymbols(string) {
+
+            return string.replace("<-", "←").replace("->", "→");
+        }
+        
         function parse() {
             
             const out = document.getElementById("output");
             out.innerHTML = "";
             
-            const lines = document.getElementById("input").value.split("\n");
+            const lines = replaceSymbols(document.getElementById("input").value).split("\n");
 
             let passage = "";
             let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox
@@ -128,7 +133,11 @@
 <body onload="parse();">
     <textarea id="input" oninput="parse();">
 # Custom Markdown Parser
-        
+
+## Shorthand Symbols
+
+<-, ->
+
 ## Lists
 
 ### Unordered
