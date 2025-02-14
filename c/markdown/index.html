@@ -6,7 +6,8 @@
     <style>
         body { display: flex; height: 100vh; margin: 0; }
 
-        #input, #output { padding: 1em; resize: none; overflow-y: scroll; }
+        #input, #output { padding: 1em; resize: none; }
+        #document { overflow-y: scroll; flex: 1; }
     </style>
     
     <!-- https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/ -->
@@ -194,7 +195,7 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
 +are adapted to killing small prey species such as mice and rats.</textarea>
     </div>
 
-    <div id="document" style="flex: 1;">
+    <div id="document">
         <style>
             img { max-width: 300px; max-height: 300px; float: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
 
