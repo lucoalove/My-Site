@@ -6,7 +6,7 @@
     <style>
         body { display: flex; height: 100vh; margin: 0; }
 
-        #input, #output { padding: 1em; flex: 1; resize: none; overflow-y: scroll; }
+        #input, #output { padding: 1em; resize: none; overflow-y: scroll; }
 
         img { max-width: 300px; max-height: 300px; float: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
 
@@ -17,8 +17,24 @@
         li.unchecked:before, li.checked:before { content: ""; border: 1.5px solid black; width: 10px; height: 10px; position: absolute; left: -18px; top: 2px; border-radius: 2px; }
         li.checked:after { content: "✓"; color: #2af; position: absolute; left: -16px; top: -3px; text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white; }
     </style>
+    
+    <!-- https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
     <script>
-        function replaceSymbols(string) {
+        function generatePDF() {
+
+            let mywindow = window.open("", "PRINT", "height=400,width=600");
+    
+            mywindow.document.write(document.getElementById("output").innerHTML);
+    
+            mywindow.document.close();
+            mywindow.focus();
+    
+            mywindow.print();
+            mywindow.close();
+        }
+        
+        function replaceLigatures(string) {
 
             return string.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
         }
@@ -28,7 +44,7 @@
             const out = document.getElementById("output");
             out.innerHTML = "";
             
-            const lines = replaceSymbols(document.getElementById("input").value).split("\n");
+            const lines = replaceLigatures(document.getElementById("input").value).split("\n");
 
             let passage = "";
             let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox
@@ -131,10 +147,15 @@
     </script>
 </head>
 <body onload="parse();">
-    <textarea id="input" oninput="parse();">
+
+    <div style="flex: 1; display: flex; flex-direction: column;">
+        <div>
+            <button type="button" onclick="generatePDF();">Generate PDF</button>
+        </div>
+        <textarea id="input" oninput="parse();" style="flex: 1;">
 # Custom Markdown Parser
 
-## Shorthand Symbols
+## Ligatures
 
 <-, ->, !=
 
@@ -180,8 +201,9 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
 +as a feral cat avoiding human contact. It is valued by humans for
 +companionship and its ability to kill vermin. Its retractable claws
 +are adapted to killing small prey species such as mice and rats.</textarea>
+    </div>
 
-    <div id="output"></div>
+    <div id="output" style="flex: 1;"></div>
 </body>
 
 </html>
