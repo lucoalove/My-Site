@@ -20,7 +20,7 @@
     <script>
         function replaceSymbols(string) {
 
-            return string.replace("<-", "←").replace("->", "→");
+            return string.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
         }
         
         function parse() {
@@ -136,7 +136,7 @@
 
 ## Shorthand Symbols
 
-<-, ->
+<-, ->, !=
 
 ## Lists
 
