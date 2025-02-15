@@ -209,7 +209,15 @@
         <textarea id="input" oninput="parse();" style="flex: 1; border: 1px solid grey; border-radius: 0; margin: 0;">
 # Custom Markdown Parser
 
-## Inline
+## Line merging
+
+This line will not get merged.
+Hi im another line.
+
+This line will get merged
++with this line.
+
+## Inline Styling
 
 You can make text *italicized*, **bold**, or ***both***.
 
@@ -226,12 +234,6 @@ You can make text *italicized*, **bold**, or ***both***.
 ### Linguistics
 
 \ae, \th, \dh, \h, \:
-
-## Code
-
-| if (expression):
-|     print "yes"
-| print "done"
 
 ## Lists
 
@@ -259,14 +261,12 @@ Here's a quote:
 
 > “Be yourself; everyone else is already taken.”
 > ― Oscar Wilde
-        
-## Line merging
 
-This line will not get merged.
-Hi im another line.
+## Code/Preformatted Text
 
-This line will get merged
-+with this line.
+| if (expression):
+|     print "yes"
+| print "done"
     
 ## Example Excerpt
 
