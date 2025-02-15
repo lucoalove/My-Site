@@ -34,15 +34,22 @@
             // replace ligatures
             line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
 
-            // italics, bold, and bold italics
+            // italics, bold, and bold italics (not maximally efficient, don't care)
             let index = 0;
             
-            while (
-                   (index = line.indexOf("***", index    )) != -1
-                &&          line.indexOf("***", index + 3)  != -1
-            ) {
+            while ((index = line.indexOf("***", index)) != -1 && line.indexOf("***", index + 3) != -1) {
+                
+                line = line.replace("***", "<i><strong>").replace("***", "</strong></i>");
+            }
 
-                line.replace("***", "<i><strong>").replace("***", "</i></strong>");
+            while ((index = line.indexOf("**", index)) != -1 && line.indexOf("**", index + 2) != -1) {
+                
+                line = line.replace("**", "<strong>").replace("**", "</strong>");
+            }
+
+            while ((index = line.indexOf("*", index)) != -1 && line.indexOf("*", index + 1) != -1) {
+                
+                line = line.replace("*", "<i>").replace("*", "</i>");
             }
 
             return line;
