@@ -35,7 +35,7 @@
             line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠").replaceAll("<=", "≤").replaceAll(">=", "≥");
 
             line = line.replaceAll("\\ae", "æ").replaceAll("\\e", "ɘ").replaceAll("\\E", "ɛ").replaceAll("\\a", "ɑ").replaceAll("\\o", "ʌ").replaceAll("\\O", "ɔ").replaceAll("\\i", "ɪ").replaceAll("\\u", "ʊ")
-                       .replaceAll("\\th", "θ").replaceAll("\\dh", "ð").replaceAll("\\R", "ʀ")
+                       .replaceAll("\\th", "θ").replaceAll("\\dh", "ð").replaceAll("\\l", "ł").replaceAll("\\R", "ʀ")
                        .replaceAll("\\h", "ʰ").replaceAll("\\:", "ː");
             
             // italics, bold, and bold italics (not maximally efficient, also issues with cases like "*cat and **dog***", don't care)
@@ -235,9 +235,9 @@ You can make text *italicized*, **bold**, or ***both***.
 
 ### Linguistics
 
-\ae, \e, \E, \a, \o, \O, \i, \u
-\th, \dh, \R
-\h, \:
+**Vowels:** \ae, \e, \E, \a, \o, \O, \i, \u
+**Consonants:** \th, \dh, \l, \R
+**Diacritics:** \h, \:
 
 ## Lists
 
