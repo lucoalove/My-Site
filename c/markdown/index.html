@@ -143,7 +143,7 @@
                         continue;
                     }
 
-                    out.innerHTML += `<pre class="sourceCode numberSource numberLines"><code class="sourceCode">${ passage }</code></pre>`;
+                    out.innerHTML += `<code>${ passage }</code>`;
                 }
                 
                 passage = "";
@@ -192,7 +192,7 @@
                 } else if (passageType === 4) {
                     out.innerHTML += `<blockquote>${ passage }</blockquote>`;
                 } else if (passageType === 5) {
-                    out.innerHTML += `<pre class="sourceCode numberSource numberLines"><code class="sourceCode">${ passage }</code></pre>`;
+                    out.innerHTML += `<code>${ passage }</code>`;
                 } else {
                     out.innerHTML += `<p style="color: red; font-weight: bold;">${ passage }</p>`; // this only happens if I forgot to handle a type
                 }
