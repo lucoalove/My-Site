@@ -139,7 +139,7 @@
 
                     if (line.indexOf("| ") == 0) {
                         
-                        passage += `<span>${ line.substring(2) }</span>`;
+                        passage += `<div>${ line.substring(2) }</div>`;
                         continue;
                     }
 
@@ -160,7 +160,7 @@
                     out.innerHTML += `<h1>${ processInline(2, line) }</h1>`;
 
                 } else if (line.indexOf("| ") == 0) {
-                    passage += `<span>${ line.substring(2) }</span>`;
+                    passage += `<div>${ line.substring(2) }</div>`;
                     passageType = 5;
                 } else if (line.indexOf("> ") == 0) {
                     passage += `<p>${ processInline(2, line) }</p>`;
