@@ -2,69 +2,15 @@
 
 code {
     font-family: monospace;
-    margin: 0;
-    hyphens: manual;
-}
-
-pre {
     margin: 1em 0;
-    overflow: auto;
-}
-
-pre code {
-    padding: 0;
-    overflow: visible;
-    overflow-wrap: normal;
-}
-
-.sourceCode {
-    background-color: transparent;
-    overflow: visible;
-}
-
-
-pre>code.sourceCode {
     white-space: pre;
-    position: relative;
 }
 
-pre>code.sourceCode>div {
-    display: inline-block;
-    line-height: 1.25;
-}
-
-pre>code.sourceCode>div:empty {
-    height: 1.2em;
-}
-
-.sourceCode {
-    overflow: visible;
-}
-
-code.sourceCode>div {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-div.sourceCode {
-    margin: 1em 0;
-}
-
-pre.sourceCode {
-    margin: 0;
-}
-
-pre.numberSource code {
-    counter-reset: source-line 0;
-}
-
-pre.numberSource code>div {
-    position: relative;
-    left: -4em;
+code > div {
     counter-increment: source-line;
 }
 
-pre.numberSource code>div::before {
+code > div::before {
     content: counter(source-line);
     position: relative;
     left: -1em;
@@ -74,12 +20,7 @@ pre.numberSource code>div::before {
     display: inline-block;
     user-select: none;
     padding: 0 4px;
-    width: 4em;
+    width: 2em;
     color: #aaaaaa;
-}
-
-pre.numberSource {
-    margin-left: 3em;
-    border-left: 1px solid #aaaaaa;
-    padding-left: 4px;
+    border-right: 1px solid #aaaaaa;
 }
