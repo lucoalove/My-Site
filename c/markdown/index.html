@@ -26,9 +26,17 @@
             mywindow.close();
         }
         
-        function replaceLigatures(string) {
+        function processInline(prefixClip, string) {
 
-            return string.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
+            // remove prefix
+            string = string.substring(prefixClip);
+            
+            // replace ligatures
+            string = string.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
+
+            // italics, bold, and bold italics
+
+            return string;
         }
         
         function parse() {
@@ -36,7 +44,7 @@
             const out = document.getElementById("output");
             out.innerHTML = "";
             
-            const lines = replaceLigatures(document.getElementById("input").value).split("\n");
+            const lines = document.getElementById("input").value.split("\n");
 
             let passage = "";
             let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox, 4 = blockquote
@@ -51,7 +59,7 @@
 
                     if (line.charAt(0) == '+') {
                         
-                        passage += " " + line.substring(1);
+                        passage += " " + processInline(1, line);
                         continue;
                     }
                     
@@ -62,7 +70,7 @@
 
                     if (line.indexOf("- ") == 0) {
                         
-                        passage += `<li>${ line.substring(2) }</li>`;
+                        passage += `<li>${ processInline(2, line) }</li>`;
                         continue;
                     }
 
@@ -73,7 +81,7 @@
 
                     if (line.indexOf("-. ") == 0) {
                         
-                        passage += `<li>${ line.substring(3) }</li>`;
+                        passage += `<li>${ processInline(3, line) }</li>`;
                         continue;
                     }
 
@@ -84,13 +92,13 @@
 
                     if (line.indexOf("[ ] ") == 0) {
                         
-                        passage += `<li class="unchecked">${ line.substring(4) }</li>`;
+                        passage += `<li class="unchecked">${ processInline(4, line) }</li>`;
                         continue;
                     }
 
                     else if (line.indexOf("[X] ") == 0) {
 
-                        passage += `<li class="checked">${ line.substring(4) }</li>`;
+                        passage += `<li class="checked">${ processInline(4, line) }</li>`;
                         continue;
                     }
 
@@ -101,7 +109,7 @@
 
                     if (line.indexOf("> ") == 0) {
                         
-                        passage += `<p>${ line.substring(2) }</p>`;
+                        passage += `<p>${ processInline(2, line) }</p>`;
                         continue;
                     }
 
@@ -115,26 +123,26 @@
                 if (line.indexOf("@ ") == 0) {
                     out.innerHTML += `<img src="${ line.substring(2) }">`;
                 } else if (line.indexOf("### ") == 0) {
-                    out.innerHTML += `<h3>${ line.substring(4) }</h3>`;
+                    out.innerHTML += `<h3>${ processInline(4, line) }</h3>`;
                 } else if (line.indexOf("## ") == 0) {
-                    out.innerHTML += `<h2>${ line.substring(3) }</h2>`;
+                    out.innerHTML += `<h2>${ processInline(3, line) }</h2>`;
                 } else if (line.indexOf("# ") == 0) {
-                    out.innerHTML += `<h1>${ line.substring(2) }</h1>`;
+                    out.innerHTML += `<h1>${ processInline(2, line) }</h1>`;
 
                 } else if (line.indexOf("> ") == 0) {
-                    passage += `<p>${ line.substring(2) }</p>`;
+                    passage += `<p>${ processInline(2, line) }</p>`;
                     passageType = 4;
                 } else if (line.indexOf("[ ] ") == 0) {
-                    passage += `<li class="unchecked">${ line.substring(4) }</li>`;
+                    passage += `<li class="unchecked">${ processInline(4, line) }</li>`;
                     passageType = 3;
                 } else if (line.indexOf("[X] ") == 0) {
-                    passage += `<li class="checked">${ line.substring(4) }</li>`;
+                    passage += `<li class="checked">${ processInline(4, line) }</li>`;
                     passageType = 3;
                 } else if (line.indexOf("-. ") == 0) {
-                    passage += `<li>${ line.substring(3) }</li>`;
+                    passage += `<li>${ processInline(3, line) }</li>`;
                     passageType = 2;
                 } else if (line.indexOf("- ") == 0) {
-                    passage += `<li>${ line.substring(2) }</li>`;
+                    passage += `<li>${ processInline(2, line) }</li>`;
                     passageType = 1;
                 } else {
                     passage += line;
