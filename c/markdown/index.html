@@ -26,17 +26,26 @@
             mywindow.close();
         }
         
-        function processInline(prefixClip, string) {
+        function processInline(prefixClip, line) {
 
             // remove prefix
-            string = string.substring(prefixClip);
+            line = line.substring(prefixClip);
             
             // replace ligatures
-            string = string.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
+            line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
 
             // italics, bold, and bold italics
+            let index = 0;
+            
+            while (
+                   (index = line.indexOf("***", index    )) != -1
+                &&          line.indexOf("***", index + 3)  != -1
+            ) {
 
-            return string;
+                line.replace("***", "<i><strong>").replace("***", "</i></strong>");
+            }
+
+            return line;
         }
         
         function parse() {
@@ -55,6 +64,7 @@
                 if (line.trim().length === 0)
                     continue;
 
+                // passages are prefix:data pairs that take up more than one line
                 if (passageType === 0) {
 
                     if (line.charAt(0) == '+') {
@@ -119,7 +129,7 @@
                 passage = "";
                 passageType = -1;
 
-                // prefix:data pairs (can't do this for internal)
+                // prefix:data pairs (prefix indicates what kind of element data represents)
                 if (line.indexOf("@ ") == 0) {
                     out.innerHTML += `<img src="${ line.substring(2) }">`;
                 } else if (line.indexOf("### ") == 0) {
@@ -170,6 +180,10 @@
         <textarea id="input" oninput="parse();" style="flex: 1; border: 1px solid grey; border-radius: 0; margin: 0;">
 # Custom Markdown Parser
 
+## Inline
+
+You can make text *italicized*, **bold**, or ***both***.
+
 ## Ligatures
 
 <-, ->, !=
@@ -187,7 +201,7 @@
 -. Kings
 -. Queens
 -. Knights
-        
+
 ### Checkbox
 
 [X] Mix flour and eggs.
