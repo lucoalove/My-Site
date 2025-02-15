@@ -1,4 +1,4 @@
-/* stolen unceremoniously from Pandoc, with some modifications (well, not yet) */
+/* stolen unceremoniously from Pandoc, with some modifications */
 
 code {
     font-family: monospace;
@@ -28,12 +28,12 @@ pre>code.sourceCode {
     position: relative;
 }
 
-pre>code.sourceCode>span {
+pre>code.sourceCode>div {
     display: inline-block;
     line-height: 1.25;
 }
 
-pre>code.sourceCode>span:empty {
+pre>code.sourceCode>div:empty {
     height: 1.2em;
 }
 
@@ -41,7 +41,7 @@ pre>code.sourceCode>span:empty {
     overflow: visible;
 }
 
-code.sourceCode>span {
+code.sourceCode>div {
     color: inherit;
     text-decoration: inherit;
 }
@@ -58,13 +58,13 @@ pre.numberSource code {
     counter-reset: source-line 0;
 }
 
-pre.numberSource code>span {
+pre.numberSource code>div {
     position: relative;
     left: -4em;
     counter-increment: source-line;
 }
 
-pre.numberSource code>span>a:first-child::before {
+pre.numberSource code>div::before {
     content: counter(source-line);
     position: relative;
     left: -1em;
