@@ -65,7 +65,7 @@
             const lines = document.getElementById("input").value.split("\n");
 
             let passage = "";
-            let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox, 4 = blockquote
+            let passageType = -1; // 0 = paragraph, 1 = unordered, 2 = ordered, 3 = checkbox, 4 = blockquote, 5 = codeblock
 
             for (const line of lines) {
 
@@ -134,6 +134,17 @@
 
                     out.innerHTML += `<blockquote>${ passage }</blockquote>`;
                 }
+
+                else if (passageType === 5) {
+
+                    if (line.indexOf("| ") == 0) {
+                        
+                        passage += `<span>${ line.substring(2) }</span>`;
+                        continue;
+                    }
+
+                    out.innerHTML += `<pre class="sourceCode numberSource numberLines"><code class="sourceCode">${ passage }</code></pre>`;
+                }
                 
                 passage = "";
                 passageType = -1;
@@ -148,6 +159,9 @@
                 } else if (line.indexOf("# ") == 0) {
                     out.innerHTML += `<h1>${ processInline(2, line) }</h1>`;
 
+                } else if (line.indexOf("| ") == 0) {
+                    passage += `<span>${ line.substring(2) }</span>`;
+                    passageType = 5;
                 } else if (line.indexOf("> ") == 0) {
                     passage += `<p>${ processInline(2, line) }</p>`;
                     passageType = 4;
