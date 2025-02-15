@@ -34,7 +34,7 @@
             // replace ligatures
             line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠").replaceAll("<=", "≤").replaceAll(">=", "≥");
 
-            // italics, bold, and bold italics (not maximally efficient, don't care)
+            // italics, bold, and bold italics (not maximally efficient, also issues with cases like "*cat and **dog***", don't care)
             let index = 0;
             
             while ((index = line.indexOf("***", index)) != -1 && line.indexOf("***", index + 3) != -1) {
@@ -197,7 +197,7 @@ You can make text *italicized*, **bold**, or ***both***.
 
 ## Ligatures
 
-<-, ->, !=
+<-, ->, !=, <=, >=
 
 ## Lists
 
