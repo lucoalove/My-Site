@@ -7,13 +7,13 @@
         body { display: flex; height: 100vh; margin: 0; }
 
         #input, #output { padding: 1em; resize: none; }
+        #input:focus { outline: none; }
         #document { overflow-y: scroll; flex: 1; }
     </style>
-    
-    <!-- https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/ -->
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
     <script>
         function generatePDF() {
+
+            // https://www.geeksforgeeks.org/how-to-design-runtime-generated-pdf-via-html/
 
             let mywindow = window.open("", "PRINT", "height=400,width=600");
     
@@ -223,7 +223,7 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
         
             #output { font-family: "Hind", sans-serif; }
             
-            img { max-width: 300px; max-height: 300px; float: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
+            img { max-width: 300px; max-height: 300px; float: right; clear: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
 
             h1, h2, h3 { clear: right; }
             h1, h2 { border-bottom: 1px solid lightgrey; }
