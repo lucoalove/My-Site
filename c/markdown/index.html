@@ -36,7 +36,7 @@
 
             line = line.replaceAll("\\ae", "æ").replaceAll("\\e", "ɘ").replaceAll("\\E", "ɛ").replaceAll("\\a", "ɑ").replaceAll("\\o", "ʌ").replaceAll("\\O", "ɔ").replaceAll("\\i", "ɪ").replaceAll("\\u", "ʊ")
                        .replaceAll("\\th", "θ").replaceAll("\\dh", "ð").replaceAll("\\l", "ł").replaceAll("\\R", "ʀ")
-                       .replaceAll("\\h", "ʰ").replaceAll("\\:", "ː");
+                       .replaceAll("\\h", "ʰ").replaceAll("\\:", "ː").replaceAll("\\n", "̃");
             
             // italics, bold, and bold italics (not maximally efficient, also issues with cases like "*cat and **dog***", don't care)
             let index = 0;
@@ -237,7 +237,7 @@ You can make text *italicized*, **bold**, or ***both***.
 
 **Vowels:** \ae, \e, \E, \a, \o, \O, \i, \u
 **Consonants:** \th, \dh, \l, \R
-**Diacritics:** \h, \:
+**Diacritics:** \h, \:, a\n
 
 ## Lists
 
