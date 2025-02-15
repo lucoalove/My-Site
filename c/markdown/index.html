@@ -34,6 +34,8 @@
             // replace ligatures
             line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠").replaceAll("<=", "≤").replaceAll(">=", "≥");
 
+            line = line.replaceAll("\ae", "æ").replaceAll("\th", "θ").replaceAll("\dh", "θ").replaceAll("\h", "ʰ").replaceAll("\:", "ː");
+
             // italics, bold, and bold italics (not maximally efficient, also issues with cases like "*cat and **dog***", don't care)
             let index = 0;
             
@@ -197,7 +199,13 @@ You can make text *italicized*, **bold**, or ***both***.
 
 ## Ligatures
 
+### Computing
+
 <-, ->, !=, <=, >=
+
+### Linguistics
+
+\ae, \th, \dh, \h, \:
 
 ## Lists
 
