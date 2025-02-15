@@ -162,7 +162,7 @@
                     passage += `<li>${ processInline(2, line) }</li>`;
                     passageType = 1;
                 } else {
-                    passage += line;
+                    passage += processInline(0, line);
                     passageType = 0;
                 }
             }
