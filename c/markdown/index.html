@@ -187,8 +187,14 @@
                 
                 if (passageType === 0) {
                     out.innerHTML += `<p>${ passage }</p>`;
-                } else if (passageType === 1) {
+                } else if (passageType === 1 || passageType === 2 || passageType === 3) {
                     out.innerHTML += `<ul>${ passage }</ul>`;
+                } else if (passageType === 4) {
+                    out.innerHTML += `<blockquote>${ passage }</blockquote>`;
+                } else if (passageType === 5) {
+                    out.innerHTML += `<pre class="sourceCode numberSource numberLines"><code class="sourceCode">${ passage }</code></pre>`;
+                } else {
+                    out.innerHTML += `<p style="color: red; font-weight: bold;">${ passage }</p>`; // this only happens if I forgot to handle a type
                 }
             }
         }
@@ -220,6 +226,12 @@ You can make text *italicized*, **bold**, or ***both***.
 ### Linguistics
 
 \ae, \th, \dh, \h, \:
+
+## Code
+
+| if (expression):
+|     print "yes"
+| print "done"
 
 ## Lists
 
@@ -273,6 +285,7 @@ Cats are commonly kept as a pet and farm cat, but also ranges freely
     </div>
 
     <div id="document">
+        <link rel="stylesheet" href="codeblock.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
         
