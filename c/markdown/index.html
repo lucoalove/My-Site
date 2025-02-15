@@ -32,7 +32,7 @@
             line = line.substring(prefixClip);
             
             // replace ligatures
-            line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠");
+            line = line.replaceAll("<-", "←").replaceAll("->", "→").replaceAll("!=", "≠").replaceAll("<=", "≤").replaceAll(">=", "≥");
 
             // italics, bold, and bold italics (not maximally efficient, don't care)
             let index = 0;
