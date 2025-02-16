@@ -9,7 +9,7 @@
         body { font-family: "Hind", sans-serif; width: 30em; }
 
         h1 { font-size: 5em; background: linear-gradient(to right, #74B, #BB225E); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
+        h2 { margin-bottom: 0; font-size: 1.2em; }
         
         article { display: flex; gap: 0.5em; flex-direction: column; }
         
@@ -18,10 +18,8 @@
         .post               > img { width: 4em; border-radius: 4px; }
         .post:first-of-type > img { width: 8em; }
         
-        .post > div { flex: 1; }
-        .post > div .body        { position:relative; font-weight: 700; background: #eee; padding: 1em; border-radius: 4px; }
-        .post > div .body:before { content: ""; position: absolute; width: 0; height: 0; border: 10px solid #eee; top: 0px; left: -10px; border-bottom-color: transparent; border-left-color: transparent; }
-        .post > div .meta { color: grey; }
+        .post > div        { flex: 1; position: relative; font-weight: 700; background: #eee; padding: 1em; border-radius: 4px; }
+        .post > div:before { content: ""; position: absolute; width: 0; height: 0; border: 10px solid #eee; top: 0px; left: -10px; border-bottom-color: transparent; border-left-color: transparent; }
     </style>
 </head>
 <body>
@@ -29,28 +27,27 @@
 <!--     each post is at most 80ch and has no line breaks -->
 
     <article>
+
+        <h2>SashaTweakin just said...</h2>
     
         <div class="post">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrl8h85LDtIu1jvRjh0VIlFWnSQi-m7bhcg&s">
             <div>
-                <div class="body">I had the worst day today. I woke up, and suddenly, my peenor busted! GROSS UGH</div>
-                <div class="meta">@sashatweakin / 10m</div>
+                I had the worst day today. I woke up, and suddenly, my peenor busted! GROSS UGH
             </div>
         </div>
 
         <div class="post">
             <img src="https://i.pinimg.com/550x/a8/47/9a/a8479a922b151b03df56a6db105dc5dd.jpg">
             <div>
-                <div class="body">bro wtf</div>
-                <div class="meta">@asukaenjoyer / 9m</div>
+                bro wtf
             </div>
         </div>
 
         <div class="post">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrl8h85LDtIu1jvRjh0VIlFWnSQi-m7bhcg&s">
             <div>
-                <div class="body">kill yourself</div>
-                <div class="meta">@sashatweakin / 2m</div>
+                kill yourself
             </div>
         </div>
 
