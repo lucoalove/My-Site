@@ -7,24 +7,37 @@
         @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
         body { font-family: "Hind", sans-serif; }
+
+        article { display: flex; gap: 1em; flex-direction: column; width: 30em; }
+        .post { display: flex; gap: 1em; }
+        .post img { width: 4em; border-radius: 4px; }
+        .post:first-of-type img { width: 8em; }
+        .post div { flex: 1; font-weight: 700; }
     </style>
 </head>
 <body>
     each post is at most 80ch and has no line breaks
 
-    <article style="display: flex; gap: 1em; flex-direction: column; width: 30em;">
+    <article>
     
-        <div style="display: flex; gap: 1em;">
-            <img style="width: 8em; border-radius: 4px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrl8h85LDtIu1jvRjh0VIlFWnSQi-m7bhcg&s">
-            <div style="flex: 1; font-weight: 700;">
+        <div class="post">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrl8h85LDtIu1jvRjh0VIlFWnSQi-m7bhcg&s">
+            <div>
                 I had the worst day today. I woke up, and suddenly, my peenor busted! GROSS UGH
             </div>
         </div>
 
-        <div style="display: flex; gap: 1em;">
-            <img style="width: 4em; border-radius: 4px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrl8h85LDtIu1jvRjh0VIlFWnSQi-m7bhcg&s">
-            <div style="flex: 1; font-weight: 700;">
+        <div class="post">
+            <img src="https://photoshulk.com/wp-content/uploads/dark-anime-pfp.jpg">
+            <div>
                 bro wtf
+            </div>
+        </div>
+
+        <div class="post">
+            <img src="https://i.pinimg.com/550x/a8/47/9a/a8479a922b151b03df56a6db105dc5dd.jpg">
+            <div>
+                kill yourself
             </div>
         </div>
 
