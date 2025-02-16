@@ -10,13 +10,13 @@
 
         article { display: flex; gap: 1em; flex-direction: column; width: 30em; }
         
-        .post { display: flex; gap: 1em; }
+        .post { display: flex; gap: 1em; align-items: flex-start; }
         
-        .post > img { width: 4em; border-radius: 4px; }
-        .post:first-of-type img { width: 8em; }
+        .post               > img { width: 4em; border-radius: 4px; }
+        .post:first-of-type > img { width: 8em; }
         
         .post > div { flex: 1; }
-        .post > div .body { font-weight: 700; }
+        .post > div .body { font-weight: 700; background: #eee; padding: 1em; border-radius: 4px; }
         .post > div .meta { color: grey; }
     </style>
 </head>
