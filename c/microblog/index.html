@@ -16,7 +16,8 @@
         .post:first-of-type > img { width: 8em; }
         
         .post > div { flex: 1; }
-        .post > div .body { font-weight: 700; background: #eee; padding: 1em; border-radius: 4px; }
+        .post > div .body        { position:relative; font-weight: 700; background: #eee; padding: 1em; border-radius: 4px; }
+        .post > div .body:before { content: ""; position: absolute; width: 0; height: 0; border: 10px solid #eee; top: 0px; left: -10px; border-bottom-color: transparent; border-left-color: transparent; }
         .post > div .meta { color: grey; }
     </style>
 </head>
