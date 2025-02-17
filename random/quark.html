@@ -7,29 +7,17 @@
 
 <body>
     <h1>Quark</h1>
-    <p>Compiles to C. Tuple obsessed.</p>
+    <p>Compiles to C.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
-int variable = 10;
-
-(int, string) tuple1 = (2, "hat");
-(int, string) tuple2 = (10, 20);
-
-int[] list = undefined;
-list = int[10, 20, 30];
-list = int[lengthof variable with 5];
-
-int add_function<-(int a, int b) = {
+func gizmo = int a, int b -> int {
     return a + b;
 }
 
-add_function<-(10, 20);
-add_function<-tuple2;
+int variable = gizmo(10, 20);
 
-(int, int) swap<-(int a, int b) = {
-    return (b, a);
+func apply_twice = func(int, int -> int) function, int a, int b -> int {
+    return function(function(a, b));
 }
-
-tuple2 = swap<-tuple2;
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
