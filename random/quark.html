@@ -7,8 +7,9 @@
         body { width: 50em; margin: auto; }
         pre { padding: 1em; border: 1px solid grey; }
 
-        red { color: red; }
-        blue { color: blue; }
+        red { color: #d24; }
+        blue { color: #05e; }
+        grey { color: grey; }
     </style>
 </head>
 
@@ -24,12 +25,12 @@
     <pre>
         
 <red>bytes</red> <blue>data</blue> = <red>allocate</red> 1024;
-data[0] = "cats";
-data[sizeof "cats"] = " and dogs";
+<blue>data</blue>[0] = "cats";
+<blue>data</blue>[<red>sizeof</red> "cats"] = " and dogs";
 
-print("%s", data); // "cats and dogs"
+print("%s", <blue>data</blue>); <grey>// "cats and dogs"</grey>
 
-char first_letter = data[0]; // 'c'
+<red>char</red> <blue>first_letter</blue> = <blue>data</blue>[0]; <grey>// 'c'</grey>
     </pre>
 
     <pre>
