@@ -6,10 +6,9 @@
 </head>
 
 <body>
-    <pre>
-Compiles to C
-
-quark
+    <h1>Quark</h1>
+    <p>Compiles to C</p>
+    <pre style="padding: 1em; border: 1px solid grey;">
 int variable = 10;
 
 (int, string) tuple = (2, "hat");
@@ -18,9 +17,11 @@ int[] list = undefined;
 list = int[10, 20, 30];
 list = int[lengthof variable];
 
-(int a, int b)=>int function = {
+(int a, int b)=>int add_function = {
     return a + b;
 }
+
+add_function(10, 20);
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
