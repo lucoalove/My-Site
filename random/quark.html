@@ -3,18 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>QuarkLang</title>
+    <style>
+        pre { padding: 1em; border: 1px solid grey; }
+    </style>
 </head>
 
 <body>
     <h1>Quark</h1>
-    <p>Low level C alternative. Memory safe.</p>
-    <pre style="padding: 1em; border: 1px solid grey;">
+    <p>Low level, memory safe C alternative. You want to manage raw binary? We got you covered.</p>
+
+    <p>The new "bytes" type stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. When you index it, you shift this cursor over by the indexed number of bytes.</p>
+    
+    <pre>
+        
 bytes data = allocate 1024b;
 data[0] = "cats";
 data[sizeof "cats"] = " and dogs";
 
 print("%s", data); // "cats and dogs"
     </pre>
+
+    <pre>
+
+bytes data = allocate 1024b;
+bytes portion = data[5 int];
+
+// all three of these assignments have the same result
+data[sizeof int * 5] = 20;
+data[5 int] = 20;
+portion[0] = 20;
+    </pre>
+    
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
 
