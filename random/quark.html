@@ -7,17 +7,12 @@
 
 <body>
     <h1>Quark</h1>
-    <p>Compiles to C.</p>
+    <p>Compiles to C. Low level with QoL. Memory safe.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
-func gizmo = int a, int b -> int {
-    return a + b;
-}
+string color = "red";
+reference string color_ref = reference color;
 
-int variable = gizmo(10, 20);
-
-func apply_twice = func(int, int -> int) function, int a, int b -> int {
-    return function(function(a, b));
-}
+print(valueat color_ref); // "red"
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
