@@ -9,24 +9,27 @@
     <h1>Quark</h1>
     <p>Compiles to C. Low level with QoL. Memory safe. Everything is pass by reference.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
-{ int:a, int: b, int: out } process1 = {
-    out = a + b;
-}
-        
-functype Process {
+// functions
+
+functype DoSomething {
     int: a,
     int: b,
     int: out
 };
 
-Process process2 = {
+DoSomething my_function = {
+    out = a + b;
+}
+
+// abstract functions (no type)
+
+{ int:a, int: b, int: out } my_abstract_function = {
     out = a + b;
 }
 
 int my_var;
-
-process1(10, 20, my_var);
-process2(10, 20, my_var); // same result
+my_function(10, 20, my_var);
+my_abstract_function(10, 20, my_var); // same result
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
