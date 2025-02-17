@@ -7,17 +7,26 @@
 
 <body>
     <h1>Quark</h1>
-    <p>Compiles to C. Low level with QoL. Memory safe.</p>
+    <p>Compiles to C. Low level with QoL. Memory safe. Everything is pass by reference.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
-// variables and reference variables
+{ int:a, int: b, int: out } process1 = {
+    out = a + b;
+}
         
-string color = "red";
-reference string color_ref = reference color;
+functype Process {
+    int: a,
+    int: b,
+    int: out
+};
 
-print(color);             // "red"
-print(valueat color_ref); // "red"
+Process process2 = {
+    out = a + b;
+}
 
-// functions
+int my_var;
+
+process1(10, 20, my_var);
+process2(10, 20, my_var); // same result
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
