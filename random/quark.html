@@ -12,11 +12,14 @@
     <h1>Quark</h1>
     <p>Low level, memory safe C alternative. You want to manage raw binary? We got you covered.</p>
 
+    <hr>
+
     <p>The new "bytes" type stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. When you index it, you shift this cursor over by the indexed number of bytes.</p>
+    <p>The "sizeof" operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS.</p>
     
     <pre>
         
-bytes data = allocate 1024b;
+bytes data = allocate 1024;
 data[0] = "cats";
 data[sizeof "cats"] = " and dogs";
 
@@ -25,7 +28,7 @@ print("%s", data); // "cats and dogs"
 
     <pre>
 
-bytes data = allocate 1024b;
+bytes data = allocate 1024;
 bytes portion = data[5 int];
 
 // all three of these assignments have the same result
