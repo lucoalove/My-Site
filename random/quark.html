@@ -6,6 +6,9 @@
     <style>
         body { width: 50em; margin: auto; }
         pre { padding: 1em; border: 1px solid grey; }
+
+        red { color: red; }
+        blue { color: blue; }
     </style>
 </head>
 
@@ -20,7 +23,7 @@
     
     <pre>
         
-bytes data = allocate 1024;
+<red>bytes</red> <blue>data</blue> = <red>allocate</red> 1024;
 data[0] = "cats";
 data[sizeof "cats"] = " and dogs";
 
@@ -39,8 +42,6 @@ data[sizeof int * 5] = 20;
 data[5 int] = 20;
 portion[0] = 20;
     </pre>
-    
-    <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
 
 </html>
