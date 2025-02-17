@@ -7,7 +7,7 @@
 
 <body>
     <h1>Quark</h1>
-    <p>Compiles to C</p>
+    <p>Compiles to C. Tuple obsessed.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
 int variable = 10;
 
@@ -18,12 +18,18 @@ int[] list = undefined;
 list = int[10, 20, 30];
 list = int[lengthof variable with 5];
 
-(int a, int b)->int add_function = {
+int add_function<-(int a, int b) = {
     return a + b;
 }
 
 add_function<-(10, 20);
 add_function<-tuple2;
+
+(int, int) swap<-(int a, int b) = {
+    return (b, a);
+}
+
+tuple2 = swap<-tuple2;
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
