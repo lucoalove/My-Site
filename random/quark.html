@@ -30,6 +30,7 @@
 <blue>data</blue>[<red>sizeof</red> <green>"cats"</green>] <- <green>" and dogs"</green>;
 
 print(<green>"%s"</green>, <blue>data</blue>); <grey>// "cats and dogs"</grey>
+print(<green>"%c"</green>, <blue>data</blue>); <grey>// 'c'</grey>
 
 <red>char</red> <blue>first_letter</blue> <- <blue>data</blue>; <grey>// 'c'</grey>
     </pre>
@@ -37,9 +38,9 @@ print(<green>"%s"</green>, <blue>data</blue>); <grey>// "cats and dogs"</grey>
     <pre>
 
 <red>bytes</red> <blue>data</blue> = <red>allocate</red> <green>1024</green>;
-bytes portion = data[5 int];
+<red>bytes</red> <blue>portion</blue> = <blue>data</blue>[<green>5</green> <red>int</red>];
 
-// all three of these assignments have the same result
+<grey>// all three of these assignments have the same result</grey>
 data[sizeof int * 5] <- 20;
 data[5 int] <- 20;
 portion <- 20;
