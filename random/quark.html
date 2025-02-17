@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>QuarkLang</title>
     <style>
+        body { width: 50em; margin: auto; }
         pre { padding: 1em; border: 1px solid grey; }
     </style>
 </head>
@@ -24,6 +25,8 @@ data[0] = "cats";
 data[sizeof "cats"] = " and dogs";
 
 print("%s", data); // "cats and dogs"
+
+char first_letter = data[0]; // 'c'
     </pre>
 
     <pre>
