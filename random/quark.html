@@ -21,6 +21,7 @@
     <hr>
 
     <p>The new "bytes" type stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. Indexing a bytes returns a new bytes with its cursor shifted. The "<-" operator copies memory to and from bytes.</p>
+    <p>The "allocate" operator returns a new bytes with the size of the argument (int).</p>
     <p>The "sizeof" operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS.</p>
     
     <pre>
@@ -41,9 +42,9 @@ print(<green>"%c"</green>, <blue>data</blue>); <grey>// 'c'</grey>
 <red>bytes</red> <blue>portion</blue> = <blue>data</blue>[<green>5</green> <red>int</red>];
 
 <grey>// all three of these assignments have the same result</grey>
-data[sizeof int * 5] <- 20;
-data[5 int] <- 20;
-portion <- 20;
+<blue>data</blue>[<red>sizeof int</red> * <green>5</green>] <- <green>20</green>;
+<blue>data</blue>[<green>5</green> int] <- <green>20</green>;
+<blue>portion</blue> <- <green>20</green>;
     </pre>
 </body>
 
