@@ -9,6 +9,7 @@
 
         red { color: #d24; }
         blue { color: #05e; }
+        green { color: green; }
         grey { color: grey; }
     </style>
 </head>
@@ -19,18 +20,18 @@
 
     <hr>
 
-    <p>The new "bytes" type stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. When you index it, you shift this cursor over by the indexed number of bytes.</p>
+    <p>The new "bytes" type stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. Indexing a bytes returns a new bytes with its cursor shifted.</p>
     <p>The "sizeof" operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS.</p>
     
     <pre>
         
-<red>bytes</red> <blue>data</blue> = <red>allocate</red> 1024;
-<blue>data</blue>[0] = "cats";
-<blue>data</blue>[<red>sizeof</red> "cats"] = " and dogs";
+<red>bytes</red> <blue>data</blue> = <red>allocate</red> <green>1024</green>;
+<blue>data</blue> = <green>"cats"</green>;
+<blue>data</blue>[<red>sizeof</red> <green>"cats"</green>] = <green>" and dogs"</green>;
 
-print("%s", <blue>data</blue>); <grey>// "cats and dogs"</grey>
+print(<green>"%s"</green>, <blue>data</blue>); <grey>// "cats and dogs"</grey>
 
-<red>char</red> <blue>first_letter</blue> = <blue>data</blue>[0]; <grey>// 'c'</grey>
+<red>char</red> <blue>first_letter</blue> = <blue>data</blue>; <grey>// 'c'</grey>
     </pre>
 
     <pre>
@@ -41,7 +42,7 @@ bytes portion = data[5 int];
 // all three of these assignments have the same result
 data[sizeof int * 5] = 20;
 data[5 int] = 20;
-portion[0] = 20;
+portion = 20;
     </pre>
 </body>
 
