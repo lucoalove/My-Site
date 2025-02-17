@@ -7,29 +7,13 @@
 
 <body>
     <h1>Quark</h1>
-    <p>Compiles to C. Low level with QoL. Memory safe. Everything is pass by reference.</p>
+    <p>Low level C alternative. Memory safe.</p>
     <pre style="padding: 1em; border: 1px solid grey;">
-// functions
+bytes data = allocate 1024b;
+data[0] = "cats";
+data[sizeof "cats"] = " and dogs";
 
-functype DoSomething {
-    int: a,
-    int: b,
-    int: out
-};
-
-DoSomething my_function = {
-    out = a + b;
-}
-
-// abstract functions (no type)
-
-{ int:a, int: b, int: out } my_abstract_function = {
-    out = a + b;
-}
-
-int my_var;
-my_function(10, 20, my_var);
-my_abstract_function(10, 20, my_var); // same result
+print("%s", data); // "cats and dogs"
     </pre>
     <img height="200" src="https://pbs.twimg.com/media/Gj3_ZWhasAE4V9D?format=jpg&name=medium">
 </body>
