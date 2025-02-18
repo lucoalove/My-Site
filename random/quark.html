@@ -22,7 +22,7 @@
     <pre>
 <red>*</red> <blue>element</blue> = <blue>document</blue>.<purple>body</purple>;
 
-<red>for</red> <blue>child</blue> <red>in</red> <blue>element</blue> {
+<red>match</red> <blue>child</blue> <red>in</red> <blue>element</blue> {
     <red>p</red> {
         <blue>child</blue>.<purple>innerText</purple> = <green>"Hello world!"</green>;
     }
@@ -32,14 +32,14 @@
 }</pre>
     
     <pre>
-my_template(title, body) = `
+<blue>my_template</blue>(<blue>title</blue>, <blue>body</blue>) {
     <article>
-        <h1>${ title }</h1>
-        <p>${ body }</p>
+        <h1>${ <blue>title</blue> }</h1>
+        <p>${ <blue>body</blue> }</p>
     </article>
-`;
+};
 
-document.body push my_template("My Headline", "Lorem ipsum dolor sit amet.");
+<blue>document</blue>.<purple>body</purple> <red>push</red> <blue>my_template</blue>(<green>"My Headline"</green>, <green>"Lorem ipsum dolor sit amet."</green>);
     </pre>
 </body>
 
