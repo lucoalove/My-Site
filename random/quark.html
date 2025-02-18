@@ -20,8 +20,9 @@
     <h1>Quark</h1>
     <p>High level Document Object Model processing language.</p>
 
+    <p>Matching.</p>
     <pre>
-<red>element<*></red> <blue>my_element</blue> = <blue>document</blue>.<purple>body</purple>;
+<red>element</red>&lt;<red>*</red>&gt; <blue>my_element</blue> = <blue>document</blue>.<purple>body</purple>;
 
 <red>match</red> <blue>child</blue> <red>of</red> <blue>my_element</blue> {
     <red>p</red> {
@@ -32,7 +33,8 @@
     }
 }
 </pre>
-    
+
+    <p>Templates.</p>
     <pre>
 <red>template</red> <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
     &lt;article>
@@ -44,7 +46,7 @@
 <blue>document</blue>.<purple>body</purple> <red>push</red> <orange>my_template</orange>(<green>"My Headline"</green>, <green>"Lorem ipsum dolor sit amet."</green>);
     </pre>
 
-    
+    <p>Functions.</p>
     <pre>
 <red>function</red> <orange>my_function</orange>(<red>int</red> <blue>x</blue>) {
     
