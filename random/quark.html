@@ -8,6 +8,7 @@
         pre { padding: 1em; border: 1px solid grey; }
 
         red { color: #d24; }
+        orange { color: orange; }
         blue { color: #05e; }
         purple { color: purple; }
         green { color: green; }
@@ -32,14 +33,21 @@
 }</pre>
     
     <pre>
-<red>my_template</red>(<blue>title</blue>, <blue>body</blue>) {<green>
+<red>template</red> <orange>my_template</orange>(<blue>title</blue>, <blue>body</blue>) {<green>
     &lt;article>
         &lt;h1></green>${ <blue>title</blue> }<green>&lt;/h1>
         &lt;p></green>${ <blue>body</blue> }<green>&lt;/p>
     &lt;/article></green>
-};
+}
 
-<blue>document</blue>.<purple>body</purple> <red>push</red> <red>my_template</red>(<green>"My Headline"</green>, <green>"Lorem ipsum dolor sit amet."</green>);
+<blue>document</blue>.<purple>body</purple> <red>push</red> <orange>my_template</orange>(<green>"My Headline"</green>, <green>"Lorem ipsum dolor sit amet."</green>);
+    </pre>
+
+    
+    <pre>
+<red>function</red> <orange>my_function</orange>(<blue>x</blue>) {
+    
+}
     </pre>
 </body>
 
