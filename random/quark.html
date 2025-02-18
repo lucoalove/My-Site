@@ -51,11 +51,15 @@ print(<green>"%c"</green>, <blue>data</blue>); <grey>// 'c'</grey>
 
     <h2>Functions</h2>
 
-    <p>Just as in C, functions in Quark are always pass by value.</p>
+    <p>Just as in C, function parameters in Quark are always pass by value. Also, you can store references to functions in variables.</p>
 
     <pre>
         
-bruh
+int foo(int x, int y) {
+    return x + y;
+}
+
+(int,int->int) bar = foo;
     </pre>
 </body>
 
