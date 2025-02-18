@@ -19,11 +19,11 @@
     <p>High level Document Object Model processing language.</p>
 
     <pre>
-<red>*</red> <blue>element</blue> = document.body;
+<red>*</red> <blue>element</blue> = <blue>document</blue>.<blue>body</blue>;
 
 <red>for</red> <blue>child</blue> <red>in</red> <blue>element</blue> {
     <red>p</red> {
-        child.innerText = "Hello world!";
+        <blue>child</blue>.<blue>innerText</blue> = <green>"Hello world!"</green>;
     }
     <red>*</red> {
         <red>pop</red> <blue>child</blue>;
