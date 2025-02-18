@@ -22,7 +22,7 @@
 
     <p>The new <strong>bytes</strong> type (which replaces pointers) stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. Indexing a bytes returns a new bytes with its cursor shifted. The "<-" operator copies memory to and from bytes.</p>
     <p>The <strong>allocate</strong> operator returns a new bytes with the size of the argument (int).</p>
-    <p>The <strong>sizeof</strong> operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS. When used on a bytes variable it returns the size of the allocation. When used on the bytes type it returns the size of the three addresses it relies on.</p>
+    <p>The <strong>sizeof</strong> operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS. When used on a bytes <i>variable</i> it returns the size of the allocation. When used on the bytes <i>type</i> it returns the size of three addresses (which is what a bytes variable is stored as).</p>
     
     <pre>
         
@@ -51,7 +51,10 @@ print(<green>"%c"</green>, <blue>data</blue>); <grey>// 'c'</grey>
 
     <h2>Functions</h2>
 
+    <p>Just as in C, functions in Quark are always pass by value.</p>
+
     <pre>
+        
 bruh
     </pre>
 </body>
