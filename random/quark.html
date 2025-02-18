@@ -16,28 +16,17 @@
 
 <body>
     <h1>Quark</h1>
-    <p>High level data processing language.</p>
+    <p>High level Document Object Model processing language.</p>
 
     <pre>
-<red>type MyType</red> {
-    x: <red>int</red>,
-    y: <red>int</red>
-}
-        
-<red>List</red> <blue>my_list</blue>;
+<red>*</red> <blue>element</blue> = document.body;
 
-<green>100</green> -> <red>MyType</red>(<green>10</green>, <green>20</green>) -> <green>"cats"</green> -> <green>20.0</green> -> <green>10</green> -> <blue>my_list</blue>;
-
-<red>for</red> <blue>element</blue> <red>in</red> <blue>my_list</blue> {
-    <red>Int</red> {
-        <blue>element</blue> /= <green>10</green>;
-    }
-    <red>MyType</red> {
-        <blue>element</blue> = <blue>element</blue>.x;
+<red>for</red> <blue>child</blue> <red>in</red> <blue>element</blue> {
+    <red>p</red> {
+        child.innerText = "Hello world!";
     }
     <red>*</red> {
-        print(<blue>element</blue>);
-        <red>pop</red> <blue>element</blue>;
+        <red>pop</red> <blue>child</blue>;
     }
 }</pre>
 </body>
