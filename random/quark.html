@@ -10,7 +10,7 @@
         red { color: #d24; }
         orange { color: #d72; }
         blue { color: #05e; }
-        purple { color: purple; }
+        purple { color: #32a; }
         green { color: green; }
         grey { color: grey; }
     </style>
@@ -21,9 +21,9 @@
     <p>High level Document Object Model processing language.</p>
 
     <pre>
-<red>*</red> <blue>element</blue> = <blue>document</blue>.<purple>body</purple>;
+<red>element<*></red> <blue>my_element</blue> = <blue>document</blue>.<purple>body</purple>;
 
-<red>match</red> <blue>child</blue> <red>of</red> <blue>element</blue> {
+<red>match</red> <blue>child</blue> <red>of</red> <blue>my_element</blue> {
     <red>p</red> {
         <blue>child</blue>.<purple>innerText</purple> = <green>"Hello world!"</green>;
     }
@@ -34,7 +34,7 @@
 </pre>
     
     <pre>
-<red>template</red> <orange>my_template</orange>(<blue>title</blue>, <blue>body</blue>) {<green>
+<red>template</red> <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
     &lt;article>
         &lt;h1></green>${ <blue>title</blue> }<green>&lt;/h1>
         &lt;p></green>${ <blue>body</blue> }<green>&lt;/p>
@@ -46,7 +46,7 @@
 
     
     <pre>
-<red>function</red> <orange>my_function</orange>(<blue>x</blue>) {
+<red>function</red> <orange>my_function</orange>(<red>int</red> <blue>x</blue>) {
     
 }
     </pre>
