@@ -18,11 +18,11 @@
     <h1>Quark</h1>
     <p>Low level, memory safe C alternative. You want to manage raw binary? We got you covered.</p>
 
-    <hr>
+    <h2>The Bytes Type</h2>
 
-    <p>The new "bytes" type (which replaces pointers) stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. Indexing a bytes returns a new bytes with its cursor shifted. The "<-" operator copies memory to and from bytes.</p>
-    <p>The "allocate" operator returns a new bytes with the size of the argument (int).</p>
-    <p>The "sizeof" operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS. When used on a bytes variable it returns the size of the allocation. When used on the bytes type it returns the size of a bytes variable, which corresponds to the size of the three addresses it stores.</p>
+    <p>The new <strong>bytes</strong> type (which replaces pointers) stores its start and end position in memory, preventing you from performing IO outside of allocated space. Additionally, it stores a "cursor" pointing towards the beginning of its memory. Indexing a bytes returns a new bytes with its cursor shifted. The "<-" operator copies memory to and from bytes.</p>
+    <p>The <strong>allocate</strong> operator returns a new bytes with the size of the argument (int).</p>
+    <p>The <strong>sizeof</strong> operator returns the size of the argument (variable or datatype) in bytes as an integer. Remember that different datatypes may have different sizes depending on the OS. When used on a bytes variable it returns the size of the allocation. When used on the bytes type it returns the size of the three addresses it relies on.</p>
     
     <pre>
         
@@ -48,6 +48,12 @@ print(<green>"%c"</green>, <blue>data</blue>); <grey>// 'c'</grey>
     </pre>
 
     <p>You can already see how this bytes type already covers the function of strings, arrays, tuples, and unions.</p>
+
+    <h2>Functions</h2>
+
+    <pre>
+bruh
+    </pre>
 </body>
 
 </html>
