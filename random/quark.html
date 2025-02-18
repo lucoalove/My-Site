@@ -16,17 +16,17 @@
 
 <body>
     <h1>Quark</h1>
-    <p>High level, data processing language.</p>
+    <p>High level data processing language.</p>
 
     <pre>
-list my_list;
+<red>list</red> <blue>my_list</blue>;
 
-100 & "cats" & 20 & 10 & my_list;
+<green>100</green> & <green>"cats"</green> & <green>20.0</green> & <green>10</green> & <blue>my_list</blue>;
 
-for element in my_list
-| string -> { print(element);        }
-| int    -> { element /= 10;         }
-| _      -> { print("invalid type"); }
+<red>for</red> <blue>element</blue> <red>in</red> <blue>my_list</blue>
+| <red>string</red> -> { print(<blue>element</blue>);        }
+| <red>int</red>    -> { <blue>element</blue> /= <green>10</green>;         }
+| <red>_</red>      -> { <red>pop</red> <blue>element</blue>;           }
 |;
     </pre>
 </body>
