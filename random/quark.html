@@ -22,13 +22,16 @@
 
     <h2>Element Matching</h2>
     <pre>
-<red>element</red>&lt;<red>*</red>&gt; <blue>my_element</blue> = <blue>document</blue>.<purple>body</purple>;
+<red>element</red> <blue>my_element</blue> = <blue>document</blue>.<purple>body</purple>;
 
 <red>match</red> <blue>child</blue> <red>of</red> <blue>my_element</blue> {
-    <red>p</red> {
+    <green>"p"</green> {
         <blue>child</blue>.<purple>innerText</purple> = <green>"Hello world!"</green>;
     }
-    <red>*</red> {
+    <green>"img[src='/cat.png']"</green> {
+        <blue>child</blue>.<purple>src</purple> = <green>"/dog.png"</green>;
+    }
+    <green>"*"</green> {
         <red>pop</red> <blue>child</blue>;
     }
 }
@@ -37,7 +40,7 @@
     <h2>Templates</h2>
     <p>Will return the content of the template wrapped in the specified element type.</p>
     <pre>
-<red>template</red>&lt;<red>article</red>&gt; <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
+<red>templateof</red> <green>"article"</green> <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
     &lt;h1></green>${ <blue>title</blue> }<green>&lt;/h1>
     &lt;p></green>${ <blue>body</blue> }<green>&lt;/p></green>
 }
