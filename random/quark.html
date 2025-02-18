@@ -20,9 +20,9 @@
 
     <pre>
 
-type MyType = {
-    x: int,
-    y: int
+<red>type MyType</red> = {
+    x: <red>int</red>,
+    y: <red>int</red>
 }
         
 <red>List</red> <blue>my_list</blue>;
@@ -30,9 +30,9 @@ type MyType = {
 <green>100</green> & <red>MyType</red>(<green>10</green>, <green>20</green>) & <green>"cats"</green> & <green>20.0</green> & <green>10</green> & <blue>my_list</blue>;
 
 <red>for</red> <blue>element</blue> <red>in</red> <blue>my_list</blue>
-| <red>Int</red>    -> { <blue>element</blue> /= <green>10</green>;       }
-| <red>MyType</red> -> { <blue>element</blue> = <blue>element</blue>.x; }
-| <red>_</red> -> { print(<blue>element</blue>); <red>pop</red> <blue>element</blue>; }
+| <red>Int</red>    -> { <blue>element</blue> /= <green>10</green>;               }
+| <red>MyType</red> -> { <blue>element</blue> = <blue>element</blue>.x;         }
+| <red>_</red>      -> { print(<blue>element</blue>); <red>pop</red> <blue>element</blue>; }
 |;
     </pre>
 </body>
