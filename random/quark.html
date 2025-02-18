@@ -30,6 +30,17 @@
         <red>pop</red> <blue>child</blue>;
     }
 }</pre>
+    
+    <pre>
+my_template(title, body) = `
+    <article>
+        <h1>${ title }</h1>
+        <p>${ body }</p>
+    </article>
+`;
+
+document.body push my_template("My Headline", "Lorem ipsum dolor sit amet.");
+    </pre>
 </body>
 
 </html>
