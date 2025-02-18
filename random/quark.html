@@ -19,17 +19,15 @@
     <p>High level, data processing language.</p>
 
     <pre>
-        list my_list;
+list my_list;
 
-        10 & my_list;
-        20 & my_list;
-        "cats" & my_list;
+100 & "cats" & 20 & 10 & my_list;
 
-        for element in my_list
-        | string -> { print(element);        }
-        | int    -> { element /= 10;         }
-        | _      -> { print("invalid type"); }
-        |;
+for element in my_list
+| string -> { print(element);        }
+| int    -> { element /= 10;         }
+| _      -> { print("invalid type"); }
+|;
     </pre>
 </body>
 
