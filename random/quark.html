@@ -35,13 +35,11 @@
 </pre>
 
     <h2>Templates</h2>
-    <p>The body of a template must be well-formed HTML and contain only a single parent element.</p>
+    <p>Will return the content of the template wrapped in the specified element type.</p>
     <pre>
-<red>template</red> <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
-    &lt;article>
-        &lt;h1></green>${ <blue>title</blue> }<green>&lt;/h1>
-        &lt;p></green>${ <blue>body</blue> }<green>&lt;/p>
-    &lt;/article></green>
+<red>template</red>&lt;<red>article</red>&gt; <orange>my_template</orange>(<red>string</red> <blue>title</blue>, <red>string</red> <blue>body</blue>) {<green>
+    &lt;h1></green>${ <blue>title</blue> }<green>&lt;/h1>
+    &lt;p></green>${ <blue>body</blue> }<green>&lt;/p></green>
 }
 
 <blue>document</blue>.<purple>body</purple> <red>push</red> <orange>my_template</orange>(<green>"My Headline"</green>, <green>"Lorem ipsum dolor sit amet."</green>);
