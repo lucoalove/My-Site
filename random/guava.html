@@ -8,8 +8,10 @@
     <p>Guava is a game engine script (like Lua is to Roblox) that implements a pure Entity Component System (no inheritance, no OOP)</p>
 
     <pre>
-if (myObject has MeshRenderer):
-(myObject as MeshRenderer).mesh = myMesh
+Entity player = world.getEntity("player")
+
+if (player has MeshRenderer):
+    (player as MeshRenderer).opacity = 0.5
     </pre>
 </body>
 
