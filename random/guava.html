@@ -13,10 +13,14 @@
 
     <fieldset>
         <legend>player.gv</legend>
-Entity player = world.getChild("player")
 
-if (player exists and player has MeshRenderer):
-    (player as MeshRenderer).opacity = 0.5
+external void update() {
+    
+    Entity player = world.getChild("player")
+    
+    if (player != null and player has MeshRenderer):
+        (player as MeshRenderer).opacity = 0.5
+}
 
     </fieldset>
 </body>
