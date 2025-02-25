@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Guava</title>
     <style>
+        body { font-family: sans-serif; }
         fieldset { white-space: pre; font-family: monospace; }
     </style>
 </head>
@@ -14,7 +15,7 @@
         <legend>player.gv</legend>
 Entity player = world.getChild("player")
 
-if (player has MeshRenderer):
+if (player exists and player has MeshRenderer):
     (player as MeshRenderer).opacity = 0.5
 
     </fieldset>
