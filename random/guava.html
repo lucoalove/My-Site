@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Guava</title>
+    <style>
+        fieldset { whitespace: pre; font-family: monospace; }
+    </style>
 </head>
 <body>
-    <p>Guava is a game engine script (like Lua is to Roblox) that implements a pure Entity Component System (no inheritance, no OOP)</p>
+    <p><strong>Guava</strong> is a game engine script (like Lua is to Roblox) that implements a pure Entity Component System (no inheritance, no OOP)</p>
 
-    <pre>
-Entity player = world.getEntity("player")
+    <fieldset>
+        <legend>player.gv</legend>
+        
+Entity player = world.getChild("player")
 
 if (player has MeshRenderer):
     (player as MeshRenderer).opacity = 0.5
-    </pre>
+    </fieldset>
 </body>
 
 </html>
