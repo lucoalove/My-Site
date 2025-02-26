@@ -43,10 +43,10 @@
 
             for (let i = 0; i < 3; i++) {
 
-                for (let j = 0; j < 10; i++) {
+                for (let j = 0; j < 10; j++) {
 
                     spinnerElement.innerText = spinner + icons[Math.floor(Math.random() * icons.length)];
-                    await sleep(100);
+                    await sleep(50);
                 }
                 
                 spinner += icons[Math.floor(Math.random() * icons.length)];
