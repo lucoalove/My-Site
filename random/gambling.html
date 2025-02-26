@@ -45,7 +45,7 @@
 
                 for (let j = 0; j < 10; j++) {
 
-                    spinnerElement.innerText = spinner + icons[Math.floor(Math.random() * icons.length)];
+                    spinnerElement.innerText = spinner + icons[j % icons.length];
                     await sleep(50);
                 }
                 
@@ -82,27 +82,29 @@
     </script>
 </head>
 <body>
-    
-    <table>
-        <tr>
-            <th>Balance:</th>
-            <td>
-                <span id="balance">100</span>
-            </td>
-        </tr>
-        <tr>
-            <th>Enter bet:</th>
-            <td>$<input type="text" id="bet"></td>
-        </tr>
-    </table>
+
+    <div style="text-align: center;">
+        <p id="spinner" style="font-size: 3em;">🪨🪨🪨</p>
+        Won <span id="winAmount">0</span>
+    </div>
 
     <button type="button" onclick="spin()" id="spinButton">Spin</button>
 
     <div style="display: flex;">
-        <div style="text-align: center; flex: 1;">
-            <p id="spinner" style="font-size: 3em;">🪨🪨🪨</p>
-            Won <span id="winAmount">0</span>
-        </div>
+
+        <table style="flex: 1;">
+            <tr>
+                <th>Balance:</th>
+                <td>
+                    <span id="balance">100</span>
+                </td>
+            </tr>
+            <tr>
+                <th>Enter bet:</th>
+                <td>$<input type="text" id="bet"></td>
+            </tr>
+        </table>
+
         <pre style="flex: 1;">
 Payouts:
 🍇     = x1
