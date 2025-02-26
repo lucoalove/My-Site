@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Gambling</title>
     <style>
-        body { display: flex; flex-direction: column; align-items: stretch; justify-content: center; width: 30em; margin: auto; height: 100vh; border: 1px solid lightgrey; }
+        body { display: flex; flex-direction: column; align-items: stretch; justify-content: center; width: 30em; margin: auto; height: 100vh; }
         
         #balance, #winAmount { color: green; font-weight: 700; }
         #balance::before, #winAmount::before { content: "$"; }
@@ -79,11 +79,12 @@
         </tr>
     </table>
 
+    <button type="button" onclick="spin()">Spin</button>
+
     <div style="display: flex;">
         <div style="text-align: center; flex: 1;">
             <p id="spinner" style="font-size: 3em;">🪨🪨🪨</p>
             Won <span id="winAmount">0</span>
-            <button type="button" onclick="spin()" style="display: block;">Spin</button>
         </div>
         <pre style="flex: 1;">
 Payouts:
