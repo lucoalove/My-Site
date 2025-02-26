@@ -21,7 +21,7 @@
 
             const spinButton = document.getElementById("spinButton");
             
-            const bet = document.getElementById("betElement").value;
+            const bet = document.getElementById("bet").value;
 
             if (isNaN(bet) || bet <= 0 || bet > balance) {
                 spinButton.innerText = "Invalid bet amount";
@@ -35,7 +35,7 @@
         async function spin() {
 
             const spinButton = document.getElementById("spinButton");
-            const betElement = document.getElementById("betElement");
+            const betElement = document.getElementById("bet");
             const spinnerElement = document.getElementById("spinner");
 
             spinButton.disabled = true;
