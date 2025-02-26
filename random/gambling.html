@@ -12,8 +12,15 @@
     <script>
         let balance = 100;
         const icons = [ "🪨", "🍇", "🍋‍🟩", "🍒", "🎟️" ];
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
         
-        function spin() {
+        async function spin() {
+
+            const spinButton = document.getElementById("spinButton");
+            const spinnerElement = document.getElementById("spinner");
 
             // take bet
             const bet = document.getElementById("bet").value;
@@ -28,13 +35,24 @@
                 return;
             }
 
+            spinButton.disabled = true;
             balance -= bet;
 
             // perform gambling
             let spinner = "";
 
-            for (let i = 0; i < 3; i++)
+            for (let i = 0; i < 3; i++) {
+
+                for (let j = 0; j < 10; i++) {
+
+                    spinnerElement.innerText = spinner + icons[Math.floor(Math.random() * icons.length)];
+                    await sleep(100);
+                }
+                
                 spinner += icons[Math.floor(Math.random() * icons.length)];
+            }
+
+            spinnerElement.innerText = spinner;
 
             let multiplier = 0;
 
@@ -57,10 +75,9 @@
 
             balance += winAmount;
 
-            // display
-            document.getElementById("spinner").innerText = spinner;
             document.getElementById("balance").innerText = balance;
             document.getElementById("winAmount").innerText = winAmount;
+            spinButton.disabled = false;
         }
     </script>
 </head>
@@ -79,7 +96,7 @@
         </tr>
     </table>
 
-    <button type="button" onclick="spin()">Spin</button>
+    <button type="button" onclick="spin()" id="spinButton">Spin</button>
 
     <div style="display: flex;">
         <div style="text-align: center; flex: 1;">
