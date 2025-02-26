@@ -16,26 +16,34 @@
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+
+        function validateBet() {
+
+            const spinButton = document.getElementById("spinButton");
+            
+            const bet = document.getElementById("betElement").value;
+
+            if (isNaN(bet) || bet <= 0 || bet > balance) {
+                spinButton.innerText = "Invalid bet amount";
+                spinButton.disabled = true;
+            } else {
+                spinButton.innerText = "Spin";
+                spinButton.disabled = false;
+            }
+        }
         
         async function spin() {
 
             const spinButton = document.getElementById("spinButton");
+            const betElement = document.getElementById("betElement");
             const spinnerElement = document.getElementById("spinner");
 
-            // take bet
-            const bet = document.getElementById("bet").value;
-
-            if (isNaN(bet) || bet <= 0) {
-                alert("\"" + bet + "\" is not a valid bet amount!");
-                return;
-            }
-
-            if (bet > balance) {
-                alert("you don't have enough money to bet " + bet + "!");
-                return;
-            }
-
             spinButton.disabled = true;
+            betElement.disabled = true;
+
+            // take bet
+            const bet = betElement.value;
+            
             balance -= bet;
 
             document.getElementById("balance").innerText = balance;
@@ -80,7 +88,9 @@
 
             document.getElementById("balance").innerText = balance;
             document.getElementById("winAmount").innerText = winAmount;
+            
             spinButton.disabled = false;
+            betElement.disabled = false;
         }
     </script>
 </head>
@@ -104,7 +114,7 @@
             </tr>
             <tr>
                 <th>Enter bet:</th>
-                <td>$<input type="text" id="bet"></td>
+                <td>$<input type="text" id="bet" oninput="validateBet()"></td>
             </tr>
         </table>
 
