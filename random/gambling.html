@@ -11,10 +11,15 @@
         
         function spin() {
 
-            const bet = document.getElementById("bet").innerText;
+            const bet = document.getElementById("bet").value;
 
             if (isNaN(bet)) {
-                console.log(bet + " is not a valid bet amount!");
+                alert(bet + " is not a valid bet amount!");
+                return;
+            }
+
+            if (bet > balance) {
+                alert("you don't have enough money to bet" + bet + "!");
                 return;
             }
 
