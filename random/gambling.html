@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Gambling</title>
     <style>
+        body { display: flex; flex-direction: column; align-items: stretch; justify-content: center; width: 30em; margin: auto; height: 100vh; border: 1px solid lightgrey; }
+        
         #balance, #winAmount { color: green; font-weight: 700; }
         #balance::before, #winAmount::before { content: "$"; }
     </style>
@@ -62,7 +64,7 @@
         }
     </script>
 </head>
-<body style="display: flex; flex-direction: column; align-items: stretch; justify-content: center; width: 30em; margin: auto; height: 100vh;">
+<body>
     
     <table>
         <tr>
@@ -81,12 +83,12 @@
         <div style="text-align: center; flex: 1;">
             <p id="spinner" style="font-size: 3em;">🪨🪨🪨</p>
             Won <span id="winAmount">0</span>
-            <button type="button" onclick="spin()">Spin</button>
+            <button type="button" onclick="spin()" style="display: block;">Spin</button>
         </div>
         <pre style="flex: 1;">
 Payouts:
-🍇 = no change
-🍇🍇 = x2
+🍇     = x1
+🍇🍇   = x2
 🍇🍇🍇 = x5
 🍋‍🟩🍋‍🟩🍋‍🟩 = x10
 🍒🍒🍒 = x20
