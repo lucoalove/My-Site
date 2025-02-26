@@ -10,7 +10,26 @@
         let balance = 100;
         
         function spin() {
-            
+
+            const bet = document.getElementById("bet").innerText;
+
+            if (isNaN(bet)) {
+                console.log(bet + " is not a valid bet amount!");
+                return;
+            }
+
+            balance -= bet;
+
+            let multiplier = 2;
+
+            // determine multiplier
+
+            const winAmount = bet * multiplier;
+
+            balance += winAmount;
+
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("lastwin").innerText = winAmount;
         }
     </script>
 </head>
@@ -28,6 +47,8 @@
             <td><input type="text" id="bet"></td>
         </tr>
     </table>
+
+    <button type="button" onclick="spin()">Spin</button>
 
     <div style="display: flex;">
         <div style="font-size: 3em; text-align: center; flex: 1;">
