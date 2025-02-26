@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Gambling</title>
     <style>
-        #balance, #lastwin { color: green; font-weight: 700; }
-        #balance::before, #lastwin::before { content: "$"; }
+        #balance, #winAmount { color: green; font-weight: 700; }
+        #balance::before, #winAmount::before { content: "$"; }
     </style>
     <script>
         let balance = 100;
@@ -77,12 +77,11 @@
         </tr>
     </table>
 
-    <button type="button" onclick="spin()">Spin</button>
-
     <div style="display: flex;">
         <div style="text-align: center; flex: 1;">
             <p id="spinner" style="font-size: 3em;">🪨🪨🪨</p>
             Won <span id="winAmount">0</span>
+            <button type="button" onclick="spin()">Spin</button>
         </div>
         <pre style="flex: 1;">
 Payouts:
