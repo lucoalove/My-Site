@@ -3,20 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Gambling</title>
+    <style>
+        #balance, #lastwin { color: green; font-weight: 700; }
+    </style>
+    <script>
+        let balance = 100;
+        
+        function spin() {
+            
+        }
+    </script>
 </head>
-<body>
-    <pre>
-money: $100
-enter bet: $[50]
-last win: $25
+<body style="display: flex; flex-direction: column; align-items: stretch; justify-content: center; width: 30em; margin: auto; height: 100vh;">
+    
+    <table>
+        <tr>
+            <th>Balance:</th>
+            <td>
+                $<span id="balance">100</span> (last won $<span id="lastwin">0</span>)
+            </td>
+        </tr>
+        <tr>
+            <th>Enter bet:</th>
+            <td><input type="text" id="bet"></td>
+        </tr>
+    </table>
 
-payouts:
+    <div style="display: flex;">
+        <div style="font-size: 3em; text-align: center; flex: 1;">
+            🍋‍🟩🍇🎟️
+        </div>
+        <pre style="flex: 1;">
+Payouts:
 🍇 = x0.5
 🍇🍇 = x1
 🍇🍇🍇 = x2
 🍋‍🟩🍋‍🟩🍋‍🟩 = x5
 🍒🍒🍒 = x20
 🎟️🎟️🎟️ = x77
-    </pre>
+        </pre>
+    </div>
+
 </body>
 </html>
