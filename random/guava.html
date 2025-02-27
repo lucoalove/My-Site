@@ -14,7 +14,7 @@
 
     <fieldset>
         <legend>player.gv</legend>
-external void update():
+external void _init():
     
     Entity player = world.getChild("player")
     
@@ -25,7 +25,7 @@ external void update():
 
     <h2>Misc info</h2>
     <p>Built in functions (ones you should override, like <code>_update()</code>, and ones you probably shouldn't, like <code>_pow(x,p)</code>) are prefixed with <code>_</code>.</p>
-    <p>Static components/functions/variables don't exist. Their functionality can be implemented with singletons.</p>
+    <p>Static components/functions/variables don't exist. Their functionality can be implemented with singletons (no special logic, just instance a component once and never again).</p>
 </body>
 
 </html>
