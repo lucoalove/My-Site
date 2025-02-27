@@ -14,7 +14,7 @@
     <p><strong>Guava</strong> is a game engine script (like Lua is to Roblox) that implements a pure Entity Component System (no inheritance, no OOP).</p>
 
     <fieldset>
-        <legend>player.gv</legend>
+        <legend>Player.gv</legend>
 external void _init():
     
     Entity player = world.getChild("player")
@@ -25,6 +25,7 @@ external void _init():
     </fieldset>
 
     <h2>Misc info</h2>
+    <p>The nomenclature for components is to use <code>TitleCase</code> (this means naming Guava files in title case).</p>
     <p><strong>Built in functions</strong> (ones you should override, like <code>_update()</code>, and ones you probably shouldn't, like <code>_pow(x,p)</code>) are prefixed with <code>_</code>. They are unique to each component; overriding <code>_pow(x,p)</code> in one component won't change its functionality in another.</p>
     <p>Static components/functions/variables don't exist. Their functionality can be implemented with singletons (no special logic, just instance a component once and never again).</p>
 </body>
