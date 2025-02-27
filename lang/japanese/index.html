@@ -11,56 +11,7 @@
         a:hover { text-decoration: underline; }
         h2 { border-bottom: 1px solid grey; font-size: 1.35em; padding-bottom: 4px; margin-bottom: 0; }
         h3 { border-bottom: 1px solid lightgrey; font-size: 1em; margin-bottom: 0.5em; }
-
-        table { border-collapse: collapse; width: 100%; }
-        td { padding: 8px; width: 25%; }
     </style>
-    <script type="module">
-        
-        const insert = document.getElementById("insert");
-        const vocab  = { /* ideally categorized by part of speech */
-            "Nouns (Clothing)": [ "シャツ", "マフラー", "下着", "水着", "パーカー" ],
-            "Nouns (Body parts)": [ "胸", "お腹", "お尻" ],
-            "Nouns (Time)": [ "今", "今日", "昨日", "明日", "最近" ],
-            "I-Adjectives": [ "正ただしい", "可愛い", "新しい", "長い", "太い", "大きい", "小さい" ],
-            "Na-Adjectives": [ "大丈夫", "好き", "嫌い", "魅力的" ],
-            "Pronouns": [ "これ", "それ", "あれ", "どれ", "わたし", "あたし", "僕", "俺", "あなた", "君", "彼", "彼女" ],
-            "Determiners": [ "この", "その", "あの", "どの" ],
-            "Suru verbs": [ "する", "勉強", "びっくり" ], /* would be nice to include subcategorization frames */
-            "Misc verbs": [ "来る", "できる", "いる", "ある", "知る", "食べる", "分かる", "分らない", "止める", "生きる", "起きる", "寝る", "行く", "飲む", "書く", "読む", "始まる" ],
-            "Ideophones": [ "でぶでぶ", "ふわふわ", "もふもふ" ],
-            "Expressions": [ "気にしないでください", "びっくりした" ],
-            "Uncategorized": [ "とか", "同じ", "まだ", "こと", "何", "なぜ", "どうして", "大きさ" ]
-        };
-
-        for (const sectionName in vocab) {
-
-            let construct = `<h3>${ sectionName }</h3><table>`;
-
-            for (let i = 0; i < vocab[sectionName].length; i += 4) {
-    
-                construct += "<tr>";
-    
-                for (let j = 0; j < 4; j++) {
-
-                    let value = vocab[sectionName][i + j];
-    
-                    if (value == undefined) {
-                        construct += `<td></td>`;
-                    } else {
-                        construct += `<td><a href="https://jisho.org/search/${ value }">${ value }</a></td>`;
-                    }
-                }
-    
-                construct += "</tr>";
-            }
-
-            construct += "</table>";
-
-            insert.innerHTML += construct;
-        }
-        
-    </script>
 </head>
 <body>
     <a href="https://my.wasabi-jpn.com/magazine/japanese-grammar/wasabis-online-japanese-grammar-reference/">Lessons</a>
@@ -69,16 +20,29 @@
 
     <h2>Morphosyntax</h2>
 
-    <h3>Phrase Structure</h3>
-
     <h3>Case Clitics</h3>
+    <p>は、が、を、の, に, で</p>
 
-    <p>は、が、を、の</p>
+    <h3>Constructions</h3>
+    <p>食べ物を買ってくる, I am going to buy food</p>
     
     <h3>Verb Conjugation</h3>
+    か
     
-    <h2>Some Vocabulary</h2> <!-- essential(ish) -->
-    <div id="insert"></div>
+    <h2>Random Vocabulary</h2> <!-- essential(ish) -->
+
+    <p>Nouns (Clothing): シャツ, マフラー, 下着, 水着, パーカー,</p>
+    <p>Nouns (Body parts): 胸, お腹, お尻,</p>
+    <p>Nouns (Time): 今, 今日, 昨日, 明日, 最近,</p>
+    <p>I-Adjectives: 正しい, 可愛い, 新しい, 長い, 太い, 大きい, 小さい,</p>
+    <p>Na-Adjectives: 大丈夫, 好き, 嫌い, 魅力的,</p>
+    <p>Pronouns: これ, それ, あれ, どれ, わたし, あたし, 僕, 俺, あなた, 君, 彼, 彼女,</p>
+    <p>Determiners: この, その, あの, どの,</p>
+    <p>Suru verbs: する, 勉強, びっくり, (would be nice to include subcategorization frames)</p>
+    <p>Misc verbs: 来る, できる, いる, ある, 知る, 食べる, 分かる, 分らない, 止める, 生きる, 起きる, 寝る, 行く, 飲む, 書く, 読む, 始まる, 違う</p>
+    <p>Ideophones: でぶでぶ, ふわふわ, もふもふ,</p>
+    <p>Expressions: 気にしないでください, びっくりした,</p>
+    <p>Uncategorized: とか, 同じ, まだ, こと, 何, なぜ, どうして, 大きさ</p>
 
 </body>
 </html>
