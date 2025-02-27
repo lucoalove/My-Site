@@ -28,7 +28,7 @@ external void _init():
     <p>The nomenclature for components is to use <code>TitleCase</code> (this means naming Guava files in title case).</p>
     <p><strong>Built in functions</strong> (ones you should override, like <code>_update()</code>, and ones you probably shouldn't, like <code>_pow(x,p)</code>) are prefixed with <code>_</code>. They are unique to each component; overriding <code>_pow(x,p)</code> in one component won't change its functionality in another.</p>
     <p>Static components/functions/variables don't exist. Their functionality can be implemented with singletons (no special logic, just instance a component once and never again).</p>
-    <p>Traditional "scenes" don't exist. Instead, scenes are treated the same way as component prefabs. Instead of loading a new scene, you asynchronously load a component prefab into your current world as disabled, disable the component prefab corresponding to the previous scene, enable the new scene, and destroy the old scene.</p>
+    <p>Traditional "scenes" don't exist. Instead, scenes are treated the same way as component prefabs. Instead of loading a new scene, you asynchronously load a component prefab corresponding to the new scene into your current world (disabled by default), disable the component prefab corresponding to the previous scene, enable the new scene, and destroy the old scene.</p>
 </body>
 
 </html>
