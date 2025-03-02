@@ -2,7 +2,8 @@
 
 #output { font-family: "Hind", sans-serif; }
 
-img { max-width: 300px; max-height: 300px; float: right; clear: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
+img { width: 160px; float: right; clear: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; }
+/* img { max-width: 300px; max-height: 300px; float: right; clear: right; border: 2px outset lightgrey; margin-left: 1em; margin-bottom: 1em; } */
 
 h1, h2, h3 { clear: right; }
 h1, h2 { border-bottom: 1px solid lightgrey; }
