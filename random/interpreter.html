@@ -29,7 +29,7 @@
                 if (node.classList == undefined) {
 
                     //setOfChildren(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body)
-                    node.replaceWith([ "cat", "dog" ]);
+                    node.replaceWith(new Set([ "cat", "dog" ]));
                 }
                 else if (node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
