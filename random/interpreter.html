@@ -7,7 +7,8 @@
         const code = document.getElementById("code");
 
         function recolor() {
-            const start = code.selectionStart; //selectionEnd
+            // https://developer.mozilla.org/en-US/docs/Web/API/Selection
+            const start =  window.getSelection().anchorOffset;
             
             code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>cats</span>");
 
