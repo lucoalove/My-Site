@@ -10,9 +10,7 @@
             
             // https://developer.mozilla.org/en-US/docs/Web/API/Selection
             // https://developer.mozilla.org/en-US/docs/Web/API/Range
-            const start = window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
-
-            console.log(code.innerText);
+            const start = 10;//window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
             
             code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span style='color: red;'>cats</span>");
 
