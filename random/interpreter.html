@@ -9,10 +9,11 @@
     <script type="module">
 
         const code = document.getElementById("code");
-        
         let string = "I like big cats and dogs and cats";
 
         function recolor(event) {
+
+            console.log(event);
 
             // edit string
             if (event != undefined && event.getTargetRanges().length > 0) {
