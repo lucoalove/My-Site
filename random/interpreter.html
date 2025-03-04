@@ -13,6 +13,7 @@
             let children = new Set();
 
             parent.childNodes.forEach(node => {
+                console.log(node);
                 children.add(node);
             });
 
@@ -24,8 +25,6 @@
             const code = document.getElementById("code");
 
             code.childNodes.forEach(node => {
-
-                console.log(node);
 
                 if (node.classList == undefined) {
                     
