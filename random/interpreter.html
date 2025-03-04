@@ -10,6 +10,8 @@
             // https://developer.mozilla.org/en-US/docs/Web/API/Selection
             // https://developer.mozilla.org/en-US/docs/Web/API/Range
             const start =  window.getSelection().getRangeAt(0).startOffset;
+
+            console.log(code.innerText);
             
             code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span style='color: red;'>cats</span>");
 
