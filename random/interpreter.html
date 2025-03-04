@@ -8,9 +8,10 @@
 
         function recolor() {
             // https://developer.mozilla.org/en-US/docs/Web/API/Selection
-            const start =  window.getSelection().anchorOffset;
+            // https://developer.mozilla.org/en-US/docs/Web/API/Range
+            const start =  window.getSelection().getRangeAt(0).startOffset;
             
-            code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>cats</span>");
+            code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span style='color: red;'>cats</span>");
 
             const range = document.createRange();
             range.setStart(code, start);
