@@ -12,6 +12,8 @@
         function recolor() {
 
             code.childNodes.forEach(node => {
+
+                console.log(node);
                 
                 if (node.classList != undefined && node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
@@ -36,13 +38,13 @@
             // }
         }
 
-        recolor();
+        //recolor();
         code.addEventListener("input", recolor);
     </script>
 </head>
 <body>
     <div id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
-        I really like cats! If you don't like cats, don't buy cats!
+        I really like <span class="cats">cats</span>! If you don't like cats, don't buy cats!
     </div>
 </body>
 </html>
