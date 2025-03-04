@@ -31,16 +31,19 @@
             let cursorStart = getCursorPositionInside(code);
             // cursor end is start + length
 
+            // https://w3c.github.io/input-events/#interface-InputEvent-Attributes
             switch (event.inputType) {
 
                 case "insertText": string = string.substring(0, cursorStart) + event.data + string.substring(cursorStart); break;
-                case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + event.data + string.substring(cursorStart); break;
+                case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + string.substring(cursorStart); break;
             }
         }
         
         function push() {
 
             code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
+
+            // move cursor to correct position
         }
 
         code.onbeforeinput = edit;
