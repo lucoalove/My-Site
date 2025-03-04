@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Guava</title>
     <style>
-        body { font-family: sans-serif; }
-        fieldset { white-space: pre; font-family: monospace; padding-top: 0; }
+        body { font-family: sans-serif; line-height: 1.5; }
+        fieldset { white-space: pre; font-family: monospace; padding-top: 0; line-height: 1.2; }
         code { inline-block; padding: 2px 4px; background: #ddd; }
     </style>
 </head>
@@ -32,7 +32,7 @@ class Fish inherits Animal, Food {
     </fieldset>
 
     <ul>
-        <li>The <code>@Class</code> identifier is only necessary in the case of a collision.</li>
+        <li>The <code>@Class</code> identifier is only necessary in the case of a name collision.</li>
         <li>If you inherit from <code>ClassA</code> and <code>ClassB</code> that each inherit from <code>ClassC</code>, you must implement every function in <code>ClassC</code> yourself (UNLESS neither <code>ClassA</code> nor <code>ClassB</code> override its implementation). Note that you can still use either class's implementation by calling on <code>super@ClassA</code> or <code>super@ClassB</code> (or <code>super@ClassC</code>!).</li>
     </ul>
 </body>
