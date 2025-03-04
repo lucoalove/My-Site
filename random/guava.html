@@ -33,7 +33,7 @@ class Fish inherits Animal, Food {
 
     <ul>
         <li>The <code>@Class</code> identifier is only necessary in the case of a collision.</li>
-        <li>If you inherit from two classes that each inherit from the same class, you must implement functions that collide yourself (but can then call those class's implementations with <code>this@Class</code> if you need them).</li>
+        <li>If you inherit from <code>ClassA</code> and <code>ClassB</code> that each inherit from <code>ClassC</code>, you must implement every function in <code>ClassC</code> yourself (UNLESS neither <code>ClassA</code> nor <code>ClassB</code> override its implementation). Note that you can still use either class's implementation by calling on <code>super@Class</code>.</li>
     </ul>
 </body>
 
