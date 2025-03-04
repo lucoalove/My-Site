@@ -61,7 +61,7 @@
             }
         }
 
-        function edit(event) {
+        function editAndPush(event) {
 
             let cursorStart = getCursorPositionInside(code);
             // cursor end is start + length
@@ -70,21 +70,17 @@
             switch (event.inputType) {
 
                 case "insertText": string = string.substring(0, cursorStart) + event.data + string.substring(cursorStart); break;
-                case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + string.substring(cursorStart); break;
+                case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + string.substring(cursorStart); cursorStart--; break;
             }
-        }
-        
-        function push() {
-
-            let cursorStart = getCursorPositionInside(code);
 
             code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
 
             setCursorPositionInside(code, cursorStart);
+
+            event.preventDefault();
         }
 
-        code.onbeforeinput = edit;
-        code.oninput = push;
+        code.onbeforeinput = editAndPush;
         push();
     </script>
 </head>
