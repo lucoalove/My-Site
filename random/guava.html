@@ -35,7 +35,7 @@ class Fish inherits Animal, Food {
         <li>The <code>@Class</code> identifier is only necessary in the case of a name collision.</li>
         <li>If you inherit from <code>ClassA</code> and <code>ClassB</code> that each inherit from <code>ClassC</code>, you must implement every function in <code>ClassC</code> yourself (UNLESS neither <code>ClassA</code> nor <code>ClassB</code> override its implementation).
             <ul>
-                <li>Note that you can still call each parent class's implementation by calling on <code>super@ClassA</code>, <code>super@ClassB</code>, or <code>super@ClassC</code>. This is only possible inside the class; those calling the function outside of the class are only able to call the topmost implementation (even when abstracted).</li>
+                <li>Note that you can still call each parent class's implementation by calling on <code>super@ClassA</code>, <code>super@ClassB</code>, or <code>super@ClassC</code>. This is only possible inside the class; those calling the function outside of the class are only able to call the topmost implementation (even when abstracted as one of the parent classes).</li>
             </ul>
         </li>
     </ul>
