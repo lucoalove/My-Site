@@ -15,7 +15,7 @@
         function recolor(event) {
 
             // edit string
-            if (event == undefined || event.getTargetRanges().length == 0) {
+            if (event != undefined && event.getTargetRanges().length > 0) {
 
                 const range = event.getTargetRanges()[0];
     
