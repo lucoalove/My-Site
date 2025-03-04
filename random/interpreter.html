@@ -69,7 +69,7 @@
             // https://w3c.github.io/input-events/#interface-InputEvent-Attributes
             switch (event.inputType) {
 
-                case "insertText": string = string.substring(0, cursorStart) + event.data + string.substring(cursorStart); break;
+                case "insertText": string = string.substring(0, cursorStart) + event.data + string.substring(cursorStart); cursorStart += event.data.length; break;
                 case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + string.substring(cursorStart); cursorStart--; break;
             }
 
@@ -81,7 +81,7 @@
         }
 
         code.onbeforeinput = editAndPush;
-        push();
+        code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
     </script>
 </head>
 <body>
