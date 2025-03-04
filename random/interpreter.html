@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Random Program Interpreter</title>
+    <style>
+        .cats { color: red; }
+    </style>
     <script type="module">
         const code = document.getElementById("code");
 
         function recolor() {
+
+            code.childNodes.forEach(node => {
+
+                if (node.classList.contains("cats") && node.innerText != "cats") {
+                    node.replaceWith(node.innerText);
+                }
+            });
             
             // https://developer.mozilla.org/en-US/docs/Web/API/Selection
             // https://developer.mozilla.org/en-US/docs/Web/API/Range
-            const start = 10;//window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
+            // const start = 10;//window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
             
-            code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span style='color: red;'>cats</span>");
+            // code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span class='cats'>cats</span>");
 
-            if (start != -1) {
+            // if (start != -1) {
                 
-                const range = document.createRange();
-                range.setStart(code, start);
-                range.setEnd(code, start);
+            //     const range = document.createRange();
+            //     range.setStart(code, start);
+            //     range.setEnd(code, start);
                 
-                const selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
-            }
+            //     const selection = window.getSelection();
+            //     selection.removeAllRanges();
+            //     selection.addRange(range);
+            // }
         }
 
         recolor();
