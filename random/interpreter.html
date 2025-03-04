@@ -7,21 +7,25 @@
         const code = document.getElementById("code");
 
         function recolor() {
+            
             // https://developer.mozilla.org/en-US/docs/Web/API/Selection
             // https://developer.mozilla.org/en-US/docs/Web/API/Range
-            const start =  window.getSelection().getRangeAt(0).startOffset;
+            const start = window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
 
             console.log(code.innerText);
             
             code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span style='color: red;'>cats</span>");
 
-            const range = document.createRange();
-            range.setStart(code, start);
-            range.setEnd(code, start);
-            
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
+            if (start != -1) {
+                
+                const range = document.createRange();
+                range.setStart(code, start);
+                range.setEnd(code, start);
+                
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
         }
 
         recolor();
