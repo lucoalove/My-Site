@@ -12,6 +12,7 @@
         let string = "I like big cats and dogs and cats";
 
         function getCursorPositionInside(element) {
+            
             const selection = window.getSelection();
             if (selection.rangeCount === 0) {
             return -1; // No selection or cursor position
@@ -27,7 +28,14 @@
 
         function edit(event) {
 
-            string = string.substring(0, getCursorPositionInside(code)) + (event.data == null ? "" : event.data) + string.substring(getCursorPositionInside(code));
+            let cursorStart = getCursorPositionInside(code);
+            // cursor end is start + length
+
+            switch (event.inputType) {
+
+                case "insertText": string = string.substring(0, cursorStart) + event.data + string.substring(cursorStart); break;
+                case "deleteContentBackward": string = string.substring(0, cursorStart - 1) + event.data + string.substring(cursorStart); break;
+            }
         }
         
         function push() {
