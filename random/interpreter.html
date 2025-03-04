@@ -7,16 +7,19 @@
         .cats { color: red; }
     </style>
     <script type="module">
-        const code = document.getElementById("code");
 
         function recolor() {
+
+            const code = document.getElementById("code");
 
             code.childNodes.forEach(node => {
 
                 console.log(node);
                 
-                if (node.classList != undefined && node.classList.contains("cats") && node.innerText != "cats") {
+                if (node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
+                } else {
+                    node.innerHTML = node.replaceAll("cats", "<span class='cats'>cats</span>");
                 }
             });
             
@@ -24,7 +27,7 @@
             // https://developer.mozilla.org/en-US/docs/Web/API/Range
             // const start = 10;//window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
             
-            // code.innerHTML = code.innerText.replaceAll("\n", "<br>").replaceAll("cats", "<span class='cats'>cats</span>");
+            
 
             // if (start != -1) {
                 
@@ -37,14 +40,13 @@
             //     selection.addRange(range);
             // }
         }
-
-        //recolor();
-        code.addEventListener("input", recolor);
     </script>
 </head>
-<body>
-    <div id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
+<body onload="recolor();">
+    
+    <div oninput="recolor();" id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
         I really like <span class="cats">cats</span>! If you don't like cats, don't buy cats!
     </div>
+    
 </body>
 </html>
