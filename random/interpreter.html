@@ -8,6 +8,17 @@
     </style>
     <script>
 
+        function setOfChildren(parent) {
+
+            let children = Set();
+
+            parent.childNodes.forEach(node => {
+                children.add(node);
+            });
+
+            return children;
+        }
+
         function recolor() {
 
             const code = document.getElementById("code");
@@ -17,12 +28,8 @@
                 console.log(node);
 
                 if (node.classList == undefined) {
-
-                    //let nodes = Set();
-                    //new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').children
-                    //contains either HTMLCollection or nodes
                     
-                    node.replaceWith(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body.childNodes);
+                    node.replaceWith(setOfChildren(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body));
                 }
                 else if (node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
