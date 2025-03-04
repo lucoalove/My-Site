@@ -8,64 +8,19 @@
     </style>
     <script>
 
-        function setOfChildren(parent) {
+        let string = "I like big cats and dogs and cats";
 
-            let children = new Set();
-
-            parent.childNodes.forEach(node => {
-                console.log(node);
-                children.add(node);
-            });
-
-            return children;
-        }
-
-        function recolor() {
+        function recolor(event) {
 
             const code = document.getElementById("code");
 
-            code.childNodes.forEach(node => {
-
-                if (node.nodeType == 3) {
-
-                    new Set(Array.from(
-                        setOfChildren(
-                            new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body
-                        )
-                    ).reverse()).forEach(newNode => {
-                        node.parentNode.insertBefore(newNode, node.nextSibling);
-                    });
-                    node.remove();
-                }
-                else if (node.classList.contains("cats") && node.innerText != "cats") {
-                    node.replaceWith(node.innerText);
-                }
-            });
-            
-            // https://developer.mozilla.org/en-US/docs/Web/API/Selection
-            // https://developer.mozilla.org/en-US/docs/Web/API/Range
-            // const start = 10;//window.getSelection().rangeCount == 0 ? -1 : window.getSelection().getRangeAt(0).startOffset;
-            
-            
-
-            // if (start != -1) {
-                
-            //     const range = document.createRange();
-            //     range.setStart(code, start);
-            //     range.setEnd(code, start);
-                
-            //     const selection = window.getSelection();
-            //     selection.removeAllRanges();
-            //     selection.addRange(range);
-            // }
+            code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
         }
     </script>
 </head>
 <body onload="recolor();">
     
-    <div oninput="recolor();" id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
-        one two three
-    </div>
+    <div oninput="recolor();" id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true"></div>
     
 </body>
 </html>
