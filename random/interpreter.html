@@ -17,7 +17,7 @@
                 console.log(node);
 
                 if (node.classList == undefined) {
-                    node.replaceWith(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html'));
+                    node.replaceWith(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').children);
                 }
                 else if (node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
