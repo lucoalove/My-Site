@@ -12,6 +12,10 @@
 
         function recolor(event) {
 
+            const range = event.getTargetRanges()[0];
+
+            string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
+
             const code = document.getElementById("code");
 
             code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
