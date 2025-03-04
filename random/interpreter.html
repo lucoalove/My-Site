@@ -28,9 +28,9 @@
 
                 if (node.nodeType == 3) {
 
-                    //setOfChildren(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body)
-
-                    new Set([ "cat", "dog" ]).forEach(newNode => {
+                    setOfChildren(
+                        new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body
+                    ).forEach(newNode => {
                         node.parentNode.insertBefore(newNode, node.nextSibling);
                     });
                     node.remove();
