@@ -7,16 +7,16 @@
         const code = document.getElementById("code");
 
         function recolor() {
-            code.innerHTML = code.innerText.replaceAll("do it", "<strong>do it</strong>");
+            code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>do it</span>");
         }
 
         recolor();
-        object.addEventListener("input", recolor);
+        code.addEventListener("input", recolor);
     </script>
 </head>
 <body>
     <div id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
-        I said that if you want to do it, you should do it right!
+        I really like cats! If you don't like cats, don't buy cats!
     </div>
 </body>
 </html>
