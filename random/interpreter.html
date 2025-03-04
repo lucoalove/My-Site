@@ -13,7 +13,8 @@
 
         function recolor(event) {
 
-            console.log(event.getTargetRanges());
+            if (event != undefined)
+                console.log(event.getTargetRanges());
 
             // edit string
             if (event != undefined && event.getTargetRanges().length > 0) {
