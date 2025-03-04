@@ -13,13 +13,12 @@
 
         function recolor(event) {
 
-            if (event != undefined)
-                console.log(event.getTargetRanges());
-
             // edit string
-            if (event != undefined && event.getTargetRanges().length > 0) {
+            if (event != undefined) {
 
-                const range = event.getTargetRanges()[0];
+                console.log(document.getSelection());
+
+                const range = document.getSelection().getRangeAt(0);
     
                 string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
             }
