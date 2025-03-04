@@ -7,15 +7,16 @@
         const code = document.getElementById("code");
 
         function recolor() {
-            code.innerHTML = code.value.replaceAll("do it", "<strong>do it</strong>");
+            code.innerHTML = code.innerText.replaceAll("do it", "<strong>do it</strong>");
         }
 
         recolor();
+        object.addEventListener("input", recolor);
     </script>
 </head>
 <body>
-    <textarea id="code" rows="4" cols="50" oninput="recolor();">
+    <div style="tab-size: 4;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true">
         I said that if you want to do it, you should do it right!
-    </textarea>
+    </div>
 </body>
 </html>
