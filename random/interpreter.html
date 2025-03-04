@@ -12,6 +12,9 @@
 
         function recolor(event) {
 
+            if (event == undefined || event.getTargetRanges().length == 0)
+                return;
+
             const range = event.getTargetRanges()[0];
 
             string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
