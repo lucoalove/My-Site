@@ -22,7 +22,8 @@
                 if (child === range.startContainer)
                     return;
 
-                offset += (child.wholeText == undefined ? child.innerText : child.wholeText).length;
+                if (child.wholeText != undefined)
+                    offset += child.wholeText.length;
             });
 
             string = string.substring(0, range.startOffset + offset) + (event.data == null ? "" : event.data) + string.substring(range.endOffset + offset);
