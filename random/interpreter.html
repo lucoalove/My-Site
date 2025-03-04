@@ -6,28 +6,33 @@
     <style>
         .cats { color: red; }
     </style>
-    <script>
+    <script type="module">
 
+        const code = document.getElementById("code");
+        
         let string = "I like big cats and dogs and cats";
 
         function recolor(event) {
 
-            if (event == undefined || event.getTargetRanges().length == 0)
-                return;
+            // edit string
+            if (event == undefined || event.getTargetRanges().length == 0) {
 
-            const range = event.getTargetRanges()[0];
+                const range = event.getTargetRanges()[0];
+    
+                string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
+            }
 
-            string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
-
-            const code = document.getElementById("code");
-
+            // push
             code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
         }
+
+        code.oninput = recolor;
+        recolor();
     </script>
 </head>
-<body onload="recolor();">
+<body>
     
-    <div oninput="recolor();" id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true"></div>
+    <div id="code" style="tab-size: 4; padding: 1em; border: 1px solid grey; height: 30em;" spellcheck="false" autocorrect="off" autocapitalize="none" translate="no" contenteditable="true" role="textbox" aria-multiline="true"></div>
     
 </body>
 </html>
