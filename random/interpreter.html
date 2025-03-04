@@ -11,24 +11,23 @@
         const code = document.getElementById("code");
         let string = "I like big cats and dogs and cats";
 
-        function recolor(event) {
+        function edit(event) {
 
-            // edit string
-            if (event != undefined) {
+            console.log(document.getSelection().getRangeAt(0));
 
-                console.log(document.getSelection().getRangeAt(0));
+            const range = document.getSelection().getRangeAt(0);
 
-                const range = document.getSelection().getRangeAt(0);
-    
-                string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
-            }
+            string = string.substring(0, range.startOffset) + string.substring(range.endOffset);
+        }
+        
+        function push() {
 
-            // push
             code.innerHTML = string.replaceAll("cats", "<span class='cats'>cats</span>");
         }
 
-        code.oninput = recolor;
-        recolor();
+        code.beforeinput = edit;
+        code.oninput = push;
+        push();
     </script>
 </head>
 <body>
