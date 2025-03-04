@@ -10,8 +10,14 @@
             const start = code.selectionStart; //selectionEnd
             
             code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>cats</span>");
+
+            const range = document.createRange();
+            range.setStart(code, start);
+            range.setEnd(code, start);
             
-            code.setSelectionRange(start, start);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
         }
 
         recolor();
