@@ -13,11 +13,19 @@
 
         function edit(event) {
 
-            console.log(document.getSelection().getRangeAt(0));
-
             const range = document.getSelection().getRangeAt(0);
 
-            string = string.substring(0, range.startOffset) + (event.data == null ? "" : event.data) + string.substring(range.endOffset);
+            let offset = 0;
+            
+            code.childNodes.forEach(child => {
+
+                if (child === range.startContainer)
+                    return;
+
+                offset += child.innerText.length;
+            });
+
+            string = string.substring(0, range.startOffset + offset) + (event.data == null ? "" : event.data) + string.substring(range.endOffset + offset);
         }
         
         function push() {
