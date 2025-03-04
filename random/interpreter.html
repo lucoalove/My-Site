@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Random Program Interpreter</title>
+    <script type="module">
+        const code = document.getElementById("code");
+
+        function recolor() {
+            code.innerHTML = code.value.replaceAll("do it", "<strong>do it</strong>");
+        }
+
+        recolor();
+    </script>
+</head>
+<body>
+    <textarea id="code" rows="4" cols="50" oninput="recolor();">
+        I said that if you want to do it, you should do it right!
+    </textarea>
+</body>
+</html>
