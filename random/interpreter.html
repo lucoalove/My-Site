@@ -27,8 +27,9 @@
             code.childNodes.forEach(node => {
 
                 if (node.classList == undefined) {
-                    
-                    node.replaceWith(setOfChildren(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body));
+
+                    //setOfChildren(new DOMParser().parseFromString(node.wholeText.replaceAll("cats", "<span class='cats'>cats</span>"), 'text/html').body)
+                    node.replaceWith([ "cat", "dog" ]);
                 }
                 else if (node.classList.contains("cats") && node.innerText != "cats") {
                     node.replaceWith(node.innerText);
