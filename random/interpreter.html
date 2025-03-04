@@ -15,11 +15,12 @@
             code.childNodes.forEach(node => {
 
                 console.log(node);
-                
-                if (node.classList.contains("cats") && node.innerText != "cats") {
-                    node.replaceWith(node.innerText);
-                } else {
+
+                if (node.classList == undefined) {
                     node.innerHTML = node.replaceAll("cats", "<span class='cats'>cats</span>");
+                }
+                else if (node.classList.contains("cats") && node.innerText != "cats") {
+                    node.replaceWith(node.innerText);
                 }
             });
             
