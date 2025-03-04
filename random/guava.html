@@ -5,18 +5,29 @@
     <title>Guava</title>
     <style>
         body { font-family: sans-serif; }
-        fieldset { white-space: pre; font-family: monospace; }
+        fieldset { white-space: pre; font-family: monospace; padding-top: 0; }
         code { inline-block; padding: 2px 4px; background: #ddd; }
     </style>
 </head>
 <body>
     <h1>Guava</h1>
-    <p><strong>Guava</strong> is a script that implements OOP.</p>
+    <p><strong>Guava</strong> is a script that implements OOP. The twist? You can inherit behaviour and attributes from any number of classes!</p>
 
     <fieldset>
         <legend>hello_world.gv</legend>
 _init() => void {
     print("Hello world!");
+}
+
+class Fish inherits Animal, Food {
+
+    eat@Animal(Food food) => void {
+        ...
+    }
+
+    eat@Food() => void {
+        ...
+    }
 }
     </fieldset>
 </body>
