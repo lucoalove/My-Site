@@ -7,7 +7,11 @@
         const code = document.getElementById("code");
 
         function recolor() {
-            code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>do it</span>");
+            const start = code.selectionStart; //selectionEnd
+            
+            code.innerHTML = code.innerText.replaceAll("cats", "<span style='color: red;'>cats</span>");
+            
+            code.setSelectionRange(start, start);
         }
 
         recolor();
