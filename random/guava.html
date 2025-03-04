@@ -11,24 +11,14 @@
 </head>
 <body>
     <h1>Guava</h1>
-    <p><strong>Guava</strong> is a game engine script (like Lua is to Roblox) that implements a pure Entity Component System (no inheritance, no OOP).</p>
+    <p><strong>Guava</strong> is a script that implements OOP.</p>
 
     <fieldset>
-        <legend>Player.gv</legend>
-external void _init():
-    
-    Entity player = world.getChild("player")
-    
-    if (player != null and player has MeshRenderer):
-        (player as MeshRenderer).opacity = 0.5
-
+        <legend>hello_world.gv</legend>
+_init() => void {
+    print("Hello world!");
+}
     </fieldset>
-
-    <h2>Misc info</h2>
-    <p>The nomenclature for components is to use <code>TitleCase</code> (this means naming Guava files in title case).</p>
-    <p><strong>Built in functions</strong> (ones you should override, like <code>_update()</code>, and ones you probably shouldn't, like <code>_pow(x,p)</code>) are prefixed with <code>_</code>. They are unique to each component; overriding <code>_pow(x,p)</code> in one component won't change its functionality in another.</p>
-    <p>Static components/functions/variables don't exist. Their functionality can be implemented with singletons (no special logic, just instance a component once and never again).</p>
-    <p>Traditional "scenes" don't exist. Instead, scenes are treated the same way as component prefabs. To 'switch scenes,' you asynchronously instantiate a component prefab corresponding to the new scene into your current world (disabled by default), disable the component prefab corresponding to the previous scene, enable the new scene, and destroy the old scene.</p>
 </body>
 
 </html>
