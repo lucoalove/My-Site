@@ -18,7 +18,6 @@
         img { width: 100%; }
         a { color: #f9a; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        h4 { border-bottom: 1px solid #333; }
 
         header { aspect-ratio: 3; margin-bottom: 2em; padding: 1em; box-sizing: border-box; background-size: cover; background-position: center; background-image: url("banner.png"); }
         header img { border-radius: 4px; width: 100px; transform: translateY(90px); box-shadow: 0 0 8px #0006; }
@@ -26,9 +25,8 @@
         
         main { padding: 1em; }
 
-        details { padding: 1em; border: 1px solid #333; border-radius: 4px; margin: 1em 0; }
-        details summary { color: #556; cursor: pointer; font-weight: 700; }
-        details[open] summary { color: inherit; }
+        th { vertical-align: top; text-align: left; }
+        td { display: flex; flex-direction: column; align-items: flex-start; }
     </style>
 </head>
 <body>
@@ -41,85 +39,77 @@
     <main>
         <p>I (he/him) am a linguist and an artist who likes medieval fantasy and cute girls by the beach. I go by many names.</p>
         <p>I post about my waifu Lucoa on <a href="https://bsky.app/profile/lucoa.love">Bluesky</a>.</p>
-        
-        <details>
-            <summary>Non-linguistic projects</summary>
 
-            [<a href="https://github.com/NatsuPotato/Fatchicks-Bulletin">Site source code</a>]
+        <table>
+            <tr>
+                <th>External</th>
+                <td>
+                    <a href="https://www.deviantart.com/redderblanket">Drawing (DeviantArt)</a>
+                    <a href="https://modrinth.com/user/NatsuPotato">Minecraft Mods (Modrinth)</a>
+                    <a href="https://www.furaffinity.net/user/hyperspritz">FurAffinity</a>
+                    <a href="https://mlpforums.com/profile/50681-hyperspritz/">MLP Forums</a>
+                    <a href="https://github.com/NatsuPotato">Github</a>
+                    <a href="https://github.com/NatsuPotato/Fatchicks-Bulletin">Site source code</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Linguistics</th>
+                <td>
+                    <a href="/en-spelling-reform.html">English Spelling Reform</a>
+                    <a href="/lang/japanese">🍣 Japanese</a>
+                    <a href="/lang/hebrew">🥯 Hebrew</a>
+                    <a href="/lang/french">🥖 French</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Misc Projects</th>
+                <td>
+                    <a href="https://ai.fatchicks.cc/">AI Resources</a>
+                    <a href="/NightingaleProtocol">NightingaleProtocol's Page</a>
+                    <a href="/random/md">Custom Markdown Parser</a>
+                    <a href="/random/music">Music/Composition</a>
+                    <a href="/random/3D">3D Art Study</a>
+                    <a href="/random/minecraft">Minecraft (mostly modding)</a>
+                    <a href="/random/microstories">Lewd/Imaginative Microstories</a>
+                    <a href="/random/japan-culture-comic">でブス・デイズ</a>
+                    <a href="/random/guava">Guava Programming Language</a>
+                    <a href="/random/gambling">egambling</a>
+                </td>
+            </tr>
+        </table>
 
-<!--             <a href="https://www.deviantart.com/redderblanket">Drawing (DeviantArt)</a>
-            <a href="https://www.furaffinity.net/user/hyperspritz">FurAffinity</a>
-            <a href="https://mlpforums.com/profile/50681-hyperspritz/">MLP Forums</a>
-            <a href="https://github.com/NatsuPotato">Github</a> -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<!--             <p>dude im actually like going insane, my mind does not stop screaming "WORK!! WORK!! DO SOMETHING!! FIX THE PROBLEM" and the problem is "I have some schoolwork," every minor task is looked upon dreadfully (no matter how easy or even fun it is to carry out) making me a motivationless husk of a human being</p>
-            <p>Even though I know how to draw, I find AI generating more fun. Drawing has me stressing over every detail, and leaves a bitter taste in my mouth with my end product after inevitably taking shortcuts for the sake of time. With AI, I can just... make an image based off my ideas. I can feel free to experiment and be creative knowing that I'm not wasting my time with an idea too big for my skillset.</p>
-            <p>I should be more humble. instead of trying to make the most perfect or most simple thing, I should just make... a fun thing</p>
-            <p>I really like simplicity, but also really like coming up with and developing new ideas... it's a push and pull.</p>
-            <p>Making original work is naturally very tiresome. When the content I make becomes bigger than I'm comfortable handling, I always drop it and start anew, never finishing anything except the most mini of projects. I think I need to 1) start small, and 2) know when a project is done and shelve it.</p>
-            <p>I feel like if I want to have a sense of purpose I need to pursue something to more than just the surface level. But if I do a little bit of everything then nothing really defines me, and I don't know what I should be doing "when all else fails." I need to put myself into something to find myself... I guess my field of study, that's what's most important to me. Everything else is secondary.</p> -->
+        <h4>🍜 Chinese</h4>
+        <a href="https://www.mdbg.net/chinese/dictionary">MDBG Chinese Dictionary</a>
+        |
+        <a href="https://chat.deepseek.com/a/chat">DeepSeek AI Chatbot</a>
+        <br>
+        <br>particles
+        <br>对 / 我对科学有兴趣
+        <br>把 / 我给你苹果 -> 我把苹果给你
 
-            <div style="display: flex; flex-direction: column; align-items: flex-start; margin: 1em 0;">
-                <a href="https://ai.fatchicks.cc/">AI Resources</a>
-                <a href="/NightingaleProtocol">NightingaleProtocol's Page</a>
-                <a href="/random/md">Custom Markdown Parser</a>
-                <a href="/random/music">Music/Composition</a>
-                <a href="/random/3D">3D Art Study</a>
-                <a href="/random/minecraft">Minecraft (mostly modding)</a>
-                <a href="/random/microstories">Lewd/Imaginative Microstories</a>
-                <a href="/random/japan-culture-comic">でブス・デイズ</a>
-                <a href="/random/guava">Guava Programming Language</a>
-                <a href="/random/gambling">egambling</a>
-            </div>
+        <h4>🌶​ Hungarian</h4>
+        essive-formative case -ként
+        <br>
+        http://www.hungarianreference.com/
 
-            <img width="100%" src="/samechan.png">
-        </details>
+        <h4>🍻 Russian</h4>
+        https://en.openrussian.org/<br>
+        https://www.russianlessons.net/<br>
+        https://2ch.hk/<br>
+        <img width="300" src="https://i.ytimg.com/vi/pbznlAfmkKc/maxresdefault.jpg">
 
-        <details>
-            <summary>Languages I've studied</summary>
+        <h4>🫰 Korean</h4>
+        <p>I briefly studied Korean writing at one point but stopped because it was too hard lol</p>
+        <a href="https://en.wikipedia.org/wiki/Korean_phonology">Korean phonology wiki page</a>
+        고양이
 
-            <p>Here are some of the languages I've studied (some more than others). Some have dedicated pages, while others are just scribbled down notes:</p>
-            <ul>
-                <li><a href="/lang/japanese">🍣 Japanese</a></li>
-                <li><a href="/lang/hebrew">🥯 Hebrew</a></li>
-                <li><a href="/lang/french">🥖 French</a></li>
-            </ul>
-    
-            <h4>🍜 Chinese</h4>
-            <a href="https://www.mdbg.net/chinese/dictionary">MDBG Chinese Dictionary</a>
-            |
-            <a href="https://chat.deepseek.com/a/chat">DeepSeek AI Chatbot</a>
-            <br>
-            <br>particles
-            <br>对 / 我对科学有兴趣
-            <br>把 / 我给你苹果 -> 我把苹果给你
-    
-            <h4>🌶​ Hungarian</h4>
-            essive-formative case -ként
-            <br>
-            http://www.hungarianreference.com/
-    
-            <h4>🍻 Russian</h4>
-            https://en.openrussian.org/<br>
-            https://www.russianlessons.net/<br>
-            https://2ch.hk/<br>
-            <img width="300" src="https://i.ytimg.com/vi/pbznlAfmkKc/maxresdefault.jpg">
+        <h4>Conlangs</h4>
+        <p>I am mostly interested in conlanging for aesthetics</p>
+        <p><a href="https://github.com/NatsuPotato/unnamed-conlang">Here's</a> one I'm making the specifications for in a Github repo.</p>
 
-            <h4>🫰 Korean</h4>
-            <p>I briefly studied Korean writing at one point but stopped because it was too hard lol</p>
-            <a href="https://en.wikipedia.org/wiki/Korean_phonology">Korean phonology wiki page</a>
-            고양이
-    
-            <h4>Conlangs</h4>
-            <p>I am mostly interested in conlanging for aesthetics</p>
-            <p><a href="https://github.com/NatsuPotato/unnamed-conlang">Here's</a> one I'm making the specifications for in a Github repo.</p>
-        </details>
-
-        <details>
-            <summary>English Spelling Reform</summary>
-    
-            <p>Since I'm a linguist I might as well try my hand at making a <a href="/en-spelling-reform.html">spelling reform</a>.</p>
-        </details>
+        <img width="100%" src="/samechan.png">
     </main>
     
 </body>
