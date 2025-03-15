@@ -17,14 +17,16 @@
         body { font-family: "Hind", sans-serif; min-height: 100vh; width: 30em; border: 1px solid #888; border-top: 0; border-bottom: 0; margin: auto; }
 
         header { aspect-ratio: 3; padding: 0.5em; box-sizing: border-box; background-size: cover; background-position: center; background-image: url("banner.png"); }
-        main { padding: 1em; }
+        main { padding: 0 1em; }
         
         a { color: green; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        table { width: 100%; border-collapse: collapse; } th, td { border-top: 1px lightgrey dotted; padding-top: 4px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border-top: 1px lightgrey dotted; padding-top: 4px; }
         th { vertical-align: top; text-align: left; font-weight: 400; color: #888; width: 10em; }
-        td { display: flex; flex-direction: column; align-items: flex-start; } td a { color: inherit; }
+        td { display: flex; flex-direction: column; align-items: flex-start; transform: translateY(-0.5px); }
+        td a { color: inherit; }
 
         .redirect { content: url("/redirect.svg"); vertical-align: middle; transform: translateY(-2px); }
         .edit     { content: url("/edit.svg");     vertical-align: middle; transform: translateY(-2px); }
@@ -36,7 +38,7 @@
 
     <main>
         <p>I (he/him) am a linguist and an artist who likes medieval fantasy and cute girls by the beach. I go by many names.</p>
-        <p>I post about my waifu Lucoa on <a href="https://bsky.app/profile/lucoa.love">Bluesky</a>.</p>
+        <p>I post about my waifu Lucoa on <a href="https://bsky.app/profile/lucoa.love">Bluesky</a>. Below are non-Lucoa things I do.</p>
 
         <table>
             <tr>
