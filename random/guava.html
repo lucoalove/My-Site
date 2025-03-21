@@ -4,42 +4,23 @@
     <meta charset="UTF-8">
     <title>Guava</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.5; }
-        fieldset { white-space: pre; font-family: monospace; padding-top: 0; line-height: 1.2; }
-        code { inline-block; padding: 2px 4px; background: #ddd; }
+        body { font-family: sans-serif; }
     </style>
 </head>
 <body>
     <h1>Guava</h1>
-    <p><strong>Guava</strong> is a script that implements OOP.</p>
 
-    <fieldset>
-        <legend>hello_world.gv</legend>
-_init() => void {
-    print("Hello world!");
-}
+    <p>I should make guava for my resume... not anything useful, just something to test out my understanding of... prog languages</p>
+    
+    <p>tokenize (with regex), parser (into parse tree), interpret</p>
 
-class Fish inherits Animal, Food {
-
-    eat@Animal(Food food) => void {
-        ...
-    }
-
-    eat@Food() => void {
-        ...
-    }
-}
-    </fieldset>
-
-    <p>Guava allows you to write classes that inherit behaviour and attributes from any number of classes. This is facilitated by a few changes to the typical OOP paradigm:</p>
-    <ul>
-        <li>The <code>@Class</code> identifier on functions is only necessary in the case of a name collision.</li>
-        <li>If you inherit from <code>ClassA</code> and <code>ClassB</code> that each inherit from <code>ClassC</code>, you must implement every function in <code>ClassC</code> yourself (UNLESS neither <code>ClassA</code> nor <code>ClassB</code> override its implementation).
-            <ul>
-                <li>Note that you can still call each parent class's implementation by calling on <code>super@ClassA</code>, <code>super@ClassB</code>, or <code>super@ClassC</code>. This is only possible inside the class; those calling the function outside of the class are only able to call the topmost implementation (even when abstracted to one of its parent classes).</li>
-            </ul>
-        </li>
-    </ul>
+    <pre>
+if &lt;condition>
+then:
+    &lt;expressions>
+else:
+    &lt;expressions>
+    </pre>
 </body>
 
 </html>
